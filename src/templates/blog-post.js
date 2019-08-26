@@ -18,22 +18,16 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <h1
-          style={{
-            marginTop: 1,
-            marginBottom: 0,
-          }}
+          className="text-2xl"
         >
           {post.frontmatter.title}
         </h1>
         <p
-          style={{
-            display: `block`,
-            marginBottom: 1,
-          }}
+          className="mb-2 italic"
         >
           {post.frontmatter.date}
         </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className="markdown" dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
             marginBottom: 1,

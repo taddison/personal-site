@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* purgecss start ignore */
+.markdown h1 {
+  @apply text-2xl mt-2 mb-4;
+}
+.markdown h2 {
+  @apply text-xl mt-2 mb-2;
+}
+.markdown h3, h4, h5, h6 {
+  @apply text-lg mt-1 mb-2;
+}
+.markdown a {
+  @apply underline;
+}
+.markdown p {
+  @apply mb-2;
+}
+.markdown ul, ol {
+  @apply mb-2 ml-8;
+}
+.markdown ol {
+  @apply list-decimal;
+}
+.markdown ul {
+  @apply list-disc;
+}
+/* purgecss end ignore */
