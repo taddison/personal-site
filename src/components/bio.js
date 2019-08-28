@@ -24,6 +24,8 @@ const Bio = () => {
           author
           social {
             twitter
+            github
+            linkedin
           }
         }
       }
@@ -32,32 +34,18 @@ const Bio = () => {
 
   const { author, social } = data.site.siteMetadata
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: 3,
-      }}
-    >
+    <div className="flex mb-2">
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author}
-        style={{
-          marginRight: 1,
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
+        className="mr-2 w-50 rounded-full"
       />
       <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
+        Written by <strong>{author}</strong>. Find the code on{" "}
+        <a href={"https://www.github.com/" + social.github}>GitHub</a>, tweets
+        on <a href={"https://www.twitter.com/" + social.twitter}>Twitter</a>.
+        Work stuff on{" "}
+        <a href={"https://www.linkedin.com/in/" + social.linkedin}>LinkedIn</a>.
       </p>
     </div>
   )
