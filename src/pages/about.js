@@ -91,6 +91,7 @@ const About = () => {
           <img
             src={chilli}
             className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
+            alt="Tim with a bunch of chilli"
           />
         </div>
       </div>
