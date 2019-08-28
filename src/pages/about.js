@@ -11,11 +11,16 @@ const About = () => {
         bodyAttributes={{
           class:
             "font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover",
-          style: {
-            backgroundImage: "url('https://source.unsplash.com/1L71sPT5XKc')"
-          }
         }}
-      />
+      >
+        <style type="text/css">
+          {`
+          body {
+            background-image: url('https://source.unsplash.com/1L71sPT5XKc')
+          }
+        `}
+        </style>
+      </Helmet>
       <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
         <div
           id="profile"
