@@ -5,7 +5,7 @@
 /* purgecss start ignore */
 .markdown h1,
 .markdown h2 {
-  @apply text-2xl font-bold my-6;
+  @apply text-2xl my-6 font-bold;
 }
 .markdown h3,
 .markdown h4,
@@ -17,7 +17,7 @@
   @apply text-blue-600;
 }
 .markdown a:hover {
-  @apply text-blue-600 underline;
+  @apply underline;
 }
 .markdown p {
   @apply mb-4;
