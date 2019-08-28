@@ -50,12 +50,7 @@ class Layout extends React.Component {
     }
     return (
       <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: 800,
-          padding: `${2} ${1}`,
-        }}
+        className="mx-auto max-w-4xl px-2"
       >
         <header>{header}</header>
         <main>{children}</main>
