@@ -3,56 +3,15 @@ import { Link } from "gatsby"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
+    const { title, children } = this.props
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            marginBottom: 2,
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
-    }
     return (
-      <div
-        className="mx-auto max-w-4xl px-2"
-      >
-        <header>{header}</header>
+      <div className="mx-auto max-w-4xl px-2">
+        <header>
+          <h1>
+            <Link to={`/`}>{title}</Link>
+          </h1>
+        </header>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
