@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global Styles */
+body {
+  @apply text-gray-800;
+}
+
+/* Markdown Styles */
+
 /* purgecss start ignore */
 .markdown h1,
 .markdown h2 {
