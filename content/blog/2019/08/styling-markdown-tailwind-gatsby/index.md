@@ -1,14 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+---
+title: Styling markdown posts with Tailwind CSS in GatsbyJS
+date: "2019-08-31T00:00:00.0Z"
+description: "TODO"
+---
 
-/* Global Styles */
-body {
-  @apply text-gray-800;
-}
+I'm slowly working on migrating by blog from Jekyll to GatsbyJS.  I've decided to use [Tailwind CSS] to style the blog, which means that out of the box (once Tailwind's pretty [aggressive reset][Tailwind Preflight] has been applied) all the markdown posts end up being unstyled.
 
-/* Markdown Styles */
-
+```css
+/* site.css */
 /* purgecss start ignore */
 .markdown h1,
 .markdown h2 {
@@ -47,10 +46,8 @@ body {
 .markdown ul {
   @apply list-disc;
 }
-.markdown blockquote {
-  @apply p-0 p-2 mx-6 bg-gray-100 mb-4 border-l-4 border-gray-400 italic
-}
-.markdown blockquote > p {
-  @apply mb-0
-}
 /* purgecss end ignore */
+```
+
+[Tailwind CSS]: https://tailwindcss.com
+[Tailwind Preflight]: https://tailwindcss.com/docs/preflight/
