@@ -8,7 +8,7 @@ const BlogIndex = props => {
   const { data } = props
   const posts = data.allMarkdownRemark.edges
 
-  const tag = (link, tag) => {
+  const tagPill = (link, tag) => {
     return (
       <a href={link}>
         <span className="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3">
@@ -23,6 +23,7 @@ const BlogIndex = props => {
       <SEO title="All posts" />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
+        const tags = node.frontmatter.tags || []
         return (
           <article
             key={node.fields.slug}
@@ -45,9 +46,9 @@ const BlogIndex = props => {
               </section>
             </Link>
             <section>
-              {tag("#","SQL")}
-              {tag("#","PowerShell")}
-              {tag("#","Meta")}
+              {tags.map(tag => {
+                return tagPill("#", tag)
+              })}
             </section>
           </article>
         )
@@ -71,6 +72,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }
