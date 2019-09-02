@@ -1,6 +1,10 @@
 - Navbar
 - Blog links should be /blog/y/m/d/title
-- Implement tags
+- Tags!
+  - Create tag list page
+  - Create tag page (list of posts)
+  - Link tag pills to tag page
+  - Add pills to individual post
 - Start content migration
 - Markdown styling
   - Tables
