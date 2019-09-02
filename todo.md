@@ -1,5 +1,6 @@
-- Styling
+- Navbar
 - Blog links should be /blog/y/m/d/title
+- Implement tags
 - Start content migration
 - Markdown styling
   - Tables
