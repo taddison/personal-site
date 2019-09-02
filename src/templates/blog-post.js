@@ -4,13 +4,12 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = this.props.data.markdownRemark
-    const { previous, next } = this.props.pageContext
+const BlogPostTemplate = props => {
+  const post = props.data.markdownRemark
+  const { previous, next } = props.pageContext
 
-    return (
-      <Layout location={this.props.location}>
+  return (
+      <Layout>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
