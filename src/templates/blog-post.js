@@ -20,31 +20,27 @@ const BlogPostTemplate = props => {
         className="markdown"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
-      <hr
-        style={{
-          marginBottom: 1,
-        }}
-      />
+      <hr className="my-6" />
 
-      <ul
-        style={{
-          display: `flex`,
-          flexWrap: `wrap`,
-          justifyContent: `space-between`,
-          listStyle: `none`,
-          padding: 0,
-        }}
-      >
+      <ul className="flex justify-between flex-wrap">
         <li>
           {previous && (
-            <Link to={previous.fields.slug} rel="prev">
+            <Link
+              to={previous.fields.slug}
+              rel="prev"
+              className="font-bold py-2 pl-3 pr-5 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3"
+            >
               ← {previous.frontmatter.title}
             </Link>
           )}
         </li>
         <li>
           {next && (
-            <Link to={next.fields.slug} rel="next">
+            <Link
+              to={next.fields.slug}
+              rel="next"
+              className="font-bold py-2 pl-5 pr-3 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3"
+            >
               {next.frontmatter.title} →
             </Link>
           )}
