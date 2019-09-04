@@ -4,19 +4,19 @@ import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
+const TagPill = ({ link, tag }) => {
+  return (
+    <a href={link}>
+      <span className="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3">
+        #{tag}
+      </span>
+    </a>
+  )
+}
+
 const BlogIndex = props => {
   const { data } = props
   const posts = data.allMarkdownRemark.edges
-
-  const tagPill = (link, tag) => {
-    return (
-      <a href={link}>
-        <span className="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3">
-          #{tag}
-        </span>
-      </a>
-    )
-  }
 
   return (
     <Layout>
@@ -47,7 +47,7 @@ const BlogIndex = props => {
             </Link>
             <section>
               {tags.map(tag => {
-                return tagPill("#", tag)
+                return <TagPill key={tag} link="#" tag={tag} />
               })}
             </section>
           </article>
