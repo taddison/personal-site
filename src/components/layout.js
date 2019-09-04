@@ -36,7 +36,7 @@ const Layout = props => {
           </Link>
         </h1>
       </header>
-      <div className="mx-auto max-w-5xl px-2 flex-1">
+      <div className="mx-auto max-w-5xl px-8 md:px-0 flex-1 w-full md:w-5/6">
         <main>{children}</main>
       </div>
       <footer className="bg-accent-1 border-accent-5 border-t pb-10 pt-6 mt-6 flex flex-col items-center">
