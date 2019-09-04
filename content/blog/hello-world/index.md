@@ -22,3 +22,15 @@ alert('at least I have some style');
 ```
 
 And finally a [link](https://www.wikipedia.org).
+
+---
+
+Why don't we take it one step further with a table!
+
+|RPS|Additional Weekly Cost|
+|---:|---:|
+|100|$2.96|
+|500|$14.78|
+|1000|$29.57|
+
+The end.
