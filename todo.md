@@ -6,8 +6,6 @@
   - Link tag pills to tag page
   - Add pills to individual post
 - Start content migration
-- Markdown styling
-  - Tables
 
 Useful:
 - https://www.jerriepelser.com/blog/using-tailwind-with-gatsby/
