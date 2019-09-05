@@ -11,7 +11,7 @@ I'm slowly working on migrating the blog from [Jekyll] to [GatsbyJS]. I've decid
 
 After adding some styling to the `site.css` file we're able to get the post looking halfway decent.
 
-![Unstyled Post](./StyledPost.png)
+![Styled Post](./StyledPost.png)
 
 I wanted to keep the Tailwind reset applied to the non-markdown parts of the site, so the blog template renders each post into a `div` with the `markdown` class, and the `site.css` is updated to include the below definitions. I'm using [Purge CSS] to strip unused classes, and because these classes aren't directly used anywhere (e.g. `className="..."`) we need to tell Purge CSS to ignore them.
 
