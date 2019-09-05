@@ -1,5 +1,4 @@
 - Navbar
-- Blog links should be /blog/y/m/d/title
 - Tags!
   - Create tag list page
   - Create tag page (list of posts)
