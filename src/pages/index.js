@@ -9,7 +9,9 @@ class Home extends React.Component {
     return (
       <Layout location={this.props.location}>
         <SEO title="All posts" />
-        <p>Hey.  Read the <Link to="/blog">blog.</Link></p>
+        <p>
+          Hey. Read the <Link to="/blog">blog.</Link>
+        </p>
       </Layout>
     )
   }

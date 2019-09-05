@@ -46,22 +46,19 @@ const Layout = props => {
             href={`https://www.github.com/${social.github}`}
           >
             GitHub
-          </a>
-          {" "}
+          </a>{" "}
           <a
             className="hover:text-accent-3"
             href={`https://twitter.com/${social.twitter}`}
           >
             Twitter
-          </a>
-          {" "}
+          </a>{" "}
           <a
             className="hover:text-accent-3"
             href={`https://www.linkedin.com/in/${social.linkedin}`}
           >
             LinkedIn
-          </a>
-          {" "}
+          </a>{" "}
           <a className="hover:text-accent-3" href={`/rss.xml`}>
             RSS
           </a>

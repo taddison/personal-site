@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 const propTypes = {
   link: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired
+  tag: PropTypes.string.isRequired,
 }
 
 const TagPill = ({ link, tag }) => {

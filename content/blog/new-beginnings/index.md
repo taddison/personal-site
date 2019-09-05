@@ -14,8 +14,8 @@ Duden flows by their place and supplies it with the necessary regelialia.
 ## On deer horse aboard tritely yikes and much
 
 ```javascript
-const x = "a variable";
-const y = 1 + 2;
+const x = "a variable"
+const y = 1 + 2
 ```
 
 The Big Oxmox advised her not to do so, because there were thousands of bad
@@ -25,9 +25,9 @@ made herself on the way.
 
 - This however showed weasel
 - What is special about this bullet
-    - Or this one?
+  - Or this one?
 - Well uncritical so misled
-    - Not expecting this to be output as a P in a LI
+  - Not expecting this to be output as a P in a LI
 - Goodness much until that fluid owl
 
 When she reached the first hills of the **Italic Mountains**, she had a last
@@ -37,10 +37,11 @@ Lane. Pityful a rhetoric question ran over her cheek, then she continued her
 way. On her way she met a copy.
 
 Simple list test:
+
 - 1
 - 2
 - 3
-    - And here is 4
+  - And here is 4
 
 ### Overlaid the jeepers uselessly much excluding
 
