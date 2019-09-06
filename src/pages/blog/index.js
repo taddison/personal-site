@@ -39,7 +39,7 @@ const BlogIndex = props => {
             </Link>
             <section>
               {tags.map(tag => {
-                return <TagPill key={tag} link="/blog" tag={tag} />
+                return <TagPill key={tag} tag={tag} />
               })}
             </section>
           </article>

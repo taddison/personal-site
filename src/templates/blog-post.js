@@ -25,7 +25,7 @@ const BlogPostTemplate = props => {
       />
       <section>
         {tags.map(tag => {
-          return <TagPill key={tag} link="#" tag={tag} />
+          return <TagPill key={tag} tag={tag} />
         })}
       </section>
       <hr className="my-6" />
