@@ -4,9 +4,12 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import TagPill from "../components/TagPill"
+
 const BlogPostTemplate = props => {
   const post = props.data.markdownRemark
   const { previous, next } = props.pageContext
+  const tags = post.frontmatter.tags || []
 
   return (
     <Layout>
@@ -20,6 +23,11 @@ const BlogPostTemplate = props => {
         className="markdown"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
+      <section>
+        {tags.map(tag => {
+          return <TagPill key={tag} link="#" tag={tag} />
+        })}
+      </section>
       <hr className="my-6" />
 
       <ul className="flex justify-between flex-wrap">
@@ -62,6 +70,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
   }

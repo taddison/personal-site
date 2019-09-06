@@ -2,8 +2,9 @@
 - Tags!
   - Create tag list page
   - Create tag page (list of posts)
-  - Link tag pills to tag page
-  - Add pills to individual post
+  - Link tag pills to tag page (or bake this into the component)
+    - Home page
+    - Individual Blog post
 - Start content migration
 
 Useful:
