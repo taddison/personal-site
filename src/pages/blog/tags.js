@@ -4,6 +4,8 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
+import TagPill from "../../components/TagPill"
+
 const TagIndex = props => {
   const { tagGroup } = useStaticQuery(
     graphql`
@@ -33,7 +35,12 @@ const TagIndex = props => {
   return (
     <Layout>
       <SEO title="Post tags" />
-      <h2 className="text-3xl font-bold mb-4">Posts by Tag</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center">Posts by Tag</h2>
+      <div className="mb-6 px-20">
+        {tagGroups.map(group => {
+          return <TagPill tag={group.tag} customLabel={`${group.tag} (${group.totalCount})`} />
+        })}
+      </div>
       {tagGroups.map(group => {
         return (
           <div key={group.tag} id={group.tag} className="mb-4">

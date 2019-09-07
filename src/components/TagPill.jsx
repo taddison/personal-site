@@ -6,11 +6,13 @@ const propTypes = {
   tag: PropTypes.string.isRequired,
 }
 
-const TagPill = ({ tag }) => {
+const TagPill = ({ tag, customLabel }) => {
+  const label = customLabel || `#${tag}`
+
   return (
     <Link to={`/blog/tags/#${tag}`}>
       <span className="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3">
-        #{tag}
+        {label}
       </span>
     </Link>
   )
