@@ -19,7 +19,7 @@ const BlogIndex = props => {
         return (
           <article
             key={node.fields.slug}
-            className="mb-6 rounded shadow-md p-3 border-gray-100 hover:bg-gray-100"
+            className="mb-6 rounded shadow-md pt-3 pb-4 px-5 border-gray-100 hover:bg-gray-100"
           >
             <Link to={node.fields.slug}>
               <h3 className="font-semibold text-2xl">{title}</h3>
