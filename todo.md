@@ -1,7 +1,6 @@
 - Navbar
 - Tags!
-  - Create tag list page
-  - Create tag page (list of posts)
+  - Revisit styling of tag page once content is migrated
 - Start content migration
 
 Useful:
