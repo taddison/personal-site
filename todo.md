@@ -1,7 +1,10 @@
 - Navbar
 - Tags!
   - Revisit styling of tag page once content is migrated
-- Start content migration
+- Content migration
+  - Review excerpts as required
+- Share-img generation
+  - Update existing content
 
 Useful:
 
