@@ -18,7 +18,7 @@ const BlogPostTemplate = props => {
         description={post.frontmatter.description || post.excerpt}
       />
       <h1 className="text-4xl font-bold">{post.frontmatter.title}</h1>
-      <p className="mb-2 italic text-gray-500">{post.frontmatter.date}</p>
+      <p className="mb-5 italic text-gray-500">{post.frontmatter.date}</p>
       <div
         className="markdown"
         dangerouslySetInnerHTML={{ __html: post.html }}
