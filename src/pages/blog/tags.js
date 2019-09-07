@@ -40,6 +40,7 @@ const TagIndex = props => {
         {tagGroups.map(group => {
           return (
             <TagPill
+              key={group.tag}
               tag={group.tag}
               customLabel={`${group.tag} (${group.totalCount})`}
             />
