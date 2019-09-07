@@ -36,14 +36,15 @@ const TagIndex = props => {
     <Layout>
       <SEO title="Post tags" />
       <h2 className="text-3xl font-bold mb-6 text-center">Posts by Tag</h2>
-      <div className="mb-6 px-20">
+      <div className="mb-4 px-2 md:mb-6 lg:px-12 flex flex-wrap">
         {tagGroups.map(group => {
           return (
-            <TagPill
-              key={group.tag}
-              tag={group.tag}
-              customLabel={`${group.tag} (${group.totalCount})`}
-            />
+            <div key={group.tag} className="my-1">
+              <TagPill
+                tag={group.tag}
+                customLabel={`${group.tag} (${group.totalCount})`}
+              />
+            </div>
           )
         })}
       </div>
@@ -56,12 +57,8 @@ const TagIndex = props => {
             </div>
             {group.posts.map(post => {
               return (
-                <div>
-                  <Link
-                    key={post.id}
-                    to={post.fields.slug}
-                    className="hover:text-accent-3"
-                  >
+                <div key={post.id}>
+                  <Link to={post.fields.slug} className="hover:text-accent-3">
                     {post.frontmatter.title}{" "}
                   </Link>
                   <span className="text-gray-500 text-sm">
