@@ -26,8 +26,8 @@ const Layout = props => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="bg-accent-1 border-accent-5 border-b p-4 mb-6">
-        <h1>
+      <header className="bg-accent-1 border-accent-5 border-b p-4 mb-6 flex items-center">
+        <h1 className="flex-grow">
           <Link
             className="text-2xl font-extrabold hover:text-accent-3"
             to={`/`}
@@ -35,6 +35,9 @@ const Layout = props => {
             {title}
           </Link>
         </h1>
+        <div>
+          Menu Here
+        </div>
       </header>
       <div className="mx-auto max-w-5xl px-8 md:px-0 flex-1 w-full md:w-5/6">
         <main>{children}</main>
