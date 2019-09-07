@@ -38,23 +38,31 @@ const TagIndex = props => {
       <h2 className="text-3xl font-bold mb-6 text-center">Posts by Tag</h2>
       <div className="mb-6 px-20">
         {tagGroups.map(group => {
-          return <TagPill tag={group.tag} customLabel={`${group.tag} (${group.totalCount})`} />
+          return (
+            <TagPill
+              tag={group.tag}
+              customLabel={`${group.tag} (${group.totalCount})`}
+            />
+          )
         })}
       </div>
       {tagGroups.map(group => {
         return (
           <div key={group.tag} id={group.tag} className="mb-4">
-            <h2 className="font-semibold text-xl">
-              {group.tag}
-            </h2>
+            <h2 className="font-semibold text-xl">{group.tag}</h2>
             <div className="italic text-gray-500 text-sm">
               {group.totalCount} post{group.totalCount === 1 ? "" : "s"}
             </div>
             {group.posts.map(post => {
               return (
-                <div><Link key={post.id} to={post.fields.slug} className="hover:text-accent-3">
-                  {post.frontmatter.title}{" "}
-                </Link>
+                <div>
+                  <Link
+                    key={post.id}
+                    to={post.fields.slug}
+                    className="hover:text-accent-3"
+                  >
+                    {post.frontmatter.title}{" "}
+                  </Link>
                   <span className="text-gray-500 text-sm">
                     {post.frontmatter.date}
                   </span>
