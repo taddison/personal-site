@@ -10,12 +10,15 @@ const BlogPostTemplate = props => {
   const post = props.data.markdownRemark
   const { previous, next } = props.pageContext
   const tags = post.frontmatter.tags || []
+  const { shareimage } = post.frontmatter
+  const shareImagePath = shareimage && shareimage.childImageSharp.fixed.src
 
   return (
     <Layout>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        image={shareImagePath}
       />
       <h1 className="text-4xl font-bold">{post.frontmatter.title}</h1>
       <p className="mb-5 italic text-gray-500">{post.frontmatter.date}</p>
@@ -71,6 +74,13 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         tags
+        shareimage {
+          childImageSharp {
+            fixed {
+              src
+            }
+          }
+        }
       }
     }
   }

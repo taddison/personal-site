@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Allowing only specified users to access Cloud Firestore
-share-img: https://tjaddison.com/assets/2019/2019-07-31/Rules.png
+shareimage: "./Rules.png"
 tags: [JavaScript, Firestore, Security]
 date: "2019-07-31T00:00:00.0Z"
 ---

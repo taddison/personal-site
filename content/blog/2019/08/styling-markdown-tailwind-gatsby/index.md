@@ -1,6 +1,7 @@
 ---
 title: Styling markdown posts with Tailwind CSS in GatsbyJS
 date: "2019-08-31T00:00:00.0Z"
+shareimage: "./UnstyledPost.png"
 description: "Applying Tailwind's reset to the Gatsby blog starter will leave the Markdown posts looking pretty spartan.  Get them looking great again with a few @applys."
 tags: ["GatsbyJS", "Tailwind CSS", "Markdown", "Blog"]
 ---
