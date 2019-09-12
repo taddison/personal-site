@@ -1,5 +1,7 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+
+import Header from "./Header"
 
 const Layout = props => {
   const { children } = props
@@ -26,20 +28,7 @@ const Layout = props => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="bg-accent-1 border-accent-5 border-b p-4 mb-6 flex items-center">
-        <h1 className="flex-grow">
-          <Link
-            className="text-2xl font-extrabold hover:text-accent-3"
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h1>
-        <div>
-          <Link to="/about" className="font-semibold hover:text-accent-3">About</Link>{" "}
-          <Link to="/blog" className="font-semibold hover:text-accent-3">Blog</Link>
-        </div>
-      </header>
+      <Header title={title} />
       <div className="mx-auto max-w-5xl px-8 md:px-0 flex-1 w-full md:w-5/6">
         <main>{children}</main>
       </div>

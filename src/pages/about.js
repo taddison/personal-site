@@ -2,6 +2,7 @@ import React from "react"
 import chilli from "../../content/assets/chilli.jpg"
 import Helmet from "react-helmet"
 import SEO from "../components/seo"
+import Header from "../components/Header"
 
 import { Link } from "gatsby"
 
@@ -25,25 +26,8 @@ const About = () => {
         </style>
       </Helmet>
       <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
-        <div className="absolute top-0 left-0 w-full opacity-35">
-          <header className="bg-accent-1 border-accent-5 border-b p-4 mb-6 flex items-center">
-            <h1 className="flex-grow">
-              <Link
-                className="text-2xl font-extrabold hover:text-accent-3"
-                to={`/`}
-              >
-                {title}
-              </Link>
-            </h1>
-            <div>
-              <Link to="/about" className="font-semibold hover:text-accent-3">
-                About
-              </Link>{" "}
-              <Link to="/blog" className="font-semibold hover:text-accent-3">
-                Blog
-              </Link>
-            </div>
-          </header>
+        <div className="absolute top-0 left-0 w-full opacity-35 tracking-normal">
+          <Header title={title} />
         </div>
         <div
           id="profile"
