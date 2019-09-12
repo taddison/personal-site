@@ -1,9 +1,12 @@
 - Navbar
 - Tags!
   - Revisit styling of tag page once content is migrated
-- Content migration
+- Content migration - for each post:
   - Review excerpts as required
   - Rename share-img to shareimage
+- Extra features
+  - Pagination (/blog/2, etc.)
+  - Archive
 
 Useful:
 

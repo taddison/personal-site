@@ -36,7 +36,8 @@ const Layout = props => {
           </Link>
         </h1>
         <div>
-          Menu Here
+          <Link to="/about" className="font-semibold hover:text-accent-3">About</Link>{" "}
+          <Link to="/blog" className="font-semibold hover:text-accent-3">Blog</Link>
         </div>
       </header>
       <div className="mx-auto max-w-5xl px-8 md:px-0 flex-1 w-full md:w-5/6">
