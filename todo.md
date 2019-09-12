@@ -1,4 +1,6 @@
 - Navbar
+  - Responsive menu for mobile
+  - Link to blog pages (blog, tags)
 - Tags!
   - Revisit styling of tag page once content is migrated
 - Content migration - for each post:
