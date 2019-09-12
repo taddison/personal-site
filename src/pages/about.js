@@ -3,7 +3,10 @@ import chilli from "../../content/assets/chilli.jpg"
 import Helmet from "react-helmet"
 import SEO from "../components/seo"
 
+import { Link } from "gatsby"
+
 const About = () => {
+  const title = "Tim Addison" //TODO: This
   return (
     <div>
       <SEO title="About Me" />
@@ -22,6 +25,26 @@ const About = () => {
         </style>
       </Helmet>
       <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+        <div className="absolute top-0 left-0 w-full opacity-35">
+          <header className="bg-accent-1 border-accent-5 border-b p-4 mb-6 flex items-center">
+            <h1 className="flex-grow">
+              <Link
+                className="text-2xl font-extrabold hover:text-accent-3"
+                to={`/`}
+              >
+                {title}
+              </Link>
+            </h1>
+            <div>
+              <Link to="/about" className="font-semibold hover:text-accent-3">
+                About
+              </Link>{" "}
+              <Link to="/blog" className="font-semibold hover:text-accent-3">
+                Blog
+              </Link>
+            </div>
+          </header>
+        </div>
         <div
           id="profile"
           className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"
