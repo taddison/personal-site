@@ -1,6 +1,10 @@
 - Navbar
   - Responsive menu for mobile
   - Link to blog pages (blog, tags)
+  - Review on about page (position, etc.)
+- About
+  - Get In Touch should do something
+  - Revisit text
 - Tags!
   - Revisit styling of tag page once content is migrated
 - Content migration - for each post:
