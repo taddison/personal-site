@@ -62,15 +62,19 @@ const About = () => {
               New York City
             </p>
             <p className="pt-8 text-sm">
-              Humbly trying to build great teams by showing up, every day.
-              Former SQL DBA (ask me about IMOLTP or AGs if you want some war
-              stories). Tinkers with frontend. Quite likes chilli.
+              Building and empowering engineering teams. Humbled to work with a
+              fantastic group of engineers. Suffers occasional flashbacks to
+              time in the DBA trenches (AGs and IMOLTP? I've got some war
+              stories...). Quite likes chilli.
             </p>
 
             <div className="pt-12 pb-8">
-              <button className="bg-teal-700 hover:bg-teal-900 text-white font-bold py-2 px-4 rounded-full">
+              <a
+                href="mailto:hello@tjaddison.com"
+                className="bg-teal-700 hover:bg-teal-900 text-white font-bold py-2 px-4 rounded-full"
+              >
                 Get In Touch
-              </button>
+              </a>
             </div>
 
             <div className="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center">
