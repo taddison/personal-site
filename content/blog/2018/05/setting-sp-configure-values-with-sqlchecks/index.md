@@ -1,6 +1,6 @@
 ---
 title: Setting sp_configure values with SQLChecks
-share-img: http://tjaddison.com/assets/2018/2018-05-31/SetSpConfigFunction.png
+shareimage: http://tjaddison.com/assets/2018/2018-05-31/SetSpConfigFunction.png
 tags: [PowerShell, SQL, SQLChecks]
 ---
 

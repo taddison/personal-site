@@ -1,6 +1,6 @@
 ---
 title: Checking SQL Agent job ownership with Pester
-share-img: http://tjaddison.com/assets/2017/2017-04-22/PesterFailure.png
+shareimage: http://tjaddison.com/assets/2017/2017-04-22/PesterFailure.png
 tags: [PowerShell, Pester, SQL]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Partitioned Clustered Columnstores - Mind your deltastores!
-share-img: http://tjaddison.com/assets/2018/2018-03-10/ColumnStoreRowGroups.png
+shareimage: http://tjaddison.com/assets/2018/2018-03-10/ColumnStoreRowGroups.png
 tags: [SQL]
 ---
 

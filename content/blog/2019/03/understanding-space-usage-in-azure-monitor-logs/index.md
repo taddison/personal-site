@@ -1,6 +1,6 @@
 ---
 title: Understanding space usage in Azure Monitor logs
-share-img: https://tjaddison.com/assets/2019/2019-03-31/DataUsage.png
+shareimage: https://tjaddison.com/assets/2019/2019-03-31/DataUsage.png
 tags: [Azure, Log Analytics, Azure Monitor]
 ---
 

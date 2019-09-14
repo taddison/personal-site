@@ -1,6 +1,6 @@
 ---
 title: Getting started with Log Analytics and PowerShell logging
-share-img: https://tjaddison.com/assets/2018/2018-08-26/ProcessQuery.png
+shareimage: https://tjaddison.com/assets/2018/2018-08-26/ProcessQuery.png
 tags: [Azure, "Log Analytics", DevOps, PowerShell]
 ---
 

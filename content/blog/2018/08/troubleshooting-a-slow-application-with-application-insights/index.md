@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting a slow application with Application Insights
-share-img: https://tjaddison.com/assets/2018/2018-08-05/Endpoints.png
+shareimage: https://tjaddison.com/assets/2018/2018-08-05/Endpoints.png
 tags: [Azure, "Application Insights", DevOps]
 ---
 

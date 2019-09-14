@@ -1,6 +1,6 @@
 ---
 title: Adding caching to your PowerShell scripts
-share-img: https://tjaddison.com/assets/2018/2018-12-24/GetCachedScriptBlockResults.png
+shareimage: https://tjaddison.com/assets/2018/2018-12-24/GetCachedScriptBlockResults.png
 tags: [PowerShell]
 ---
 

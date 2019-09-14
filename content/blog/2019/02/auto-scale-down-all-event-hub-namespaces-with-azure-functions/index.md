@@ -1,6 +1,6 @@
 ---
 title: Auto scale down all Event Hub namespaces with Azure Functions
-share-img: https://tjaddison.com/assets/2019/2019-02-28/CodeSnippet.png
+shareimage: https://tjaddison.com/assets/2019/2019-02-28/CodeSnippet.png
 tags: [Azure, EventHubs, C#, PowerShell, Function Apps]
 ---
 

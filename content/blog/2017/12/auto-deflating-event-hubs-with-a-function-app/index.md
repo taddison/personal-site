@@ -1,6 +1,6 @@
 ---
 title: Auto deflating Event Hubs with a function app
-share-img: http://tjaddison.com/assets/2017/2017-12-10/FunctionOutput.png
+shareimage: http://tjaddison.com/assets/2017/2017-12-10/FunctionOutput.png
 tags: [Azure, EventHubs, C#, Function Apps]
 ---
 

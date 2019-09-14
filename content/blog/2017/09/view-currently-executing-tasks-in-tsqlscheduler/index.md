@@ -1,6 +1,6 @@
 ---
 title: View currently executing tasks in tsqlScheduler
-share-img: http://tjaddison.com/assets/2017/2017-09-03/CurrentlyExecutingTasks.png
+shareimage: http://tjaddison.com/assets/2017/2017-09-03/CurrentlyExecutingTasks.png
 tags: [SQL, tsqlScheduler]
 ---
 

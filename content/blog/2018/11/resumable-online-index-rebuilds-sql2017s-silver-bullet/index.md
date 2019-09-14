@@ -1,6 +1,6 @@
 ---
 title: Resumable Online Index Rebuilds - SQL 2017's Silver Bullet
-share-img: https://tjaddison.com/assets/2018/2018-11-16/IndexRebuildPaused.png
+shareimage: https://tjaddison.com/assets/2018/2018-11-16/IndexRebuildPaused.png
 tags: [SQL]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Mitigating SERVICE_BROKER_WAITFOR_MANAGER latch waits
-share-img: https://tjaddison.com/assets/2018/2018-10-15/BrokerLatch.png
+shareimage: https://tjaddison.com/assets/2018/2018-10-15/BrokerLatch.png
 tags: [SQL]
 ---
 

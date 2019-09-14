@@ -1,6 +1,6 @@
 ---
 title: Analysing blob storage metrics with Power BI
-share-img: http://tjaddison.com/assets/2017/2017-08-12/CapacityAndMetrics.png
+shareimage: http://tjaddison.com/assets/2017/2017-08-12/CapacityAndMetrics.png
 tags: [PowerBI, Azure]
 ---
 

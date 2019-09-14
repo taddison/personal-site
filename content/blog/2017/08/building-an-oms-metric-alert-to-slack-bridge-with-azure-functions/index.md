@@ -1,6 +1,6 @@
 ---
 title: Building an OMS metric alert to Slack bridge with Azure functions
-share-img: http://tjaddison.com/assets/2017/2017-08-29/SlackAlerts.png
+shareimage: http://tjaddison.com/assets/2017/2017-08-29/SlackAlerts.png
 tags: [OMS, Slack, Azure, "Function Apps"]
 ---
 

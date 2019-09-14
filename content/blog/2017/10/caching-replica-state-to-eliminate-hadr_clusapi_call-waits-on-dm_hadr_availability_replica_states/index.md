@@ -1,6 +1,6 @@
 ---
 title: Caching replica state to eliminate HADR_CLUSAPI_CALL waits on dm_hadr_availability_replica_states
-share-img: http://tjaddison.com/assets/2017/2017-10-04/Blocking2.png
+shareimage: http://tjaddison.com/assets/2017/2017-10-04/Blocking2.png
 tags: [SQL]
 ---
 

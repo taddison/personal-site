@@ -1,6 +1,6 @@
 ---
 title: Getting funnel metrics right with Power BI when applying filters
-share-img: http://tjaddison.com/assets/2017/2017-10-31/UpdatedDataModel.png
+shareimage: http://tjaddison.com/assets/2017/2017-10-31/UpdatedDataModel.png
 tags: [PowerBI, Recruiting]
 ---
 

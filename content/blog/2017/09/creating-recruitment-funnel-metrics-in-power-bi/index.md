@@ -1,6 +1,6 @@
 ---
 title: Creating recruitment funnel metrics in Power BI
-share-img: http://tjaddison.com/assets/2017/2017-09-10/FunnelRight.png
+shareimage: http://tjaddison.com/assets/2017/2017-09-10/FunnelRight.png
 tags: [PowerBI, Recruiting]
 ---
 

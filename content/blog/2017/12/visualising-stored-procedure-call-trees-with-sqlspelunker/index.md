@@ -1,6 +1,6 @@
 ---
 title: Visualising stored procedure call trees with SQLSpelunker
-share-img: http://tjaddison.com/assets/2017/2017-12-23/StoredProcedureParser.png
+shareimage: http://tjaddison.com/assets/2017/2017-12-23/StoredProcedureParser.png
 tags: [SQL, C#]
 ---
 
