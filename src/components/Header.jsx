@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
@@ -7,15 +7,20 @@ const propTypes = {
 }
 
 const Header = ({ title, hideAbout = false }) => {
+  const [isExpanded, toggleExpanded] = useState(false)
+
   return (
-    <header className="bg-accent-1 border-accent-5 border-b p-4 mb-6 flex items-center">
+    <header className="bg-accent-1 border-accent-5 border-b p-4 mb-6 flex items-center flex-wrap">
       <h1 className="flex-grow">
         <Link className="text-2xl font-extrabold hover:text-accent-3" to={`/`}>
           {title}
         </Link>
       </h1>
       <div className="block lg:hidden">
-        <button className="flex items-center px-3 py-2 border rounded text-accent-5 border-accent-5 hover:text-accent-3 hover:border-accent-3">
+        <button
+          onClick={() => toggleExpanded(e => !e)}
+          className="flex items-center px-3 py-2 border rounded text-accent-5 border-accent-5 hover:text-accent-3 hover:border-accent-3"
+        >
           <svg
             className="fill-current h-3 w-3"
             viewBox="0 0 20 20"
@@ -26,6 +31,7 @@ const Header = ({ title, hideAbout = false }) => {
           </svg>
         </button>
       </div>
+
       <div className="hidden lg:block">
         {!hideAbout && (
           <>
@@ -37,6 +43,24 @@ const Header = ({ title, hideAbout = false }) => {
         <Link to="/blog" className="font-semibold hover:text-accent-3">
           Blog
         </Link>
+      </div>
+      <div
+        className={`${
+          isExpanded ? `block` : `hidden`
+        } w-full block flex-grow lg:hidden`}
+      >
+        <div className="font-semibold text-right">
+          {!hideAbout && (
+            <>
+              <Link to="/about" className="block hover:text-accent-3 p-2">
+                About
+              </Link>{" "}
+            </>
+          )}
+          <Link to="/blog" className="block hover:text-accent-3 p-2">
+            Blog
+          </Link>
+        </div>
       </div>
     </header>
   )
