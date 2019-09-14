@@ -1,11 +1,8 @@
-- Navbar
-  - Responsive menu for mobile
-  - Link to blog pages (blog, tags)
-  - Review on about page (position, etc.)
+- Navigation
+  - How will access to pages like archive/tags happen - from the main menu?
 - About
-  - Get In Touch should do something
-  - Revisit text
-- Tags!
+  - Contact form could be implemented
+- Tags
   - Revisit styling of tag page once content is migrated
 - Content migration - for each post:
   - Review excerpts as required
