@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Allowing only specified users to access Cloud Firestore
 shareimage: "./Rules.png"
 tags: [JavaScript, Firestore, Security]
