@@ -6,7 +6,7 @@ const propTypes = {
   title: PropTypes.string.isRequired,
 }
 
-const Header = ({ title }) => {
+const Header = ({ title, hideAbout = false }) => {
   return (
     <header className="bg-accent-1 border-accent-5 border-b p-4 mb-6 flex items-center">
       <h1 className="flex-grow">
@@ -15,9 +15,13 @@ const Header = ({ title }) => {
         </Link>
       </h1>
       <div>
-        <Link to="/about" className="font-semibold hover:text-accent-3">
-          About
-        </Link>{" "}
+        {!hideAbout && (
+          <>
+            <Link to="/about" className="font-semibold hover:text-accent-3">
+              About
+            </Link>{" "}
+          </>
+        )}
         <Link to="/blog" className="font-semibold hover:text-accent-3">
           Blog
         </Link>

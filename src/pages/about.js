@@ -7,7 +7,6 @@ import Header from "../components/Header"
 import { Link } from "gatsby"
 
 const About = () => {
-  const title = "Tim Addison" //TODO: This
   return (
     <div>
       <SEO title="About Me" />
@@ -27,7 +26,7 @@ const About = () => {
       </Helmet>
       <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
         <div className="absolute top-0 left-0 w-full opacity-35 tracking-normal">
-          <Header title={title} />
+          <Header title={"Home"} hideAbout />
         </div>
         <div
           id="profile"
