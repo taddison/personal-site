@@ -2,6 +2,7 @@
 title: Keeping Application Insights Costs Under Control
 shareimage: "./AppInsightsDefaultCap.png"
 tags: [Azure, Application Insights, PowerShell]
+date: "2019-05-31T00:00:00.0Z"
 ---
 
 Application Insights (now part of [Azure Monitor]) uses a [pay-per-GB-ingested model][appinsights pricing], and charges \$2.30 per-GB once you exceed the monthly free limit of 5GB. It may surprise you (it certainly surprised me!) to see that by default an Application Insights resource doesn't deploy with a daily cap of 0.161GB (5GB/month), but actually deploys with a [daily cap][appinsights cap management] of 100GB!
