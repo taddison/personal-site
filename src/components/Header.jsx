@@ -10,8 +10,8 @@ const Header = ({ title, hideAbout = false }) => {
   const [isExpanded, toggleExpanded] = useState(false)
 
   return (
-    <header className="bg-accent-1 border-accent-5 border-b p-4 mb-6 flex items-center flex-wrap">
-      <h1 className="flex-grow">
+    <header className="bg-accent-1 border-accent-5 border-b p-4 mb-6 flex items-center justify-between flex-wrap">
+      <h1 className="flex items-center flex-shrink-0">
         <Link className="text-2xl font-extrabold hover:text-accent-3" to={`/`}>
           {title}
         </Link>
@@ -31,37 +31,24 @@ const Header = ({ title, hideAbout = false }) => {
           </svg>
         </button>
       </div>
-
-      <div className="hidden lg:block">
-        {!hideAbout && (
-          <>
-            <Link to="/about" className="font-semibold hover:text-accent-3">
-              About
-            </Link>{" "}
-          </>
-        )}
-        <Link to="/blog" className="font-semibold hover:text-accent-3">
-          Blog
-        </Link>
-      </div>
       <div
         className={`${
           isExpanded ? `block` : `hidden`
-        } w-full block flex-grow lg:hidden`}
+        } w-full inline-block flex-grow lg:flex lg:items-center lg:w-auto`}
       >
-        <div className="font-semibold text-right">
+        <div className="font-semibold lg:flex-grow text-right">
           {!hideAbout && (
             <>
-              <Link to="/about" className="block hover:text-accent-3 p-2">
+              <Link to="/about" className="block lg:inline-block hover:text-accent-3 p-2">
                 About
               </Link>{" "}
             </>
           )}
-          <Link to="/blog" className="block hover:text-accent-3 p-2">
+          <Link to="/blog" className="block lg:inline-block hover:text-accent-3 p-2">
             Blog
           </Link>
         </div>
-      </div>
+        </div>
     </header>
   )
 }
