@@ -4,8 +4,6 @@ import Helmet from "react-helmet"
 import SEO from "../components/seo"
 import Header from "../components/Header"
 
-import { Link } from "gatsby"
-
 const About = () => {
   return (
     <div>
