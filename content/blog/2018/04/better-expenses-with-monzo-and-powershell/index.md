@@ -1,10 +1,10 @@
 ---
-layout: post
 title: Better expenses with Monzo and PowerShell
 share-img: http://tjaddison.com/assets/2018/2018-04-22/Export.png
 tags: [PowerShell, Monzo]
 ---
-While making submitting expenses _fun_ is probably impossible, we can leverage Monzo and PowerShell to start automating away some of the manual steps involved.  In my specific case I need to submit monthly expenses with receipt support and categorise each expense.  Combine Monzo's tagging, image support, and CSV export with PowerShell's ability to...well do pretty much anything, and we have a workable solution!
+
+While making submitting expenses _fun_ is probably impossible, we can leverage Monzo and PowerShell to start automating away some of the manual steps involved. In my specific case I need to submit monthly expenses with receipt support and categorise each expense. Combine Monzo's tagging, image support, and CSV export with PowerShell's ability to...well do pretty much anything, and we have a workable solution!
 
 Assuming I've correctly [tagged all my transactions](https://monzo.com/blog/2018/04/12/transaction-tags/) with the #expense tag I can then take the monthly export (available from the spending tab) and get my expense submission mostly prepared with a single PowerShell command:
 
@@ -21,7 +21,7 @@ This creates a CSV that contains transactions tagged with #expense in the Monzo 
 
 ![Expense Folder](/assets/2018/2018-04-22/Export.png)
 
-A little copy-paste later and I'm done.  Read on for details on how it works, and where you can customise the data you return.  If you want to use this on your own data (or try it out on some sample data) you can get everything you need in this [example GitHub repo](https://github.com/taddison/blog-monzo-expenses/blob/master/Expenses.ps1).
+A little copy-paste later and I'm done. Read on for details on how it works, and where you can customise the data you return. If you want to use this on your own data (or try it out on some sample data) you can get everything you need in this [example GitHub repo](https://github.com/taddison/blog-monzo-expenses/blob/master/Expenses.ps1).
 
 <!--more-->
 
@@ -35,16 +35,16 @@ The script:
 - Maps the Monzo category to an internal category
 - Writes the expense line to a CSV, including ID, Date, Currency, Amount, Category, and if a receipt is present
 
-Let's go through some of those steps in more detail.  First of all - importing the CSV and filtering.  A tag in Monzo is stored in the notes field.
+Let's go through some of those steps in more detail. First of all - importing the CSV and filtering. A tag in Monzo is stored in the notes field.
 
 ```powershell
 $entries = Import-Csv -Path $MonzoExport
 $expenseEntries = $entries | Where-Object { $_.notes -like "*#expense*" }
 ```
 
-We then iterate over every entry and first of all check to see if there is an image.  The Monzo format exports the images in an array in the form [ImageUrl,Image2URL].  We only grab the first image if there is more than one, and save it to disk.
+We then iterate over every entry and first of all check to see if there is an image. The Monzo format exports the images in an array in the form [ImageUrl,Image2URL]. We only grab the first image if there is more than one, and save it to disk.
 
-The images are uploaded to S3 buckets with no extension, so we use the content-type to map to the appropraite extension (e.g. `image/jpeg` -> `.jpg`).  While testing I've used images hosted in GitHub, which don't return a content-type - as such I've added `.jpg`, which always gets a photo viewer to launch.
+The images are uploaded to S3 buckets with no extension, so we use the content-type to map to the appropraite extension (e.g. `image/jpeg` -> `.jpg`). While testing I've used images hosted in GitHub, which don't return a content-type - as such I've added `.jpg`, which always gets a photo viewer to launch.
 
 ```powershell
 $hasReceipt = "No"
@@ -63,7 +63,7 @@ if($expense.receipt -match "\[([^,]+).*\]")
 }
 ```
 
-We then add an expense object to an array we'll later export.  Whatever properties this object has will end up in the CSV, so if you wanted to add extra data (e.g. the whole notes, the merchant name) this is where you'd do it.
+We then add an expense object to an array we'll later export. Whatever properties this object has will end up in the CSV, so if you wanted to add extra data (e.g. the whole notes, the merchant name) this is where you'd do it.
 
 Note that we multiply the amount by -1, as debits (charges) show up as negative amounts in the transaction feed, whereas you'll typically report expenses as a positive amount.
 
@@ -85,7 +85,8 @@ $outExpenses | Export-Csv -Path "$exportFolder\Expenses.csv" -NoTypeInformation
 ```
 
 ## Using this on your data
-The only thing you need to get started with your own data is the `Expenses.ps1` file from the sample repo.  Modify the PowerShell script below to include:
+
+The only thing you need to get started with your own data is the `Expenses.ps1` file from the sample repo. Modify the PowerShell script below to include:
 
 - The path to your Expenses.ps1 file
 - The path to your Monzo CSV
@@ -100,13 +101,15 @@ $exportFolder = "c:\temp\expenses\March2018"
 Export-ExpenseFromMonzo -MonzoExport $monzoExport -ExportFolder $exportFolder
 ```
 
-Hopefully you can see how you can easily take the general idea and customise it to fit whatever process you follow.  Some examples of things I've played around with:
+Hopefully you can see how you can easily take the general idea and customise it to fit whatever process you follow. Some examples of things I've played around with:
+
 - Tags to delineate trips (e.g. #tripNYC)
 - Tags to extract extra metadata (e.g. #E-Client-12345)
-- Caps (e.g. don't expense more than $50 in food/day)
+- Caps (e.g. don't expense more than \$50 in food/day)
 - Timezone offsets ()
 
 ## Appendix: Sample Monzo export
+
 ```
 id,created,amount,currency,local_amount,,local_currency,category,emoji,description,address,notes,receipt
 tx_00001ABCDEFGHIJKLMNOPQ,2018-03-30 17:32:57 +0000,-25,GBP,-25,1,GBP,general,,,,,

@@ -1,11 +1,10 @@
 ---
-layout: post
 title: Service Broker, Temporal Tables, and the 'Data modification failed' error
 share-img: http://tjaddison.com/assets/2018/2018-02-17/ErrorSlug.png
 tags: [SQL, "Service Broker", "Temporal Tables"]
 ---
 
-[Temporal tables](https://docs.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables) are a fantastic feature which we've enjoyed rolling out to replace some hand-rolled logging.  Adding system versioning to a table has been mostly straightforward, though last week one of my colleagues saw some really odd behaviour that took the team a while to debug.  Now we've understood the problem we're able to reproduce it 100% of the time (and subsequently come up with a workaround), though it definitely had us scratching our heads for a while - thanks for a super-interesting problem Ola!
+[Temporal tables](https://docs.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables) are a fantastic feature which we've enjoyed rolling out to replace some hand-rolled logging. Adding system versioning to a table has been mostly straightforward, though last week one of my colleagues saw some really odd behaviour that took the team a while to debug. Now we've understood the problem we're able to reproduce it 100% of the time (and subsequently come up with a workaround), though it definitely had us scratching our heads for a while - thanks for a super-interesting problem Ola!
 
 We've previously had experience with highly concurrent modifications to a single row causing a data-modification error, and in every case we'd end up tracking down a bug which was causing unnecessary concurrent modifications.
 
@@ -17,6 +16,7 @@ Data modification failed on system-versioned table 'TemporalBroker.dbo.Payment' 
 What had us really confused this time was that this was a very low-volume process, and we didn't observe any concurrency around the insert/update activity for the single row (confirmed with exhaustive XEvent-ing!).
 
 ## The Setup
+
 One of our applications uses service broker fairly heavily, the simplified flow looks something like this:
 
 - Web app inserts a payment record in state 'ready to pay'
@@ -38,18 +38,19 @@ The transactional flow (shown by time T, and session S - in this case session 1 
 - T4, S1 - Receive PaymentProcess message
 - T5, S1 - Update Payment - error
 
-The clue was sitting in the error message -  `transaction time was earlier than period start time for affected records`.  At time T5 when the update happens the row is stamped with the time from T1, not T5.  Because we use a transaction to pop messages and wait for one to arrive, we can end up processing the message at a timestamp before the Payment record is inserted.  This behaviour is by design - and is called out pretty clearly in the [official docs](https://docs.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables#how-does-temporal-work):
+The clue was sitting in the error message - `transaction time was earlier than period start time for affected records`. At time T5 when the update happens the row is stamped with the time from T1, not T5. Because we use a transaction to pop messages and wait for one to arrive, we can end up processing the message at a timestamp before the Payment record is inserted. This behaviour is by design - and is called out pretty clearly in the [official docs](https://docs.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables#how-does-temporal-work):
 
 > The times recorded in the system datetime2 columns are based on the begin time of the transaction itself. For example, all rows inserted within a single transaction will have the same UTC time recorded in the column corresponding to the start of the SYSTEM_TIME period.
 
 As well as in the [ISO technical report on SQL Support for Time-Related Information](http://standards.iso.org/ittf/PubliclyAvailableStandards/c060394_ISO_IEC_TR_19075-2_2015.zip):
 
->An UPDATE statement on a system-versioned table first inserts a copy of the old row with its system-time period end time set to the transaction timestamp, indicating that the row ceased to be current as of the transaction timestamp. It then updates the row while changing its system-period start time to the transaction timestamp, indicating that the updated row to be the current system row as of the transaction timestamp.
+> An UPDATE statement on a system-versioned table first inserts a copy of the old row with its system-time period end time set to the transaction timestamp, indicating that the row ceased to be current as of the transaction timestamp. It then updates the row while changing its system-period start time to the transaction timestamp, indicating that the updated row to be the current system row as of the transaction timestamp.
 
 In all of our previous troubleshooting we were dealing with very short (typically implicit) transactions, and so we were incorrectly thinking about concurrency at the statement level, rather than the transaction level.
 
 ## Repro
->If you'd like to try this repro out yourself you can download [this script](/assets/2018/2018-02-17/createobjects.sql) to create the database and all objects required.
+
+> If you'd like to try this repro out yourself you can download [this script](/assets/2018/2018-02-17/createobjects.sql) to create the database and all objects required.
 
 The two procedures we'll be looking at are the one which inserts the payment request:
 
@@ -63,12 +64,12 @@ begin
 	( 1 );
 
 	declare @paymentId int = scope_identity();
-	declare @message xml = 
-            N'<ProcessPayment><PaymentId>' 
-            + cast( @paymentId as nvarchar(10) ) 
+	declare @message xml =
+            N'<ProcessPayment><PaymentId>'
+            + cast( @paymentId as nvarchar(10) )
             + '</PaymentId></ProcessPayment>'
 	declare @dialogId uniqueidentifier;
-	
+
 	begin dialog @dialogId
 	from service PaymentProcessService
 	to service 'PaymentProcessService'
@@ -125,4 +126,4 @@ Depending on what you can change there are a few ways to work around this that c
 - Retry on receiving the error (in our case we hit this edge case 100% of the time on the first attempt to process)
 - Don't use system versioning (a trigger based solution with getutcdate() doesn't have this problem)
 
-None of these are great options (in the end we lowered the waitfor timeout to a few hundred milliseconds and added the same delay before queueing the message - this eliminated all the errors), and we'll be considering what changes we could make to our messaging in the future to remove the requirement for a workaround.  The current favoured option is a switch away from service broker where we don't need all the complexity and polling from the app.
+None of these are great options (in the end we lowered the waitfor timeout to a few hundred milliseconds and added the same delay before queueing the message - this eliminated all the errors), and we'll be considering what changes we could make to our messaging in the future to remove the requirement for a workaround. The current favoured option is a switch away from service broker where we don't need all the complexity and polling from the app.

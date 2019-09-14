@@ -1,18 +1,18 @@
 ---
-layout: post
 title: Auto scale down all Event Hub namespaces with Azure Functions
 share-img: https://tjaddison.com/assets/2019/2019-02-28/CodeSnippet.png
 tags: [Azure, EventHubs, C#, PowerShell, Function Apps]
 ---
 
-A little over a year ago I lamented the lack of an auto-deflate feature for Event Hubs, and offered a way to [programatically scale down your namespaces][ScaleDown Blog].  That solution still works, but requires a redeploy each time you wanted to add a namespace.  Today we'll look at an upgraded function app which  programatically discovers and scales-down all Event Hub namespaces it has access to.
+A little over a year ago I lamented the lack of an auto-deflate feature for Event Hubs, and offered a way to [programatically scale down your namespaces][scaledown blog]. That solution still works, but requires a redeploy each time you wanted to add a namespace. Today we'll look at an upgraded function app which programatically discovers and scales-down all Event Hub namespaces it has access to.
 
 With the addition of a PowerShell script to grant the appropriate permissions to all of your namespaces, you can be up and running (or deflating) in a matter of minutes.
 
 <!--more-->
+
 ## Function App
 
-The source code for the function app can be found on GitHub in the [ScaleDownEventHubs repo].  This is an Azure Functions v2 app which is by default configured to run every six hours.  When executed the function will:
+The source code for the function app can be found on GitHub in the [ScaleDownEventHubs repo]. This is an Azure Functions v2 app which is by default configured to run every six hours. When executed the function will:
 
 - Discover all Event Hub namespaces it has access to
 - Query each namespace to check if auto-inflate is enabled
@@ -29,7 +29,7 @@ var clientSecret = config["ClientSecret"];
 var tenantId = config["TenantId"];
 ```
 
-`TenantId` is your Azure Active Directory tenant.  The other values come from the service principal you use to run the app, which we'll create in the next section.
+`TenantId` is your Azure Active Directory tenant. The other values come from the service principal you use to run the app, which we'll create in the next section.
 
 ![App settings after deployment](/assets/2019/2019-02-28/AppSettingsFunctionApp.png)
 
@@ -53,15 +53,15 @@ Write-Output "ClientId: $applicationId"
 Write-Output "ClientSecret: $password"
 ```
 
-If you set the `ClientId` and `ClientSecret` application settings you'll now be able to run your function app.  If you want to test locally you can put these into a file called `local.settings.json` - an example is included in the function's git repo (`local.settings.json.example`).
+If you set the `ClientId` and `ClientSecret` application settings you'll now be able to run your function app. If you want to test locally you can put these into a file called `local.settings.json` - an example is included in the function's git repo (`local.settings.json.example`).
 
-> Note when testing locally you'll want to change the cron string of the `TimerTrigger` to something more frequent than every six hours - using 0 */1 * * * will have the function run every minute.
+> Note when testing locally you'll want to change the cron string of the `TimerTrigger` to something more frequent than every six hours - using 0 _/1 _ \* \* will have the function run every minute.
 
 ## Permissions
 
-By default the new service principal has no permissions.  In order to let it do something useful we're going to assign it `Contributor` permissions on all namespaces we have access to.
+By default the new service principal has no permissions. In order to let it do something useful we're going to assign it `Contributor` permissions on all namespaces we have access to.
 
-The below script looks pretty daunting, though by default it will do nothing as `$WhatIf` is set to `$true` - when running the script it will echo what it *would* do.  If there is no work to do it will echo the status of each Event Hub namespace it discovers, as shown in the screenshot below.  When you're ready to add permissions set `$WhatIf` to `$false`.
+The below script looks pretty daunting, though by default it will do nothing as `$WhatIf` is set to `$true` - when running the script it will echo what it _would_ do. If there is no work to do it will echo the status of each Event Hub namespace it discovers, as shown in the screenshot below. When you're ready to add permissions set `$WhatIf` to `$false`.
 
 > This script will only assign the service principal to namespaces which have auto-inflate set to true.
 
@@ -96,7 +96,7 @@ foreach($sub in $subs) {
         } else {
             $assignString = "[$appName ASSIGNED]"
         }
-        
+
         if($autoInflate) {
             Write-Output "Namespace:$hubName :: TU:$capacity/$maxCapacity $scaleDownTUs $assignString"
 
@@ -128,18 +128,18 @@ traces
 | extend Op = "ScaleDown"
 | union (
 traces
-| where message startswith "Namespace:" 
+| where message startswith "Namespace:"
 | extend Op = ""
 | parse message with "Namespace:" namespace:string "in RG:" resourcegroup:string "already at or below target capacity (Current:" fromTU:int  "Target:" toTU:int *
 )
 | order by timestamp desc
-| project timestamp, Op, resourcegroup, namespace, fromTU, toTU 
+| project timestamp, Op, resourcegroup, namespace, fromTU, toTU
 ```
 
-One example result set is shown below - this shows multiple namespaces surviving the scaler unscathed (unscaled?), and a couple which were scaled-in.  You can also see that there a few namespaces which don't scale down to 1 - these have `ScaleDownTUs` set on them.
+One example result set is shown below - this shows multiple namespaces surviving the scaler unscathed (unscaled?), and a couple which were scaled-in. You can also see that there a few namespaces which don't scale down to 1 - these have `ScaleDownTUs` set on them.
 
 ![Scaler query result](/assets/2019/2019-02-28/ScaleDownQuery.png)
 
-[ScaleDown Blog]: https://tjaddison.com/2017/12/10/Auto-deflating-Event-Hubs-with-a-function-app
-[ScaleDownEventHubs repo]: https://github.com/taddison/ScaleDownEventHubs
+[scaledown blog]: https://tjaddison.com/2017/12/10/Auto-deflating-Event-Hubs-with-a-function-app
+[scaledowneventhubs repo]: https://github.com/taddison/ScaleDownEventHubs
 [service principal]: https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals

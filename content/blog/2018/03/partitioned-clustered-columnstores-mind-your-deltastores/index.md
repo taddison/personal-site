@@ -1,19 +1,18 @@
 ---
-layout: post
 title: Partitioned Clustered Columnstores - Mind your deltastores!
 share-img: http://tjaddison.com/assets/2018/2018-03-10/ColumnStoreRowGroups.png
 tags: [SQL]
 ---
 
-We use an hourly partitioning scheme coupled with a clustered columnstore to support ingestion and short-term retention of various telemetry data.  A fairly common pattern is for us to deploy an hourly partition schema based on the `InsertDate` of data (a column with a default of `getutcdate()`).
+We use an hourly partitioning scheme coupled with a clustered columnstore to support ingestion and short-term retention of various telemetry data. A fairly common pattern is for us to deploy an hourly partition schema based on the `InsertDate` of data (a column with a default of `getutcdate()`).
 
 One thing we've had to keep an eye on when using this kind of pattern is the number of open deltastores that can get left behind as inserts 'move on' to a new partition.
 
 ![sys.column_store_row_groups](/assets/2018/2018-03-10/ColumnStoreRowGroups.png)
 
->Hourly partitions are used as they are also the unit of truncation as data ages out in our envionrment.  Due to the pain of the 'dangling deltastores' (as well as high partition counts impacting DMV usage) we're looking at making daily the smallest partition size we support.
+> Hourly partitions are used as they are also the unit of truncation as data ages out in our envionrment. Due to the pain of the 'dangling deltastores' (as well as high partition counts impacting DMV usage) we're looking at making daily the smallest partition size we support.
 
-When partitioning a clustered columnstore table you will have one or more deltastores _per partition_.  The largest I've seen so far is 20 open in a single rowgroup (with row counts ranging from 1M to 10k), though 4 is about average for this particular environment.
+When partitioning a clustered columnstore table you will have one or more deltastores _per partition_. The largest I've seen so far is 20 open in a single rowgroup (with row counts ranging from 1M to 10k), though 4 is about average for this particular environment.
 
 These open deltastores have a number of drawbacks:
 
@@ -22,6 +21,7 @@ These open deltastores have a number of drawbacks:
 - Reduced query performance on queries which work in the rowstores
 
 The rest of this post will cover these in a bit more detail, as well as how to see if you're impacted and what to do about.
+
 <!--more-->
 
 ## Increased size on disk
@@ -30,11 +30,11 @@ The first example is best shown by a table which had escaped any kind of index m
 
 ![Impact of deltastores](/assets/2018/2018-03-10/RowGroups.png)
 
-The deltastores might be less than 20% of the rows, but they're more than 80% of the space used for the table!  In the example above compressing the open rowgroups reduced the table from 500GB to 150GB.
+The deltastores might be less than 20% of the rows, but they're more than 80% of the space used for the table! In the example above compressing the open rowgroups reduced the table from 500GB to 150GB.
 
 ## Lack of rowgroup elimination
 
-[Rowgroup elimination](https://blogs.msdn.microsoft.com/sql_server_team/columnstore-index-performance-rowgroup-elimination/) is the ability of a query against the columnstore to skip entire rowgroups based on the metadata about min/max values stored for each column segment in the rowgroup (see `sys.column_store_segments`).  When querying our telemetry table for a single record in the last day (already leveraging partition elimination to limit our query), we'll also supply a predicate for a ServerId we know doesn't exist.  This is beyond the max value that should exist in any rowgroup.
+[Rowgroup elimination](https://blogs.msdn.microsoft.com/sql_server_team/columnstore-index-performance-rowgroup-elimination/) is the ability of a query against the columnstore to skip entire rowgroups based on the metadata about min/max values stored for each column segment in the rowgroup (see `sys.column_store_segments`). When querying our telemetry table for a single record in the last day (already leveraging partition elimination to limit our query), we'll also supply a predicate for a ServerId we know doesn't exist. This is beyond the max value that should exist in any rowgroup.
 
 ```sql
 select top 1 *
@@ -43,7 +43,7 @@ where t.ServerId = 99999999
 and t.InsertDateTime>= cast(getutcdate() - 1 as datetime2(3));
 ```
 
->Partition elimination won't work if your data types are more precise than the column you're partitiong on.  In our case using `getutcdate()` would have been converted to datetime2(7), more precise than our `InsertDateTime` column which is `datetime2(3)`, resulting in a full table scan [ouch].  Segment elimination has no such qualms about data type precision!
+> Partition elimination won't work if your data types are more precise than the column you're partitiong on. In our case using `getutcdate()` would have been converted to datetime2(7), more precise than our `InsertDateTime` column which is `datetime2(3)`, resulting in a full table scan [ouch]. Segment elimination has no such qualms about data type precision!
 
 ```
 Table 'Telemetry'. Scan count 101, logical reads 1548578, physical reads 0, read-ahead reads 1363208, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
@@ -53,11 +53,11 @@ Table 'Telemetry'. Segment reads 0, segment skipped 107.
    CPU time = 7672 ms,  elapsed time = 9444 ms.
 ```
 
-The statistics of this query show that every segment was skipped (they were successfully eliminated), yet we spent 10 seconds doing an awful lot of reads.  These reads were against the deltastores, as SQL Server had to check every single row to ensure none of them were for ServerId 99999999.
+The statistics of this query show that every segment was skipped (they were successfully eliminated), yet we spent 10 seconds doing an awful lot of reads. These reads were against the deltastores, as SQL Server had to check every single row to ensure none of them were for ServerId 99999999.
 
 ## Reduced query performance
 
-In addition to a lack of rowgroup elimination, there are additional performance issues when operating against deltastores.  Although deltastore scans do seem to benefit from batch mode, they don't benefit from [aggregate pushdown](https://blogs.msdn.microsoft.com/sql_server_team/columnstore-index-performance-sql-server-2016-aggregate-pushdown/).
+In addition to a lack of rowgroup elimination, there are additional performance issues when operating against deltastores. Although deltastore scans do seem to benefit from batch mode, they don't benefit from [aggregate pushdown](https://blogs.msdn.microsoft.com/sql_server_team/columnstore-index-performance-sql-server-2016-aggregate-pushdown/).
 
 Take the following query:
 
@@ -108,7 +108,7 @@ where rg.state_desc = 'OPEN'
 
 You can also use [Niko's](http://www.nikoport.com/) [Columnstore Indexes Script Library (CISL)](https://github.com/NikoNeugebauer/CISL) to get a wealth of information about your columnstore indexes.
 
->If you have a lot of partitions some of these DMVs can be very slow - I'd suggest dumping them into a #temp table for querying/analysis.
+> If you have a lot of partitions some of these DMVs can be very slow - I'd suggest dumping them into a #temp table for querying/analysis.
 
 ## Fixing the problem
 
@@ -119,11 +119,11 @@ alter index CCS_Telemetry on dbo.Telemetry reorganize
 with (compress_all_row_groups = on);
 ```
 
-Although the command is easy, the impact to your system if you have a lot of open rowgroups might not be!  You might instead opt to only compress a subset of partitions (much more typical if you have active partitions accepting inserts):
+Although the command is easy, the impact to your system if you have a lot of open rowgroups might not be! You might instead opt to only compress a subset of partitions (much more typical if you have active partitions accepting inserts):
 
 ```sql
 alter index CCS_Telemetry on dbo.Telemetry reorganize
-partition = (1,2,3) 
+partition = (1,2,3)
 with (compress_all_row_groups = on);
 ```
 

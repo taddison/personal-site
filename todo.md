@@ -7,6 +7,7 @@
 - Content migration - for each post:
   - Review excerpts as required
   - Rename share-img to shareimage
+  - Currently reviewed to: July 2019 😭
 - Extra features
   - Pagination (/blog/2, etc.)
   - Archive

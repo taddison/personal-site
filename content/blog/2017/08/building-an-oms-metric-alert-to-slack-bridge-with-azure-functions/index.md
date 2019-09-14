@@ -1,10 +1,10 @@
 ---
-layout: post
 title: Building an OMS metric alert to Slack bridge with Azure functions
 share-img: http://tjaddison.com/assets/2017/2017-08-29/SlackAlerts.png
 tags: [OMS, Slack, Azure, "Function Apps"]
 ---
-[Previously](/2017/08/23/migrating-function-app-scripts-to-a-class-library) we deployed a function app with three functions to send Slack notifications for OMS alerts based on CPU, memory, and disk.  We'll now deploy a function with a single function designed to handle any OMS metric alert and send it to slack.  As an added bonus we'll also support:
+
+[Previously](/2017/08/23/migrating-function-app-scripts-to-a-class-library) we deployed a function app with three functions to send Slack notifications for OMS alerts based on CPU, memory, and disk. We'll now deploy a function with a single function designed to handle any OMS metric alert and send it to slack. As an added bonus we'll also support:
 
 - Overriding the thresholds to alert/critically alert based on server + metric
 - Use @channel to notify for critical alerts
@@ -21,6 +21,7 @@ If you want to get started quickly:
 Otherwise, read on for more details on what the function looks like, and more details on configuring the alerts and overrides.
 
 <!--more-->
+
 ## Solution Overview
 
 - The solution is comprised of one or more alerts in OMS, an Azure function, and a Slack endpoint
@@ -29,7 +30,7 @@ Otherwise, read on for more details on what the function looks like, and more de
 
 ## Configuring the OMS alert
 
-For every metric you want to alert on an OMS alert must be configured.  While you can use almost any query you want to trigger an alert, there are a few things you'll have to do for each alert to get it to correctly route through the Azure function:
+For every metric you want to alert on an OMS alert must be configured. While you can use almost any query you want to trigger an alert, there are a few things you'll have to do for each alert to get it to correctly route through the Azure function:
 
 - The alert must be a metric alert (trigger based on metric measurement rather than number of results)
 - The search query must only group by one value in addition to TimeGenerated (typically ComputerName, though in some cases you might have a Computer + InstanceName, in which case you should concatenate them with a pipe (Computer\|InstanceName))
@@ -44,11 +45,11 @@ Note that this example contains defaults appropriate for my environment - you ma
 
 ![Example Alert Config](/assets/2017/2017-08-29/AlertConfig.png)
 
-###  Search Query
+### Search Query
 
 ```
-Perf 
-| where CounterName == "Available MBytes" 
+Perf
+| where CounterName == "Available MBytes"
 | summarize AggregatedValue= avg(CounterValue) by bin(TimeGenerated, 1m), Computer
 ```
 
@@ -80,30 +81,30 @@ The custom JSON payload contains both generic information about the alert (how t
 }
 ```
 
-All parameters are mandatory (if you don't specify them the function will fail).  Note that you cannot test the webhook by using the 'Test Webhook' button as it will not include the search results.
+All parameters are mandatory (if you don't specify them the function will fail). Note that you cannot test the webhook by using the 'Test Webhook' button as it will not include the search results.
 
 #### OMS Parameters
 
-- *IncludeSearchResults*: This must always be set to true so that the search query results will be included in the payload
+- _IncludeSearchResults_: This must always be set to true so that the search query results will be included in the payload
 
 #### Alert Information
 
-- *LessThanThresholdIsBad*: When true the aggregate value is compared against the warning/critical thresholds with a LessThan operator.  When false GreaterThan is used.
-- *ValueMultiplier*: The value to multiply each metric value by before comparing to thresholds of formatting.  Typically 1.0 or 0.01 (most perfom counters report 50% as 50 rather than 0.5, which when formatted as P0 would show 5000%)
-- *AlertMessage*: The start of the message sent to the slack channel - see below for examples
-- *FormatString*: How the metric should be formatted, takes a [.Net format string](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings)
-- *ObservationThreshold*: At least this many observations must be above (below) the threshold to trigger the alert (or upgrade from warning to critical)
-- *MetricName*: The name of the metric - this is included in the Slack notification
+- _LessThanThresholdIsBad_: When true the aggregate value is compared against the warning/critical thresholds with a LessThan operator. When false GreaterThan is used.
+- _ValueMultiplier_: The value to multiply each metric value by before comparing to thresholds of formatting. Typically 1.0 or 0.01 (most perfom counters report 50% as 50 rather than 0.5, which when formatted as P0 would show 5000%)
+- _AlertMessage_: The start of the message sent to the slack channel - see below for examples
+- _FormatString_: How the metric should be formatted, takes a [.Net format string](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings)
+- _ObservationThreshold_: At least this many observations must be above (below) the threshold to trigger the alert (or upgrade from warning to critical)
+- _MetricName_: The name of the metric - this is included in the Slack notification
 
 #### Alert Defaults
 
 These can be overriden by the function based on the server/metric.
 
-- *WarningThreshold*: The value which if the metric is above (below) the function app won't send a Slack notification
-- *CriticalThreshold*: The value which if the metric is above (below) the function app will mark that notification as critical
-- *Channel*: The default channel for this alert.  Channels can be added to but never removed from an alert.
+- _WarningThreshold_: The value which if the metric is above (below) the function app won't send a Slack notification
+- _CriticalThreshold_: The value which if the metric is above (below) the function app will mark that notification as critical
+- _Channel_: The default channel for this alert. Channels can be added to but never removed from an alert.
 
-*WarningThreshold*, *LessThanThresholdIsBad* will typically mirror the settings of the alert in OMS, while *ObservationThreshold* is typically one more than its corresponding OMS value.
+_WarningThreshold_, _LessThanThresholdIsBad_ will typically mirror the settings of the alert in OMS, while _ObservationThreshold_ is typically one more than its corresponding OMS value.
 
 #### Sample Messages
 
@@ -152,7 +153,7 @@ Perf
 
 ### Memory
 
-Alerts when free memory drops below a threshold.  Measured in megabytes.
+Alerts when free memory drops below a threshold. Measured in megabytes.
 
 ```
 Infra - Memory [WARN] :: Server1 :: 9,400/9,500/9,600 (min/avg/max Free Megabytes)
@@ -162,8 +163,8 @@ Infra - Memory [WARN] :: Server1 :: 9,400/9,500/9,600 (min/avg/max Free Megabyte
 
 ```
 Perf
-| where CounterName == "Available MBytes" 
-| summarize AggregatedValue= avg(CounterValue) by bin(TimeGenerated, 1m),Computer 
+| where CounterName == "Available MBytes"
+| summarize AggregatedValue= avg(CounterValue) by bin(TimeGenerated, 1m),Computer
 ```
 
 #### JSON
@@ -185,7 +186,7 @@ Perf
 
 ### Disk
 
-Alerts when a logical volume drops below a percentage threshold of free space.  Note we group by a custom value (Computer + pipe + InstanceName).
+Alerts when a logical volume drops below a percentage threshold of free space. Note we group by a custom value (Computer + pipe + InstanceName).
 
 ```
 Infra - Disk [WARN] :: Server1 - C: :: 5%/5%/5% (min/avg/max Free Space %)
@@ -206,8 +207,8 @@ Perf
 ```json
 {
   "IncludeSearchResults": true,
-  "WarningThreshold": 0.20,
-  "CriticalThreshold": 0.10,
+  "WarningThreshold": 0.2,
+  "CriticalThreshold": 0.1,
   "ValueMultiplier": 0.01,
   "Channel": "#oms-alerts",
   "LessThanThresholdIsBad": true,
@@ -272,7 +273,7 @@ public class OMSMetricToSlack
         );
 
         AlertProcessor.ProcessAlert(alert);
-        
+
         return req.CreateResponse(HttpStatusCode.OK);
     }
 }
@@ -287,7 +288,7 @@ The example alert processor class below contains a few overrides:
 - We want to send all database server alerts to the #database channel in addition to whatever the default channel is
 - We want to send all alerts based on SQL Batch Requests/second to the #database channel too
 
-Note that the Computer should match exactly the name of the computer in OMS (case sensitive).  The name of the performance counter is *not* the name of the performance counter in OMS, it is the value you've given to the *MetricName* property in the alert configuration.  Take care to ensure you do not give duplicate metric names to different alerts.
+Note that the Computer should match exactly the name of the computer in OMS (case sensitive). The name of the performance counter is _not_ the name of the performance counter in OMS, it is the value you've given to the _MetricName_ property in the alert configuration. Take care to ensure you do not give duplicate metric names to different alerts.
 
 ```csharp
 public static class AlertProcessor
@@ -323,7 +324,7 @@ public static class AlertProcessor
         // Determine alert criticality
         var isWarning = totals.Warning >= alert.ObservationThreshold;
         var isCritical = totals.Critical >= alert.ObservationThreshold;
-        
+
         // If the alert doesn't cross the warning threshold return
         if(!isWarning)
         {
@@ -396,7 +397,7 @@ public static class AlertProcessor
 
 ### SlackHelper
 
-Ensure you replace the *slackUri* with your own Slack endpoint.
+Ensure you replace the _slackUri_ with your own Slack endpoint.
 
 ```csharp
 public static class SlackHelper
@@ -420,7 +421,7 @@ public static class SlackHelper
 
 ## Extending the solution
 
-The solution is fairly robust and is fairly flexible in allowing you to alert on anything you can write a search query on.  Some examples of things you might want to do with the function to help manage/debug/extend it are:
+The solution is fairly robust and is fairly flexible in allowing you to alert on anything you can write a search query on. Some examples of things you might want to do with the function to help manage/debug/extend it are:
 
 - Add logging via calls to log.Info(...) or adding Application Insights to the function
 - Create additional test payloads to ensure your overrides are working as expected

@@ -39,16 +39,22 @@ const Header = ({ title, hideAbout = false }) => {
         <div className="font-semibold lg:flex-grow text-right">
           {!hideAbout && (
             <>
-              <Link to="/about" className="block lg:inline-block hover:text-accent-3 p-2">
+              <Link
+                to="/about"
+                className="block lg:inline-block hover:text-accent-3 p-2"
+              >
                 About
               </Link>{" "}
             </>
           )}
-          <Link to="/blog" className="block lg:inline-block hover:text-accent-3 p-2">
+          <Link
+            to="/blog"
+            className="block lg:inline-block hover:text-accent-3 p-2"
+          >
             Blog
           </Link>
         </div>
-        </div>
+      </div>
     </header>
   )
 }

@@ -1,9 +1,9 @@
 ---
-layout: post
 title: Visualising stored procedure call trees with SQLSpelunker
 share-img: http://tjaddison.com/assets/2017/2017-12-23/StoredProcedureParser.png
 tags: [SQL, C#]
 ---
+
 Whether debugging a problem in an existing system, or planning changes to an existing (complex) system, knowing how the call graph for a bit of SQL looks has been invaluable in quickly understanding the domain.
 
 If you've worked in any system where a lot of the logic ends up in the database, you'll probably be nodding your head and remembering 'that' procedure which looked pretty simple to start with, and after following a few dependencies you were suddenly deep down the rabbit hole... (the longest I've looked at so far branches out into ~100 procedures).
@@ -18,7 +18,7 @@ tempdb.dbo.ProcOne
 --tempdb.dbo.ProcThree
 ```
 
-You can get started right away by grabbing the [source from Github](https://github.com/taddison/SQLSpelunker) or download the latest build from the [releases page](https://github.com/taddison/SQLSpelunker/releases).  To build or run the code you'll need the [.Net Core 2.0 SDK](https://www.microsoft.com/net/download).
+You can get started right away by grabbing the [source from Github](https://github.com/taddison/SQLSpelunker) or download the latest build from the [releases page](https://github.com/taddison/SQLSpelunker/releases). To build or run the code you'll need the [.Net Core 2.0 SDK](https://www.microsoft.com/net/download).
 
 Read on for more details about what is currently supported, as well as details of how it works under the hood.
 
@@ -55,11 +55,11 @@ tempdb.dbo.ProcOne
 --tempdb.dbo.ProcThree
 ```
 
-ProcOne calls ProcTwo calls ProcThree.  Fairly straightforward.
+ProcOne calls ProcTwo calls ProcThree. Fairly straightforward.
 
 ### Infinite loop detection
 
-While walking the procedure tree if a procedure is encountered that exists anywhere as a parent, that branch stops at the repeat call.  This will catch both simple cases (ProcA calls ProcA) as well as multi-step infinite loops (ProcA calls ProcB calls ProcA).
+While walking the procedure tree if a procedure is encountered that exists anywhere as a parent, that branch stops at the repeat call. This will catch both simple cases (ProcA calls ProcA) as well as multi-step infinite loops (ProcA calls ProcB calls ProcA).
 
 If we now add one more procedure to our schema:
 
@@ -85,7 +85,7 @@ The asterisk (`[*]`) signifies the procedure has previously been called by a par
 
 ### Default schema
 
-If a procedure is executed without a schema name then it will be assumed that the default schema of the calling user is dbo.  So the following statement:
+If a procedure is executed without a schema name then it will be assumed that the default schema of the calling user is dbo. So the following statement:
 
 ```
 exec proc;
@@ -97,11 +97,11 @@ When parsed result in:
 tempdb.dbo.proc
 ```
 
->Note that the database name is defaulted based on the connection string, or in the case of cross-database calls the 'current' database the procedure is executing in.  If you do not specify a database name on the connection string SQLSpelunker will throw an error.
+> Note that the database name is defaulted based on the connection string, or in the case of cross-database calls the 'current' database the procedure is executing in. If you do not specify a database name on the connection string SQLSpelunker will throw an error.
 
 ### Cross-database calls
 
-The procedure calls can span multiple databases.  Given the following new procedures:
+The procedure calls can span multiple databases. Given the following new procedures:
 
 ```sql
 use tempdb
@@ -130,7 +130,7 @@ tempdb.dbo.CrossDBCall
 
 ### Exec @procedure
 
-Only stored procedures executed by identifier are supported.  If your statement contains any SQL in the following form it won't be reported:
+Only stored procedures executed by identifier are supported. If your statement contains any SQL in the following form it won't be reported:
 
 ```sql
 declare @procName = 'dbo.WontBeSeen';
@@ -168,7 +168,7 @@ tempdb.dbo.ThisMaybeDoesNothing
 
 ### Missing procedures are still reported
 
-When looking up the definition of a procedure if the definition can't be retrieved the call will still be reported.  This is probably a feature more than a limitation  as some procs which do exist won't have their definition reported (a good example being msdb.dbo.sp_send_dbmail).  In the future 'missing' procs may get an annotation.
+When looking up the definition of a procedure if the definition can't be retrieved the call will still be reported. This is probably a feature more than a limitation as some procs which do exist won't have their definition reported (a good example being msdb.dbo.sp_send_dbmail). In the future 'missing' procs may get an annotation.
 
 ## Usage
 
@@ -200,15 +200,14 @@ Stored procedure definitions are extracted using the [object_definition](https:/
 
 I was pleasantly surprised at how little code was needed to solve the core problem of getting the definition and parsing all procedure calls.
 
-The console app is helpful but not particularly easy to use (a quick-start with colleagues often took the form of 'download .net core, clone the repo, and then run this command - no there isn't just an exe you can download...').  A web version or powershell cmdlet are ideas I'm playing with to make it more accessible.
+The console app is helpful but not particularly easy to use (a quick-start with colleagues often took the form of 'download .net core, clone the repo, and then run this command - no there isn't just an exe you can download...'). A web version or powershell cmdlet are ideas I'm playing with to make it more accessible.
 
-The other feature which would be great is 'what calls this procedure?'.  Obviously that is a very different challenge to walking a tree (you're forced to go an get every procedure - potentially from every database! When you've got thousands of procedures that starts to take time, and keeping it snappy/interactive was a goal, and one of the reasons I didn't just recommend some of the existing tools out there for exploring schema).
+The other feature which would be great is 'what calls this procedure?'. Obviously that is a very different challenge to walking a tree (you're forced to go an get every procedure - potentially from every database! When you've got thousands of procedures that starts to take time, and keeping it snappy/interactive was a goal, and one of the reasons I didn't just recommend some of the existing tools out there for exploring schema).
 
 Moving away from procedures only I'd love to extend this idea to report what tables/columns are being modified, though the way that gets visualised/interacted with is what I'm struggling with right now (is the question 'show me everything' or 'show me all procs in this chain which touch table foo/column bar?').
 
 ## The longest/deepest proc I've seen so far
 
-Each line below represents a nested call to another proc all branching out from a single call.  Curious to know what else is out there :)
+Each line below represents a nested call to another proc all branching out from a single call. Curious to know what else is out there :)
 
 ![Namespace configuration](/assets/2017/2017-12-23/ARatherLongProcedure.png)
-

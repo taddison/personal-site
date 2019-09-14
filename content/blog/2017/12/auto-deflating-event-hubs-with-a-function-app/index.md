@@ -1,18 +1,18 @@
 ---
-layout: post
 title: Auto deflating Event Hubs with a function app
 share-img: http://tjaddison.com/assets/2017/2017-12-10/FunctionOutput.png
 tags: [Azure, EventHubs, C#, Function Apps]
 ---
-EventHubs have supported [auto-inflate/scale-up](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate) for a while now, but don't come with an equivalent to auto deflate/scale-down.  If your workload doesn't have sustained throughput requirements you'll probably benefit from periodically scaling back.
 
-Assuming you allow your hub to inflate to 10 throughput units but most of the time you only need 1, at current pricing that represents an overpayment of $0.27/hour, or $2,300/year.  Over multiple hubs (don't forget your dev/test instances!) it quickly adds up.
+EventHubs have supported [auto-inflate/scale-up](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate) for a while now, but don't come with an equivalent to auto deflate/scale-down. If your workload doesn't have sustained throughput requirements you'll probably benefit from periodically scaling back.
 
-Doing this manually is possible (and right now the [comments on the auto-inflate article](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate) suggest this is the way to go), though we can build and deploy a simple function app to take care of all of our eventhubs periodically.  The great thing about auto-inflate is that if we do scale back and the workload needs more throughput, it'll scale right back up again.
+Assuming you allow your hub to inflate to 10 throughput units but most of the time you only need 1, at current pricing that represents an overpayment of $0.27/hour, or $2,300/year. Over multiple hubs (don't forget your dev/test instances!) it quickly adds up.
+
+Doing this manually is possible (and right now the [comments on the auto-inflate article](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate) suggest this is the way to go), though we can build and deploy a simple function app to take care of all of our eventhubs periodically. The great thing about auto-inflate is that if we do scale back and the workload needs more throughput, it'll scale right back up again.
 
 ![Namespace configuration](/assets/2017/2017-12-10/AutoInflate.png)
 
-*Where is the auto deflate checkbox?*
+_Where is the auto deflate checkbox?_
 
 <!--more-->
 
@@ -29,7 +29,7 @@ In order to deploy the solution we'll need:
 
 The [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function) will take you through creating a function app if you don't already have one (which will create the required app service).
 
-Once the function app is created grab the values for **AzureWebJobsStorage** and **AzureWebJobsDashboard** from the application settings (they're both the same value).  These are needed for you to test your function locally.
+Once the function app is created grab the values for **AzureWebJobsStorage** and **AzureWebJobsDashboard** from the application settings (they're both the same value). These are needed for you to test your function locally.
 
 ![Configuration details](/assets/2017/2017-12-10/FunctionAppApplicationSettings.png)
 
@@ -39,7 +39,7 @@ To create the service principal we're going to use [Azure Powershell](https://do
 
 The script below has been adapted from the [Azure authentication for dotnet SDK article](https://docs.microsoft.com/en-us/dotnet/azure/dotnet-sdk-azure-authenticate).
 
->We're granting ourselves the right to modify a single resource group in the example below - if you want the app to modify Event Hub namespaces in multiple resource groups you need to grant the 'Scaler' app Owner rights on each resource group
+> We're granting ourselves the right to modify a single resource group in the example below - if you want the app to modify Event Hub namespaces in multiple resource groups you need to grant the 'Scaler' app Owner rights on each resource group
 
 ```powershell
 $subscriptionName = "<your subscription name>"
@@ -67,7 +67,7 @@ Get-AzureRmSubscription | Select-Object SubscriptionId, TenantId, SubscriptionNa
 
 Clone the application from the [ScaleDownEventHubs repository](https://github.com/taddison/ScaleDownEventHubs/tree/aedbb76b40c0acd9a5a9bb952280f4d6e614093e) on GitHub.
 
-Once cloned modify your *local.settings.json* file to look like the example file, using the values you acquired in the previous steps.
+Once cloned modify your _local.settings.json_ file to look like the example file, using the values you acquired in the previous steps.
 
 Your **ClientId** is the ApplicationId, and the **ClientSecret** is the password you used.
 
@@ -84,7 +84,7 @@ Your **ClientId** is the ApplicationId, and the **ClientSecret** is the password
 }
 ```
 
-You can now add one or more eventhub namespaces to the function (in *ScaleDown.cs*).
+You can now add one or more eventhub namespaces to the function (in _ScaleDown.cs_).
 
 ```csharp
 var namespaces = new List<EventhubNamespace>
@@ -93,13 +93,13 @@ var namespaces = new List<EventhubNamespace>
 };
 ```
 
-When the function runs it will use the credentials from your *local.settings.json* file to compare each namespace against the target capacity (the last argument - 1 in the example above), and if the namespace has a higher throughput it will reduce it.
+When the function runs it will use the credentials from your _local.settings.json_ file to compare each namespace against the target capacity (the last argument - 1 in the example above), and if the namespace has a higher throughput it will reduce it.
 
->In the portal you'll see reference to Throughput or Throughput Units - in the SDK this is captured by the Capacity property.  For more information on the library we're using to manage the Event Hubs you can read the [Event Hubs management libraries](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-management-libraries) documentation.
+> In the portal you'll see reference to Throughput or Throughput Units - in the SDK this is captured by the Capacity property. For more information on the library we're using to manage the Event Hubs you can read the [Event Hubs management libraries](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-management-libraries) documentation.
 
 To test this without making any changes you can comment out the update line, or set the capacity numbers to 20 (if the target capacity is higher than the current capacity it will not attempt to scale up - that is what auto-inflate is for!).
 
-By default the function is set to run once a day at 01:30.  For testing purposes you'll probably want to change it to run every minute.
+By default the function is set to run once a day at 01:30. For testing purposes you'll probably want to change it to run every minute.
 
 ```csharp
 // Default - daily at 01:30
@@ -117,8 +117,8 @@ If you run the example locally you should see output similar to the below, where
 
 ## Deploying the app
 
-Publishing the app from Visual Studio will only deploy the function - by default the settings won't get deployed.  You can either use the function CLI to deploy your settings, or add them in the portal.  The portal will already have the storage account settings, so the key settings you need to add are **ClientId**, **TenantId** and **ClientSecret**.
+Publishing the app from Visual Studio will only deploy the function - by default the settings won't get deployed. You can either use the function CLI to deploy your settings, or add them in the portal. The portal will already have the storage account settings, so the key settings you need to add are **ClientId**, **TenantId** and **ClientSecret**.
 
 Once published the app will start executing on the timer you have specified.
 
-You can monitor execution through the function app logs, Application Insights (if you add the [required integration](https://docs.microsoft.com/en-us/azure/azure-functions/functions-monitoring)),  or the [Azure activity log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs).  Every time the capacity of the namespace is changed there will be entries in the operational logs.
+You can monitor execution through the function app logs, Application Insights (if you add the [required integration](https://docs.microsoft.com/en-us/azure/azure-functions/functions-monitoring)), or the [Azure activity log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Every time the capacity of the namespace is changed there will be entries in the operational logs.
