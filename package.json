@@ -33,6 +33,7 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "prettier": "^1.18.2",
     "tailwindcss": "^1.1.1"
   },
@@ -50,6 +51,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "deploy": "npm run clean && gatsby build && gh-pages -d public -b gh-pages",
+    "push": "gh-pages -d public -b gh-pages",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
