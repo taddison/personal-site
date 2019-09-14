@@ -39,7 +39,7 @@ const TagIndex = props => {
       <div className="mb-4 px-2 md:mb-6 lg:px-12 flex flex-wrap">
         {tagGroups.map(group => {
           return (
-            <div key={group.tag} className="my-1">
+            <div key={group.tag}>
               <TagPill
                 tag={group.tag}
                 customLabel={`${group.tag} (${group.totalCount})`}
