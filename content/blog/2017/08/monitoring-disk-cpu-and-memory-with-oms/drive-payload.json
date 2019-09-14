@@ -1,0 +1,205 @@
+{
+    "IncludeSearchResults": true,
+    "WarningThreshold": 15,
+    "CriticalThreshold": 5,
+    "SearchResults": {
+      "Tables": [
+        {
+          "TableName": "Table_0",
+          "Columns": [
+            {
+              "ColumnName": "TimeGenerated",
+              "DataType": "DateTime",
+              "ColumnType": "datetime"
+            },
+            {
+              "ColumnName": "ServerDrive",
+              "DataType": "String",
+              "ColumnType": "string"
+            },
+            {
+              "ColumnName": "AggregatedValue",
+              "DataType": "Double",
+              "ColumnType": "real"
+            }
+          ],
+          "Rows": [
+            [
+              "2017-08-21T17:52:22Z",
+              "Server1-F:",
+              10.9248418807983
+            ],
+            [
+              "2017-08-21T17:42:22Z",
+              "Server1-F:",
+              10.9251756668091
+            ],
+            [
+              "2017-08-21T17:47:22Z",
+              "Server1-F:",
+              10.9251518249512
+            ],
+            [
+              "2017-08-21T17:38:22Z",
+              "Server1-F:",
+              10.9251518249512
+            ],
+            [
+              "2017-08-21T17:43:22Z",
+              "Server1-F:",
+              10.9251518249512
+            ]
+          ]
+        },
+        {
+          "TableName": "Table_1",
+          "Columns": [
+            {
+              "ColumnName": "Value",
+              "DataType": "String",
+              "ColumnType": "string"
+            }
+          ],
+          "Rows": [
+            [
+              "{\"Visualization\":\"table\",\"Title\":\"\",\"Accumulate\":false,\"IsQuerySorted\":false,\"Kind\":\"\",\"Annotation\":\"\",\"By\":null}"
+            ]
+          ]
+        },
+        {
+          "TableName": "Table_2",
+          "Columns": [
+            {
+              "ColumnName": "Timestamp",
+              "DataType": "DateTime",
+              "ColumnType": "datetime"
+            },
+            {
+              "ColumnName": "Severity",
+              "DataType": "Int32",
+              "ColumnType": "int"
+            },
+            {
+              "ColumnName": "SeverityName",
+              "DataType": "String",
+              "ColumnType": "string"
+            },
+            {
+              "ColumnName": "StatusCode",
+              "DataType": "Int32",
+              "ColumnType": "int"
+            },
+            {
+              "ColumnName": "StatusDescription",
+              "DataType": "String",
+              "ColumnType": "string"
+            },
+            {
+              "ColumnName": "Count",
+              "DataType": "Int32",
+              "ColumnType": "int"
+            },
+            {
+              "ColumnName": "RequestId",
+              "DataType": "Guid",
+              "ColumnType": "guid"
+            },
+            {
+              "ColumnName": "ActivityId",
+              "DataType": "Guid",
+              "ColumnType": "guid"
+            },
+            {
+              "ColumnName": "SubActivityId",
+              "DataType": "Guid",
+              "ColumnType": "guid"
+            },
+            {
+              "ColumnName": "ClientActivityId",
+              "DataType": "String",
+              "ColumnType": "string"
+            }
+          ],
+          "Rows": [
+            [
+              "2017-08-21T18:07:23.7623042Z",
+              4,
+              "Info",
+              0,
+              "Query completed successfully",
+              1,
+              "e300551b-e691-4ee9-93c4-0c71bbf1cab2",
+              "e300551b-e691-4ee9-93c4-0c71bbf1cab2",
+              "876cb422-e122-4460-a82b-6d462530e4aa",
+              "11824caa-8cba-4682-8a16-95a02497c6f8"
+            ],
+            [
+              "2017-08-21T18:07:23.7623042Z",
+              6,
+              "Stats",
+              0,
+              "{\"ExecutionTime\":0.1405558,\"resource_usage\":{\"cache\":{\"memory\":{\"hits\":560,\"misses\":0,\"total\":560},\"disk\":{\"hits\":0,\"misses\":0,\"total\":0}},\"cpu\":{\"user\":\"00:00:00.0156250\",\"kernel\":\"00:00:00\",\"total cpu\":\"00:00:00.0156250\"},\"memory\":{\"peak_per_node\":16777312}}}",
+              1,
+              "e300551b-e691-4ee9-93c4-0c71bbf1cab2",
+              "e300551b-e691-4ee9-93c4-0c71bbf1cab2",
+              "876cb422-e122-4460-a82b-6d462530e4aa",
+              "11824caa-8cba-4682-8a16-95a02497c6f8"
+            ]
+          ]
+        },
+        {
+          "TableName": "Table_3",
+          "Columns": [
+            {
+              "ColumnName": "Ordinal",
+              "DataType": "Int64",
+              "ColumnType": "long"
+            },
+            {
+              "ColumnName": "Kind",
+              "DataType": "String",
+              "ColumnType": "string"
+            },
+            {
+              "ColumnName": "Name",
+              "DataType": "String",
+              "ColumnType": "string"
+            },
+            {
+              "ColumnName": "Id",
+              "DataType": "String",
+              "ColumnType": "string"
+            },
+            {
+              "ColumnName": "PrettyName",
+              "DataType": "String",
+              "ColumnType": "string"
+            }
+          ],
+          "Rows": [
+            [
+              0,
+              "QueryResult",
+              "PrimaryResult",
+              "43730341-e34c-4bc1-8b70-b38427327caa",
+              null
+            ],
+            [
+              1,
+              "",
+              "@ExtendedProperties",
+              "b9d2b5ea-7f25-48d1-b953-2b4267869e96",
+              null
+            ],
+            [
+              2,
+              "QueryStatus",
+              "QueryStatus",
+              "00000000-0000-0000-0000-000000000000",
+              null
+            ]
+          ]
+        }
+      ]
+    }
+  }
