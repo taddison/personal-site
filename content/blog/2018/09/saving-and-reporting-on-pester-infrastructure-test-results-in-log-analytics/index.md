@@ -2,6 +2,7 @@
 title: Saving and reporting on Pester Infrastructure test results in Log Analytics
 shareimage: "./SuccessRate.png"
 tags: [Azure, "Log Analytics", DevOps, PowerShell]
+date: "2018-09-23T00:00:00.0Z"
 ---
 
 [Pester] is a fantastic tool to test and monitor the status of your infrastructure. There are several libraries which leverage this directly (e.g. [SQLChecks], [DBAChecks], [Operation Validation Framework]), and a growing set of resources discussing how to leverage Pester in this fashion (including a [Pluralsight course] and a chapter in the [Pester book]). If you don't already have some tests you can run interactively (is my environment correct _right now?_) I'd suggest you start there first.

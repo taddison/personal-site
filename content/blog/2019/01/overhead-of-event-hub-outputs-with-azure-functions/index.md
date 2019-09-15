@@ -2,6 +2,7 @@
 title: Overhead of Event Hub outputs with Azure Function Apps
 shareimage: "./EventHubComparison.png"
 tags: [Azure, PowerShell, Function Apps, EventHubs]
+date: "2019-01-31T00:00:00.0Z"
 ---
 
 In a world where you're billed for what you use, it pays to really understand what _exactly_ it is you are using. The [pricing model][function app pricing] of the Azure Function Apps consumption plan sounds pretty simple (pay based on execution count and execution time) - though as always the devil is in the detail.

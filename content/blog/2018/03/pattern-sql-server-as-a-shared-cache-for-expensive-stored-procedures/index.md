@@ -2,6 +2,7 @@
 title: Pattern - SQL Server as a shared cache for expensive stored procedures
 shareimage: "./CacheControl.png"
 tags: [SQL]
+date: "2018-03-21T00:00:00.0Z"
 ---
 
 The following scaling rules will take you a long way if you are supporting an environment with a SQL Server datastore:

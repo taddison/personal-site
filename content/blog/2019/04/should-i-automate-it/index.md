@@ -2,6 +2,7 @@
 title: Should I Automate It?
 shareimage: "./ShouldIAutomateIt.png"
 tags: [Automation, Management, Excel]
+date: "2019-04-30T00:00:00.0Z"
 ---
 
 Whenever you need to do something more than once it's often tempting to invest in the process - either by making it easier to repeat or fully automating it.

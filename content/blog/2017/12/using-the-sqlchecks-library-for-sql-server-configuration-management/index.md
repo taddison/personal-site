@@ -2,6 +2,7 @@
 title: Using the SQLChecks library for SQL Server configuration management
 shareimage: "./LocalhostTests.png"
 tags: [PowerShell, Pester, SQL, SQLChecks]
+date: "2017-12-03T00:00:00.0Z"
 ---
 
 Getting started with configuration management can be pretty daunting. The number of frameworks/tools and their complexity can end up being a significant barrier to actually getting started (requiring you to answer both 'which framework should I use' and then 'how do I actually use it'). The key to making progress is to start small and make configuration management part of your daily/weekly checks.

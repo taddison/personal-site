@@ -2,6 +2,7 @@
 title: SQLChecks v1 Released
 shareimage: "./PesterTests.png"
 tags: [PowerShell, Pester, SQL, SQLChecks]
+date: "2018-01-07T00:00:00.0Z"
 ---
 
 After using SQLChecks to help tame our production instances for a few months, [v1 has now been released](https://github.com/taddison/SQLChecks/releases/tag/1.0). This first release includes documentation on all supported tests, as well as limited guidelines on how to structure any new tests/PowerShell functions.

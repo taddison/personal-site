@@ -2,6 +2,7 @@
 title: Partitioned Clustered Columnstores - Mind your deltastores!
 shareimage: "./ColumnStoreRowGroups.png"
 tags: [SQL]
+date: "2018-03-10T00:00:00.0Z"
 ---
 
 We use an hourly partitioning scheme coupled with a clustered columnstore to support ingestion and short-term retention of various telemetry data. A fairly common pattern is for us to deploy an hourly partition schema based on the `InsertDate` of data (a column with a default of `getutcdate()`).

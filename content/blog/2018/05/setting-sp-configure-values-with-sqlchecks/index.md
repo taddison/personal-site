@@ -2,6 +2,7 @@
 title: Setting sp_configure values with SQLChecks
 shareimage: "./SetSpConfigFunction.png"
 tags: [PowerShell, SQL, SQLChecks]
+date: "2018-05-31T00:00:00.0Z"
 ---
 
 As of v1.0 SQLChecks now contains the `Set-SpConfig` command that allows you to take a file that documents a server configuration (specifically sp_configure values) and apply that configuration to a server. The configuration file is the same one used by Pester tests ([perhaps in combination with something like dbachecks](https://github.com/taddison/dbachecks-wrapper)), which means you now have a mechanism to document, test, and set your server's configuration.

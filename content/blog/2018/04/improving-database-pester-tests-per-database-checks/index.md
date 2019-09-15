@@ -2,6 +2,7 @@
 title: Improving database Pester tests - per-database checks
 shareimage: "./TestDatabases.png"
 tags: [PowerShell, Pester, SQL, SQLChecks]
+date: "2018-04-08T00:00:00.0Z"
 ---
 
 When we first started putting tests together for [SQLChecks](https://github.com/taddison/SQLChecks) we naively/optimistically thought we'd mostly be seeing a sea of green, with failures being rare. This influenced the way we developed 'database' tests, so that when you test an instance for 'databases with files too full', the test gives you a pass/fail for the entire instance.

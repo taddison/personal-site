@@ -2,6 +2,7 @@
 title: Ensuring your Describe Tags are unique in Pester tests
 shareimage: "./DescribeTagsAppVeyor.png"
 tags: [PowerShell, Pester]
+date: "2018-07-21T00:00:00.0Z"
 ---
 
 The name of each test in [SQLChecks] is used as both the setting name in the configuration files, and to tag the Describe block. After seeing the benefit of fine-grained control over test execution (from Claudio Silva's post [dbachecks - a different approach...]) this method of test invocation became the preferred way to leverage the SQLChecks library:

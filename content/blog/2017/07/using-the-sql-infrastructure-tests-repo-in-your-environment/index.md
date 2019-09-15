@@ -1,6 +1,7 @@
 ---
 title: Using the SQL Infrastructure Tests repo in your environment
 tags: [PowerShell, Pester, SQL]
+date: "2017-07-09T00:00:00.0Z"
 ---
 
 > Update 2017-03-12: The [SQLChecks](https://github.com/taddison/SQLChecks) library builds on the ideas in this post and delivers an upgraded version of SQLInfrastructureTests. [This blog post](/2017/12/03/Using-the-SQLChecks-library-for-SQL-Server-configuration-management) discusses how to use the library.

@@ -2,6 +2,7 @@
 title: Troubleshooting a slow application with Application Insights
 shareimage: "./Endpoints.png"
 tags: [Azure, "Application Insights", DevOps]
+date: "2018-08-05T00:00:00.0Z"
 ---
 
 [Application Insights](AppInsights) is a fantastic instrumentation framework that with minimal/zero configuration will start giving you rich data about your application's performance.

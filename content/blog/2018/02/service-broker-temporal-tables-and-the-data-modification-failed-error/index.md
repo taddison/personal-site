@@ -2,6 +2,7 @@
 title: Service Broker, Temporal Tables, and the 'Data modification failed' error
 shareimage: "./ErrorSlug.png"
 tags: [SQL, "Service Broker", "Temporal Tables"]
+date: "2018-02-17T00:00:00.0Z"
 ---
 
 [Temporal tables](https://docs.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables) are a fantastic feature which we've enjoyed rolling out to replace some hand-rolled logging. Adding system versioning to a table has been mostly straightforward, though last week one of my colleagues saw some really odd behaviour that took the team a while to debug. Now we've understood the problem we're able to reproduce it 100% of the time (and subsequently come up with a workaround), though it definitely had us scratching our heads for a while - thanks for a super-interesting problem Ola!

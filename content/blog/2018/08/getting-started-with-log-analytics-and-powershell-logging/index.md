@@ -2,6 +2,7 @@
 title: Getting started with Log Analytics and PowerShell logging
 shareimage: "./ProcessQuery.png"
 tags: [Azure, "Log Analytics", DevOps, PowerShell]
+date: "2018-08-26T00:00:00.0Z"
 ---
 
 [Log Analytics] is a fantastic place to ship, store, and analyse your logs. Whether they're coming from a linked Azure resource, machine agents, or you're posting them from your own applications and services, Log Analytics is a key part of [Azure Management & Monitoring]. Whether you're an IT Pro, working in devops, or an application developer - this platform and its capabilities are worth exploring and understanding.

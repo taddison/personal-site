@@ -2,6 +2,7 @@
 title: Changing the owner of an SSRS subscription with PowerShell
 shareimage: "./Script.png"
 tags: [SQL, SSRS, PowerShell]
+date: "2018-01-24T00:00:00.0Z"
 ---
 
 If you're responsible for an SSRS instance you've probably got a script somewhere to handle changing the owner of a subscription (typically done when a user leaves/changes role and they've got subscriptions that need to keep running).

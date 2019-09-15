@@ -2,6 +2,7 @@
 title: Mitigating SERVICE_BROKER_WAITFOR_MANAGER latch waits
 shareimage: "./BrokerLatch.png"
 tags: [SQL]
+date: "2018-10-15T00:00:00.0Z"
 ---
 
 Our production environment recently started generating alerts on huge blocking chains (100s of requests), which were accompanied by increased database response times for various procedures. The blocking chains all had the latch wait `SERVICE_BROKER_WAITFOR_MANAGER` in common, some of which were blocking for seconds (adding significant overhead to operations that would normally complete in a few milliseconds).
