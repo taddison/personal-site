@@ -3,8 +3,6 @@
   - Large post titles render funny prev/next buttons - reconsider (next/prev or truncated titles?)
 - About
   - Contact form could be implemented
-- Extra features
-  - Archive
 - Refactor
   - Post list component
   - Next/Previous components

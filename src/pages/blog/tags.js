@@ -16,7 +16,7 @@ const TagIndex = props => {
             totalCount
             posts: nodes {
               frontmatter {
-                date(formatString: "MMMM YYYY")
+                date(formatString: "DD MMMM YYYY")
                 title
               }
               fields {

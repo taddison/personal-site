@@ -73,13 +73,19 @@ const BlogPostList = props => {
             )}
           </li>
         </ul>
-        <span className="block mt-2 text-sm">
-          Or browse{" "}
+        <div className="mt-4">
+          You can also browse{" "}
           <Link className="font-semibold hover:text-accent-4" to="/blog/tags">
             posts by tag
           </Link>
-          .
-        </span>
+          , or view the{" "}
+          <Link
+            className="font-semibold hover:text-accent-4"
+            to="/blog/archive"
+          >
+            whole archive.
+          </Link>
+        </div>
       </section>
     </Layout>
   )
