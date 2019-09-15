@@ -1,11 +1,11 @@
 - Navigation
-  - How will access to pages like archive/tags happen - from the main menu?
   - Large post titles render funny prev/next buttons - reconsider (next/prev or truncated titles?)
 - About
   - Contact form could be implemented
 - Refactor
-  - Post list component
-  - Next/Previous components
+  - Post list component - same in post list and index
+  --> Maybe the index page shouldn't be unique?  But if the blog will ever have a different landing page this is where it'll be implemented
+  - Next/Previous components - Used in a few places, as both a visual glyph (next/prev button for posts + pages), and pagination logic also feels redundant
 
 Useful:
 
