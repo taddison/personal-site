@@ -11,12 +11,14 @@ const BlogPostList = props => {
   const { currentPage, numberOfPages } = props.pageContext
   const isLast = currentPage === numberOfPages
   const nextPage = currentPage + 1
-  const previousPage = currentPage < 3 ? '' : currentPage - 1
+  const previousPage = currentPage < 3 ? "" : currentPage - 1
 
   return (
     <Layout>
       <SEO title={`Posts - Page ${currentPage}`} />
-      <h2 className="text-3xl font-bold mb-6 text-center">Posts - Page {currentPage}</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center">
+        Posts - Page {currentPage}
+      </h2>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         const tags = node.frontmatter.tags || []

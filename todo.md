@@ -13,4 +13,3 @@ Useful:
 - https://ericbusch.net/install-gatsby-with-tailwind-css-and-purgecss-from-scratch
 - https://ericbusch.net/add-responsive-navigation-menu-to-gatsby-tailwind-css-site
 - https://nickymeuleman.netlify.com/blog/gatsby-pagination
-
