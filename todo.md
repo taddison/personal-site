@@ -3,8 +3,6 @@
   - Large post titles render funny prev/next buttons - reconsider (next/prev or truncated titles?)
 - About
   - Contact form could be implemented
-- Tags
-  - Revisit styling of tag page once content is migrated
 - Extra features
   - Pagination (/blog/2, etc.)
   - Archive
