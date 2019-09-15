@@ -48,22 +48,25 @@ const BlogIndex = props => {
       })}
       <hr className="my-6" />
       <section>
-      <ul className="flex justify-between flex-wrap">
-        <li></li>
-        <li>
-          <Link
-              to='/blog/2'
+        <ul className="flex justify-between flex-wrap">
+          <li></li>
+          <li>
+            <Link
+              to="/blog/2"
               rel="next"
               className="font-bold py-2 pl-5 pr-3 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3"
             >
               Older Posts →
             </Link>
-
-        </li>
-      </ul>
-      <p>
-        Or browse <Link className="font-semibold hover:text-accent-4" to='/blog/tags'>posts by tag</Link>.
-      </p>
+          </li>
+        </ul>
+        <p>
+          Or browse{" "}
+          <Link className="font-semibold hover:text-accent-4" to="/blog/tags">
+            posts by tag
+          </Link>
+          .
+        </p>
       </section>
     </Layout>
   )
@@ -73,7 +76,10 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC } limit: 10) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 10
+    ) {
       edges {
         node {
           excerpt
