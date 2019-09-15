@@ -16,7 +16,7 @@ const TagIndex = props => {
             totalCount
             posts: nodes {
               frontmatter {
-                date(formatString: "MMMM YYYY")
+                date(formatString: "DD MMMM YYYY")
                 title
               }
               fields {
@@ -36,7 +36,7 @@ const TagIndex = props => {
     <Layout>
       <SEO title="Post tags" />
       <h2 className="text-3xl font-bold mb-6 text-center">Posts by Tag</h2>
-      <div className="mb-4 px-2 md:mb-6 lg:px-12 flex flex-wrap">
+      <div className="mb-4 md:mb-6 lg:px-12 flex flex-wrap">
         {tagGroups.map(group => {
           return (
             <div key={group.tag}>

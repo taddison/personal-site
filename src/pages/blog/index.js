@@ -12,7 +12,8 @@ const BlogIndex = props => {
 
   return (
     <Layout>
-      <SEO title="All posts" />
+      <SEO title="Recent posts" />
+      <h2 className="text-3xl font-bold mb-6 text-center">Recent Posts</h2>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         const tags = node.frontmatter.tags || []
@@ -45,6 +46,34 @@ const BlogIndex = props => {
           </article>
         )
       })}
+      <hr className="my-6" />
+      <section>
+        <ul className="flex justify-between flex-wrap">
+          <li></li>
+          <li>
+            <Link
+              to="/blog/2"
+              rel="next"
+              className="font-bold py-2 pl-5 pr-3 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3"
+            >
+              Older Posts →
+            </Link>
+          </li>
+        </ul>
+        <div className="mt-4">
+          You can also browse{" "}
+          <Link className="font-semibold hover:text-accent-4" to="/blog/tags">
+            posts by tag
+          </Link>
+          , or view the{" "}
+          <Link
+            className="font-semibold hover:text-accent-4"
+            to="/blog/archive"
+          >
+            whole archive.
+          </Link>
+        </div>
+      </section>
     </Layout>
   )
 }
@@ -53,7 +82,10 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 10
+    ) {
       edges {
         node {
           excerpt
