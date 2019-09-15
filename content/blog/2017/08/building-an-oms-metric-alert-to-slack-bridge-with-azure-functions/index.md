@@ -12,7 +12,7 @@ date: "2017-08-29T00:00:00.0Z"
 - Sending alerts to multiple channels based on either server or metric name
 - Configuring defaults directly in the OMS alert, allowing rapid deployment of new alerts
 
-![Example Alerts](/assets/2017/2017-08-29/SlackAlerts.png)
+![Example Alerts](./SlackAlerts.png)
 
 If you want to get started quickly:
 
@@ -44,7 +44,7 @@ For every metric you want to alert on an OMS alert must be configured. While you
 
 Note that this example contains defaults appropriate for my environment - you may wish to modify the frequency of checks, thresholds, and suppressions.
 
-![Example Alert Config](/assets/2017/2017-08-29/AlertConfig.png)
+![Example Alert Config](./AlertConfig.png)
 
 ### Search Query
 

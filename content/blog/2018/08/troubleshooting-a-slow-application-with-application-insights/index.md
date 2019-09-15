@@ -21,13 +21,13 @@ After navigating to the AppInsights resource that holds our development telemetr
 
 We can now to navigate to the time period where the application was misbehaving (slow), and then filter out all of the roles and instances we don't care about.
 
-![Role Selection](/assets/2018/2018-08-05/RoleSelection.png)
+![Role Selection](./RoleSelection.png)
 
 In our case we drilled down to select the frontend website application, and the development machine which reported the problem.
 
 The performance blade gives an overview of the call count & duration of each endpoint (e.g. /Items/Detail, /Account/Login), and we can quickly see that a few endpoints had _really poor_ performance - 4 minutes to load one page. Discrepancies between production and local development are to be expected (none of our development team run any 64-core machines), but 4 minutes is pretty extreme.
 
-![Endpoints](/assets/2018/2018-08-05/Endpoints.png)
+![Endpoints](./Endpoints.png)
 
 > These are all server-side response times. AppInsights also supports [client side monitoring].
 
@@ -39,7 +39,7 @@ AppInsights will track every outbound dependency made by the application, giving
 
 From the _dependencies_ view we see a breakdown of every outbound call with the call count and average duration. You'll need to know what 'normal' looks like for your application, or at least have a rough idea of what to expect (volume of calls and expected response time). Looking at this view it was clear there was an issue with dependencies - call times I was expecting to be <10ms (in this environment) were running at almost 100ms.
 
-![Slow Calls](/assets/2018/2018-08-05/SlowCalls.png)
+![Slow Calls](./SlowCalls.png)
 
 Flipping between a machine that wasn't suffering the problems and the problematic machine revealed the 'slow' machine was almost 5-10x slower than the normal machine. You can be done via the portal (selecting a different instance), or by dropping into the [Analytics] portal and querying a few different machines:
 
@@ -55,7 +55,7 @@ dependencies
 
 Looking at averages as well as the median and 95th percentile shows us that this isn't some long-tail of slow requests pushing up the mean, but that all of our requests are slow. The problem is impacting all dependencies (e.g. GRPC), not just the database.
 
-![Slow Calls in Analytics](/assets/2018/2018-08-05/SlowCallsAnalytics.png)
+![Slow Calls in Analytics](./SlowCallsAnalytics.png)
 
 > AppInsights doesn't capture GRPC dependencies out of the box, but it does capture SQL and HttpClient calls.
 
@@ -65,7 +65,7 @@ Another way to troubleshoot is to examine what happened in the context of a sing
 
 Clicking on any sample shows a timeline for the operation, including all the dependency calls associated with that operation. Picking a slow example (the 4 minute one) we can see again this isn't one slow dependency - they're _all_ slow (and what you can't see below is a long vertical scrollbar!).
 
-![Slow Dependencies](/assets/2018/2018-08-05/SlowDependencies.png)
+![Slow Dependencies](./SlowDependencies.png)
 
 > AppInsights by default turns every request into an operation. If you're instrumenting a windows service you'll need to create and track your own operations if you want to see them show up in the Overall view with dependencies tagged to their parent operation. See more in the [Telemetry Correlation docs].
 
@@ -80,7 +80,7 @@ dependencies
 
 > Note that we sum(itemCount) rather than count() because of [automatic sampling]. If there is no sampling this has no impact on your results, but if your data is being sampled and you don't sum(itemCount), your numbers will be off!
 
-![Slow Dependencies in Analytics](/assets/2018/2018-08-05/SlowDependenciesAnalytics.png)
+![Slow Dependencies in Analytics](./SlowDependenciesAnalytics.png)
 
 This analysis tells us the same story as the overall view - that all dependencies seem to be slow. This view additionally tells us that we might have an [N+1 problem] somewhere due to the number of dependency calls being made with each operation.
 

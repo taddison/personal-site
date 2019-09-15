@@ -32,7 +32,7 @@ var tenantId = config["TenantId"];
 
 `TenantId` is your Azure Active Directory tenant. The other values come from the service principal you use to run the app, which we'll create in the next section.
 
-![App settings after deployment](/assets/2019/2019-02-28/AppSettingsFunctionApp.png)
+![App settings after deployment](./AppSettingsFunctionApp.png)
 
 > Note that the function does quite a lot of logging - if you configure Application Insights for your function app you'll be able to monitor what your function gets up to over time
 
@@ -66,7 +66,7 @@ The below script looks pretty daunting, though by default it will do nothing as 
 
 > This script will only assign the service principal to namespaces which have auto-inflate set to true.
 
-![App settings after deployment](/assets/2019/2019-02-28/AssignPowerShell.png)
+![App settings after deployment](./AssignPowerShell.png)
 
 ```powershell
 Login-AzAccount
@@ -139,7 +139,7 @@ traces
 
 One example result set is shown below - this shows multiple namespaces surviving the scaler unscathed (unscaled?), and a couple which were scaled-in. You can also see that there a few namespaces which don't scale down to 1 - these have `ScaleDownTUs` set on them.
 
-![Scaler query result](/assets/2019/2019-02-28/ScaleDownQuery.png)
+![Scaler query result](./ScaleDownQuery.png)
 
 [scaledown blog]: https://tjaddison.com/2017/12/10/Auto-deflating-Event-Hubs-with-a-function-app
 [scaledowneventhubs repo]: https://github.com/taddison/ScaleDownEventHubs

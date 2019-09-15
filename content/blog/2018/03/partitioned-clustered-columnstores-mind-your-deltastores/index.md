@@ -9,7 +9,7 @@ We use an hourly partitioning scheme coupled with a clustered columnstore to sup
 
 One thing we've had to keep an eye on when using this kind of pattern is the number of open deltastores that can get left behind as inserts 'move on' to a new partition.
 
-![sys.column_store_row_groups](/assets/2018/2018-03-10/ColumnStoreRowGroups.png)
+![sys.column_store_row_groups](./ColumnStoreRowGroups.png)
 
 > Hourly partitions are used as they are also the unit of truncation as data ages out in our envionrment. Due to the pain of the 'dangling deltastores' (as well as high partition counts impacting DMV usage) we're looking at making daily the smallest partition size we support.
 
@@ -29,7 +29,7 @@ The rest of this post will cover these in a bit more detail, as well as how to s
 
 The first example is best shown by a table which had escaped any kind of index maintenance:
 
-![Impact of deltastores](/assets/2018/2018-03-10/RowGroups.png)
+![Impact of deltastores](./RowGroups.png)
 
 The deltastores might be less than 20% of the rows, but they're more than 80% of the space used for the table! In the example above compressing the open rowgroups reduced the table from 500GB to 150GB.
 

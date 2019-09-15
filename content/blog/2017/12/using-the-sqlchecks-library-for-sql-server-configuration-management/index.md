@@ -11,7 +11,7 @@ To this end I built the [SQLChecks](https://github.com/taddison/SQLChecks) libra
 
 This post will walk through how to set up a basic configuration management process to record and check the state of your SQL Server instances using [Pester](https://github.com/pester/Pester) and SQLChecks. Once built you can run it interactivley (reporting to the console as shown below), or as part of a schedule to produce a report.
 
-![Pester Tests](/assets/2017/2017-12-03/LocalhostTests.png)
+![Pester Tests](./LocalhostTests.png)
 
 _In this example we've failed one of the tests that is checking that the right trace flags are set on the server (and both of them are missing!)_
 
@@ -48,7 +48,7 @@ The SpConfig property is actually a collection of properties, and you can discov
 Get-DbaSpConfigure -SqlInstance localhost | Out-GridView
 ```
 
-![SpConfigure Options](/assets/2017/2017-12-03/SpConfigureGridview.png)
+![SpConfigure Options](./SpConfigureGridview.png)
 
 > The **ConfigName** is what you need to use in your SpConfig section. For every value you want to check, list the ConfigName and value you expect.
 

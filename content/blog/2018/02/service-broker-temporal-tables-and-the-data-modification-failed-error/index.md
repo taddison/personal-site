@@ -51,7 +51,7 @@ In all of our previous troubleshooting we were dealing with very short (typicall
 
 ## Repro
 
-> If you'd like to try this repro out yourself you can download [this script](/assets/2018/2018-02-17/createobjects.sql) to create the database and all objects required.
+> If you'd like to try this repro out yourself you can download [this script](./createobjects.sql) to create the database and all objects required.
 
 The two procedures we'll be looking at are the one which inserts the payment request:
 

@@ -7,7 +7,7 @@ date: "2017-08-21T00:00:00.0Z"
 
 In the [previous post](/2017/08/06/Building-better-OMS-alerts-with-function-apps) we built an OMS to Slack function app to alert on high CPU usage. We'll now extend that so we have alerts in place to cover us for the infrastructure basics - CPU, Memory and Drive Space.
 
-![Example Alerts](/assets/2017/2017-08-21/AlertSample.png)
+![Example Alerts](./AlertSample.png)
 
 The final code for the functions and example payloads are available in [this GitHub repo](https://github.com/taddison/blog-oms-to-slack/tree/master/MultipleFunctions).
 
@@ -51,9 +51,9 @@ To keep things simple I've built one function app per-alert, all following the b
 
 | Alert      | Payload                                                            | Function                                                       | Measure        | Warning | Critical |
 | ---------- | ------------------------------------------------------------------ | -------------------------------------------------------------- | -------------- | ------- | -------- |
-| CPU        | [cpu-payload.json](/assets/2017/2017-08-21/cpu-payload.json)       | [CPUToSlack.csx](/assets/2017/2017-08-21/CPUToSlack.csx)       | CPU Used %     | 75      | 90       |
-| Memory     | [memory-payload.json](/assets/2017/2017-08-21/memory-payload.json) | [MemoryToSlack.csx](/assets/2017/2017-08-21/MemoryToSlack.csx) | Free Memory MB | 10,000  | 5,000    |
-| Disk Space | [drive-payload.json](/assets/2017/2017-08-21/drive-payload.json)   | [DriveToSlack.csx](/assets/2017/2017-08-21/DriveToSlack.csx)   | Free Space %   | 10      | 5        |
+| CPU        | [cpu-payload.json](./CPUToSlack.csx)       | CPU Used %     | 75      | 90       |
+| Memory     | [memory-payload.json](./MemoryToSlack.csx) | Free Memory MB | 10,000  | 5,000    |
+| Disk Space | [drive-payload.json](./DriveToSlack.csx)   | Free Space %   | 10      | 5        |
 
 ---
 

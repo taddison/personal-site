@@ -16,7 +16,7 @@ While some of breaks were definitely edge cases (and I don't think I have the th
 
 And once we're done a quick glance at our readme will show:
 
-![SQLChecks with badges](/assets/2018/2018-06-25/SQLChecksGithubBadges.png)
+![SQLChecks with badges](./SQLChecksGithubBadges.png)
 
 <!--more-->
 
@@ -40,7 +40,7 @@ Describe "Import-Module SQLChecks" {
 
 We can then verify SQLChecks exports a function by running Invoke-Pester in the `tests` folder:
 
-![Test success](/assets/2018/2018-06-25/InvokePesterSuccess.png)
+![Test success](./InvokePesterSuccess.png)
 
 > Note that because SQLChecks contains several `.tests.ps1` files as embedded resources, running Invoke-Pester from the root folder of the repository will generate a lot of false positives.
 
@@ -58,7 +58,7 @@ foreach($file in $files) {
 
 Which leads to...
 
-![Test failure](/assets/2018/2018-06-25/InvokePesterFailure.png)
+![Test failure](./InvokePesterFailure.png)
 
 Although this is an extremely simple test we have created a repeatable and easy way to ensure (one form of) correctness. More importantly we've also created a process which anyone contributing to SQLChecks can use to verify they've not made things any worse.
 
@@ -102,7 +102,7 @@ test_script:
 
 If we trigger a build (either manually by clicking the 'New Build' button inside your AppVeyor project, or commit a change to the repository) we'll see something like this:
 
-![Build Success](/assets/2018/2018-06-25/BuildSuccess.png)
+![Build Success](./BuildSuccess.png)
 
 ## Recording test results in AppVeyor
 
@@ -121,11 +121,11 @@ test_script:
 
 By including a `throw` in our script, we cause the script step to fail, so the whole build will be marked as failed.
 
-![Test failed in AppVeyor](/assets/2018/2018-06-25/TestFailThrow.png)
+![Test failed in AppVeyor](./TestFailThrow.png)
 
 The other part of this script (uploading a file with WebClient) takes the results and uploads them to AppVeyor, which means along with each build's status (pass/fail), we also get access to the results of each test. As you can see below, the 'Always Fail' test did indeed fail:
 
-![Test results in AppVeyor](/assets/2018/2018-06-25/AlwaysFailInAppVeyor.png)
+![Test results in AppVeyor](./AlwaysFailInAppVeyor.png)
 
 Now that we've got the build status and tests working correctly, we can display them as badges using [shields.io](https://shields.io/) (and you can click the badge to view the most recent build/test results):
 

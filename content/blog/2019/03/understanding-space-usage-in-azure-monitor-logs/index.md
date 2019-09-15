@@ -37,11 +37,11 @@ Usage
 
 A couple of example results are below - one for a security focused workspace, and one for a workspace which has a bit more going on.
 
-![Security Workspace](/assets/2019/2019-03-31/SimpleWorkspace.png)
+![Security Workspace](./SimpleWorkspace.png)
 
 We can see here that this workspace is dominated by the Security event log - almost 70% of all the data is the `SecurityEvent` data type in the `Security` solution. This corresponds to the Windows Security Event Log records that are uploaded.
 
-![Complex Workspace](/assets/2019/2019-03-31/ComplexWorkspace.png)
+![Complex Workspace](./ComplexWorkspace.png)
 
 This workspace demonstrates how the `top-nested` operator works. Inside of the LogManagement solution we've got 2 distinct data types (Perf and a Custom Log - the one ending in \_CL). We've also got the 'Others' record which tells us that the longer tail of data types in that solution might be worth looking at as they comprise nearly 30% of the solution total, and 15% of overall data.
 
@@ -67,7 +67,7 @@ workspace("secondaryWorkspace").Usage
 
 In this example the primary workspace is responsible for capturing data which will be retained for a long period of time, and the secondary workspace captures higher volume data. Use the dropdown to change between viewing by Workspace, Solution or Data Type.
 
-![Data usage over time](/assets/2019/2019-03-31/DataUsage.png)
+![Data usage over time](./DataUsage.png)
 
 > Note the usage of `startofday(...)` when filtering on `TimeGenerated`. Cutting boundaries at midnight at the start/end removes weird artefacts where the graph looks like it is unusually low due to only part of a day's data being counted.
 
@@ -87,7 +87,7 @@ Event
 
 In this example assume we discovered the `Event` data type in a particular workspace had a spike - running the query should tell us quickly if this was limited to a single server or all servers. And as you can see below there were three servers that had a very _eventful_ day a little while back!
 
-![EventLog by computer](/assets/2019/2019-03-31/EventLog.png)
+![EventLog by computer](./EventLog.png)
 
 ## Further reading
 

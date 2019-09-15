@@ -15,7 +15,7 @@ This post explores the answer to that question for a trivial C# function, and pr
 
 If you're wondering why we wanted to deconstruct the function's cost when an _execution unit_ costs a mere 16 picdollars (16x10^-12), consider what we saw after our first week at full load:
 
-![A lot of executions](/assets/2019/2019-01-21/Trillions.png)
+![A lot of executions](./Trillions.png)
 
 5 trillion execution units... Interesting!
 
@@ -146,7 +146,7 @@ $pool.Dispose()
 
 After running the test multiple times the numbers were fairly consistent - the function with an Event Hub output binding cost about _18% more_ to run than a stock function.
 
-![With and without EventHub output](/assets/2019/2019-01-21/EventHubComparison.png)
+![With and without EventHub output](./EventHubComparison.png)
 
 After crunching the raw numbers (which you can export from Azure Monitor to a CSV) we get to:
 

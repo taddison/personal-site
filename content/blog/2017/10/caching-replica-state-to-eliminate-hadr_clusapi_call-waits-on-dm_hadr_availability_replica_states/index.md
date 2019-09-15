@@ -7,7 +7,7 @@ date: "2017-10-04T00:00:00.0Z"
 
 We use [tsqlscheduler](https://github.com/taddison/tsqlScheduler) to manage most of our SQL Jobs (a few hundred jobs in a several overlapping AGs), and when lots of schedules overlap (e.g. many concurrent jobs kick off on the hour) we saw waits and blocking on the function that was attempting to determine whether or not the server was the primary replica:
 
-![Blocking](/assets/2017/2017-10-04/Blocking2.png)
+![Blocking](./Blocking2.png)
 
 This function queries the DMV [sys.dm_hadr_availability_replica_states](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-hadr-availability-replica-states-transact-sql), and we found that this DMV doesn't perform so well when the cluster size, number of AGs, and number of concurrent queries against the DMV rises.
 
@@ -92,4 +92,4 @@ end
 
 Deploying these changes eliminated the blocking behaviour, and we've seen the back of some fairly spectacular blocking chains we were able to produce when a server was under heavy load (yes, that is almost 3 minutes waiting to decide if the task can even run or not!).
 
-![Much More Blocking](/assets/2017/2017-10-04/Blocking.png)
+![Much More Blocking](./Blocking.png)

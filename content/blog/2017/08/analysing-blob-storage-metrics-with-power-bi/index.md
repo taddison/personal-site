@@ -13,7 +13,7 @@ In order to drill a level deeper than the billing API (which only reports reques
 
 You can download a copy of the template from [this repo](https://github.com/taddison/blog-power-bi-azure-storage), or read on for more details about how to configure and use the report.
 
-![Power BI Report](/assets/2017/2017-08-12/CapacityAndMetrics.png)
+![Power BI Report](./CapacityAndMetrics.png)
 
 <!--more-->
 
@@ -23,11 +23,11 @@ To use the Power BI template you'll need [Power BI Desktop](https://powerbi.micr
 
 When you open the template it will ask you to provide parameter values for the table endpoint. This typically takes the form https://storageaccountname.table.core.windows.net/ and can be found on the _Properties_ blade of the storage account in the Azure portal. Note that even blob storage accounts have a table endpoint (the system uses table storage for all metrics, regardless of the kind of account).
 
-![TableEndpointURL](/assets/2017/2017-08-12/TableEndpointParameter.png)
+![TableEndpointURL](./TableEndpointParameter.png)
 
 Once you've provided the endpoint the template will connect and if this is the first time you've connected it will ask you for the account key. The account key can be found on the _Access Keys_ blade of the storage account in the Azure portal.
 
-![AccountKey](/assets/2017/2017-08-12/AccountKey.png)
+![AccountKey](./AccountKey.png)
 
 The template will then download the capacity and metric data from the account. If you now save the Power BI file it will be saved as a report (.pbix), and next time you open this report you won't have to supply the details. In this way, you can quickly create reports for your key storage accounts that you can open and refresh as needed.
 
@@ -45,7 +45,7 @@ The first page of the report shows an overview of capacity, requests by type, an
 
 This happens because storage analytics will only create an entry in the metrics table if something happens - if your account has no activity it won't create an entry and our metric is then not contiguous (you'll have a record at midnight and then nothing until the next day at midnight). There are workarounds for this (use a different visualisation, render the missing data as 0, create a custom date/time axis, etc.) but drilling up typically works well.
 
-![Requests By Hour or Day](/assets/2017/2017-08-12/RequestsHourDay.png)
+![Requests By Hour or Day](./RequestsHourDay.png)
 
 ## Estimated Costs page
 
@@ -53,7 +53,7 @@ The second page of the report allows you to quickly check what the storage accou
 
 The estimation page makes use of 'What-If' parameters. If you slide the request unit cost or storage cost counters the graphs will update to show the expected price. This is useful when evaluating the potential cost impact of switching storage types (e.g. LRS to GRS).
 
-![Cost Estimation](/assets/2017/2017-08-12/EstimatedCost.png)
+![Cost Estimation](./EstimatedCost.png)
 
 # Building the report
 
@@ -109,7 +109,7 @@ For the costing data, my measures were all formatted as currency (USD) - you'll 
 
 To build the what-if functionality (e.g. cost per GB stored) you'll need to first create a what-if parameter. At the time of writing monthly [blob storage costs](https://azure.microsoft.com/en-us/pricing/details/storage/blobs-general/) range from $0.0224 to $0.061 per GB. To allow report users to explore this range we'll create a parameter that lets us go from 0.02 to 0.07 in 0.0001 increments (Modelling -> What If -> New Parameter):
 
-![What If](/assets/2017/2017-08-12/WhatIf.png)
+![What If](./WhatIf.png)
 
 Creating this will create a new table that has the series as well as the measure that returns the current value (based on any filters/slicers/calculation context). Note that the window is a shortcut to creating the table/expressions manually. Once we have the measure to compute cost we can then go on to create a measure to calculate the estimated monthly storage cost.
 
@@ -123,7 +123,7 @@ Monthly Storage Cost = [Capacity GB]*[Storage Cost Value]
 
 To parameterise the table endpoint a new parameter needs to be created in Edit Queries. Once created you can then edit the source step (double click the first step of each table import) and you'll be able to select from value or parameter:
 
-![Create Parameter](/assets/2017/2017-08-12/CreateParameter.png)
+![Create Parameter](./CreateParameter.png)
 
 You can manage the parameter value from the edit queries page (it will appear alongside tables and functions). When you export the report as a template it will then prompt for all parameter values when the template is first opened.
 
@@ -131,7 +131,7 @@ You can manage the parameter value from the edit queries page (it will appear al
 
 For exploring Azure storage I highly recommend [Storage Explorer](http://storageexplorer.com/), which will also show hidden tables and containers. The screenshot below shows an example of the \$MetricsHourPrimaryTransactionsBlob table viewed with storage explorer.
 
-![Storage Explorer](/assets/2017/2017-08-12/StorageExplorer.png)
+![Storage Explorer](./StorageExplorer.png)
 
 The full text of the M queries in the template is included below. They both expect a parameter called TableEndpointURL.
 
@@ -172,4 +172,4 @@ in
 
 If you have any suggestions for the report (either formatting, measures, default reports) please let me know.
 
-The version of the template used when building this blog post can be downloaded [here](/assets/2017/2017-08-12/AzureBlobStorageAnalytics.pbit) (the version on github may have since been updated).
+The version of the template used when building this blog post can be downloaded [here](./AzureBlobStorageAnalytics.pbit) (the version on github may have since been updated).

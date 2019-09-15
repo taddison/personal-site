@@ -11,7 +11,7 @@ Assuming you allow your hub to inflate to 10 throughput units but most of the ti
 
 Doing this manually is possible (and right now the [comments on the auto-inflate article](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate) suggest this is the way to go), though we can build and deploy a simple function app to take care of all of our eventhubs periodically. The great thing about auto-inflate is that if we do scale back and the workload needs more throughput, it'll scale right back up again.
 
-![Namespace configuration](/assets/2017/2017-12-10/AutoInflate.png)
+![Namespace configuration](./AutoInflate.png)
 
 _Where is the auto deflate checkbox?_
 
@@ -32,7 +32,7 @@ The [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-functions
 
 Once the function app is created grab the values for **AzureWebJobsStorage** and **AzureWebJobsDashboard** from the application settings (they're both the same value). These are needed for you to test your function locally.
 
-![Configuration details](/assets/2017/2017-12-10/FunctionAppApplicationSettings.png)
+![Configuration details](./FunctionAppApplicationSettings.png)
 
 ### Service Principal
 
@@ -114,7 +114,7 @@ For more examples of how to specify the frequency see the [timer documentation](
 
 If you run the example locally you should see output similar to the below, where we can see our namespace is currently at 5 Throughput units, so we take no action (as the target was 20).
 
-![Function app output](/assets/2017/2017-12-10/FunctionOutput.png)
+![Function app output](./FunctionOutput.png)
 
 ## Deploying the app
 

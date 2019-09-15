@@ -18,7 +18,7 @@ The rest of the post will walk through a generic pattern to cache stored procedu
 
 > The environment that motivated this work already aggressively caches results in the application tier - the specific motivation to cache the results in SQL came from the number of application nodes increasing. Building a shared cache service [or introducing something like Redis/Memcached] is a non-trivial engineering project, and the SQL CPU pressure this proc caused was significant. Other options (e.g. incremental cache updates/aggregation in the application tier) were also judged to be significant projects (or at least, more significant than caching it in the database!).
 
-![Cache Control](/assets/2018/2018-03-21/CacheControl.png)
+![Cache Control](./CacheControl.png)
 
 If you want to see the full example, you can check the [complete source on GitHub](https://github.com/taddison/DBCacheExample). Before deploying into production I strongly suggest reading through the entire post for caveats and tradeoffs.
 

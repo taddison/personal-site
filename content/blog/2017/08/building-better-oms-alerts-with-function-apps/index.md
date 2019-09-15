@@ -9,7 +9,7 @@ OMS (Operations Management Suite) allows you to easily build infrastructure aler
 
 We'll use a simple function app to not only report which server triggered the alert, but have far more granular control over what we report in Slack:
 
-![Sample Slack Message](/assets/2017/2017-08-06/sample-slack-message.png)
+![Sample Slack Message](./sample-slack-message.png)
 
 If you want to skip straight to the final code it is available in [this GitHub repo](https://github.com/taddison/blog-oms-to-slack/tree/master/SingleFunctionCPU).
 
@@ -36,7 +36,7 @@ Perf
 
 If you look at this query in Log Analytics you'll see it returns the per-minute CPU utilisation for every machine linked to your OMS account. We're going to set our alert to evaluate this query every 5 minutes, and look at the prior 5 minutes of data. In our environment we want to know any time a single computer exceeds our threshold for CPU % for 3 consecutive minutes. The thresholds we've established to trigger a warning is 75%. We also want to suppress any alerts following a trigger for 20 minutes (to prevent spam). In the OMS alert editor that looks like this:
 
-![OMS Alert Config](/assets/2017/2017-08-06/oms-alert-config.png)
+![OMS Alert Config](./oms-alert-config.png)
 
 The way alerting & suppression works is per-machine. This means that if two different machines are see-sawing around the threshold such that one of them is always above and the other is always below, this alert will _not fire_. This is the behaviour we want - only alert us when a single machine stays above the threshold for 3 measurement periods. Make sure you take your measurement period into account when bulding alerts - if you measure CPU every 5 minutes only it won't make any sense to look at per-minute granularity.
 
@@ -58,7 +58,7 @@ The warning & critical threshold values are provided for use in function app, an
 
 When correctly configured your OMS webhook config will look like this (though with your only RequestBin URL/function app URL):
 
-![OMS Webhook Config](/assets/2017/2017-08-06/oms-webhook-config.png)
+![OMS Webhook Config](./oms-webhook-config.png)
 
 You can test the webhook, though OMS will not run the query and include the search results. If you want to see what the search results look like you'll need to let the alert fire - set your threshold to something low (e.g. 1%) and the alert will fire within a few minutes.
 

@@ -9,11 +9,11 @@ When we first started putting tests together for [SQLChecks](https://github.com/
 
 This is fine when the test passes, but as soon as it fails it is spectacularly unhelpful in figuring out what broke.
 
-![Something is wrong](/assets/2018/2018-04-08/TestInstance.png)
+![Something is wrong](./TestInstance.png)
 
 Arriving in the morning to discover one (or more) databases on an instance have a problem isn't particularly actionable, and so I've recently started to move all SQLChecks tests over to per-database, which is a lot more helpful.
 
-![Some specific database is wrong](/assets/2018/2018-04-08/TestDatabases.png)
+![Some specific database is wrong](./TestDatabases.png)
 
 The rest of this post covers what the changes looked like, and talk a little more about the benefits of structuring tests this way.
 

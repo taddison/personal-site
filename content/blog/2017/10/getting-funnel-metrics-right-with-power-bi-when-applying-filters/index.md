@@ -7,11 +7,11 @@ date: "2017-10-31T00:00:00.0Z"
 
 In a [previous post](/2017/09/10/Creating-recruitment-funnel-metrics-in-Power-BI) we built a simple set of recruitment funnel metrics that allowed us to plot the hiring funnel from a new application to (hopefully) a hire. The core measure we built was _inclusive applications_, which works fine until you start to filter your data, after which point you go from a set of data like this:
 
-![Initial Data Model](/assets/2017/2017-10-31/ApplicationData.png)
+![Initial Data Model](./ApplicationData.png)
 
 To a funnel that looks like this when filtered for the DBA role:
 
-![Wrong Funnel](/assets/2017/2017-10-31/DBAFunnel.png)
+![Wrong Funnel](./DBAFunnel.png)
 
 Which is kind of odd as we'd like to reflect the fact we phone screened two DBAs.
 
@@ -25,7 +25,7 @@ The good news is this is an easy fix.
 
 Solving this issue is much easier if we first improve our data model, and take the 'Stage' dimension and create a dedicated dimension (or lookup) table for it. A great introduction to data modelling is available on [PowerPivotPro](https://powerpivotpro.com/2016/02/data-modeling-power-pivot-power-bi/).
 
-![Updated Data Model](/assets/2017/2017-10-31/UpdatedDataModel.png)
+![Updated Data Model](./UpdatedDataModel.png)
 
 Now we need to update our function to reference the dimension table (which as an added benefit simplifies the formula, as now we can use All(Table) rather than having to enumerate the columns):
 
@@ -42,6 +42,6 @@ CALCULATE (
 
 This gives us the chart we expect:
 
-![Correct Funnel](/assets/2017/2017-10-31/UpdatedDBAFunnel.png)
+![Correct Funnel](./UpdatedDBAFunnel.png)
 
-You can download a workbook with the data in [here](/assets/2017/2017-10-31/Data.xlsx), and the Power BI file with data and measures [here](/assets/2017/2017-10-31/FunnelSample.pbix).
+You can download a workbook with the data in [here](./FunnelSample.pbix).

@@ -32,7 +32,7 @@ outer apply (
 ) as lastResult
 ```
 
-![Currently executing tasks](/assets/2017/2017-09-03/CurrentlyExecutingTasks.png)
+![Currently executing tasks](./CurrentlyExecutingTasks.png)
 
 In this example there are four tasks which have been running for 55 seconds. They normally take 60 seconds to run, and they last ran a minute ago (with no errors).
 

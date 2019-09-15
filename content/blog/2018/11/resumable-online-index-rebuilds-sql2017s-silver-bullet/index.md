@@ -65,7 +65,7 @@ select *
 from sys.index_resumable_operations;
 ```
 
-![Paused index rebuild](/assets/2018/2018-11-16/IndexRebuildPaused.png)
+![Paused index rebuild](./IndexRebuildPaused.png)
 
 The following SQL attempts to complete the rebuild - sitting at 100% the only thing it needs to do is take the schema stability lock to switch out the new index for the old. As we're using a lock timeout of 1500ms it might take a few tries, but crucially we do not have to start the index rebuild from scratch.
 

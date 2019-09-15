@@ -211,4 +211,4 @@ Moving away from procedures only I'd love to extend this idea to report what tab
 
 Each line below represents a nested call to another proc all branching out from a single call. Curious to know what else is out there :)
 
-![Namespace configuration](/assets/2017/2017-12-23/ARatherLongProcedure.png)
+![Namespace configuration](./ARatherLongProcedure.png)

@@ -11,7 +11,7 @@ _This tale takes place on an SSRS 2016 Enterprise instance running on Server 201
 
 Users had reported that the SSRS instance was 'slow', and after opening the portal I could see what they meant. In addition to the home page taking a very long time to load (minutes), sometimes after loading I'd be presented with a menu bar and no folders/reports (despite knowing I should have seen a bunch of folders and reports).
 
-![Loading](/assets/2017/2017-10-21/Loading.png)
+![Loading](./Loading.png)
 
 The first port of call was the execution catalog, to see if any reports were running at all (as well as interactive rendering we have subscriptions and rendering happening via the API).
 
@@ -112,13 +112,13 @@ The problem (and the eventual solution) was the query plan. Looking again at the
 
 The current plan was scanning the user table twice, and for every row coming from the user table it was evaluating the suser_sname function for every row (represented by the compute scalars in the image below). The reason we scan twice is the query returns the name of the last modified by user as well as the created by user (for a report).
 
-![Bad Plan](/assets/2017/2017-10-21/BadPlan.png)
+![Bad Plan](./BadPlan.png)
 
 Looking in the table which holds user favourites I could see there was only a small number of rows, and so it seemed probable there was a better plan (especially as the portal had been performing well until recently, and there was no user who had favourite'd every report on the server…).
 
 After running the procedure with a few users (including the user who had the most favourites) and getting only good (non-scan) plans I recompiled the procedure, and usual service was instantly returned (the query that had been running for minutes and timing out now finished in less than a second). The plan is as expected - get the favourites and then perform the Sid lookups only the users who own/modified one of the favourite'd reports.
 
-![Good Plan](/assets/2017/2017-10-21/GoodPlan.png)
+![Good Plan](./GoodPlan.png)
 
 What caused the plan to tip in the first place and when I don't know, as our ReportServer database didn't have one of the best features of 2016 enabled at the time ([Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)). That has now been rectified, and going forward the data about execution times/timeouts will now feed into our querystore aggregation system and make spotting this kind of issue easy.
 

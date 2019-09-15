@@ -9,7 +9,7 @@ Whenever you need to do something more than once it's often tempting to invest i
 
 This post isn't about convincing you that it's time to automate that thing (if you're not already 'automate by default' go check out [XKCD 1205] - once you are fully on the automation train come back here). This post is about giving you another tool to help decide to _not automate_ that thing.
 
-![Automation Calculator](/assets/2019/2019-04-30/Spreadsheet.png)
+![Automation Calculator](./Spreadsheet.png)
 
 Download the [Calculator] to follow along!
 
@@ -47,7 +47,7 @@ These multipliers (and you can adjust them) are what drive the `ROI Fast` and `R
 
 The results of this automation show that this automation has a long-term payoff - 1-2 years before we land in the definitely bucket (which is where even the `Slow ROI` shows a payoff). If the process is likely to stay static and not require changes over the next 2 years then this might be worth automating?
 
-![Automation Calculator](/assets/2019/2019-04-30/AutomateTheCollection.png)
+![Automation Calculator](./AutomateTheCollection.png)
 
 ## So, should I automate it?
 

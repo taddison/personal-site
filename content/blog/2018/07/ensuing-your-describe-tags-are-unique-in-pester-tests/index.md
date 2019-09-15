@@ -17,7 +17,7 @@ foreach($check in (Get-SqlChecksFromConfig $config)) {
 
 There isn't yet a convention for how to name a test, and we've already had some tests built with similar sounding names - it is only a matter of time before we get a duplicate. To prevent duplicate tests accidentally getting checked in (and causing unusual/broken behaviour for consumers), I recently added a test that parses the test files and ensures that each tag is not only unique within the file, but globally within SQLChecks.
 
-![Describe tags test on AppVeyor](/assets/2018/2018-07-21/DescribeTagsAppVeyor.png)
+![Describe tags test on AppVeyor](./DescribeTagsAppVeyor.png)
 
 You can find the [full test on GitHub][tag uniqueness test on github], or read on for an explanation of how it is implemented. For a more thorough exploration of tests you can run on Describe blocks see SQLDBAWithABeard's blog [Using the AST in Pester for dbachecks]
 (which inspired this test), or the TechNet post [learn how it pros can use the PowerShell AST].
@@ -128,7 +128,7 @@ If you've not worked with an AST or parser before (or you have but not in PowerS
 
 > It's pretty cool to write Pester tests for your Pester tests.
 
-![I heard your like Pester tests](/assets/2018/2018-07-21/YoDawg.jpg)
+![I heard your like Pester tests](./YoDawg.jpg)
 
 ## Adding more tests
 
@@ -157,7 +157,7 @@ Describe "Every test has a tag" {
 
 Which looks something like this:
 
-![Every test has a tag](/assets/2018/2018-07-21/EveryTestHasATag.png)
+![Every test has a tag](./EveryTestHasATag.png)
 
 [sqlchecks]: https://github.com/taddison/SQLChecks
 [dbachecks - a different approach...]: https://claudioessilva.eu/2018/02/22/dbachecks-a-different-approach-for-an-in-progress-and-incremental-validation/

@@ -32,7 +32,7 @@ The project will now build. [(repo)](https://github.com/taddison/blog-oms-to-sla
 
 If you run the project you'll see the function runtime start but an error message indicates that your app doesn't contain any functions.
 
-![No Function Found](/assets/2017/2017-08-23/NoFunctionFound.png)
+![No Function Found](./NoFunctionFound.png)
 
 To have our class library 'light up' as a function we need to tell the functions runtime which methods should be treated as 'functions'. We do this by specifying a FunctionName attribute on each method we wish to host as a function. We also need to provide some additional information about the input parameter (which for us is a webhook) so the function runtime knows what that function expects. Finally, we'll also need to add a using for Microsoft.Azure.WebJobs. [(repo)](https://github.com/taddison/blog-oms-to-slack/tree/a3a884b31d060557abc17ea1d28539f177d0fd82/ClassLibrary/OMSToSlack)
 
@@ -46,7 +46,7 @@ public class MemoryToSlack
 
 Running the function app again will show us that the runtime has discovered our functions and is now listening on a URL.
 
-![Function Found](/assets/2017/2017-08-23/FunctionsHosted.png)
+![Function Found](./FunctionsHosted.png)
 
 To test the functions I found it easiest to use the json payloads we created earlier and post them to the function using Powershell. The below code is a Pester test that will post the relevant payload to each function, and return success only if the function returns a HTTP 200 (OK) response code.
 
@@ -76,15 +76,15 @@ Describe "OMS to Slack Function" {
 
 We can run the test by running the **Invoke-Pester** command in the folder that contains the file. A successful execution tells us that our functions are performing as we expect (or at least that they aren't throwing any exception!). As we make changes to the function code this test will allow us to verify that our functions still complete when we provide our known-good payloads. [(repo)](https://github.com/taddison/blog-oms-to-slack/tree/442be35935326ab7c394175d9ccbea281dc133b1/ClassLibrary)
 
-![Pester Test Success](/assets/2017/2017-08-23/PesterTestSuccess.png)
+![Pester Test Success](./PesterTestSuccess.png)
 
 The class library is now ready to be deployed and replace the script functions. To deploy and overwrite your functions you can download a publish profile from the Azure portal:
 
-![Download Publish Profile](/assets/2017/2017-08-23/DownloadPublishProfile.png)
+![Download Publish Profile](./DownloadPublishProfile.png)
 
 And then when you publish the project in Visual Studio select 'Import profile', and then Publish. If you browse to the Azure portal you'll notice that you can no longer see your function code (the .csx files), and instead you see the function.json file that points to your class library and entry point:
 
-![Function JSON](/assets/2017/2017-08-23/FunctionJson.png)
+![Function JSON](./FunctionJson.png)
 
 You can still test the function from the portal and watch the logs. You can also use the Pester test to run payloads against your live functions.
 

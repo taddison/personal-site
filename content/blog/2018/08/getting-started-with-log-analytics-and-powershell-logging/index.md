@@ -62,7 +62,7 @@ The screenshot below shows what this looks like, the steps you need to take from
 - Set a volume which keeps you within your 5GB/month limit (e.g. 0.15GB/day)
 - Press OK to apply the settings
 
-![Set daily volume cap](/assets/2018/2018-08-26/SetDailyCap.png)
+![Set daily volume cap](./SetDailyCap.png)
 
 > I've [opened an issue] to request adding support to set daily volume caps in the AzureRM PowerShell module.
 
@@ -132,7 +132,7 @@ ProcessLog_CL
 | project TimeGenerated, Handles_d, ProcessName_s
 ```
 
-![Handling it](/assets/2018/2018-08-26/ProcessQuery.png)
+![Handling it](./ProcessQuery.png)
 
 You can also deep-link queries using the URI we built earlier, appending the query you want to run (you'll need to URL encode the query if it contains spaces/line breaks/etc.):
 
@@ -162,7 +162,7 @@ Once you've got some data you'll want to get to grips with the query language of
 
 This really is only a small taste of what you can do when you start leveraging Log Analytics as the glue for your monitoring and alerting (which is whole other facet of the product to explore). The below image (taken from Microsoft's [Log Analytics] overview page) should give you plenty of ideas for how it can be used.
 
-![Log Analytics as glue](/assets/2018/2018-08-26/collecting-data.png)
+![Log Analytics as glue](./collecting-data.png)
 
 I hope you have as much fun querying your logs as I do!
 

@@ -9,7 +9,7 @@ Our production environment recently started generating alerts on huge blocking c
 
 In this post I'll walk through what an environmentin leveraging service broker might look like, show you how to reproduce the issue, and offer some mitigation strategies/general advice for service broker at scale.
 
-![Blocking](/assets/2018/2018-10-15/BrokerLatch.png)
+![Blocking](./BrokerLatch.png)
 
 <!--more-->
 
@@ -86,7 +86,7 @@ SqlDriver.exe
   -c "server=localhost;initial catalog=BrokerTest;integrated security=SSPI;Application Name='SQLDriver';max pool size=1024"
 ```
 
-![Initial load test results](/assets/2018/2018-10-15/InitialLoadTest.png)
+![Initial load test results](./InitialLoadTest.png)
 
 The numbers that I'll focus on for the rest of the post are the median response time (P50), and the tail latency (P95). In the above example the median response time was **9ms**, and the 95th percentile response time was **16ms**. In a typical system the timeout would be much higher than 1ms (at such a low timeout we might as well be polling the server), and even with a single thread we'd see variation with timeouts < 10ms - though most of the wait time would be the benign wait `BROKER_RECEIVE_WAITFOR`.
 
