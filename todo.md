@@ -7,7 +7,8 @@
   - Revisit styling of tag page once content is migrated
 - Content migration - for each post:
   - Review excerpts as required
-  - Rename share-img to shareimage
+  - Update all images to be referenced in the local folder (not assets)
+  - Add date to frontmatter
   - Currently reviewed to: May 2019 😭
 - Extra features
   - Pagination (/blog/2, etc.)
