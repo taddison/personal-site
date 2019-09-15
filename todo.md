@@ -4,14 +4,15 @@
 - About
   - Contact form could be implemented
 - Extra features
-  - Pagination (/blog/2, etc.)
   - Archive
+- Refactor
+  - Post list component
+  - Next/Previous components
 
 Useful:
 
 - https://www.jerriepelser.com/blog/using-tailwind-with-gatsby/
 - https://ericbusch.net/install-gatsby-with-tailwind-css-and-purgecss-from-scratch
-
-To-read:
-
 - https://ericbusch.net/add-responsive-navigation-menu-to-gatsby-tailwind-css-site
+- https://nickymeuleman.netlify.com/blog/gatsby-pagination
+
