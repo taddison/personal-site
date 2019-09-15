@@ -170,7 +170,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 }
 ```
 
-If all of the code and class definitions are present in the same file in the function app (run.csx) you should now be able to test this with the sample payload from OMS, or point OMS directly at the function.
+If all of the code and class definitions are present in the same file in the function app [run.csx](run.csx) you should now be able to test this with the sample payload from OMS, or point OMS directly at the function.
 
 The format of the message produced is:
 
