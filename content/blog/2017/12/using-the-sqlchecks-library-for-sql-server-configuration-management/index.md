@@ -1,6 +1,6 @@
 ---
 title: Using the SQLChecks library for SQL Server configuration management
-shareimage: http://tjaddison.com/assets/2017/2017-12-03/LocalhostTests.png
+shareimage: "./LocalhostTests.png"
 tags: [PowerShell, Pester, SQL, SQLChecks]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Adding Pester tests to a PowerShell module and scheduling CI with AppVeyor
-shareimage: https://tjaddison.com/assets/2018/2018-06-25/TestFailThrow.png
+shareimage: "./TestFailThrow.png"
 tags: [PowerShell, Pester, AppVeyor]
 ---
 

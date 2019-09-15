@@ -1,6 +1,6 @@
 ---
 title: Improving database Pester tests - per-database checks
-shareimage: http://tjaddison.com/assets/2018/2018-04-08/TestDatabases.png
+shareimage: "./TestDatabases.png"
 tags: [PowerShell, Pester, SQL, SQLChecks]
 ---
 

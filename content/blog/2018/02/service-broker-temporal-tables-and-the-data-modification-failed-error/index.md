@@ -1,6 +1,6 @@
 ---
 title: Service Broker, Temporal Tables, and the 'Data modification failed' error
-shareimage: http://tjaddison.com/assets/2018/2018-02-17/ErrorSlug.png
+shareimage: "./ErrorSlug.png"
 tags: [SQL, "Service Broker", "Temporal Tables"]
 ---
 

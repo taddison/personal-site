@@ -1,6 +1,6 @@
 ---
 title: Building better OMS alerts with function apps
-shareimage: http://tjaddison.com/assets/2017/2017-08-06/sample-slack-message.png
+shareimage: "./sample-slack-message.png"
 tags: [OMS, Azure, "Function Apps", Slack]
 ---
 

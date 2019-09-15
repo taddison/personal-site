@@ -1,6 +1,6 @@
 ---
 title: Migrating function app scripts to a class library
-shareimage: http://tjaddison.com/assets/2017/2017-08-23/FunctionsHosted.png
+shareimage: "./FunctionsHosted.png"
 tags: [Azure, "Function Apps"]
 ---
 

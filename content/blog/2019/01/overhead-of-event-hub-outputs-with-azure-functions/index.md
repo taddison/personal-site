@@ -1,6 +1,6 @@
 ---
 title: Overhead of Event Hub outputs with Azure Function Apps
-shareimage: https://tjaddison.com/assets/2019/2019-01-21/EventHubComparison.png
+shareimage: "./EventHubComparison.png"
 tags: [Azure, PowerShell, Function Apps, EventHubs]
 ---
 

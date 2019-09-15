@@ -1,6 +1,6 @@
 ---
 title: Pattern - SQL Server as a shared cache for expensive stored procedures
-shareimage: http://tjaddison.com/assets/2018/2018-03-21/CacheControl.png
+shareimage: "./CacheControl.png"
 tags: [SQL]
 ---
 

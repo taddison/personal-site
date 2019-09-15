@@ -1,6 +1,6 @@
 ---
 title: Should I Automate It?
-shareimage: https://tjaddison.com/assets/2019/2019-04-30/ShouldIAutomateIt.png
+shareimage: "./ShouldIAutomateIt.png"
 tags: [Automation, Management, Excel]
 ---
 

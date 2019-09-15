@@ -1,6 +1,6 @@
 ---
 title: Ensuring your Describe Tags are unique in Pester tests
-shareimage: https://tjaddison.com/assets/2018/2018-07-21/DescribeTagsAppVeyor.png
+shareimage: "./DescribeTagsAppVeyor.png"
 tags: [PowerShell, Pester]
 ---
 

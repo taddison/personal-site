@@ -1,6 +1,6 @@
 ---
 title: Better expenses with Monzo and PowerShell
-shareimage: http://tjaddison.com/assets/2018/2018-04-22/Export.png
+shareimage: "./Export.png"
 tags: [PowerShell, Monzo]
 ---
 

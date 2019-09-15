@@ -1,6 +1,6 @@
 ---
 title: SQLChecks v1 Released
-shareimage: http://tjaddison.com/assets/2018/2018-01-07/PesterTests.png
+shareimage: "./PesterTests.png"
 tags: [PowerShell, Pester, SQL, SQLChecks]
 ---
 

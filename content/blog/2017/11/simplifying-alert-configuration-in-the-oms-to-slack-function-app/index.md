@@ -1,6 +1,6 @@
 ---
 title: Simplifying alert configuration in the OMS to Slack function app
-shareimage: http://tjaddison.com/assets/2017/2017-11-08/ExcelConfiguration.png
+shareimage: "./ExcelConfiguration.png"
 tags: [OMS, Slack, Azure, "Function Apps"]
 ---
 

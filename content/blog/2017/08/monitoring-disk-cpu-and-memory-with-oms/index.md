@@ -1,6 +1,6 @@
 ---
 title: Monitoring disk, CPU, and memory with OMS
-shareimage: http://tjaddison.com/assets/2017/2017-08-21/AlertSample.png
+shareimage: "./AlertSample.png"
 tags: [OMS, "Log Analytics"]
 ---
 

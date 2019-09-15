@@ -1,6 +1,6 @@
 ---
 title: Keeping a work journal with VS Code
-shareimage: http://tjaddison.com/assets/2018/2018-02-28/JournalSample.png
+shareimage: "./JournalSample.png"
 tags: [VSCode, Productivity]
 ---
 

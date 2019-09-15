@@ -1,6 +1,6 @@
 ---
 title: Saving and reporting on Pester Infrastructure test results in Log Analytics
-shareimage: https://tjaddison.com/assets/2018/2018-09-23/SuccessRate.png
+shareimage: "./SuccessRate.png"
 tags: [Azure, "Log Analytics", DevOps, PowerShell]
 ---
 

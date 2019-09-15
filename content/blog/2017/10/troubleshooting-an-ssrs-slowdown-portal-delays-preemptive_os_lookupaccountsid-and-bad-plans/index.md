@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting an SSRS slowdown - portal delays, PREEMPTIVE_OS_LOOKUPACCOUNTSID, and bad plans
-shareimage: http://tjaddison.com/assets/2017/2017-10-21/BadPlan.png
+shareimage: "./BadPlan.png"
 tags: [SQL, SSRS]
 ---
 
