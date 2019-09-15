@@ -10,7 +10,9 @@ const TagIndex = props => {
   const { tagGroup } = useStaticQuery(
     graphql`
       query {
-        tagGroup: allMarkdownRemark {
+        tagGroup: allMarkdownRemark(
+          sort: { fields: frontmatter___date, order: DESC }
+        ) {
           group(field: frontmatter___tags) {
             tag: fieldValue
             totalCount
