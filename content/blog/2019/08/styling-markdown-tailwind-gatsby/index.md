@@ -75,8 +75,11 @@ I wanted to keep the Tailwind reset applied to the non-markdown parts of the sit
 .markdown th {
   @apply px-2 py-1 border border-gray-400;
 }
-.markdown tr:nth-child(2) {
-  @apply bg-gray-100;
+.markdown tr:nth-child(odd) {
+  @apply bg-gray-100
+}
+.markdown table {
+  @apply mb-6
 }
 /* purgecss end ignore */
 ```

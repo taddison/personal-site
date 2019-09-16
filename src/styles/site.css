@@ -62,7 +62,10 @@ body {
 .markdown td, .markdown th {
   @apply px-2 py-1 border border-gray-400
 }
-.markdown tr:nth-child(2) {
+.markdown tr:nth-child(odd) {
   @apply bg-gray-100
+}
+.markdown table {
+  @apply mb-6
 }
 /* purgecss end ignore */
