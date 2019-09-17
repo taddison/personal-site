@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   Array.from({ length: numberOfPages }).forEach((_, i) => {
     // Skip the first page
-    if(i > 0) {
+    if (i > 0) {
       createPage({
         path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
         component: path.resolve("./src/templates/blog-post-list.js"),
