@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import TagPill from "../components/TagPill"
+import LinkButton from "../components/LinkButton"
 
 const BlogPostList = props => {
   const posts = props.data.allMarkdownRemark.edges
@@ -55,23 +56,19 @@ const BlogPostList = props => {
       <section>
         <ul className="flex justify-between flex-wrap">
           <li>
-            <Link
+            <LinkButton
               to={`/blog/${previousPage}`}
               rel="prev"
-              className="font-bold py-2 pl-5 pr-3 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3"
-            >
-              ← Newer Posts
-            </Link>
+              label={"← Newer Posts"}
+            />
           </li>
           <li>
             {!isLast && (
-              <Link
+              <LinkButton
                 to={`/blog/${nextPage}`}
-                rel="next"
-                className="font-bold py-2 pl-5 pr-3 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3"
-              >
-                Older Posts →
-              </Link>
+                rel="prev"
+                label={"Older Posts →"}
+              />
             )}
           </li>
         </ul>

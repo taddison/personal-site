@@ -5,6 +5,7 @@ import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
 import TagPill from "../../components/TagPill"
+import LinkButton from "../../components/LinkButton"
 
 const BlogIndex = props => {
   const { data } = props
@@ -51,13 +52,7 @@ const BlogIndex = props => {
         <ul className="flex justify-between flex-wrap">
           <li></li>
           <li>
-            <Link
-              to="/blog/2"
-              rel="next"
-              className="font-bold py-2 pl-5 pr-3 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3"
-            >
-              Older Posts →
-            </Link>
+            <LinkButton to={`/blog/2`} label={`Older Posts →`} rel={`next`} />
           </li>
         </ul>
         <div className="mt-4">

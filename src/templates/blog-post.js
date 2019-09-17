@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import TagPill from "../components/TagPill"
+import LinkButton from "../components/LinkButton"
 
 const BlogPostTemplate = props => {
   const post = props.data.markdownRemark
@@ -36,24 +37,20 @@ const BlogPostTemplate = props => {
       <ul className="flex justify-between flex-wrap">
         <li>
           {previous && (
-            <Link
-              to={previous.fields.slug}
+            <LinkButton
+              to={`/blog/${previousPage}`}
               rel="prev"
-              className="font-bold py-2 pl-3 pr-5 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3"
-            >
-              ← {previous.frontmatter.title}
-            </Link>
+              label={`← ${previous.frontmatter.title}`}
+            />
           )}
         </li>
         <li>
           {next && (
-            <Link
-              to={next.fields.slug}
-              rel="next"
-              className="font-bold py-2 pl-5 pr-3 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3"
-            >
-              {next.frontmatter.title} →
-            </Link>
+            <LinkButton
+              to={`/blog/${previousPage}`}
+              rel="prev"
+              label={`${next.frontmatter.title} →`}
+            />
           )}
         </li>
       </ul>
