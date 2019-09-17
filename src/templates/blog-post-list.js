@@ -66,7 +66,7 @@ const BlogPostList = props => {
             {!isLast && (
               <LinkButton
                 to={`/blog/${nextPage}`}
-                rel="prev"
+                rel="next"
                 label={"Older Posts →"}
               />
             )}

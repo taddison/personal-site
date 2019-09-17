@@ -38,7 +38,7 @@ const BlogPostTemplate = props => {
         <li>
           {previous && (
             <LinkButton
-              to={`/blog/${previousPage}`}
+              to={previous.fields.slug}
               rel="prev"
               label={`← ${previous.frontmatter.title}`}
             />
@@ -47,8 +47,8 @@ const BlogPostTemplate = props => {
         <li>
           {next && (
             <LinkButton
-              to={`/blog/${previousPage}`}
-              rel="prev"
+              to={next.fields.slug}
+              rel="next"
               label={`${next.frontmatter.title} →`}
             />
           )}
