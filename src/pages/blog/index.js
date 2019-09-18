@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
-import TagPill from "../../components/TagPill"
+import PostSummaryList from "../../components/PostSummaryList"
 import LinkButton from "../../components/LinkButton"
 
 const BlogIndex = props => {
@@ -15,38 +15,7 @@ const BlogIndex = props => {
     <Layout>
       <SEO title="Recent posts" />
       <h2 className="text-3xl font-bold mb-6 text-center">Recent Posts</h2>
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        const tags = node.frontmatter.tags || []
-        return (
-          <article
-            key={node.fields.slug}
-            className="mb-6 rounded shadow-md pt-3 pb-4 px-5 border-gray-100 hover:bg-gray-100"
-          >
-            <Link to={node.fields.slug}>
-              <h3 className="font-semibold text-2xl">{title}</h3>
-
-              <header className="mb-1">
-                <small className="italic text-gray-500">
-                  {node.frontmatter.date}
-                </small>
-              </header>
-              <section className="mb-4">
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </Link>
-            <section>
-              {tags.map(tag => {
-                return <TagPill key={tag} tag={tag} />
-              })}
-            </section>
-          </article>
-        )
-      })}
+      <PostSummaryList posts={posts} />
       <hr className="my-6" />
       <section>
         <ul className="flex justify-between flex-wrap">
