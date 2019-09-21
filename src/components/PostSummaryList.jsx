@@ -9,15 +9,17 @@ const propTypes = {
 }
 
 const PostSummaryList = ({ posts }) => {
+  const postCount = posts.length
   return (
     <React.Fragment>
-      {posts.map(({ node }) => {
+      {posts.map((post, i) => {
+        const node = post.node
         const title = node.frontmatter.title || node.fields.slug
         const tags = node.frontmatter.tags || []
         return (
+          <div key={node.fields.slug}>
           <article
-            key={node.fields.slug}
-            className="mb-6 rounded shadow-md pt-3 pb-4 px-5 border-gray-100 hover:bg-gray-100"
+            className="rounded p-5 border-gray-100 hover:bg-gray-100 hover:shadow-md"
           >
             <Link to={node.fields.slug}>
               <h3 className="font-semibold text-2xl">{title}</h3>
@@ -41,6 +43,11 @@ const PostSummaryList = ({ posts }) => {
               })}
             </section>
           </article>
+          { i < postCount - 1 && <div className="flex flex-col items-center my-3">
+            <hr className="w-1/2"/>
+          </div>
+        }
+          </div>
         )
       })}
     </React.Fragment>
