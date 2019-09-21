@@ -7,6 +7,7 @@
     --> Maybe the index page shouldn't be unique? But if the blog will ever have a different landing page this is where it'll be implemented
     --> Key elements for the blog are post list, faster links to browse, and maybe RSS?
   - Maybe something on the pagination?
+- Redirects - old URLs should still work
 
 Useful:
 

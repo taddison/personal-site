@@ -43,7 +43,7 @@ const PostSummaryList = ({ posts }) => {
               })}
             </section>
           </article>
-          { i < postCount - 1 && <div className="flex flex-col items-center my-3">
+          { i < postCount - 1 && <div className="flex flex-col items-center my-6">
             <hr className="w-1/2"/>
           </div>
         }
