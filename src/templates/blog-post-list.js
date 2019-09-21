@@ -18,7 +18,7 @@ const BlogPostList = props => {
     <Layout>
       <SEO title={`Posts - Page ${currentPage}`} />
       <h2 className="text-3xl font-bold mb-6 text-center">
-        Posts - Page {currentPage}
+        Posts - Page {currentPage}/{numberOfPages}
       </h2>
       <PostSummaryList posts={posts} />
       <hr className="my-6" />
