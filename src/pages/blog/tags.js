@@ -52,14 +52,14 @@ const TagIndex = props => {
       </div>
       {tagGroups.map(group => {
         return (
-          <div key={group.tag} id={group.tag} className="mb-4">
+          <div key={group.tag} id={group.tag} className="mb-5">
             <h2 className="font-semibold text-xl">{group.tag}</h2>
             <div className="italic text-gray-500 text-sm">
               {group.totalCount} post{group.totalCount === 1 ? "" : "s"}
             </div>
             {group.posts.map(post => {
               return (
-                <div key={post.id}>
+                <div key={post.id} className="mb-1">
                   <Link to={post.fields.slug} className="hover:text-accent-3">
                     {post.frontmatter.title}{" "}
                   </Link>
