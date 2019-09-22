@@ -1,11 +1,24 @@
 import React from "react"
 import shark from "../../content/assets/shark.jpg"
-import azores from "../../content/assets/azores.jpg"
 import Helmet from "react-helmet"
 import SEO from "../components/seo"
 import Header from "../components/Header"
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 
 const About = () => {
+  const images = useStaticQuery(graphql`
+    query {
+      background: file(relativePath: { eq: "azores.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1920) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <div>
       <SEO title="About Me" />
@@ -15,18 +28,22 @@ const About = () => {
             "font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover",
         }}
       >
-        <style type="text/css">
-          {`
-          body {
-            background-image: url('${azores}')
-          }
-        `}
-        </style>
       </Helmet>
       <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
         <div className="absolute top-0 left-0 w-full opacity-35 tracking-normal">
           <Header title={"Home"} hideAbout />
         </div>
+        <Img
+          className="z-1"
+          fluid={images.background.childImageSharp.fluid}
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            width: "100%",
+            height: "100%",
+          }}
+        />
         <div
           id="profile"
           className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"
@@ -112,7 +129,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="w-full lg:w-2/5">
+        <div className="z-10 w-full lg:w-2/5">
           <img
             src={shark}
             className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
