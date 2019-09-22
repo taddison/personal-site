@@ -19,7 +19,7 @@ const PostSummaryList = ({ posts }) => {
         return (
           <div key={node.fields.slug}>
           <article
-            className="rounded p-5 border-gray-100 hover:bg-gray-100 hover:shadow-md"
+            className="rounded p-0 sm:p-5 border-gray-100 hover:bg-gray-100 hover:shadow-md"
           >
             <Link to={node.fields.slug}>
               <h3 className="font-semibold text-2xl">{title}</h3>
