@@ -1,11 +1,37 @@
 import React from "react"
-import shark from "../../content/assets/shark.jpg"
-import azores from "../../content/assets/azores.jpg"
 import Helmet from "react-helmet"
 import SEO from "../components/seo"
 import Header from "../components/Header"
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 
 const About = () => {
+  const images = useStaticQuery(graphql`
+    query {
+      background: file(relativePath: { eq: "azores.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1920) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      rightImage: file(relativePath: { eq: "shark.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      smallImage: file(relativePath: { eq: "shark.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <div>
       <SEO title="About Me" />
@@ -14,28 +40,33 @@ const About = () => {
           class:
             "font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover",
         }}
-      >
-        <style type="text/css">
-          {`
-          body {
-            background-image: url('${azores}')
-          }
-        `}
-        </style>
-      </Helmet>
+      ></Helmet>
       <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
         <div className="absolute top-0 left-0 w-full opacity-35 tracking-normal">
           <Header title={"Home"} hideAbout />
         </div>
+        <Img
+          className="z-1"
+          fluid={images.background.childImageSharp.fluid}
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            width: "100%",
+            height: "100%",
+          }}
+          alt="Waterfall in the Azores"
+        />
         <div
           id="profile"
           className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"
         >
           <div className="p-4 md:p-12 text-center lg:text-left">
-            <div
+            <Img
               className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
-              style={{ backgroundImage: "url(" + shark + ")" }}
-            ></div>
+              fluid={images.smallImage.childImageSharp.fluid}
+              alt="Tim with a shark"
+            />
 
             <h1 className="text-3xl font-bold pt-8 lg:pt-0">Tim Addison</h1>
             <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-teal-500 opacity-25"></div>
@@ -112,9 +143,9 @@ const About = () => {
           </div>
         </div>
 
-        <div className="w-full lg:w-2/5">
-          <img
-            src={shark}
+        <div className="z-10 w-full lg:w-2/5">
+          <Img
+            fluid={images.rightImage.childImageSharp.fluid}
             className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
             alt="Tim with a shark"
           />
