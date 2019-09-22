@@ -26,12 +26,12 @@ const BlogIndex = props => {
         </ul>
         <div className="mt-4">
           You can also browse{" "}
-          <Link className="font-semibold hover:text-accent-4" to="/blog/tags">
+          <Link className="font-semibold hover:text-accent-4 hover:underline" to="/blog/tags">
             posts by tag
           </Link>
           , or view the{" "}
           <Link
-            className="font-semibold hover:text-accent-4"
+            className="font-semibold hover:text-accent-4 hover:underline"
             to="/blog/archive"
           >
             whole archive.

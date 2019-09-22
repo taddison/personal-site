@@ -60,7 +60,7 @@ const TagIndex = props => {
             {group.posts.map(post => {
               return (
                 <div key={post.id} className="mb-1">
-                  <Link to={post.fields.slug} className="hover:text-accent-3">
+                  <Link to={post.fields.slug} className="hover:text-accent-3 hover:underline">
                     {post.frontmatter.title}{" "}
                   </Link>
                   <span className="text-gray-500 text-sm">
