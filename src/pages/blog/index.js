@@ -6,6 +6,7 @@ import SEO from "../../components/seo"
 
 import PostSummaryList from "../../components/PostSummaryList"
 import LinkButton from "../../components/LinkButton"
+import BlogLinkSummary from "../../components/BlogLinkSummary"
 
 const BlogIndex = props => {
   const { data } = props
@@ -13,8 +14,13 @@ const BlogIndex = props => {
 
   return (
     <Layout>
-      <SEO title="Recent posts" />
-      <h2 className="text-3xl font-bold mb-6 text-center">Recent Posts</h2>
+      <SEO title="Blog" />
+      <h2 className="text-3xl font-bold mb-6 text-center">Blog</h2>
+      <div className="mt-4 mb-6">
+        A technical blog which covers everything from the frontend to making SQL
+        Server go fast. Recent posts are shown below.
+        <BlogLinkSummary />
+      </div>
       <PostSummaryList posts={posts} />
       <hr className="my-6" />
       <section>
@@ -24,19 +30,6 @@ const BlogIndex = props => {
             <LinkButton to={`/blog/2`} label={`Older →`} rel={`next`} />
           </li>
         </ul>
-        <div className="mt-4">
-          You can also browse{" "}
-          <Link className="font-semibold hover:text-accent-4 hover:underline" to="/blog/tags">
-            posts by tag
-          </Link>
-          , or view the{" "}
-          <Link
-            className="font-semibold hover:text-accent-4 hover:underline"
-            to="/blog/archive"
-          >
-            whole archive.
-          </Link>
-        </div>
       </section>
     </Layout>
   )

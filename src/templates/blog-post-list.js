@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 
 import PostSummaryList from "../components/PostSummaryList"
 import LinkButton from "../components/LinkButton"
+import BlogLinkSummary from "../components/BlogLinkSummary"
 
 const BlogPostList = props => {
   const posts = props.data.allMarkdownRemark.edges
@@ -42,17 +43,7 @@ const BlogPostList = props => {
           </li>
         </ul>
         <div className="mt-4">
-          You can also browse{" "}
-          <Link className="font-semibold hover:text-accent-4 hover:underline" to="/blog/tags">
-            posts by tag
-          </Link>
-          , or view the{" "}
-          <Link
-            className="font-semibold hover:text-accent-4 hover:underline"
-            to="/blog/archive"
-          >
-            whole archive.
-          </Link>
+          <BlogLinkSummary />
         </div>
       </section>
     </Layout>
