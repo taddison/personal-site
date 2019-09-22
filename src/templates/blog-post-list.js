@@ -28,7 +28,7 @@ const BlogPostList = props => {
             <LinkButton
               to={`/blog/${previousPage}`}
               rel="prev"
-              label={"← Newer Posts"}
+              label={"← Newer"}
             />
           </li>
           <li>
@@ -36,7 +36,7 @@ const BlogPostList = props => {
               <LinkButton
                 to={`/blog/${nextPage}`}
                 rel="next"
-                label={"Older Posts →"}
+                label={"Older →"}
               />
             )}
           </li>

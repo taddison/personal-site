@@ -40,7 +40,7 @@ const BlogPostTemplate = props => {
             <LinkButton
               to={previous.fields.slug}
               rel="prev"
-              label={`← ${previous.frontmatter.title}`}
+              label="← Previous"
             />
           )}
         </li>
@@ -49,7 +49,7 @@ const BlogPostTemplate = props => {
             <LinkButton
               to={next.fields.slug}
               rel="next"
-              label={`${next.frontmatter.title} →`}
+              label="Next →"
             />
           )}
         </li>

@@ -21,7 +21,7 @@ const BlogIndex = props => {
         <ul className="flex justify-between flex-wrap">
           <li></li>
           <li>
-            <LinkButton to={`/blog/2`} label={`Older Posts →`} rel={`next`} />
+            <LinkButton to={`/blog/2`} label={`Older →`} rel={`next`} />
           </li>
         </ul>
         <div className="mt-4">
