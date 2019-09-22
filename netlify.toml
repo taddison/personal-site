@@ -1,3 +1,17 @@
+# Blog redirects
+# One per-year to scope this to old blog links only (otherwise we also match the new blog links!)
 [[redirects]]
-  from = "/:year/:month/:day/:slug"
-  to = "/blog/:year/:month/:slug"
+  from = "/2019/:month/:day/:slug"
+  to = "/blog/2019/:month/:slug"
+
+[[redirects]]
+  from = "/2018/:month/:day/:slug"
+  to = "/blog/2018/:month/:slug"
+
+[[redirects]]
+  from = "/2017/:month/:day/:slug"
+  to = "/blog/2017/:month/:slug"
+
+[[redirects]]
+  from = "/2016/:month/:day/:slug"
+  to = "/blog/2016/:month/:slug"
