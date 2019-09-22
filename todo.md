@@ -1,6 +1,5 @@
-- Navigation
-  - Large post titles render funny prev/next buttons - reconsider (next/prev or truncated titles?)
 - About
+  - The background image is MASSIVE - need to run through the gatsby pipeline somehow or manually optimize
   - Contact form could be implemented
 - Refactor
   - Post list component - same in post list and index
