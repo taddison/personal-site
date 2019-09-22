@@ -1,10 +1,10 @@
 - About
   - Contact form could be implemented
 - Refactor
-    --> Maybe the index page shouldn't be unique? But if the blog will ever have a different landing page this is where it'll be implemented
-    --> Key elements for the blog are post list, faster links to browse, and maybe RSS?
+  --> Maybe the index page shouldn't be unique? But if the blog will ever have a different landing page this is where it'll be implemented
+  --> Key elements for the blog are post list, faster links to browse, and maybe RSS?
 - Footer
-  - Logos? Reduce amount of stuff?  Bake all that contact information onto the home page?
+  - Logos? Reduce amount of stuff? Bake all that contact information onto the home page?
 
 Useful:
 

@@ -46,11 +46,7 @@ const BlogPostTemplate = props => {
         </li>
         <li>
           {next && (
-            <LinkButton
-              to={next.fields.slug}
-              rel="next"
-              label="Next →"
-            />
+            <LinkButton to={next.fields.slug} rel="next" label="Next →" />
           )}
         </li>
       </ul>
