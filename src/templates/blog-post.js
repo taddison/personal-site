@@ -4,8 +4,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import TagPill from "../components/TagPill"
-import LinkButton from "../components/LinkButton"
+import TagPill from "../components/tag-pill"
+import LinkButton from "../components/link-button"
 
 const BlogPostTemplate = props => {
   const post = props.data.markdownRemark

@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-import TagPill from "./TagPill"
+import TagPill from "./tag-pill"
 
 const propTypes = {
   posts: PropTypes.array.isRequired,

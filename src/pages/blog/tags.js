@@ -4,7 +4,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
-import TagPill from "../../components/TagPill"
+import TagPill from "../../components/tag-pill"
 
 const TagIndex = props => {
   const { tagGroup } = useStaticQuery(

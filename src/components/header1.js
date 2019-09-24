@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 
 const propTypes = {
   title: PropTypes.string.isRequired,
+  hideAbout: PropTypes.bool,
 }
 
 const Header = ({ title, hideAbout = false }) => {

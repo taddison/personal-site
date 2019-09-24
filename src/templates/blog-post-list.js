@@ -4,9 +4,9 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import PostSummaryList from "../components/PostSummaryList"
-import LinkButton from "../components/LinkButton"
-import BlogLinkSummary from "../components/BlogLinkSummary"
+import PostSummaryList from "../components/post-summary-list"
+import LinkButton from "../components/link-button"
+import BlogLinkSummary from "../components/blog-link-summary"
 
 const BlogPostList = props => {
   const posts = props.data.allMarkdownRemark.edges
