@@ -1,9 +1,5 @@
 - About
   - Contact form could be implemented
-- RSS
-  - Make sure feed won't detonate on the migration (before/after should be the same)
-- Footer
-  - Logos? Reduce amount of stuff? Bake all that contact information onto the home page?
 
 Useful:
 
