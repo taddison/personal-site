@@ -11,14 +11,14 @@ class Home extends React.Component {
         <SEO title="All posts" />
         <div className="text-xl">
           <span className="block text-4xl mb-4 font-bold">Hey there! 👋</span>
-          Check out my{" "}
+          Check out my{` `}
           <Link
             className="font-semibold hover:underline hover:text-accent-3"
             to="/blog"
           >
             technical blog
           </Link>
-          , or read a little more{" "}
+          , or read a little more{` `}
           <Link
             className="font-semibold hover:underline hover:text-accent-3"
             to="/about"

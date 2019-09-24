@@ -13,7 +13,7 @@ const BlogPostList = props => {
   const { currentPage, numberOfPages } = props.pageContext
   const isLast = currentPage === numberOfPages
   const nextPage = currentPage + 1
-  const previousPage = currentPage < 3 ? "" : currentPage - 1
+  const previousPage = currentPage < 3 ? `` : currentPage - 1
 
   return (
     <Layout>
@@ -29,7 +29,7 @@ const BlogPostList = props => {
             <LinkButton
               to={`/blog/${previousPage}`}
               rel="prev"
-              label={"← Newer"}
+              label={`← Newer`}
             />
           </li>
           <li>
@@ -37,7 +37,7 @@ const BlogPostList = props => {
               <LinkButton
                 to={`/blog/${nextPage}`}
                 rel="next"
-                label={"Older →"}
+                label={`Older →`}
               />
             )}
           </li>

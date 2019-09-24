@@ -44,7 +44,8 @@ const Header = ({ title, hideAbout = false }) => {
                 className="block lg:inline-block hover:text-accent-3 p-2"
               >
                 About
-              </Link>{" "}
+              </Link>
+              {` `}
             </>
           )}
           <Link
