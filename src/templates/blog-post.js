@@ -28,9 +28,9 @@ const BlogPostTemplate = props => {
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
       <section>
-        {tags.map(tag => {
-          return <TagPill key={tag} tag={tag} />
-        })}
+        {tags.map(tag => (
+          <TagPill key={tag} tag={tag} />
+        ))}
       </section>
       <hr className="my-6" />
 
