@@ -8,7 +8,7 @@ const Layout = props => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header title={title} />
+      <Header title="Tim Addison" />
       <div className="mx-auto max-w-5xl px-8 md:px-0 flex-1 w-full md:w-5/6">
         <main>{children}</main>
       </div>
