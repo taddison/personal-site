@@ -36,17 +36,17 @@ const BlogPostTemplate = props => {
 
       <ul className="flex justify-between flex-wrap">
         <li>
+          {next && (
+            <LinkButton to={next.fields.slug} rel="next" label="← Next" />
+          )}
+        </li>
+        <li>
           {previous && (
             <LinkButton
               to={previous.fields.slug}
               rel="prev"
-              label="← Previous"
+              label="Previous →"
             />
-          )}
-        </li>
-        <li>
-          {next && (
-            <LinkButton to={next.fields.slug} rel="next" label="Next →" />
           )}
         </li>
       </ul>
