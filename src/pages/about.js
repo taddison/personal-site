@@ -1,7 +1,7 @@
 import React from "react"
 import Helmet from "react-helmet"
 import SEO from "../components/seo"
-import Header from "../components/Header"
+import Header from "../components/header"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
