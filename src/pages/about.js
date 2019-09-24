@@ -107,13 +107,13 @@ const About = () => {
               </a>
             </div>
 
-            <div className="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center text-gray-800">
+            <div className="mt-6 pb-16 lg:pb-0 lg:w-full flex flex-wrap justify-center text-left text-gray-800">
               <a
-                className="hover:text-accent-3"
+                className="w-1/2 md:w-1/3 mb-3 hover:text-accent-3 flex items-center justify-center"
                 href="https://twitter.com/tjaddison"
               >
                 <svg
-                  className="h-6 fill-current"
+                  className="h-6 fill-current mr-1"
                   role="img"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -123,11 +123,11 @@ const About = () => {
                 Twitter
               </a>
               <a
-                className="ml-2 hover:text-accent-3"
+                className="w-1/2 md:w-1/3 mb-3 hover:text-accent-3 flex items-center justify-center"
                 href="https://github.com/taddison"
               >
                 <svg
-                  className="h-6 fill-current"
+                  className="h-6 fill-current mr-1"
                   role="img"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -137,11 +137,11 @@ const About = () => {
                 GitHub
               </a>
               <a
-                className="ml-2 hover:text-accent-3"
+                className="w-1/2 md:w-1/3 mb-3 hover:text-accent-3 flex items-center justify-center"
                 href="https://linkedin.com/in/tjaddison"
               >
                 <svg
-                  className="h-6 fill-current"
+                  className="h-6 fill-current mr-1"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                 >
@@ -149,9 +149,12 @@ const About = () => {
                 </svg>
                 LinkedIn
               </a>
-              <a className="ml-2 hover:text-accent-3" href="/rss.xml">
+              <a
+                className="w-1/2 md:w-1/3 mb-3 hover:text-accent-3 flex items-center justify-center"
+                href="/rss.xml"
+              >
                 <svg
-                  className="h-6 fill-current"
+                  className="h-6 fill-current mr-1"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                 >
