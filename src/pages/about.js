@@ -101,14 +101,17 @@ const About = () => {
             <div className="pt-12 pb-8">
               <a
                 href="mailto:hello@tjaddison.com"
-                className="bg-gray-700 hover:bg-accent-3 text-white font-bold py-2 px-4 rounded-full"
+                className="bg-gray-800 hover:bg-accent-3 text-white font-bold py-2 px-4 rounded-full"
               >
                 Get In Touch
               </a>
             </div>
 
-            <div className="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center">
-              <a className="hover:text-accent-3" href="https://twitter.com/tjaddison">
+            <div className="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center text-gray-800">
+              <a
+                className="hover:text-accent-3"
+                href="https://twitter.com/tjaddison"
+              >
                 <svg
                   className="h-6 fill-current"
                   role="img"
@@ -119,7 +122,10 @@ const About = () => {
                 </svg>
                 Twitter
               </a>
-              <a className="ml-2 hover:text-accent-3" href="https://github.com/taddison">
+              <a
+                className="ml-2 hover:text-accent-3"
+                href="https://github.com/taddison"
+              >
                 <svg
                   className="h-6 fill-current"
                   role="img"
@@ -130,7 +136,10 @@ const About = () => {
                 </svg>
                 GitHub
               </a>
-              <a className="ml-2 hover:text-accent-3" href="https://linkedin.com/in/tjaddison">
+              <a
+                className="ml-2 hover:text-accent-3"
+                href="https://linkedin.com/in/tjaddison"
+              >
                 <svg
                   className="h-6 fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -140,10 +149,19 @@ const About = () => {
                 </svg>
                 LinkedIn
               </a>
+              <a className="ml-2 hover:text-accent-3" href="/rss.xml">
+                <svg
+                  className="h-6 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M0 0v24h24v-24h-24zm6.168 20c-1.197 0-2.168-.969-2.168-2.165s.971-2.165 2.168-2.165 2.167.969 2.167 2.165-.97 2.165-2.167 2.165zm5.18 0c-.041-4.029-3.314-7.298-7.348-7.339v-3.207c5.814.041 10.518 4.739 10.56 10.546h-3.212zm5.441 0c-.021-7.063-5.736-12.761-12.789-12.792v-3.208c8.83.031 15.98 7.179 16 16h-3.211z" />
+                </svg>
+                Blog RSS
+              </a>
             </div>
           </div>
         </div>
-
         <div className="z-10 w-full lg:w-2/5">
           <Img
             fluid={images.rightImage.childImageSharp.fluid}
