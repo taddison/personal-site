@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 
 import Header from "./header"
 
@@ -19,8 +19,8 @@ const Layout = props => {
             to="/about"
           >
             Tim Addison
-          </Link>{" "}
-          • {new Date().getFullYear()} •{" "}
+          </Link>
+          {` `}• {new Date().getFullYear()} •{` `}
           <Link
             className="font-semibold hover:text-accent-3 hover:underline"
             to="/"
