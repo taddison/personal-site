@@ -169,7 +169,7 @@ shareimage: "./$2"
 
 ## What's next?
 
-The one piece I've not yet solved is comments.  A few times over the years I toyed with adding [Disqus] but the level of stuff it injects into the site (ads, trackers, etc.) is frankly obnoxious.  I did use [Staticman] for a while but found that the spam protection just wasn't strong enough and I experienced a few issues around availability.  Tania Rascia has a great post to [get a system up and running with Node.js/Express/PostgreSQL][add comments to a static site] - this is a little beyond my target complexity, so I'm already toying the idea of rolling my own system atop cloud Firestore.
+The one piece I've not yet solved is comments.  A few times over the years I toyed with adding [Disqus] but the level of stuff it injects into the site (ads, trackers, etc.) is frankly obnoxious.  I did use [Staticman] for a while but found that the spam protection just wasn't strong enough and I experienced a few issues around availability.  Tania Rascia has a great post to [get a system up and running with Node.js/Express/PostgreSQL][add comments to a static site] - this is a little beyond my target complexity, so I'm already toying the idea of rolling my own system atop [Cloud Firestore].
 
 I'm still chasing down a few areas where the site is not as accessible as I'd like, and I've got some ideas on what an improved home page might look like...but mostly I'm pretty happy with how it looks and excited to focus on writing post again rather than migrating them.
 
@@ -198,4 +198,5 @@ Let me know if you have any comments or suggestions (by email for now, there is 
 [Styling markdown posts with Tailwind CSS in GatsbyJS]: https://tjaddison.com/blog/2019/08/styling-markdown-tailwind-gatsby/
 [Disqus]: https://disqus.com/
 [Staticman]: https://staticman.net/
-[add comments to a static site]: https://www.taniarascia.com/add-comments-to-static-site/ 
+[add comments to a static site]: https://www.taniarascia.com/add-comments-to-static-site/
+[Cloud Firestore]: https://firebase.google.com/docs/firestore/
