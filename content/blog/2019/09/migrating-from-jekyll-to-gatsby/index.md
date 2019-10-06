@@ -92,7 +92,7 @@ The following posts were incredibly helpful in getting up and running:
 
 - [Using Tailwind with Gatsby]
 - [Install Gatsby with Tailwind CSS and Purge CSS from scratch]
-- [Add responsive navigation menu to Gatsby Tailwind CSS site]add-responsive-navigation-menu-to-gatsby-tailwind-css-site
+- [Add responsive navigation menu to Gatsby Tailwind CSS site]
 - [Gatsby Pagination]
 - [Using Gatsby Image]
 - [Styling markdown posts with Tailwind CSS in GatsbyJS]
@@ -171,7 +171,7 @@ shareimage: "./$2"
 
 The one piece I've not yet solved is comments.  A few times over the years I toyed with adding [Disqus] but the level of stuff it injects into the site (ads, trackers, etc.) is frankly obnoxious.  I did use [Staticman] for a while but found that the spam protection just wasn't strong enough and I experienced a few issues around availability.  Tania Rascia has a great post to [get a system up and running with Node.js/Express/PostgreSQL][add comments to a static site] - this is a little beyond my target complexity, so I'm already toying the idea of rolling my own system atop cloud Firestore.
 
-I'm still chasing down a few areas where the site is not as accessible as I'd like, and I've got some ideas on what an improved home page might look like...but mostly I'm pretty happy with how it looks and excited to focus on writing post again rather tham migrating them.
+I'm still chasing down a few areas where the site is not as accessible as I'd like, and I've got some ideas on what an improved home page might look like...but mostly I'm pretty happy with how it looks and excited to focus on writing post again rather than migrating them.
 
 Let me know if you have any comments or suggestions (by email for now, there is no comment system!)
 
