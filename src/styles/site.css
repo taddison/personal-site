@@ -72,7 +72,4 @@ body {
 .markdown table {
   @apply mb-6;
 }
-.markdown pre {
-  @apply overflow-x-scroll;
-}
 /* purgecss end ignore */

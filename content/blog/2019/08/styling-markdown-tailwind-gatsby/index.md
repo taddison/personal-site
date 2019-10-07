@@ -8,6 +8,8 @@ tags: ["GatsbyJS", "Tailwind CSS", "Markdown", "Blog"]
 
 I'm slowly working on migrating the blog from [Jekyll] to [GatsbyJS]. I've decided to use [Tailwind CSS] to style the blog, which means that out of the box (once Tailwind's pretty [aggressive reset][tailwind preflight] has been applied) all the markdown posts end up being unstyled. In the below example the only styling on any element comes courtesy of the [gatsby-remark-prismjs] package, which handles code styling.
 
+> Watch out for PurgeCSS and Prism!  If you don't specify prismjs/ as an ignore, your production builds will be unstyled.
+
 ![Unstyled Post](./UnstyledPost.png)
 
 After adding some styling to the `site.css` file we're able to get the post looking halfway decent.
