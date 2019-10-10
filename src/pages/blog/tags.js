@@ -48,28 +48,31 @@ const TagIndex = props => {
           </div>
         ))}
       </div>
-      {tagGroups.map(group => (
-        <div key={group.tag} id={group.tag} className="mb-5">
-          <h2 className="font-semibold text-xl">{group.tag}</h2>
-          <div className="italic text-gray-500 text-sm">
-            {group.totalCount} post{group.totalCount === 1 ? `` : `s`}
-          </div>
-          {group.posts.map(post => (
-            <div key={post.id} className="mb-1">
-              <Link
-                to={post.fields.slug}
-                className="hover:text-accent-3 hover:underline"
-              >
-                {post.frontmatter.title}
-                {` `}
-              </Link>
-              <span className="text-gray-500 text-sm">
-                {post.frontmatter.date}
-              </span>
+      {tagGroups.map(group => {
+        const tagId = group.tag.replace(/ /g, ``)
+        return (
+          <div key={group.tag} id={tagId} className="mb-5">
+            <h2 className="font-semibold text-xl">{group.tag}</h2>
+            <div className="italic text-gray-500 text-sm">
+              {group.totalCount} post{group.totalCount === 1 ? `` : `s`}
             </div>
-          ))}
-        </div>
-      ))}
+            {group.posts.map(post => (
+              <div key={post.id} className="mb-1">
+                <Link
+                  to={post.fields.slug}
+                  className="hover:text-accent-3 hover:underline"
+                >
+                  {post.frontmatter.title}
+                  {` `}
+                </Link>
+                <span className="text-gray-500 text-sm">
+                  {post.frontmatter.date}
+                </span>
+              </div>
+            ))}
+          </div>
+        )
+      })}
     </Layout>
   )
 }
