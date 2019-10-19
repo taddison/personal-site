@@ -8,7 +8,7 @@ tags: ["GatsbyJS", "Blog"]
 
 If you decide to use GatsbyJS for your blog I would highly recommend starting with a simple starter and building up.  [Gatsby blog starter] is introduces a handful of concepts and is substantially easier to understand than some of the more advanced starters.  One feature that really adds some personality to your site is featured images for your posts - both on the post list, and on the post itself.  The rest of this article walks through the steps needed to go from the [Gatsby blog starter] to having featured images on the post list and post pages.
 
-## Picture of the before/after ##
+## TODO: Picture of the before/after ##
 
 ## Add the metadata to a post
 
@@ -31,11 +31,13 @@ You can verify this has worked by browsing the GraphQL schema at `http://localho
 
 ![GraphiQL showing featuredimage]("./salty-egg-featured.png")
 
-- Starting point (gatsby-starter-blog)
-- Adding the frontmatter we need (a11y included!)
-- Adding to the post list
-- Adding to the post
-- Useful stuff to read (gatsby image docs)
+## Adding the image to the post list
+
+## Adding the image to the post
+
+## Further reading
+
+(gatsby image docs)
 
 [Gatsby blog starter]: https://github.com/gatsbyjs/gatsby-starter-blog
 https://blog.swingpulse.com/gatsby-meets-covers
