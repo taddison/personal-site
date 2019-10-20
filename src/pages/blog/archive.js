@@ -4,7 +4,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
-const PostArchive = props => {
+const PostArchive = () => {
   const { postsByDate } = useStaticQuery(
     graphql`
       query {
