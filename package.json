@@ -54,7 +54,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,json,md}\"",
-    "lint": "eslint ./src/**/*.js",
+    "lint": "eslint --ignore-path .gitignore . --ext js",
+    "lint:fix": "eslint --ignore-path .gitignore . --ext js --fix",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
