@@ -1,7 +1,7 @@
 ---
 title: "Adding cover images to your Gatsby blog"
 date: "2019-10-20T00:00:00.0Z"
-shareimage: ##TODO##
+shareimage: "./post-list-with-image.png"
 description: "If you'd like your blog posts to have a cover image show up on the post list and (or!) the post page, this guide will let you get responsive images that are also a11y approved."
 tags: ["GatsbyJS", "Blog"]
 ---
