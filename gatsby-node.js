@@ -58,7 +58,7 @@ exports.createPages = async ({ graphql, actions }) => {
     if (i > 0) {
       createPage({
         path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
-        component: path.resolve("./src/templates/blog-post-list.js"),
+        component: path.resolve(`./src/templates/blog-post-list.js`),
         context: {
           skip: i * POSTS_PER_PAGE,
           numberOfPages,
@@ -77,7 +77,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value: "/blog" + value,
+      value: `/blog` + value,
     })
   }
 }

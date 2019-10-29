@@ -6,7 +6,7 @@ import SEO from "../../components/seo"
 
 import TagPill from "../../components/tag-pill"
 
-const TagIndex = props => {
+const TagIndex = () => {
   const { tagGroup } = useStaticQuery(
     graphql`
       query {

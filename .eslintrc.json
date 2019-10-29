@@ -1,15 +1,11 @@
 {
   "parser": "babel-eslint",
   "extends": [
-    "google",
     "eslint:recommended",
-    "plugin:flowtype/recommended",
     "plugin:react/recommended",
-    "prettier",
-    "prettier/flowtype",
-    "prettier/react"
+    "plugin:prettier/recommended"
   ],
-  "plugins": ["flowtype", "prettier", "react", "filenames"],
+  "plugins": ["prettier", "react", "filenames"],
   "env": {
     "browser": true,
     "es6": true,
