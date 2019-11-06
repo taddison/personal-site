@@ -8,7 +8,7 @@ import PostSummaryList from "../components/post-summary-list"
 import LinkButton from "../components/link-button"
 import BlogLinkSummary from "../components/blog-link-summary"
 
-const BlogPostList = props => {
+const LinksList = props => {
   const posts = props.data.allMarkdownRemark.edges
   const { currentPage, numberOfPages } = props.pageContext
   const isLast = currentPage === numberOfPages
@@ -17,7 +17,7 @@ const BlogPostList = props => {
 
   return (
     <Layout>
-      <SEO title={`Posts - Page ${currentPage}`} />
+      <SEO title={`Links - Page ${currentPage}`} />
       <h2 className="text-3xl font-bold mb-6 text-center">
         Posts - Page {currentPage}/{numberOfPages}
       </h2>
@@ -27,7 +27,7 @@ const BlogPostList = props => {
         <ul className="flex justify-between flex-wrap">
           <li>
             <LinkButton
-              to={`/blog/${previousPage}`}
+              to={`/links/${previousPage}`}
               rel="next"
               label={`← Newer`}
             />
@@ -35,7 +35,7 @@ const BlogPostList = props => {
           <li>
             {!isLast && (
               <LinkButton
-                to={`/blog/${nextPage}`}
+                to={`/links/${nextPage}`}
                 rel="prev"
                 label={`Older →`}
               />
@@ -50,12 +50,12 @@ const BlogPostList = props => {
   )
 }
 
-export default BlogPostList
+export default LinksList
 
 export const pageQuery = graphql`
-  query blogPostListQuery($skip: Int!) {
+  query linksListQuery($skip: Int!) {
     allMarkdownRemark(
-      filter: {fileAbsolutePath: {glob: "**/blog/**/*"}}
+      filter: {fileAbsolutePath: {glob: "**/links/**/*"}}
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 10
       skip: $skip
@@ -68,9 +68,6 @@ export const pageQuery = graphql`
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
-            title
-            description
-            tags
           }
         }
       }

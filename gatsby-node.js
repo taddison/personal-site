@@ -5,10 +5,11 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  const result = await graphql(
+  const blogResults = await graphql(
     `
       {
         allMarkdownRemark(
+          filter: {fileAbsolutePath: {glob: "**/blog/**/*"}}
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -27,12 +28,12 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   )
 
-  if (result.errors) {
-    throw result.errors
+  if (blogResults.errors) {
+    throw blogResults.errors
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  const posts = blogResults.data.allMarkdownRemark.edges
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -66,6 +67,20 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       })
     }
+  })
+
+  createLinksPages(createPage)
+}
+
+const createLinksPages = createPage => {
+  createPage({
+    path: `/links`,
+    component: path.resolve(`./src/templates/links-list.js`),
+    context: {
+      skip: 0,
+      numberOfPages: 1,
+      currentPage: 0,
+    },
   })
 }
 
