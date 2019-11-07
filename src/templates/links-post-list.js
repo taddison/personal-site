@@ -29,7 +29,6 @@ const LinksPostList = props => {
         return (
           <div key={node.fields.slug}>
             <article className="rounded p-0 sm:p-5 border-gray-100 hover:bg-gray-100 hover:shadow-md">
-              {/* TODO: This link needs to be removed, or the target page needs to exist! */}
               <Link to={node.fields.slug}>
                 <header className="mb-1">
                   <h3 className="font-semibold text-2xl">

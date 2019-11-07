@@ -72,7 +72,6 @@ const createBlogPages = async (graphql, createPage) => {
   })
 }
 
-// TODO: Pagination/similar
 const createLinksPages = async (graphql, createPage) => {
   const linksPost = path.resolve(`./src/templates/links-post.js`)
   const linksResults = await graphql(
