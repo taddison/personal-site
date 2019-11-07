@@ -80,7 +80,7 @@ const createLinksPages = createPage => {
     context: {
       skip: 0,
       numberOfPages: 1,
-      currentPage: 0,
+      currentPage: 1,
     },
   })
 }
