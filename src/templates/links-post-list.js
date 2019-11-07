@@ -8,7 +8,7 @@ import LinkButton from "../components/link-button"
 
 import { Link } from "gatsby"
 
-const LinksList = props => {
+const LinksPostList = props => {
   const posts = props.data.allMarkdownRemark.edges
   const { currentPage, numberOfPages } = props.pageContext
   const isLast = currentPage === numberOfPages
@@ -81,10 +81,10 @@ const LinksList = props => {
   )
 }
 
-export default LinksList
+export default LinksPostList
 
 export const pageQuery = graphql`
-  query linksListQuery($skip: Int!) {
+  query linksPostListQuery($skip: Int!) {
     allMarkdownRemark(
       filter: { fields: { sourceName: { eq: "links" } } }
       sort: { fields: [frontmatter___date], order: DESC }
