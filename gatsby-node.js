@@ -4,6 +4,11 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
+  createBlogPages(createPage)
+  createLinksPages(createPage)
+}
+
+const createBlogPages = createPage => {
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const blogResults = await graphql(
     `
@@ -32,7 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
     throw blogResults.errors
   }
 
-  // Create blog posts pages.
+  // Create blog posts pages
   const posts = blogResults.data.allMarkdownRemark.edges
 
   posts.forEach((post, index) => {
@@ -68,8 +73,6 @@ exports.createPages = async ({ graphql, actions }) => {
       })
     }
   })
-
-  createLinksPages(createPage)
 }
 
 // TODO: Pagination/similar
