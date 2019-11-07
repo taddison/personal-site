@@ -9,7 +9,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `
       {
         allMarkdownRemark(
-          filter: {fileAbsolutePath: {glob: "**/blog/**/*"}}
+          filter: { fields: { sourceName: { eq: "blog" } } }
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -72,6 +72,7 @@ exports.createPages = async ({ graphql, actions }) => {
   createLinksPages(createPage)
 }
 
+// TODO: Pagination/similar
 const createLinksPages = createPage => {
   createPage({
     path: `/links`,
@@ -92,7 +93,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value: `/blog` + value,
+      value: `/${node.fields.sourceName}` + value,
     })
   }
 }

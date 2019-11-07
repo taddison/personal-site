@@ -55,7 +55,7 @@ export default LinksList
 export const pageQuery = graphql`
   query linksListQuery($skip: Int!) {
     allMarkdownRemark(
-      filter: {fileAbsolutePath: {glob: "**/links/**/*"}}
+      filter: { fields: { sourceName: { eq: "links" } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 10
       skip: $skip

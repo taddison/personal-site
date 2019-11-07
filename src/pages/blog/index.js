@@ -40,6 +40,7 @@ export default BlogIndex
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
+      filter: { fields: { sourceName: { eq: "blog" } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 10
     ) {

@@ -55,7 +55,7 @@ export default BlogPostList
 export const pageQuery = graphql`
   query blogPostListQuery($skip: Int!) {
     allMarkdownRemark(
-      filter: {fileAbsolutePath: {glob: "**/blog/**/*"}}
+      filter: { fields: { sourceName: { eq: "blog" } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 10
       skip: $skip
