@@ -17,8 +17,8 @@ const BlogIndex = props => {
       <SEO title="Blog" />
       <h2 className="text-3xl font-bold mb-6 text-center">Blog</h2>
       <div className="mt-4 mb-6">
-        A technical blog which covers everything from the frontend to making SQL
-        Server go fast. Recent posts are shown below.
+        A mostly technical blog that covers everything from the frontend to
+        making SQL Server go fast. Recent posts are shown below.
         <BlogLinkSummary />
       </div>
       <PostSummaryList posts={posts} />
@@ -40,6 +40,7 @@ export default BlogIndex
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
+      filter: { fields: { sourceName: { eq: "blog" } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 10
     ) {

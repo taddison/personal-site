@@ -4,34 +4,24 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import TagPill from "../components/tag-pill"
 import LinkButton from "../components/link-button"
 
-const BlogPostTemplate = props => {
+const LinksPostTemplate = props => {
   const post = props.data.markdownRemark
   const { previous, next } = props.pageContext
-  const tags = post.frontmatter.tags || []
-  const { shareimage } = post.frontmatter
-  const shareImagePath = shareimage && shareimage.childImageSharp.fixed.src
+  const title = `Links for ${post.frontmatter.date}`
 
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-        image={shareImagePath}
+        title={title}
+        description={`A collection of links for ${post.frontmatter.date}`}
       />
-      <h1 className="text-4xl font-bold">{post.frontmatter.title}</h1>
-      <p className="mb-5 italic text-gray-500">{post.frontmatter.date}</p>
+      <h1 className="text-4xl font-bold">{title}</h1>
       <div
         className="markdown"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
-      <section>
-        {tags.map(tag => (
-          <TagPill key={tag} tag={tag} />
-        ))}
-      </section>
       <hr className="my-6" />
 
       <ul className="flex justify-between flex-wrap">
@@ -54,25 +44,14 @@ const BlogPostTemplate = props => {
   )
 }
 
-export default BlogPostTemplate
+export default LinksPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query LinksPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 160)
       html
       frontmatter {
-        title
         date(formatString: "MMMM DD, YYYY")
-        description
-        tags
-        shareimage {
-          childImageSharp {
-            fixed {
-              src
-            }
-          }
-        }
       }
     }
   }
