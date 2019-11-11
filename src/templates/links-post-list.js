@@ -37,6 +37,7 @@ const LinksPostList = props => {
                 </header>
                 <section className="mb-4">
                   <p
+                    className="markdown"
                     dangerouslySetInnerHTML={{
                       __html: node.html,
                     }}
