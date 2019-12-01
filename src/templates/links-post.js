@@ -17,7 +17,7 @@ const LinksPostTemplate = props => {
         title={title}
         description={`A collection of links for ${post.frontmatter.date}`}
       />
-      <h1 className="text-4xl font-bold">{title}</h1>
+      <h1 className="text-2xl md:text-4xl font-bold">{title}</h1>
       <div
         className="markdown"
         dangerouslySetInnerHTML={{ __html: post.html }}
