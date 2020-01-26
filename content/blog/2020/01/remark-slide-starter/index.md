@@ -70,11 +70,13 @@ By default the slides will export to a file named `slides.pdf`.
 
 ## Present - Live Server
 
-The starter uses [Live Server] to run the presentation.  This will launch a web server that serves the contents of the `public` folder, and will be available by default on port 8080.
+The starter uses [Live Server] to run the presentation.  This will launch a web server that serves the contents of the `public` folder, and will be available by default on port 8080.  Browse to [http://localhost:8080/index.html](http://localhost:8080/index.html) to see your presentation. 
 
 > If you need to customise the port, edit the `package.json` file
 
-The great thing about Live Server is it has hot reload - as you edit any file (CSS, Markdown) the server will reload the file and you'll see your changes right away.
+The great (greatest?) thing about Live Server is support for hot reload - as you edit any file (CSS, Markdown) the server will reload the file and you'll see your changes right away.
+
+> Live Server is super-useful as a standalone tool - if you want to quickly serve any file or folder you can run `npx live-server file-or-folder`.
 
 [Remark] has a few tricks up it's sleeve for presentation mode.  Try pressing `P` to enable presenter mode, giving you access to speaker notes, and a view of the next slide.  If you press `C` you'll launch a second window which mirrors the current slide, and allows you to effectively present on a second screen.
 
