@@ -82,19 +82,21 @@ posts.map(({ node }) => {
 And finally render the image if the post has one (in my example I've put it between the title and the post - you'll want to spend a bit of time styling this!):
 
 ```js
-{featuredimage && (
-  <Img
-    fluid={featuredimage.src.childImageSharp.fluid}
-    alt={featuredimage.alt}
-  />
-)}
+{
+  featuredimage && (
+    <Img
+      fluid={featuredimage.src.childImageSharp.fluid}
+      alt={featuredimage.alt}
+    />
+  )
+}
 ```
 
 And there we have it, a rather _functional_ looking image on our post list!
 
 ![Post list with image](./post-list-with-image.png)
 
-Adding the image to the post page requires repeating the same steps in the `\src\templates\blog-post.js` file.  Depending on your layout you may want to tweak the settings (max size/height - or maybe you'll want to override the quality and have higher quality images on your post page?).
+Adding the image to the post page requires repeating the same steps in the `\src\templates\blog-post.js` file. Depending on your layout you may want to tweak the settings (max size/height - or maybe you'll want to override the quality and have higher quality images on your post page?).
 
 ## Further reading
 
@@ -119,4 +121,4 @@ And then as a next step maybe you'll add share-images to your blog post with thi
 [using-gatsby-image]: https://using-gatsby-image.gatsbyjs.org
 [image-processing]: https://image-processing.gatsbyjs.org/
 [julian garamendy]: https://juliangaramendy.dev/
-[Adding custom Open Graph images to Gatsby starter blog]: https://juliangaramendy.dev/custom-open-graph-images-in-gatsby-blog/
+[adding custom open graph images to gatsby starter blog]: https://juliangaramendy.dev/custom-open-graph-images-in-gatsby-blog/

@@ -47,13 +47,13 @@ Anywhere I need to refer to either blog posts or links posts I can use the `name
 }
 ```
 
-You can see all the changes needed to add the new post type in [this pull request][add links type to blog PR].  There are probably a few rough edges - I haven't got that many links pages so pagination and navigation may require some fixes.
+You can see all the changes needed to add the new post type in [this pull request][add links type to blog pr]. There are probably a few rough edges - I haven't got that many links pages so pagination and navigation may require some fixes.
 
-Once I've got a few more links pages up I'll see about adding a 'recent updates' component to the home page, which would show a feed of posts (links or blog entries).  The RSS feed probably needs some attention to, as does the navigation (now there are blogs _and_ links to worry about!).
+Once I've got a few more links pages up I'll see about adding a 'recent updates' component to the home page, which would show a feed of posts (links or blog entries). The RSS feed probably needs some attention to, as does the navigation (now there are blogs _and_ links to worry about!).
 
 For now I'm just glad to [share the keystrokes][count your keystrokes article] with a wider audience.
 
 [link roundups]: /links
 [gatsby-remark-source-name]: https://github.com/elboman/gatsby-remark-source-name
-[add links type to blog PR]: https://github.com/taddison/personal-site/pull/7
+[add links type to blog pr]: https://github.com/taddison/personal-site/pull/7
 [count your keystrokes article]: https://blog.jonudell.net/2007/04/10/too-busy-to-blog-count-your-keystrokes/

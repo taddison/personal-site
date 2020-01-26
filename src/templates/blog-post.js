@@ -21,7 +21,9 @@ const BlogPostTemplate = props => {
         description={post.frontmatter.description || post.excerpt}
         image={shareImagePath}
       />
-      <h1 className="text-2xl md:text-4xl font-bold">{post.frontmatter.title}</h1>
+      <h1 className="text-2xl md:text-4xl font-bold">
+        {post.frontmatter.title}
+      </h1>
       <p className="mb-5 italic text-gray-500">{post.frontmatter.date}</p>
       <div
         className="markdown"
