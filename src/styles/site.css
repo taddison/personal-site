@@ -72,4 +72,9 @@ body {
 .markdown table {
   @apply mb-6;
 }
+
+/* For list posts, add extra spacing to the top-level list */
+.markdown-list-post ul:first-child > li {
+  @apply mb-4;
+}
 /* purgecss end ignore */
