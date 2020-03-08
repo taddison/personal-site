@@ -1,5 +1,5 @@
 ---
-title: Swapping implementations at compile time with with craco and Create React App
+title: Swapping implementations at compile time with craco and Create React App
 shareimage: "./webpack-config.png"
 tags: [React]
 date: "2020-02-29T00:00:00.0Z"
@@ -148,7 +148,7 @@ import {
 } from './APP_TARGET-store'
 ```
 
-And now we'll get a different experience when we run `yarn start` vs. `yarn start:memory`!
+And with that we're done - a different experience when we `yarn start` vs. `yarn start:memory`!
 
 > Any changes to `craco.config.js` will require you to restart the dev server, as the file is only process at build/compile time.
 
