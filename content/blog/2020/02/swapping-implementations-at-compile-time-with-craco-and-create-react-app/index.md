@@ -53,7 +53,7 @@ from './APP_TARGET-store'
 
 The example app is available on GitHub in the [craco swap example repo][craco swap example].  [This commit][craco implementation commit] contains all the changes needed to implement craco.
 
-![Pokebattle](./pokebattle)
+![Pokebattle](./pokebattle.png)
 
 ## From comments to craco
 
