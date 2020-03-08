@@ -28,7 +28,7 @@ import {
 
 Judicious use of toggling the comments definitely gets the job done, though once you go beyond a small handful of files it becomes error prone (releasing dev code to prod...).
 
-To solve the issue of the comments being everywhere we can use an [environment variable][create react app env variables] - though unfortunately we can't use it to dynamically import.  The following code is what we're trying to do, but it is unfortunately invalid:
+To solve the issue of the comments being everywhere we can use an [environment variable][create react app env variables] - though unfortunately we can't use it to dynamically import.  The following code is what we're trying to do:
 
 ```javascript
 // This is not valid code!
