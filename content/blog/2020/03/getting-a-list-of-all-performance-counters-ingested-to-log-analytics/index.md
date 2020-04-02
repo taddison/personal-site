@@ -11,7 +11,7 @@ Log Analytics is a great product - easy to get data ingested, and easy to query 
 Usage
 | where TimeGenerated > ago(30d)
 | where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / pow(1024, 3) by Solution, DataType
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by Solution, DataType
 | order by TotalVolumeGB desc
 ```
 
