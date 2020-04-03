@@ -5,7 +5,7 @@ tags: [PowerShell, Log Analytics]
 date: "2020-03-31T00:00:00.0Z"
 ---
 
-Log Analytics is a great product - easy to get data ingested, and easy to query it.  With the power to easily ingest data, comes the power to easily...run up a pretty sizeable bill.  It's a good habit to regularly review what makes up the overall ingestion, which I typically do with the following query on a per-workspace basis:
+[Log Analytics] is a great product - easy to get data ingested, and easy to query it.  It's also pretty easy to run up a sizeable bill (with the cost being based on GB ingested).  I've found it helpful to regularly review what is being ingested to a workspace, which I typically do with the following query:
 
 ```kql
 Usage
@@ -15,7 +15,7 @@ Usage
 | order by TotalVolumeGB desc
 ```
 
-You'll get to know which solutions are data heavy pretty fast (I'm looking at you WireData and DNSAnalytics).  Something I've recently spent some time on is performance counters - after the `Perf` data type crept to the top of the list, so I drilled into that with the `_BilledSize` property:
+You'll get to know which solutions are data heavy pretty fast (I'm looking at you [Wire Data] and [DNS Analytics]).  Something I've recently spent some time on is performance counters - after the `Perf` data type crept to the top of the list, so I drilled into that with the `_BilledSize` property:
 
 ```kql
 Perf
@@ -24,7 +24,7 @@ Perf
 | order by TotalVolumeGB desc
 ```
 
-Doing this on a couple of workspaces revealed a fair amount of overlap - my suspicion was that we were ingesting the same counters in multiple workspaces.  The following script will dump all counters ingested to any workspace, along with their instance and frequency.  A reliable way to really drive up your ingestion costs are the `Process/% Processor Time` counter ingested for every instance (`*`) at a frequency of 10 seconds.
+A recent review showed a fair amount of performance counter overlap between workspaces - my suspicion was that we were ingesting the same counters in multiple workspaces.  The following script dumps all counters ingested to any workspace, along with their target instance and frequency.  A reliable way to drive up your ingestion costs are the `Process/% Processor Time` counter ingested for every instance (`*`) at a frequency of 10 seconds.
 
 We got rid of that one pretty fast.
 
@@ -64,3 +64,14 @@ $allPerfCounters | Format-Table
 ![Example Results](./results.png)
 
 Along with a bit of Excel and the results from the earlier queries, it was easy to work through the list and cut down on ingestion costs.
+
+For more information on understanding costs I've found the following articles helpful:
+
+- [Manage usage and costs with Azure Monitor logs]
+- [Manage usage and estimated costs in Azure Monitor]
+
+[Log Analytics]: https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview
+[Wire Data]: https://docs.microsoft.com/en-us/azure/azure-monitor/insights/wire-data
+[DNS Analytics]: https://docs.microsoft.com/en-us/azure/azure-monitor/insights/dns-analytics
+[Manage usage and costs with Azure Monitor logs]: https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage
+[Manage usage and estimated costs in Azure Monitor]: https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs
