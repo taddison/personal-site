@@ -1,7 +1,7 @@
 ---
 title: Saving and reporting on Pester Infrastructure test results in Log Analytics
 shareimage: "./SuccessRate.png"
-tags: [Azure, "Log Analytics", DevOps, PowerShell]
+tags: [Azure, "Log Analytics", DevOps, PowerShell, Pester]
 date: "2018-09-23T00:00:00.0Z"
 ---
 
