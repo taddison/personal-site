@@ -11,6 +11,7 @@ const TagIndex = () => {
     graphql`
       query {
         tagGroup: allMarkdownRemark(
+          filter: { fields: { sourceName: { eq: "blog" } } }
           sort: { fields: frontmatter___date, order: DESC }
         ) {
           group(field: frontmatter___tags) {

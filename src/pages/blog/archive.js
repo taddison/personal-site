@@ -9,6 +9,7 @@ const PostArchive = () => {
     graphql`
       query {
         postsByDate: allMarkdownRemark(
+          filter: { fields: { sourceName: { eq: "blog" } } }
           sort: { fields: frontmatter___date, order: DESC }
         ) {
           posts: nodes {
