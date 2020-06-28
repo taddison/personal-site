@@ -1,3 +1,5 @@
 {
-  "omnisharp.autoStart": false
+  "omnisharp.autoStart": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
