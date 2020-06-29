@@ -4,8 +4,12 @@ tags: [React, Nextjs, Vercel]
 date: "2020-06-30T00:00:00.0Z"
 ---
 
-Repo: https://github.com/taddison/next-password-protect-sample
-Live: https://next-password-protect-sample.vercel.app/
+[npm - universal cookie]: https://www.npmjs.com/package/universal-cookie
+[tailwind starter with typescript]: https://github.com/aedificatorum/next-starters/tree/main/tailwind-js
+[tailwind starter]: https://github.com/aedificatorum/next-starters/tree/main/tailwind
+[example repo]: https://github.com/taddison/next-password-protect-sample
+[example site - public]: https://next-password-protect-sample.vercel.app/
+[example site - protected]: https://next-password-protect-sample.vercel.app/protected
 
 ### Notes
 
@@ -63,7 +67,7 @@ To start we have a 50/50 chance of getting access - try refreshing the protected
 
 ```js
 // At the bottom of _app.js
-MyApp.getInitialProps = async appContext => {
+MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext)
 
   if (Math.random() > 0.5) {
@@ -126,13 +130,13 @@ const Login = ({ redirectPath }) => {
             className="form-input mt-1 block w-full bg-gray-50"
             placeholder="Your site password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           ></input>
         </label>
         <button
           type="submit"
           className="mt-3 bg-green-400 text-white p-2 font-bold rounded hover:bg-green-600"
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault()
             const cookies = new Cookies()
             cookies.set(consts.SiteReadCookie, password, {
@@ -190,7 +194,7 @@ export default function LoginPage({ hasReadPermission }) {
         <div className="w-1/3 max-w-sm mx-auto">
           <button
             className="mt-3 bg-green-400 text-white p-2 font-bold rounded hover:bg-green-600"
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault()
               const cookies = new Cookies()
               cookies.remove(consts.SiteReadCookie, { path: "/" })
