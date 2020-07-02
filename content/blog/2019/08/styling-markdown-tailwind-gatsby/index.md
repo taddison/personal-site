@@ -67,7 +67,7 @@ I wanted to keep the Tailwind reset applied to the non-markdown parts of the sit
 }
 /* Blockquotes */
 .markdown blockquote {
-  @apply p-0 p-2 mx-6 bg-gray-100 mb-4 border-l-4 border-gray-400 italic;
+  @apply p-2 mx-6 bg-gray-100 mb-4 border-l-4 border-gray-400 italic;
 }
 .markdown blockquote > p {
   @apply mb-0;
