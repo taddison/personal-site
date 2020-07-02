@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import Header from "./header"
 
-const Layout = props => {
+const Layout = (props) => {
   const { children } = props
 
   return (

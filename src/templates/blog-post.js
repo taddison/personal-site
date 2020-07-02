@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import TagPill from "../components/tag-pill"
 import LinkButton from "../components/link-button"
 
-const BlogPostTemplate = props => {
+const BlogPostTemplate = (props) => {
   const post = props.data.markdownRemark
   const { previous, next } = props.pageContext
   const tags = post.frontmatter.tags || []
@@ -30,7 +30,7 @@ const BlogPostTemplate = props => {
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
       <section>
-        {tags.map(tag => (
+        {tags.map((tag) => (
           <TagPill key={tag} tag={tag} />
         ))}
       </section>

@@ -8,7 +8,7 @@ import PostSummaryList from "../../components/post-summary-list"
 import LinkButton from "../../components/link-button"
 import BlogLinkSummary from "../../components/blog-link-summary"
 
-const BlogIndex = props => {
+const BlogIndex = (props) => {
   const { data } = props
   const posts = data.allMarkdownRemark.edges
 

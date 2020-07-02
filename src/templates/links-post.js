@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 
 import LinkButton from "../components/link-button"
 
-const LinksPostTemplate = props => {
+const LinksPostTemplate = (props) => {
   const post = props.data.markdownRemark
   const { previous, next } = props.pageContext
   const title = `Links for ${post.frontmatter.date}`
