@@ -14,7 +14,7 @@ If you'd like to jump straight to the source code there is an [example repo on G
 
 In a few cases I've wanted to protect one or more pages on a site, but haven't had any need (or desire!) to integrate an authentication/authentication framework.
 
-Adding password protection with a hosting provider is possible, but expensive. [Surge] requires you to be on a $30/month plan, and with [Vercel] it's a $150/month addon to the pro plan (which is already \$20/month).
+Adding password protection with a hosting provider is possible, but expensive. [Surge][surge pricing] requires you to be on a $30/month plan, [Netlify][Netlify pricing] needs the $45/month plan, and with [Vercel][vercel protect deployments] it's a $150/month addon to the pro plan (which is already \$20/month).
 
 Now - I should say that these features are far more robust than what I'll be showing you today (although I haven't used them and the documentation is fairly sparse - so more accurate to say I _hope_ they are!).
 
@@ -289,8 +289,9 @@ Hope this was helpful and/or educational!
 [example repo]: https://github.com/taddison/next-password-protect-sample
 [example site - public]: https://next-password-protect-sample.vercel.app/
 [example site - protected]: https://next-password-protect-sample.vercel.app/protected
-[surge]: http://surge.sh/pricing
-[vercel]: https://vercel.com/blog/protecting-deployments
+[surge pricing]: http://surge.sh/pricing
+[netlify pricing]: https://www.netlify.com/pricing/
+[vercel protect deployments]: https://vercel.com/blog/protecting-deployments
 [absolute imports]: /blog/2020/04/absolute-imports-with-react/
 [tailwind starter with typescript]: https://github.com/aedificatorum/next-starters/tree/main/tailwind-js
 [tailwind starter]: https://github.com/aedificatorum/next-starters/tree/main/tailwind
