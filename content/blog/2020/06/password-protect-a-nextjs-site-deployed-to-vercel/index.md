@@ -16,9 +16,9 @@ In a few cases I've wanted to protect one or more pages on a site, but haven't h
 
 Adding password protection with a hosting provider is possible, but expensive. [Surge][surge pricing] requires you to be on a $30/month plan, [Netlify][Netlify pricing] needs the $45/month plan, and with [Vercel][vercel protect deployments] it's a $150/month addon to the pro plan (which is already \$20/month).
 
-Now - I should say that these features are far more robust than what I'll be showing you today (although I haven't used them and the documentation is fairly sparse - so more accurate to say I _hope_ they are!).
+You obviously get a lot more for your money than just password protection, and I'd hope their implementations are more robust than what you'll find here (though I couldn't find any documentation on the password protection implementation).
 
-Some notable problems with what we'll build today are:
+Some notable issues with what we'll build today are:
 
 - No rate limiting
 - No Captcha
@@ -26,9 +26,9 @@ Some notable problems with what we'll build today are:
 - No protection for static files (in `public`)
 - Requires opting-in on a per-page, per-api-route basis
 
-I definitely wouldn't put anything sensitive behind this protection. I've used it to protect early proof of concepts or as a placeholder for authentication.
+I definitely wouldn't put anything sensitive behind this protection - I typically use it to protect early proof of concepts or as a placeholder for authentication.
 
-And finally (as if you needed any more warnings), using this will disable Next's [automatic static optimization] as every page will need some server-side logic (checking if your password cookie is correct). If you were wondering why there aren't many hosting providers that give password protection on the free tier, this might help explain why.
+And finally, implementing this will disable Next's [automatic static optimization] as every page will need some server-side logic (checking if your password cookie is correct). If you were wondering why there aren't many (any?) hosting providers that support password protection on the free tier, this might help explain why.
 
 ## Getting started
 
