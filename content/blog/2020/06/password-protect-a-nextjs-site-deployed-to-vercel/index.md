@@ -4,44 +4,68 @@ tags: [React, Nextjs, Vercel]
 date: "2020-06-30T00:00:00.0Z"
 ---
 
-[npm - universal cookie]: https://www.npmjs.com/package/universal-cookie
-[tailwind starter with typescript]: https://github.com/aedificatorum/next-starters/tree/main/tailwind-js
-[tailwind starter]: https://github.com/aedificatorum/next-starters/tree/main/tailwind
-[example repo]: https://github.com/taddison/next-password-protect-sample
-[example site - public]: https://next-password-protect-sample.vercel.app/
-[example site - protected]: https://next-password-protect-sample.vercel.app/protected
+Want to password-protect some or all of your [Next.js] site, but don't want stick to a free-tier hosting plan? This blog post will walk through the steps to add the following lightweight protection to your deployment:
 
-### Notes
+![Login](Login.png)
 
-# create the app from a sample
+If you'd like to jump straight to the source code there is an [example repo on Github][example repo] which is also deployed to Vercel. See the [public page][example site - public] as well as a [protected page][example site - protected] (the password is `letmein`).
 
-- typescript or js
+## Why roll our own password protection?
 
-# js
+In a few cases I've wanted to protect one or more pages on a site, but haven't had any need (or desire!) to integrate an authentication/authentication framework.
 
-npx create-next-app next-password-protect-sample --example https://github.com/aedificatorum/next-starters/tree/main/tailwind-js
+Adding password protection with a hosting provider is possible, but expensive. [Surge] requires you to be on a $30/month plan, and with [Vercel] it's a $150/month addon to the pro plan (which is already \$20/month).
 
-# ts
+Now - I should say that these features are far more robust than what I'll be showing you today (although I haven't used them and the documentation is fairly sparse - so more accurate to say I _hope_ they are!).
 
-npx create-next-app next-password-protect-sample --example https://github.com/aedificatorum/next-starters/tree/main/tailwind
+Some notable problems with what we'll build today are:
 
-## Run it
+- No rate limiting
+- No Captcha
+- Password stored in cleartext in a cookie
+- No protection for static files (in `public`)
+- Requires opting-in on a per-page, per-api-route basis
 
-cd next-password-protect-sample
-yarn dev # browse to http://localhost:3000
+I definitely wouldn't put anything sensitive behind this protection. I've used it to protect early proof of concepts or as a placeholder for authentication.
 
-## Goals?
+And finally (as if you needed any more warnings), using this will disable Next's [automatic static optimization] as every page will need some server-side logic (checking if your password cookie is correct). If you were wondering why there aren't many hosting providers that give password protection on the free tier, this might help explain why.
 
-- Home page is public
-- We will create a protected page which is protected
-- We will also have a login/logout page
+## Getting started
 
-## Create the protected page
+You can either start from a blank Next app, or use one of the templates below to get up and running with a starter that has Tailwind, ESLint, and Pretttier, and optionally Typescript. Note this post will assume you're using the JavaScript example.
 
-- Add protected.js
-- Add a prop that will be used to protect the page
+```bash
+# Vanilla
+npx create-next-app next-password-protected
 
-```js
+# or Javascript
+npx create-next-app next-password-protected --example https://github.com/aedificatorum/next-starters/tree/main/tailwind-js
+
+# or TypeScript
+npx create-next-app next-password-protected --example https://github.com/aedificatorum/next-starters/tree/main/tailwind
+```
+
+And then run it:
+
+```bash
+cd next-password-protect
+yarn dev
+# browse to http://localhost:3000
+```
+
+Our goals are to take this app and:
+
+- Allow anyone to visit the main page (`/`)
+- Add a protected page (`/protected`)
+- Add a login/logout page (`/login`)
+
+## Creating a protected page
+
+Create a new `protected.js` in the `pages` folder, and add the following code:
+
+```javascript
+// /pages/protected.js
+
 import Head from "next/head"
 
 export default function Protected({ hasReadPermission }) {
@@ -61,12 +85,21 @@ export default function Protected({ hasReadPermission }) {
 }
 ```
 
-## Inject this prop in the \_app.js file
+If you browse to `/protected` you'll now get the access denied message.
 
-To start we have a 50/50 chance of getting access - try refreshing the protected page.
+## Injecting the hasReadPermission prop
 
-```js
-// At the bottom of _app.js
+We're going to handle setting this prop in the `_app.js` file, which you'll need to add to the `pages` folder. This leverages the [custom app] feature of Next, and will run this logic for every page.
+
+```javascript
+// /pages/app.js
+
+import App from "next/app"
+
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+
 MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext)
 
@@ -80,23 +113,30 @@ MyApp.getInitialProps = async (appContext) => {
 export default MyApp
 ```
 
-## Protect the page based on a cookie value
+In our initial implementation we're going to give you a 50% chance of viewing the page on each refresh. Try it a couple of times, and you should get to see both access denied, and the protected content.
 
-- Create a consts file
+## Protecting with a cookie
 
-````js
-// consts.js
-export default {
-  SiteReadCookie: 'src'
-}
+Rather than roll the dice on every refresh, we'll now check a cookie on each request. To do so we'll use the [universal cookie][npm - universal cookie] package, which lets us work with cookies in both node and the browser with one package/API:
 
-- Install the `universal-cookie` package (lets us work with cookies on the frontend or backend)
-- https://www.npmjs.com/package/universal-cookie
 ```bash
 yarn add universal-cookie
-````
+```
+
+We'll put our cookie name in a consts file (debugging cookie name typos is great fun, but we'll skip that step today):
 
 ```js
+// /consts.js
+export default {
+  SiteReadCookie: "src",
+}
+```
+
+And now we'll check this cookie to see if the client has the right password, by updating `_app.js`:
+
+```js
+// /pages/app.js
+
 // At the top of _app.js
 import Cookies from "universal-cookie"
 import consts from "consts"
@@ -110,9 +150,21 @@ if (password === "letmein") {
 }
 ```
 
-# Create a login component that sets the cookie
+> My consts file is in the root folder (not the pages folder), though I've got [absolute imports] configured, so no need to import from `../consts`.
+
+If you check the `/protected` page you'll now see you can't access it any more. If you add a cookie with the right password (letmein) in the dev tools you'll be able to get in again.
+
+Keep in mind we've put the password in the source code, so if your source isn't private this is a bit of security theatre. If the source is going to be public you could use an environment variable instead.
+
+## Adding password entry
+
+In this case 'logging in' means setting a cookie to the password value. To do this we'll create a login component, and then replace the 'Access Denied' view on the page with the login component.
+
+To do that first create a login component. Note the below is styled with [tailwind css] with the [tailwind ui][npm - tailwindcss ui] package for [custom forms][npm - tailwindcss custom forms]:
 
 ```js
+// /components/login.js
+
 import { useState } from "react"
 import Cookies from "universal-cookie"
 import consts from "consts"
@@ -155,11 +207,13 @@ const Login = ({ redirectPath }) => {
 export default Login
 ```
 
-# Add the login component to our protected page if the user isn't logged in
+Our component accepts a single optional prop (`redirectPath`) which allows us to redirect the client after they set the cookie. Note that we use `window.location.href` as the redirect _must_ trigger a request to the server, and we don't want Next to attempt to use client-side routing.
 
-- Which really means no/wrong password
+We can now add our login component to our protected page, and render the Login component if the client doesn't have permission to see the page. This means they either don't have the cookie, or they have the cookie but the password is wrong.
 
-```js
+```javascript
+// /pages/protected.js
+
 // At the top of protected.js
 import { useRouter } from "next/router"
 import Login from "components/Login"
@@ -172,13 +226,15 @@ if (!hasReadPermission) {
 }
 ```
 
-## Have some way to logout
+If you refresh the page you can now try setting the wrong password, or the right password.
 
-- Mainly useful for testing
-- Create a `login.js` page
-- This will let people login OR logout
+## Adding a logout page
 
-```js
+This is mostly useful for testing, or when you want to support multiple passwords. By default the only way to logout is to clear your cookies, which.
+
+To solve this we'll add a `login` page in the `pages` folder which will allow people to login and logout:
+
+```javascript
 import Head from "next/head"
 import Cookies from "universal-cookie"
 import Login from "Components/Login"
@@ -219,8 +275,28 @@ export default function LoginPage({ hasReadPermission }) {
 }
 ```
 
-# Things to keep in mind
+If you browse to `/login` you'll now be able to login or logout.
 
-- Need to enable protection on a per-page basis (otherwise you've got a public page)
-- API routes need special handling as they don't run the logic in \_app.js
-- Nothing in the public folder is protected
+## Conclusion
+
+You've now got basic password protection functionality deployed. Keep in mind that you must add this protection manually to every page you don't want to be public. If you'd like to protect the whole site without messing around with the prop on each page you could handle that in the `_app.js`, redirecting to a login endpoint or returning a 403.
+
+Keep in mind that even if you add blanket protection in your `_app.js` that your API routes still need protecting individually, as `_app.js` only executes for pages.
+
+Hope this was helpful and/or educational!
+
+[next.js]: https://nextjs.org/
+[example repo]: https://github.com/taddison/next-password-protect-sample
+[example site - public]: https://next-password-protect-sample.vercel.app/
+[example site - protected]: https://next-password-protect-sample.vercel.app/protected
+[surge]: http://surge.sh/pricing
+[vercel]: https://vercel.com/blog/protecting-deployments
+[absolute imports]: /blog/2020/04/absolute-imports-with-react/
+[tailwind starter with typescript]: https://github.com/aedificatorum/next-starters/tree/main/tailwind-js
+[tailwind starter]: https://github.com/aedificatorum/next-starters/tree/main/tailwind
+[automatic static optimization]: https://nextjs.org/docs/advanced-features/automatic-static-optimization
+[custom app]: https://nextjs.org/docs/advanced-features/custom-app
+[npm - universal cookie]: https://www.npmjs.com/package/universal-cookie
+[tailwind css]: https://tailwindcss.com
+[npm - tailwindcss ui]: https://www.npmjs.com/package/@tailwindcss/ui
+[npm - tailwindcss custom forms]: https://www.npmjs.com/package/@tailwindcss/custom-forms
