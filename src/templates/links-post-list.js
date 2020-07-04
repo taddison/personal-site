@@ -8,7 +8,7 @@ import LinkButton from "../components/link-button"
 
 import { Link } from "gatsby"
 
-const LinksPostList = props => {
+const LinksPostList = (props) => {
   const posts = props.data.allMarkdownRemark.edges
   const { currentPage, numberOfPages } = props.pageContext
   const isLast = currentPage === numberOfPages

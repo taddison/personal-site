@@ -20,7 +20,7 @@ I wanted to keep the Tailwind reset applied to the non-markdown parts of the sit
 
 > PurgeCSS only runs in production builds (`gatsby build`) - make sure you test the look & feel of your site after doing a production build, or you might be surprised after you deploy...
 
-```css
+````css
 /* purgecss start ignore */
 /* Markdown Styles */
 /* Global */
@@ -67,7 +67,7 @@ I wanted to keep the Tailwind reset applied to the non-markdown parts of the sit
 }
 /* Blockquotes */
 .markdown blockquote {
-  @apply p-0 p-2 mx-6 bg-gray-100 mb-4 border-l-4 border-gray-400 italic;
+  @apply p-2 mx-6 bg-gray-100 mb-4 border-l-4 border-gray-400 italic;
 }
 .markdown blockquote > p {
   @apply mb-0;
@@ -83,8 +83,16 @@ I wanted to keep the Tailwind reset applied to the non-markdown parts of the sit
 .markdown table {
   @apply mb-6;
 }
+
+/* Wrap any inline highlights `that are really long`, but don't modify
+   the setting for codeblocks (inside ```), which are rendered in as:
+   <pre><code>...
+*/
+.markdown :not(pre) > code.language-text {
+  white-space: pre-line;
+}
 /* purgecss end ignore */
-```
+````
 
 This is a pretty workable solution for most of my posts, though there are still a few areas I'd like to improve (notably padding for images, and the appearance at a few breakpoints isn't ideal).
 

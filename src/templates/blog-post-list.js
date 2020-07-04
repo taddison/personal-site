@@ -8,7 +8,7 @@ import PostSummaryList from "../components/post-summary-list"
 import LinkButton from "../components/link-button"
 import BlogLinkSummary from "../components/blog-link-summary"
 
-const BlogPostList = props => {
+const BlogPostList = (props) => {
   const posts = props.data.allMarkdownRemark.edges
   const { currentPage, numberOfPages } = props.pageContext
   const isLast = currentPage === numberOfPages

@@ -25,7 +25,7 @@ export const bulkUpdate = async () => {
     const batch = db.batch()
     let updated = 0
 
-    allItemsResult.docs.forEach(queryResult => {
+    allItemsResult.docs.forEach((queryResult) => {
       const doc = queryResult.data()
 
       if (!doc.dateUnix) {

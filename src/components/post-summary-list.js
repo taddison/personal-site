@@ -36,7 +36,7 @@ const PostSummaryList = ({ posts }) => {
                 </section>
               </Link>
               <section>
-                {tags.map(tag => (
+                {tags.map((tag) => (
                   <TagPill key={tag} tag={tag} />
                 ))}
               </section>

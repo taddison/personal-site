@@ -19,7 +19,7 @@ const Header = ({ title, hideAbout = false }) => {
       </h1>
       <div className="block lg:hidden">
         <button
-          onClick={() => toggleExpanded(e => !e)}
+          onClick={() => toggleExpanded((e) => !e)}
           className="flex items-center px-3 py-2 border rounded text-accent-5 border-accent-5 hover:text-accent-3 hover:border-accent-3"
         >
           <svg

@@ -42,11 +42,11 @@ const PostArchive = () => {
     <Layout>
       <SEO title="Post Archive" />
       <h2 className="text-3xl font-bold mb-6 text-center">Post Archive</h2>
-      {yearGroup.map(year => (
+      {yearGroup.map((year) => (
         <div key={year.year} className="mb-8">
           <h3 className="font-semibold text-2xl mb-4">{year.year}</h3>
           <div>
-            {year.posts.map(post => (
+            {year.posts.map((post) => (
               <div key={post.id} className="mb-1">
                 <Link
                   to={post.fields.slug}
