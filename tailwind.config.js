@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme")
+
 module.exports = {
   purge: false,
   theme: {
@@ -11,6 +13,9 @@ module.exports = {
         "accent-3": `#A2999E`,
         "accent-4": `#846A6A`,
         "accent-5": `#353B3C`,
+      },
+      fontFamily: {
+        sans: [`Inter var`, ...defaultTheme.fontFamily.sans],
       },
     },
   },
