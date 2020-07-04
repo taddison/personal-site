@@ -4,7 +4,7 @@ tags: [React, Nextjs, Vercel]
 date: "2020-06-30T00:00:00.0Z"
 ---
 
-Want to password-protect some or all of your [Next.js] site, but don't want stick to a free-tier hosting plan? This blog post will walk through the steps to add the following lightweight protection to your deployment:
+Want to password-protect some or all of your [Next.js] site, but want to stick with a free-tier hosting plan? This blog post will walk through the steps to add the following lightweight protection to your deployment:
 
 ![Login](Login.png)
 
@@ -32,7 +32,7 @@ And finally (as if you needed any more warnings), using this will disable Next's
 
 ## Getting started
 
-You can either start from a blank Next app, or use one of the templates below to get up and running with a starter that has Tailwind, ESLint, and Pretttier, and optionally Typescript. Note this post will assume you're using the JavaScript example.
+You can either start from a blank Next app, or use one of the templates below to get up and running with a starter that has [Tailwind CSS], ESLint, and Pretttier, and optionally Typescript. Note this post will assume you're using the JavaScript example.
 
 ```bash
 # Vanilla
@@ -160,7 +160,7 @@ Keep in mind we've put the password in the source code, so if your source isn't 
 
 In this case 'logging in' means setting a cookie to the password value. To do this we'll create a login component, and then replace the 'Access Denied' view on the page with the login component.
 
-To do that first create a login component. Note the below is styled with [tailwind css] with the [tailwind ui][npm - tailwindcss ui] package for [custom forms][npm - tailwindcss custom forms]:
+To do that first create a login component. Note the below is styled with [Tailwind CSS] with the [tailwind ui][npm - tailwindcss ui] package for [custom forms][npm - tailwindcss custom forms]:
 
 ```js
 // /components/login.js
@@ -230,7 +230,7 @@ If you refresh the page you can now try setting the wrong password, or the right
 
 ## Adding a logout page
 
-This is mostly useful for testing, or when you want to support multiple passwords. By default the only way to logout is to clear your cookies, which.
+Right now the only way to 'logout' is to clear your cookies, and while testing you'll appreciate having a logout button.
 
 To solve this we'll add a `login` page in the `pages` folder which will allow people to login and logout:
 
@@ -281,7 +281,7 @@ If you browse to `/login` you'll now be able to login or logout.
 
 You've now got basic password protection functionality deployed. Keep in mind that you must add this protection manually to every page you don't want to be public. If you'd like to protect the whole site without messing around with the prop on each page you could handle that in the `_app.js`, redirecting to a login endpoint or returning a 403.
 
-Keep in mind that even if you add blanket protection in your `_app.js` that your API routes still need protecting individually, as `_app.js` only executes for pages.
+Even with blanket protection in your `_app.js` keep in mind that your API routes will need protecting individually, as `_app.js` only executes for pages.
 
 Hope this was helpful and/or educational!
 
