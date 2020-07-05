@@ -100,7 +100,9 @@ body {
 .markdown table {
   @apply mb-6;
 }
+/* End Markdown Global */
 
+/* Code highlighting */
 /* Wrap any inline highlights `that are really long`, but don't modify
    the setting for codeblocks (inside ```), which are rendered in as:
    <pre><code>...
@@ -108,10 +110,13 @@ body {
 .markdown :not(pre) > code.language-text {
   white-space: pre-line;
 }
+/* End code highlighting */
 
+/* List posts */
 /* For list posts, add extra spacing to the top-level list */
 .markdown-list-post ul:first-child > li {
   @apply mb-4;
 }
+/* End list posts */
 
 /* purgecss end ignore */
