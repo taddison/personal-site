@@ -12,7 +12,7 @@ const LinkButton = ({ to, rel, label }) => (
   <Link
     to={to}
     rel={rel}
-    className="font-bold py-2 pl-5 pr-3 border-accent-5 border block hover:bg-accent-3 hover:text-white hover:border-accent-3"
+    className="font-semibold sm:font-bold text-sm sm:text-base py-2 pl-5 pr-3 block hover:bg-accent-3 hover:text-white hover:border-accent-3"
   >
     {label}
   </Link>

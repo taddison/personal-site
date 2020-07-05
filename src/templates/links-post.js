@@ -22,7 +22,7 @@ const LinksPostTemplate = (props) => {
         className="markdown markdown-list-post"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
-      <hr className="my-6" />
+      <hr className="my-4 w-2/3 mx-auto sm:w-full sm:my-6" />
 
       <ul className="flex justify-between flex-wrap">
         <li>
