@@ -63,7 +63,7 @@ Our goals are to take this app and:
 
 Create a new `protected.js` in the `pages` folder, and add the following code:
 
-```javascript
+```jsx
 // /pages/protected.js
 
 import Head from "next/head"
@@ -91,7 +91,7 @@ If you browse to `/protected` you'll now get the access denied message.
 
 We're going to handle setting this prop in the `_app.js` file, which you'll need to add to the `pages` folder. This leverages the [custom app] feature of Next, and will run this logic for every page.
 
-```javascript
+```js
 // /pages/app.js
 
 import App from "next/app"
@@ -162,7 +162,7 @@ In this case 'logging in' means setting a cookie to the password value. To do th
 
 To do that first create a login component. Note the below is styled with [Tailwind CSS] with the [tailwind ui][npm - tailwindcss ui] package for [custom forms][npm - tailwindcss custom forms]:
 
-```js
+```jsx
 // /components/login.js
 
 import { useState } from "react"
@@ -211,7 +211,7 @@ Our component accepts a single optional prop (`redirectPath`) which allows us to
 
 We can now add our login component to our protected page, and render the Login component if the client doesn't have permission to see the page. This means they either don't have the cookie, or they have the cookie but the password is wrong.
 
-```javascript
+```jsx
 // /pages/protected.js
 
 // At the top of protected.js
@@ -234,7 +234,7 @@ Right now the only way to 'logout' is to clear your cookies, and while testing y
 
 To solve this we'll add a `login` page in the `pages` folder which will allow people to login and logout:
 
-```javascript
+```jsx
 import Head from "next/head"
 import Cookies from "universal-cookie"
 import Login from "Components/Login"
