@@ -83,7 +83,15 @@ function SEO({ description, lang, meta, title, image }) {
           content: openGraphImageUrl,
         },
       ].concat(meta)}
-    />
+    >
+      {/* IndieLogin */}
+      <link href="https://twitter.com/tjaddison" rel="me"></link>
+      <link
+        rel="webmention"
+        href="https://webmention.io/tjaddison.com/webmention"
+      />
+      <link rel="pingback" href="https://webmention.io/tjaddison.com/xmlrpc" />
+    </Helmet>
   )
 }
 

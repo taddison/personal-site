@@ -44,8 +44,6 @@ class Home extends React.Component {
           </a>
           .<span className="block italic ml-4 mt-4">- Tim</span>
         </div>
-        {/* IndieLogin */}
-        <link href="https://twitter.com/tjaddison" rel="me"></link>
       </Layout>
     )
   }
