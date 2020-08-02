@@ -111,6 +111,7 @@ const About = () => {
               <a
                 className="w-1/2 md:w-1/3 mb-3 hover:text-accent-3 flex items-center justify-center"
                 href="https://twitter.com/tjaddison"
+                rel="me"
               >
                 <svg
                   className="h-6 fill-current mr-1"
@@ -125,6 +126,7 @@ const About = () => {
               <a
                 className="w-1/2 md:w-1/3 mb-3 hover:text-accent-3 flex items-center justify-center"
                 href="https://github.com/taddison"
+                rel="me"
               >
                 <svg
                   className="h-6 fill-current mr-1"
@@ -139,6 +141,7 @@ const About = () => {
               <a
                 className="w-1/2 md:w-1/3 mb-3 hover:text-accent-3 flex items-center justify-center"
                 href="https://linkedin.com/in/tjaddison"
+                rel="me"
               >
                 <svg
                   className="h-6 fill-current mr-1"
