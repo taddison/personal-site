@@ -13,7 +13,11 @@ const Header = ({ title, hideAbout = false }) => {
   return (
     <header className="bg-accent-1 border-accent-5 border-b p-4 mb-6 flex items-center justify-between flex-wrap">
       <h1 className="flex items-center flex-shrink-0">
-        <Link className="text-2xl font-extrabold hover:text-accent-3" to={`/`}>
+        <Link
+          className="text-2xl font-extrabold hover:text-accent-3"
+          to={`/`}
+          rel="home"
+        >
           {title}
         </Link>
       </h1>
