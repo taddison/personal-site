@@ -5,19 +5,19 @@ shareimage: "./Daily.png"
 date: "2020-07-31T00:00:00.0Z"
 ---
 
-I love [GistPad] - it's redefined my expecations for the user experience of working with documents backed by a DVCS like GitHub. [VSCode] is already a superlative editor - the [GistPad] extension takes it to the next level.
+I love [GistPad] - it has redefined how I think about working with a markdown based wiki in GitHub. [VSCode] is my preferred editor for markdown - adding the [Gistpad extension][gistpad] takes it to the next level.
 
 ## From work journal to digital garden
 
 I previously wrote about [keeping a work journal with VSCode], and while it was OK, the friction of git (pull, commit, push) really broke the flow. Once I started exploring other knowledge-management systems (see [awesome knowledge management]) I realized what I was really after was a [digital garden].
 
-The ability to link between notes (pages, files, etc.) is key - and so the manual work log didn't scale very far. Browser-based systems like [OneNote], [Roam Research] are closer but had other limitations I wasn't happy with (price, not markdown, a lot of ceremony in splitting by personal/work/client, etc.). [Foam] is an exciting recent development but still left you to manage the `git` work yourself.
+The ability to link between notes (pages, files, etc.) is key - and so the manual work log didn't scale very far. Browser-based systems like [OneNote] and [Roam Research] are closer but have other limitations (price, not markdown, a lot of ceremony in splitting by personal/work/client, etc.). [Foam] is an exciting newcomer, but still leaves you to manage the `git` work yourself.
 
 The digital gardens I have (and continue to have) the most success with are actually in [OneNote] (once configured it's just so easy to access, share, cross-link). As they were mostly private (family or work related) the lack of an easy way to share publicly wasn't really an issue.
 
-Recently I've wanted to start [working with the garage door up], and after randomly seeing a tweet on [using GistPad for knowledge bases] the last thing holding me back (that damned `git` workflow!) was no longer an excuse. Thank you to to whatever twitter algorithm put that tweet into my feed!
+Recently I've wanted to start [working with the garage door up], and after randomly seeing a tweet on [using GistPad for knowledge bases] the last thing holding me back (that damned `git` workflow!) was no longer an excuse. Thank you to whatever Twitter algorithm put that tweet into my feed!
 
-It's only been a few weeks but I'm totally hooked on [GistPad] and cannot imagine this workflow without it. [Managing repos] is only one of _many_ features - and some of them could easily be extensions in their own right (e.g. managing gists, code tours, playgrounds). I'd highly recommend browsing the readme and looking at the great demonstrations of what it can do.
+It's only been a few weeks but I'm totally hooked on GistPad and cannot imagine this workflow without it. [Managing repos] is only one of _many_ features - and some of them could easily be extensions in their own right (e.g. managing gists, code tours, playgrounds). I'd highly recommend browsing the [readme][gistpad readme] and looking at the demos of what it can do.
 
 If you just want to start managing (or just start!) your digital garden, it's only a few steps...
 
@@ -43,11 +43,12 @@ If you're into journalling you can click the calendar icon next to your repo and
 
 ![Daily journal button](./Daily.png)
 
-Right now the extension is getting updates all the time, so I would strongly recommend you read the relevant section of the readme. The ongoing updates around support for [Foam] are particularly interesting if you're thinking about building your digital garden/personal knowledge base.
+Right now the extension is getting updates all the time, so I would strongly recommend you browse the relevant section of the [readme][gistpad readme]. The ongoing updates around support for [Foam] are particularly interesting if you're thinking about building your digital garden/personal knowledge base.
 
 In closing, I 😍 [GistPad] - make sure you give it a try!
 
-[gistpad]: https://github.com/vsls-contrib/gistpad#readme
+[gistpad]: https://marketplace.visualstudio.com/items?itemName=vsls-contrib.gistfs
+[gistpad readme]: https://github.com/vsls-contrib/gistpad#readme
 [vscode]: https://code.visualstudio.com/
 [keeping a work journal with vscode]: https://tjaddison.com/blog/2018/02/keeping-a-work-journal-with-vs-code/
 [awesome knowledge management]: https://github.com/brettkromkamp/awesome-knowledge-management
