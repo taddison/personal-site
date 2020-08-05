@@ -1,3 +1,3 @@
-[tjaddison.com]
+https://tjaddison.com
 
 Built with Gatsby, deployed with Netlify.
