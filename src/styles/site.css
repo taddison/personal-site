@@ -15,13 +15,7 @@ body {
 
 /* Markdown Global */
 .markdown {
-  @apply leading-relaxed text-sm;
-}
-
-@screen sm {
-  .markdown {
-    @apply text-base;
-  }
+  @apply leading-relaxed;
 }
 
 @screen lg {
