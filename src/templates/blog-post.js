@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -36,19 +36,33 @@ const BlogPostTemplate = (props) => {
       </section>
       <hr className="my-4 w-2/3 mx-auto sm:w-full sm:my-6" />
 
-      <ul className="flex justify-between flex-wrap">
-        <li>
+      <ul className="flex">
+        <li className="w-1/2">
           {next && (
-            <LinkButton to={next.fields.slug} rel="next" label="← Next" />
+            <div className="flex flex-col">
+              <div className="self-start">Next Post</div>
+              <Link
+                className="block py-2 font-semibold hover:underline hover:text-accent-3"
+                to={next.fields.slug}
+                rel="next"
+              >
+                {next.frontmatter.title}
+              </Link>
+            </div>
           )}
         </li>
-        <li>
+        <li className="w-1/2">
           {previous && (
-            <LinkButton
-              to={previous.fields.slug}
-              rel="prev"
-              label="Previous →"
-            />
+            <div className="flex flex-col">
+              <div className="md:self-end mt-2 md:mt-0">Previous Post</div>
+              <Link
+                className="block py-2 font-semibold hover:underline hover:text-accent-3"
+                to={previous.fields.slug}
+                rel="prev"
+              >
+                {previous.frontmatter.title}
+              </Link>
+            </div>
           )}
         </li>
       </ul>

@@ -20,6 +20,9 @@ const createBlogPages = async (graphql, createPage) => {
         ) {
           edges {
             node {
+              frontmatter {
+                title
+              }
               fields {
                 slug
               }
