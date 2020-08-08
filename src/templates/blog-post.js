@@ -55,7 +55,7 @@ const BlogPostTemplate = (props) => {
             <div className="flex flex-col">
               <div className="md:self-end mt-2 md:mt-0">Previous Post</div>
               <Link
-                className="block py-2 font-semibold hover:underline hover:text-accent-3"
+                className="block py-2 font-semibold hover:underline hover:text-accent-3 md:self-end"
                 to={previous.fields.slug}
                 rel="prev"
               >
