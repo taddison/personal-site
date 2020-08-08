@@ -29,21 +29,19 @@ const LinksPostList = (props) => {
         return (
           <div key={node.fields.slug}>
             <article className="rounded p-0 sm:p-5 border-gray-100 hover:bg-gray-100 hover:shadow-md">
-              <Link to={node.fields.slug}>
-                <header className="mb-1">
-                  <h3 className="font-semibold text-2xl">
-                    {node.frontmatter.date}
-                  </h3>
-                </header>
-                <section className="mb-4">
-                  <p
-                    className="markdown"
-                    dangerouslySetInnerHTML={{
-                      __html: node.html,
-                    }}
-                  />
-                </section>
-              </Link>
+              <header className="mb-1">
+                <h3 className="font-semibold text-2xl">
+                  <Link to={node.fields.slug}>{node.frontmatter.date}</Link>
+                </h3>
+              </header>
+              <section className="mb-4">
+                <p
+                  className="markdown"
+                  dangerouslySetInnerHTML={{
+                    __html: node.html,
+                  }}
+                />
+              </section>
             </article>
             {i < postCount - 1 && (
               <div className="flex flex-col items-center my-6">

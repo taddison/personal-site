@@ -19,22 +19,33 @@ const PostSummaryList = ({ posts }) => {
         return (
           <div key={node.fields.slug}>
             <article className="rounded p-0 sm:p-5 border-gray-100 hover:bg-gray-100 hover:shadow-md">
-              <Link to={node.fields.slug}>
-                <h3 className="font-semibold text-2xl">{title}</h3>
+              <h3 className="font-semibold text-2xl">
+                <Link
+                  className="hover:underline hover:text-accent-3"
+                  to={node.fields.slug}
+                >
+                  {title}
+                </Link>
+              </h3>
 
-                <header className="mb-1">
-                  <small className="italic text-gray-500">
-                    {node.frontmatter.date}
-                  </small>
-                </header>
-                <section className="mb-4">
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
-                </section>
-              </Link>
+              <header className="mb-1">
+                <small className="italic text-gray-500">
+                  {node.frontmatter.date}
+                </small>
+              </header>
+              <section className="mb-4">
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: node.frontmatter.description || node.excerpt,
+                  }}
+                />
+                <Link
+                  className="block mt-2 hover:underline hover:text-accent-3 italic"
+                  to={node.fields.slug}
+                >
+                  Read Post
+                </Link>
+              </section>
               <section>
                 {tags.map((tag) => (
                   <TagPill key={tag} tag={tag} />
