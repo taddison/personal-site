@@ -37,29 +37,29 @@ const BlogPostTemplate = (props) => {
 
       <ul className="flex">
         <li className="w-1/2">
+          {previous && (
+            <div className="flex flex-col text-left">
+              <div>Previous Post</div>
+              <Link
+                className="block py-2 font-semibold hover:underline hover:text-accent-3"
+                to={previous.fields.slug}
+                rel="prev"
+              >
+                {previous.frontmatter.title}
+              </Link>
+            </div>
+          )}
+        </li>
+        <li className="w-1/2">
           {next && (
-            <div className="flex flex-col">
-              <div className="self-start">Next Post</div>
+            <div className="flex flex-col text-right">
+              <div>Next Post</div>
               <Link
                 className="block py-2 font-semibold hover:underline hover:text-accent-3"
                 to={next.fields.slug}
                 rel="next"
               >
                 {next.frontmatter.title}
-              </Link>
-            </div>
-          )}
-        </li>
-        <li className="w-1/2">
-          {previous && (
-            <div className="flex flex-col">
-              <div className="md:self-end mt-2 md:mt-0">Previous Post</div>
-              <Link
-                className="block py-2 font-semibold hover:underline hover:text-accent-3 md:self-end"
-                to={previous.fields.slug}
-                rel="prev"
-              >
-                {previous.frontmatter.title}
               </Link>
             </div>
           )}
