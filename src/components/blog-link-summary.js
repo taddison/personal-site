@@ -18,12 +18,12 @@ const BlogLinkSummary = () => (
       whole archive
     </Link>
     , or subscribe to the{` `}
-    <Link
+    <a
       className="font-semibold hover:text-accent-4 hover:underline"
-      to="/rss.xml"
+      href="/rss.xml"
     >
       RSS feed
-    </Link>
+    </a>
     .
   </React.Fragment>
 )
