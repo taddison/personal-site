@@ -21,6 +21,11 @@ function SEO({ description, lang, meta, title, image }) {
             description
             author
             siteUrl
+            social {
+              twitter
+              webmention
+              pingback
+            }
           }
         }
       }
@@ -85,12 +90,12 @@ function SEO({ description, lang, meta, title, image }) {
       ].concat(meta)}
     >
       {/* IndieLogin */}
-      <link href="https://twitter.com/tjaddison" rel="me"></link>
       <link
-        rel="webmention"
-        href="https://webmention.io/tjaddison.com/webmention"
-      />
-      <link rel="pingback" href="https://webmention.io/tjaddison.com/xmlrpc" />
+        href={`https://twitter.com/${site.siteMetadata.social.twitter}`}
+        rel="me"
+      ></link>
+      <link rel="webmention" href={site.siteMetadata.social.webmention} />
+      <link rel="pingback" href={site.siteMetadata.social.pingback} />
     </Helmet>
   )
 }

@@ -8,6 +8,8 @@ module.exports = {
       twitter: `tjaddison`,
       github: `taddison`,
       linkedin: `tjaddison`,
+      webmention: `https://webmention.io/tjaddison.com/webmention`,
+      pingback: `https://webmention.io/tjaddison.com/xmlrpc`,
     },
   },
   plugins: [
