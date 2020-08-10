@@ -20,19 +20,23 @@ const BlogPostTemplate = (props) => {
         description={post.frontmatter.description || post.excerpt}
         image={shareImagePath}
       />
-      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
-        {post.frontmatter.title}
-      </h1>
-      <p className="mb-5 italic text-gray-500">{post.frontmatter.date}</p>
-      <div
-        className="markdown"
-        dangerouslySetInnerHTML={{ __html: post.html }}
-      />
-      <section>
-        {tags.map((tag) => (
-          <TagPill key={tag} tag={tag} />
-        ))}
-      </section>
+      <article className="h-entry">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold p-name">
+          {post.frontmatter.title}
+        </h1>
+        <p className="mb-5 italic text-gray-500">
+          <time className="dt-published">{post.frontmatter.date}</time>
+        </p>
+        <div
+          className="markdown e-content"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+        <section>
+          {tags.map((tag) => (
+            <TagPill key={tag} tag={tag} />
+          ))}
+        </section>
+      </article>
       <hr className="my-4 w-2/3 mx-auto sm:w-full sm:my-6" />
 
       <ul className="flex">
