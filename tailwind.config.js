@@ -18,6 +18,29 @@ module.exports = {
         sans: [`Inter var`, ...defaultTheme.fontFamily.sans],
       },
     },
+    typography: (theme) => {
+      return {
+        default: {
+          css: {
+            "code::before": { content: `` },
+            "code::after": { content: `` },
+            a: {
+              color: theme(`colors.blue.600`),
+              textDecoration: `none`,
+              "&:hover": {
+                textDecoration: `underline`,
+              },
+            },
+            "blockquote p:first-of-type::before": {
+              content: ``,
+            },
+            "blockquote p:last-of-type::after": {
+              content: ``,
+            },
+          },
+        },
+      }
+    },
   },
   variants: {},
   plugins: [require(`@tailwindcss/ui`)],
