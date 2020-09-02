@@ -11,7 +11,7 @@ To get started I installed the plugin:
 
 ```shell
 yarn add @tailwindcss/typography
-# or by adding the UI plugin, which I've used
+# or by adding the UI plugin (which includes typography), which I used on the site
 yarn add @tailwindcss/ui
 ```
 
