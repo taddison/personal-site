@@ -8,8 +8,6 @@ tags: ["GatsbyJS", "Tailwind CSS", "Markdown", "Blog"]
 
 I'm slowly working on migrating the blog from [Jekyll] to [GatsbyJS]. I've decided to use [Tailwind CSS] to style the blog, which means that out of the box (once Tailwind's pretty [aggressive reset][tailwind preflight] has been applied) all the markdown posts end up being unstyled. In the below example the only styling on any element comes courtesy of the [gatsby-remark-prismjs] package, which handles code styling.
 
-> Watch out for PurgeCSS and Prism! If you don't specify prismjs/ as an ignore, your production builds will be unstyled.
-
 ![Unstyled Post](./UnstyledPost.png)
 
 After adding some styling to the `site.css` file we're able to get the post looking halfway decent.
@@ -18,7 +16,7 @@ After adding some styling to the `site.css` file we're able to get the post look
 
 I wanted to keep the Tailwind reset applied to the non-markdown parts of the site, so the blog template renders each post into a `div` with the `markdown` class, and the `site.css` is updated to include the below definitions. I'm using [Purge CSS] to strip unused classes, and because these classes aren't directly used anywhere (e.g. `className="..."`) we need to tell Purge CSS to ignore them.
 
-> PurgeCSS only runs in production builds (`gatsby build`) - make sure you test the look & feel of your site after doing a production build, or you might be surprised after you deploy...
+> Watch out for PurgeCSS and Prism! If you don't specify `prismjs/` as an ignore, your production builds will be unstyled. PurgeCSS only runs for production builds (`gatsby build`), so make sure you test the look & feel of your site after doing a production build, or you might be surprised when you deploy...
 
 ````css
 /* purgecss start ignore */

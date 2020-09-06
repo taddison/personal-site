@@ -19,7 +19,7 @@ const LinksPostTemplate = (props) => {
       />
       <h1 className="text-2xl md:text-4xl font-bold mb-1 md:mb-4">{title}</h1>
       <div
-        className="markdown markdown-list-post"
+        className="prose prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
       <hr className="my-4 w-2/3 mx-auto sm:w-full sm:my-6" />

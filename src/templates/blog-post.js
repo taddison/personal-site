@@ -28,10 +28,10 @@ const BlogPostTemplate = (props) => {
           <time className="dt-published">{post.frontmatter.date}</time>
         </p>
         <div
-          className="markdown e-content"
+          className="prose prose-lg max-w-none e-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
-        <section>
+        <section className="mt-4">
           {tags.map((tag) => (
             <TagPill key={tag} tag={tag} />
           ))}
