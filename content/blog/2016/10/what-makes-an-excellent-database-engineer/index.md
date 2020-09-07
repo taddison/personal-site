@@ -10,9 +10,9 @@ The question of what makes an excellent database engineer is one I'm always aski
 - During the recruiting process some of the best candidates will probe to understand how I define greatness in that role
 - When working with other leads we want to try and understand why certain team members are great, and look to see what behaviours we want to encourage elsewhere
 
-  <!--more-->
+<!--more-->
 
-  While the specifics will always vary with the individual, the team, and the platform, I believe that the below fairly accurately captures what I currently think of as the key traits & beliefs an excellent database engineer should possess:
+While the specifics will always vary with the individual, the team, and the platform, I believe that the below fairly accurately captures what I currently think of as the key traits & beliefs an excellent database engineer should possess:
 
 - **_Deep technical mastery of one or more areas_**
 - **_Broad knowledge of the platform and the ecosystem it works in_**
