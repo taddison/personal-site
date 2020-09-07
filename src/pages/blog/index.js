@@ -10,7 +10,7 @@ import BlogLinkSummary from "../../components/blog-link-summary"
 
 const BlogIndex = (props) => {
   const { data } = props
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allMdx.edges
 
   return (
     <Layout>
@@ -39,8 +39,8 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(
-      filter: { fields: { sourceName: { eq: "blog" } } }
+    allMdx(
+      filter: { fields: { source: { eq: "blog" } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 10
     ) {

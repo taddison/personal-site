@@ -34,11 +34,12 @@ module.exports = {
         name: `assets`,
       },
     },
-    `gatsby-remark-source-name`,
+    `gatsby-plugin-mdx-source-name`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -72,7 +73,7 @@ module.exports = {
         trackingId: `UA-85466441-1`,
       },
     },
-    `gatsby-plugin-feed`,
+    `gatsby-plugin-feed-mdx`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

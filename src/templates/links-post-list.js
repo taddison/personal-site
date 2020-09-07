@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -9,7 +10,7 @@ import LinkButton from "../components/link-button"
 import { Link } from "gatsby"
 
 const LinksPostList = (props) => {
-  const posts = props.data.allMarkdownRemark.edges
+  const posts = props.data.allMdx.edges
   const { currentPage, numberOfPages } = props.pageContext
   const isLast = currentPage === numberOfPages
   const isFirst = currentPage === 1
@@ -35,12 +36,9 @@ const LinksPostList = (props) => {
                 </h3>
               </header>
               <section className="mb-4">
-                <p
-                  className="prose prose-lg max-w-none"
-                  dangerouslySetInnerHTML={{
-                    __html: node.html,
-                  }}
-                />
+                <div className="prose prose-lg max-w-none e-content">
+                  <MDXRenderer>{node.body}</MDXRenderer>
+                </div>
               </section>
             </article>
             {i < postCount - 1 && (
@@ -83,15 +81,15 @@ export default LinksPostList
 
 export const pageQuery = graphql`
   query linksPostListQuery($skip: Int!) {
-    allMarkdownRemark(
-      filter: { fields: { sourceName: { eq: "links" } } }
+    allMdx(
+      filter: { fields: { source: { eq: "links" } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 10
       skip: $skip
     ) {
       edges {
         node {
-          html
+          body
           fields {
             slug
           }

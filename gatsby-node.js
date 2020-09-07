@@ -13,8 +13,8 @@ const createBlogPages = async (graphql, createPage) => {
   const blogResults = await graphql(
     `
       {
-        allMarkdownRemark(
-          filter: { fields: { sourceName: { eq: "blog" } } }
+        allMdx(
+          filter: { fields: { source: { eq: "blog" } } }
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -38,7 +38,7 @@ const createBlogPages = async (graphql, createPage) => {
   }
 
   // Create blog posts pages
-  const posts = blogResults.data.allMarkdownRemark.edges
+  const posts = blogResults.data.allMdx.edges
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -80,8 +80,8 @@ const createLinksPages = async (graphql, createPage) => {
   const linksResults = await graphql(
     `
       {
-        allMarkdownRemark(
-          filter: { fields: { sourceName: { eq: "links" } } }
+        allMdx(
+          filter: { fields: { source: { eq: "links" } } }
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -102,7 +102,7 @@ const createLinksPages = async (graphql, createPage) => {
   }
 
   // Create links posts pages
-  const posts = linksResults.data.allMarkdownRemark.edges
+  const posts = linksResults.data.allMdx.edges
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -140,12 +140,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   // Add the slug (e.g. /blog/2019/04/title/)
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
-      value: `/${node.fields.sourceName}` + value,
+      value: `/${node.fields.source}` + value,
     })
   }
 }

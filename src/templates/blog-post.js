@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -7,7 +8,7 @@ import SEO from "../components/seo"
 import TagPill from "../components/tag-pill"
 
 const BlogPostTemplate = (props) => {
-  const post = props.data.markdownRemark
+  const post = props.data.mdx
   const { previous, next } = props.pageContext
   const tags = post.frontmatter.tags || []
   const { shareimage } = post.frontmatter
@@ -27,10 +28,9 @@ const BlogPostTemplate = (props) => {
         <p className="mb-5 italic text-gray-500">
           <time className="dt-published">{post.frontmatter.date}</time>
         </p>
-        <div
-          className="prose prose-lg max-w-none e-content"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
+        <div className="prose prose-lg max-w-none e-content">
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </div>
         <section className="mt-4">
           {tags.map((tag) => (
             <TagPill key={tag} tag={tag} />
@@ -77,9 +77,9 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       excerpt(pruneLength: 160)
-      html
+      body
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
