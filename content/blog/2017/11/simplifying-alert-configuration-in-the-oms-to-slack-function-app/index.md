@@ -5,7 +5,7 @@ tags: [OMS, Slack, Azure, "Function Apps"]
 date: "2017-11-08T00:00:00.0Z"
 ---
 
-In the [last post](http://tjaddison.com/2017/08/29/Building-an-OMS-metric-alert-to-Slack-bridge-with-Azure-functions) we had a fairly complete (if limited) solution for the routing of arbitrary OMS metric alerts to Slack. After having used this in production for a while I can report that:
+In the [last post][building an oms metric alert to slack bridge with azure functions] we had a fairly complete (if limited) solution for the routing of arbitrary OMS metric alerts to Slack. After having used this in production for a while I can report that:
 
 - When configured correctly it works well (we get the right alerts in the right places)
 - Explaining how to configure a new alert is extraordinarily difficult
@@ -206,3 +206,5 @@ machineName = machineName.Replace(".foo.corp", string.Empty).ToLower();
 ```
 
 We also put the machine name into lowercase, and ensure when the configs are constructed that we convert all the servernames to lowercase too.
+
+[building an oms metric alert to slack bridge with azure functions]: /blog/2017/08/building-an-oms-metric-alert-to-slack-bridge-with-azure-functions
