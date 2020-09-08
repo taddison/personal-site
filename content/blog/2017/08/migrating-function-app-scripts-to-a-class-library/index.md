@@ -5,7 +5,7 @@ tags: [Azure, "Function Apps"]
 date: "2017-08-23T00:00:00.0Z"
 ---
 
-In the [previous post](/2017/08/21/Monitoring-disk-cpu-and-memory-with-OMS) we created a trio of function apps to send Slack notifications for OMS alerts based on CPU, Memory, and Disk. These were created using function app scripts, and the code was stored and tested directly in the Azure portal.
+In the [previous post](/blog/2017/08/monitoring-disk-cpu-and-memory-with-oms) we created a trio of function apps to send Slack notifications for OMS alerts based on CPU, Memory, and Disk. These were created using function app scripts, and the code was stored and tested directly in the Azure portal.
 
 In this post we'll walk through the steps required to replace those scripts with a class library that exposes three functions that can be hosted by the Azure function app runtime. It will do exactly the same thing, but crucially will allow us to develop & test locally.
 
