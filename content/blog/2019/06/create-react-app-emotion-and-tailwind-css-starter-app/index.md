@@ -5,7 +5,7 @@ tags: [React, Emotion, Tailwind CSS]
 date: "2019-06-30T00:00:00.0Z"
 ---
 
-Get up and running fast with [Create React App](CRA), [Emotion], and [Tailwind CSS] by cloning the [cra-tailwind-emotion-starter] git repo:
+Get up and running fast with [Create React App][create react app] (CRA), [Emotion], and [Tailwind CSS] by cloning the [cra-tailwind-emotion-starter] git repo:
 
 ```bash
 git clone https://github.com/aedificatorum/cra-tailwind-emotion-starter.git my-app
