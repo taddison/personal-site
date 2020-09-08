@@ -1,7 +1,7 @@
 ---
 title: Building better OMS alerts with function apps
 shareimage: "./sample-slack-message.png"
-tags: [OMS, Azure, "Function Apps", Slack]
+tags: [OMS, Azure, "Function Apps", Slack, "C#"]
 date: "2017-08-06T00:00:00.0Z"
 ---
 

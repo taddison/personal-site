@@ -1,7 +1,7 @@
 ---
 title: Migrating function app scripts to a class library
 shareimage: "./FunctionsHosted.png"
-tags: [Azure, "Function Apps"]
+tags: [Azure, "Function Apps", "C#"]
 date: "2017-08-23T00:00:00.0Z"
 ---
 

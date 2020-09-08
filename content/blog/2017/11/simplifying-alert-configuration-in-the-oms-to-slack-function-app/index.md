@@ -1,7 +1,7 @@
 ---
 title: Simplifying alert configuration in the OMS to Slack function app
 shareimage: "./ExcelConfiguration.png"
-tags: [OMS, Slack, Azure, "Function Apps"]
+tags: [OMS, Slack, Azure, "Function Apps", "C#"]
 date: "2017-11-08T00:00:00.0Z"
 ---
 
