@@ -87,7 +87,7 @@ And we're _almost_ done. The one piece of custom styling I had to preserve was t
 
 Overall I'm really happy to be building on a design foundation that will evolve as Tailwind CSS does. It also allowed me to replace about 100 lines of custom CSS with 20 lines of tailwind overrides.
 
-[style your markdown posts with tailwind css]: https://tjaddison.com/blog/2019/08/styling-markdown-tailwind-gatsby/
+[style your markdown posts with tailwind css]: /blog/2019/08/styling-markdown-tailwind-gatsby/
 [tailwind css]: https://tailwindcss.com/
 [typography plugin]: https://tailwindcss.com/docs/typography-plugin
 [typography documentation]: https://github.com/tailwindlabs/tailwindcss-typography

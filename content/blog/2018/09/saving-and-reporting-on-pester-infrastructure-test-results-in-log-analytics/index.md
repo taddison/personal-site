@@ -326,7 +326,7 @@ In the near future I'll be showing how you can use Pester to perform data valida
 [operation validation framework]: https://github.com/PowerShell/Operation-Validation-Framework
 [pluralsight course]: https://www.pluralsight.com/courses/pester-infrastructure-testing
 [pester book]: https://leanpub.com/pesterbook
-[getting started with log analytics and powershell logging]: https://tjaddison.com/2018/08/26/Getting-started-with-Log-Analytics-and-PowerShell-logging
+[getting started with log analytics and powershell logging]: /blog/2018/08/getting-started-with-log-analytics-and-powershell-logging/
 [data collector api]: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-collector-api
 [exportloganalytics function]: https://github.com/taddison/SQLChecks/blob/44e1b4461fa7be9279eaecc206cfe3dca25e2250/src/SQLChecks/Functions/Public/Export-LogAnalytics.ps1
 [get-loganalyticssignature]: https://github.com/taddison/SQLChecks/blob/44e1b4461fa7be9279eaecc206cfe3dca25e2250/src/SQLChecks/Functions/Private/Get-LogAnalyticsSignature.ps1

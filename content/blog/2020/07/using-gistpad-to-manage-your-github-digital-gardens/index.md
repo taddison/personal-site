@@ -50,7 +50,7 @@ In closing, I 😍 [GistPad] - make sure you give it a try!
 [gistpad]: https://marketplace.visualstudio.com/items?itemName=vsls-contrib.gistfs
 [gistpad readme]: https://github.com/vsls-contrib/gistpad#readme
 [vscode]: https://code.visualstudio.com/
-[keeping a work journal with vscode]: https://tjaddison.com/blog/2018/02/keeping-a-work-journal-with-vs-code/
+[keeping a work journal with vscode]: /blog/2018/02/keeping-a-work-journal-with-vs-code/
 [awesome knowledge management]: https://github.com/brettkromkamp/awesome-knowledge-management
 [digital garden]: https://maggieappleton.com/garden-history
 [onenote]: https://www.onenote.com/
