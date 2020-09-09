@@ -197,7 +197,7 @@ Let me know if you have any comments or suggestions (by email for now, there is 
 [add responsive navigation menu to gatsby tailwind css site]: https://ericbusch.net/add-responsive-navigation-menu-to-gatsby-tailwind-css-site
 [gatsby pagination]: https://nickymeuleman.netlify.com/blog/gatsby-pagination
 [using gatsby image]: https://codebushi.com/using-gatsby-image/
-[styling markdown posts with tailwind css in gatsbyjs]: https://tjaddison.com/blog/2019/08/styling-markdown-tailwind-gatsby/
+[styling markdown posts with tailwind css in gatsbyjs]: /blog/2019/08/styling-markdown-tailwind-gatsby/
 [disqus]: https://disqus.com/
 [staticman]: https://staticman.net/
 [add comments to a static site]: https://www.taniarascia.com/add-comments-to-static-site/

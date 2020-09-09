@@ -4,7 +4,7 @@ tags: [PowerShell, Pester, SQL]
 date: "2017-07-09T00:00:00.0Z"
 ---
 
-> Update 2017-03-12: The [SQLChecks](https://github.com/taddison/SQLChecks) library builds on the ideas in this post and delivers an upgraded version of SQLInfrastructureTests. [This blog post](/2017/12/03/Using-the-SQLChecks-library-for-SQL-Server-configuration-management) discusses how to use the library.
+> Update 2017-03-12: The [SQLChecks](https://github.com/taddison/SQLChecks) library builds on the ideas in this post and delivers an upgraded version of SQLInfrastructureTests. [This blog post](/blog/2017/12/03/using-the-sqlchecks-library-for-sql-server-configuration-management) discusses how to use the library.
 
 The [SQL Infrastructure Tests](https://github.com/taddison/SQLInfrastructureTests) repo is generic and knows nothing about your infrastructure. This makes it very easy to clone and use anywhere, but also means you need to provide some configuration information to actually make it useful in your environment. Typically you want that environment specific information to also be in source control, you might be tempted to create a fork of the repo and make customisations for your environment.
 

@@ -8,8 +8,8 @@ const PostArchive = () => {
   const { postsByDate } = useStaticQuery(
     graphql`
       query {
-        postsByDate: allMarkdownRemark(
-          filter: { fields: { sourceName: { eq: "blog" } } }
+        postsByDate: allMdx(
+          filter: { fields: { source: { eq: "blog" } } }
           sort: { fields: frontmatter___date, order: DESC }
         ) {
           posts: nodes {

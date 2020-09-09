@@ -1,7 +1,7 @@
 ---
 title: Auto deflating Event Hubs with a function app
 shareimage: "./FunctionOutput.png"
-tags: [Azure, EventHubs, C#, Function Apps]
+tags: [Azure, EventHubs, C#, Function Apps, "C#"]
 date: "2017-12-10T00:00:00.0Z"
 ---
 

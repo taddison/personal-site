@@ -9,7 +9,7 @@ import LinkButton from "../components/link-button"
 import BlogLinkSummary from "../components/blog-link-summary"
 
 const BlogPostList = (props) => {
-  const posts = props.data.allMarkdownRemark.edges
+  const posts = props.data.allMdx.edges
   const { currentPage, numberOfPages } = props.pageContext
   const isLast = currentPage === numberOfPages
   const nextPage = currentPage + 1
@@ -54,8 +54,8 @@ export default BlogPostList
 
 export const pageQuery = graphql`
   query blogPostListQuery($skip: Int!) {
-    allMarkdownRemark(
-      filter: { fields: { sourceName: { eq: "blog" } } }
+    allMdx(
+      filter: { fields: { source: { eq: "blog" } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 10
       skip: $skip

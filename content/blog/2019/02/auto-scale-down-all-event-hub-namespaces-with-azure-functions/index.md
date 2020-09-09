@@ -141,6 +141,6 @@ One example result set is shown below - this shows multiple namespaces surviving
 
 ![Scaler query result](./ScaleDownQuery.png)
 
-[scaledown blog]: https://tjaddison.com/2017/12/10/Auto-deflating-Event-Hubs-with-a-function-app
+[scaledown blog]: /blog/2017/12/auto-deflating-event-hubs-with-a-function-app/
 [scaledowneventhubs repo]: https://github.com/taddison/ScaleDownEventHubs
 [service principal]: https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals
