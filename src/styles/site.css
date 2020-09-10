@@ -22,4 +22,42 @@ body {
 }
 /* End Code highlighting */
 
+/* gatsby-remark-autolink-header
+ * 
+ * Due to a bug with this plugin and gatsby-mdx, the styles are never injected
+ * Specifically, the gatsby-ssr.js code is never executed
+ * Manually specify the classes for now, strip out if/when the bug is fixed
+ * Note the classes below have been customised from what the plugin uses
+ * https://github.com/gatsbyjs/gatsby/issues/15486
+ */
+
+.header-anchor.before {
+  display: inline-block;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+h1 .header-anchor svg,
+h2 .header-anchor svg,
+h3 .header-anchor svg,
+h4 .header-anchor svg,
+h5 .header-anchor svg,
+h6 .header-anchor svg {
+  visibility: hidden;
+}
+h1:hover .header-anchor svg,
+h2:hover .header-anchor svg,
+h3:hover .header-anchor svg,
+h4:hover .header-anchor svg,
+h5:hover .header-anchor svg,
+h6:hover .header-anchor svg,
+h1 .header-anchor:focus svg,
+h2 .header-anchor:focus svg,
+h3 .header-anchor:focus svg,
+h4 .header-anchor:focus svg,
+h5 .header-anchor:focus svg,
+h6 .header-anchor:focus svg {
+  visibility: visible;
+}
+/* end gatsby-remark-autolink-header */
+
 /* purgecss end ignore */
