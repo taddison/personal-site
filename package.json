@@ -24,6 +24,7 @@
     "gatsby-plugin-purgecss": "^5.0.0",
     "gatsby-plugin-react-helmet": "^3.3.6",
     "gatsby-plugin-sharp": "^2.6.14",
+    "gatsby-remark-autolink-headers": "^2.3.12",
     "gatsby-remark-copy-linked-files": "^2.3.7",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^3.3.13",
@@ -35,19 +36,18 @@
     "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0",
-    "typeface-inter": "^3.12.0"
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "@tailwindcss/ui": "^0.5.0",
+    "@tailwindcss/ui": "^0.6.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.7.0",
+    "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.5",
-    "prettier": "^2.0.5",
-    "tailwindcss": "^1.6.2"
+    "prettier": "^2.1.1",
+    "tailwindcss": "^1.8.6"
   },
   "homepage": "https://tjaddison.com",
   "license": "MIT",

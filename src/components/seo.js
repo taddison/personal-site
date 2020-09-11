@@ -96,6 +96,7 @@ function SEO({ description, lang, meta, title, image }) {
       ></link>
       <link rel="webmention" href={site.siteMetadata.social.webmention} />
       <link rel="pingback" href={site.siteMetadata.social.pingback} />
+      <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
     </Helmet>
   )
 }
