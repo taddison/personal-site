@@ -5,7 +5,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: false,
+  purge: [`./src/**/*.js`],
   theme: {
     extend: {
       opacity: {

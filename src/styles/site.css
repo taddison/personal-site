@@ -1,7 +1,4 @@
-/* purgecss start ignore */
 @tailwind base;
-/* purgecss end ignore */
-
 @tailwind components;
 @tailwind utilities;
 
@@ -9,8 +6,6 @@
 body {
   @apply text-gray-700;
 }
-
-/* purgecss start ignore */
 
 /* Code highlighting */
 /* Wrap any inline highlights `that are really long`, but don't modify
@@ -59,5 +54,3 @@ h6 .header-anchor:focus svg {
   visibility: visible;
 }
 /* end gatsby-remark-autolink-header */
-
-/* purgecss end ignore */
