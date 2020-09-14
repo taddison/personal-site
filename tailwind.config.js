@@ -1,11 +1,15 @@
 const defaultTheme = require(`tailwindcss/defaultTheme`)
 
 module.exports = {
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
   purge: false,
   theme: {
     extend: {
       opacity: {
-        "35": `.35`,
+        35: `.35`,
       },
       colors: {
         "accent-1": `#EEF0F2`,
