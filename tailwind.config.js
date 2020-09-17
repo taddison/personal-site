@@ -26,8 +26,6 @@ module.exports = {
       return {
         default: {
           css: {
-            "code::before": { content: `` },
-            "code::after": { content: `` },
             a: {
               color: theme(`colors.blue.600`),
               textDecoration: `none`,
@@ -35,12 +33,10 @@ module.exports = {
                 textDecoration: `underline`,
               },
             },
-            "blockquote p:first-of-type::before": {
-              content: ``,
-            },
-            "blockquote p:last-of-type::after": {
-              content: ``,
-            },
+            "code::before": false,
+            "code::after": false,
+            "blockquote p:first-of-type::before": false,
+            "blockquote p:last-of-type::after": false,
           },
         },
       }

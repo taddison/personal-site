@@ -79,14 +79,10 @@ The final change was to disable the additional quotes (which use before/after co
 
 ```javascript
 // in the css: { ...block ... }
-"code::before": { content: `` },
-"code::after": { content: `` },
-"blockquote p:first-of-type::before": {
-  content: ``,
-},
-"blockquote p:last-of-type::after": {
-  content: ``,
-},
+"code::before": false,
+"code::after": false,
+"blockquote p:first-of-type::before": false,
+"blockquote p:last-of-type::after": false,
 ```
 
 And we're _almost_ done. The one piece of custom styling I had to preserve was the rule that stops `prismjs` from causing `extremely long pieces of inline code (like this one here)` to scroll rather than wrap (now targeting `prose`, rather than my old `markdown` class):
