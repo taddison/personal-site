@@ -1,6 +1,7 @@
-// const config = require(`./site.config`)
+const config = require(`./site.config`)
 
 module.exports = {
+  siteMetadata: config.siteMetadata,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
