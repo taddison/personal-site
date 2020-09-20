@@ -1,39 +1,15 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 import profilePic from "../../content/assets/profile-pic.jpg"
 
-function SEO({ description, lang, meta, title, image }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            siteUrl
-            social {
-              twitter
-              webmention
-              pingback
-            }
-          }
-        }
-      }
-    `
-  )
+import config from "../../site.config"
 
-  const metaDescription = description || site.siteMetadata.description
-  const openGraphImageUrl = site.siteMetadata.siteUrl + (image || profilePic)
+function SEO({ description, lang, meta, title, image }) {
+  const { siteMetadata } = config
+
+  const metaDescription = description || siteMetadata.description
+  const openGraphImageUrl = siteMetadata.siteUrl + (image || profilePic)
 
   return (
     <Helmet
@@ -41,7 +17,7 @@ function SEO({ description, lang, meta, title, image }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -65,7 +41,7 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: siteMetadata.author,
         },
         {
           name: `twitter:title`,
@@ -91,11 +67,11 @@ function SEO({ description, lang, meta, title, image }) {
     >
       {/* IndieLogin */}
       <link
-        href={`https://twitter.com/${site.siteMetadata.social.twitter}`}
+        href={`https://twitter.com/${siteMetadata.social.twitter}`}
         rel="me"
       ></link>
-      <link rel="webmention" href={site.siteMetadata.social.webmention} />
-      <link rel="pingback" href={site.siteMetadata.social.pingback} />
+      <link rel="webmention" href={siteMetadata.social.webmention} />
+      <link rel="pingback" href={siteMetadata.social.pingback} />
       <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
     </Helmet>
   )
