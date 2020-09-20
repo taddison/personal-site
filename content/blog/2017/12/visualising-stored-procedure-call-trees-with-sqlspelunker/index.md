@@ -11,7 +11,7 @@ If you've worked in any system where a lot of the logic ends up in the database,
 
 Taking inspiration from [What's in the box? Validating SQL Scripts with Powershell](http://port1433.com/2017/12/04/whats-in-the-box-validating-sql-server-scripts-with-powershell/) and [Get Started with the ScriptDom](https://the.agilesql.club/blog/Ed-Elliott/2015-11-07/Get-Started-With-The-ScriptDom) I built [SQLSpelunker](https://www.github.com/taddison/SQLSpelunker) to allow you to quickly go from a stored procedure name to a visual of the call tree for that procedure:
 
-```code
+```
 c:\SQLSpelunker>dotnet run "server=localhost;initial catalog=tempdb;integrated security=SSPI" "exec dbo.ProcOne;"
 
 tempdb.dbo.ProcOne
@@ -50,7 +50,7 @@ go
 
 Running SQLSpelunker against that database and the script `exec dbo.ProcOne` will generate the following output:
 
-```code
+```
 tempdb.dbo.ProcOne
 -tempdb.dbo.ProcTwo
 --tempdb.dbo.ProcThree
@@ -74,7 +74,7 @@ go
 
 Running SQLSpelunker against the same database with the script `exec dbo.NeverCallsItself` will return the following:
 
-```code
+```
 tempdb.dbo.CallsItself
 -tempdb.dbo.CallsItself [*]
 -tempdb.dbo.ProcOne
@@ -94,7 +94,7 @@ exec proc;
 
 When parsed result in:
 
-```code
+```
 tempdb.dbo.proc
 ```
 
@@ -121,7 +121,7 @@ go
 
 We'd see the following call chain:
 
-```code
+```
 tempdb.dbo.CrossDBCall
 -master.dbo.ILiveInMaster
 --tempdb.dbo.CrossDBCall [*]
@@ -161,7 +161,7 @@ go
 
 This produces:
 
-```code
+```
 tempdb.dbo.ThisMaybeDoesNothing
 -dbo.ProcOne
 -dbo.ProcTwo
@@ -180,7 +180,7 @@ The command line arguments for the SQLSpelunker console app are:
 
 An example connection string that connects to tempdb on the localhost instance with windows authentication is:
 
-```code
+```
 server=localhost;initial catalog=tempdb;integrated security=SSPI
 ```
 

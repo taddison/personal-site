@@ -78,7 +78,7 @@ The reason we set delayed durability to forced is to minimise/eliminate any `WRI
 
 To start with I ran a load test and looked at `sp_whoisactive` to confirm the wait was showing up. The following command will run 100 concurrent waitfor-receives, each with a timeout of 1ms. Each thread will execute the statement 10000 times.
 
-```cmd
+```shell
 SqlDriver.exe
   -s "waitfor(receive top(1) * from dbo.TestQueue), timeout 1"
   -t 100
@@ -182,7 +182,7 @@ For this benchmark we're not able to use the latch stats DMV (as the activity ag
 
 To capture wait stats related to the second queue only we modify the application name property of the 'background' connection string:
 
-```cmd
+```shell
 SqlDriver.exe
   -s "waitfor(receive top(1) * from dbo.TestQueue), timeout 10"
   -t 100

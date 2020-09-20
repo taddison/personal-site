@@ -60,7 +60,7 @@ One column which was significantly reworked is 'minimum violations to alert' - w
 
 **defaultAlertConfig.csv**
 
-```csv
+```
 metricName,warningThreshold,criticalThreshold,lessThanThresholdIsBad,minimumViolationsToAlert,valueMultiplier
 Processor Usage %,0.35,0.5,false,3,0.01
 Free Space %,0.2,0.1,true,1,0.01
@@ -71,7 +71,7 @@ The DefaultAlertNotificationConfig file is used to determine how to format the a
 
 **defaultAlertNotificationConfig.csv**
 
-```csv
+```
 metricName,channel,formatString,alertMessage
 Processor Usage %,#alerts,P0,Infra - CPU
 Free Space %,#alerts,P0,Infra - Drive
@@ -84,7 +84,7 @@ Setting per-server rules for alerts is now done by adding records to the _Overri
 
 **overrideAlertConfig.csv**
 
-```csv
+```
 metricName,machineName,warningThreshold,criticalThreshold,minimumViolationsToAlert
 Processor Usage %,Server 2,0.3,0.4,
 ```
@@ -100,7 +100,7 @@ For routing the configuration file is _OverrideAlertNotificationConfig_, and it 
 
 **overrideAlertNotificationConfig.csv**
 
-```csv
+```
 metricName,machineName,channel
 ,Server1,#Server1Team
 Free Space %,,#memory-monitors
