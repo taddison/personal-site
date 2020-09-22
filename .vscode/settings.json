@@ -2,5 +2,6 @@
   "omnisharp.autoStart": false,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "explorer.compactFolders": false
+  "explorer.compactFolders": false,
+  "files.eol": "\n"
 }
