@@ -73,7 +73,7 @@ function SEO({ description, lang, meta, title, image }) {
       <link rel="webmention" href={siteMetadata.social.webmention} />
       <link rel="pingback" href={siteMetadata.social.pingback} />
       <link
-        crossOrigin
+        crossOrigin="anonymous"
         rel="preload"
         href="https://rsms.me/inter/inter.css"
         as="style"
