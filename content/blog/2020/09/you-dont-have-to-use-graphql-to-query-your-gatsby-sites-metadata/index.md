@@ -1,7 +1,7 @@
 ---
 title: You don't have to use graphql to query your Gatsby site's metadata
 tags: ["GatsbyJS"]
-# shareimage: "./tailwindconfig.png"
+shareimage: "./graphql.png"
 date: "2020-09-30T00:00:00.0Z"
 ---
 
