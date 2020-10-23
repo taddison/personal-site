@@ -20,7 +20,7 @@ body {
 /* gatsby-remark-autolink-header
  * 
  * Due to a bug with this plugin and gatsby-mdx, the styles are never injected
- * Specifically, the gatsby-ssr.js code is never executed
+ * Specifically, the plugin's gatsby-ssr.js code is never executed
  * Manually specify the classes for now, strip out if/when the bug is fixed
  * Note the classes below have been customised from what the plugin uses
  * https://github.com/gatsbyjs/gatsby/issues/15486
