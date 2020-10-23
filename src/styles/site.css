@@ -9,7 +9,7 @@ body {
 
 /* Code highlighting */
 /* Wrap any inline highlights `that are really long`, but don't modify
-   the setting for codeblocks (inside ```), which are rendered in as:
+   the setting for codeblocks (inside ```), which are rendered in:
    <pre><code>...
 */
 .prose :not(pre) > code.language-text {
