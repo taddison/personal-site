@@ -1,5 +1,7 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const BundleAnalyzerPlugin = require(`webpack-bundle-analyzer`)
+  .BundleAnalyzerPlugin
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -146,6 +148,22 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       node,
       value: `/${node.fields.source}` + value,
+    })
+  }
+}
+
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  const isProductionBuild = process.env.NODE_ENV === `production`
+  const isJavaScriptBuildStage = stage === `build-javascript`
+  const analyzerMode = process.env.INTERACTIVE_ANALYZE ? `server` : `json`
+
+  if (isJavaScriptBuildStage && isProductionBuild) {
+    actions.setWebpackConfig({
+      plugins: [
+        new BundleAnalyzerPlugin({
+          analyzerMode,
+        }),
+      ],
     })
   }
 }
