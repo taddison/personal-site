@@ -162,6 +162,7 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
       plugins: [
         new BundleAnalyzerPlugin({
           analyzerMode,
+          reportFilename: `./__build/bundlereport.json`,
         }),
       ],
     })
