@@ -64,6 +64,6 @@ const PostSummaryList = ({ posts }) => {
   )
 }
 
-TagPill.propTypes = propTypes
+PostSummaryList.propTypes = propTypes
 
 export default PostSummaryList
