@@ -73,12 +73,9 @@ function SEO({ description, lang, meta, title, image }) {
       <link rel="webmention" href={siteMetadata.social.webmention} />
       <link rel="pingback" href={siteMetadata.social.pingback} />
       <link
-        crossOrigin="anonymous"
-        rel="preload"
-        href="https://rsms.me/inter/inter.css"
-        as="style"
-        onLoad="this.onload=null;this.rel='stylesheet'"
-      ></link>
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
     </Helmet>
   )
 }
