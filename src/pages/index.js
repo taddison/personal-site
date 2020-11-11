@@ -8,7 +8,7 @@ class Home extends React.Component {
   render() {
     return (
       <Layout location={this.props.location}>
-        <SEO title="All posts" />
+        <SEO title="Home" />
         <div className="text-xl">
           <span className="block text-4xl mb-4 font-bold">Hey there! 👋</span>I
           {` `}
@@ -23,7 +23,7 @@ class Home extends React.Component {
           occasionally publish{` `}
           <Link
             className="font-semibold hover:underline hover:text-accent-3"
-            to="/links"
+            to="/blog/tags/#Links"
           >
             link roundups
           </Link>

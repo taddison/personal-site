@@ -1,5 +1,5 @@
 ---
-title: Interesting Links - October 2002
+title: Interesting Links - October 2020
 tags: ["Links"]
 date: "2020-02-07T00:00:00.0Z"
 ---

@@ -1,4 +1,6 @@
 ---
+title: More Interesting Links - December 2019
+tags: ["Links"]
 date: "2019-12-19T00:00:00.0Z"
 ---
 

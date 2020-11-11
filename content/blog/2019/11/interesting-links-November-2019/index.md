@@ -1,4 +1,6 @@
 ---
+title: Interesting Links - November 2019
+tags: ["Links"]
 date: "2019-11-08T00:00:00.0Z"
 ---
 
