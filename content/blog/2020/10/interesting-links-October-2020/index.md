@@ -1,7 +1,7 @@
 ---
 title: Interesting Links - October 2020
 tags: ["Links"]
-date: "2020-02-07T00:00:00.0Z"
+date: "2020-10-31T00:00:00.0Z"
 ---
 
 https://keavy.com/work/thriving-on-the-technical-leadership-path/
