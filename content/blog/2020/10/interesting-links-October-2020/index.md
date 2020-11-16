@@ -4,8 +4,13 @@ tags: ["Links"]
 date: "2020-10-31T00:00:00.0Z"
 ---
 
-https://keavy.com/work/thriving-on-the-technical-leadership-path/
-https://whynotsecurity.com/blog/teamviewer/
+- [Keavy McMinn] shares some great examples of [what senior technical leadership can look like] (all engineering career ladders should not lead to management!).
+- In addition to being a pretty terrifying read from a security perspective, this fascinating journey through the process of [discovering a vulnerability in TeamViewer] offers a glimpse at a pretty exciting red-team engagement.
+
+[keavy mcminn]: https://keavy.com
+[what senior technical leadership can look like]: https://keavy.com/work/thriving-on-the-technical-leadership-path/
+[discovering a vulnerability in teamviewer]: https://whynotsecurity.com/blog/teamviewer/
+
 https://medium.com/refactoring-ui/7-practical-tips-for-cheating-at-design-40c736799886
 https://webaim.org/blog/user-agent-string-history/
 https://medium.com/baseds
@@ -27,6 +32,5 @@ https://blog.acolyer.org/2020/02/28/microsoft-gandalf/
 https://getcortexapp.com/engineering-blog/taming-your-microservices
 http://blogs.tedneward.com/post/the-vietnam-of-computer-science/
 https://redwoodjs.com/
-
 https://illustrated.dev/
 https://github.com/evanw/esbuild/blob/master/README.md
