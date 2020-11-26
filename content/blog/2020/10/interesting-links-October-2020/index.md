@@ -6,31 +6,41 @@ date: "2020-10-31T00:00:00.0Z"
 
 - [Keavy McMinn] shares some great examples of [what senior technical leadership can look like] (all engineering career ladders should not lead to management!).
 - In addition to being a pretty terrifying read from a security perspective, this fascinating journey through the process of [discovering a vulnerability in TeamViewer] offers a glimpse at a pretty exciting red-team engagement.
+- [7 helpful design tips] that should be useful even if you profess to have no design talent (_raises hand_)
+- Ever wondered why Mozilla shows up in so many user agents (even when you're not using Firefox?) - the [history of the browser user-agent string] will clue you in.
+- If you enjoyed [basecs], you'll probably enjoy it's distributed systems cousin [baseds].
+- An incredible [introduction to networking for programmers] from routing down to the physical (analog!) layer
+- Unlike in RPGs, in reality the [side quests] are pretty key to advancing the 'main story' (getting stuff done)
+- [Rick Branson] argues that you [you shouldn't count production incidents] if you want to improve quality.
+- When someone tells you they're not biased, perhaps you could suggest this thorough article that reminds us [we still have a lot of work to do to remove gender bias in tech].
+- And once you get past that lack of bias, maybe help correct them on their meritocratic ways (hint: [meritocracy is a fallacy]).
+- [Corp.com is up for sale], and that's a bit of a problem if you Active Directory domain is configured in a certain way (a certain set of defaults proposed by Microsoft in the past!).
 
 [keavy mcminn]: https://keavy.com
 [what senior technical leadership can look like]: https://keavy.com/work/thriving-on-the-technical-leadership-path/
 [discovering a vulnerability in teamviewer]: https://whynotsecurity.com/blog/teamviewer/
+[7 helpful design tips]: https://medium.com/refactoring-ui/7-practical-tips-for-cheating-at-design-40c736799886
+[history of the browser user-agent string]: https://webaim.org/blog/user-agent-string-history/
+[basecs]: https://medium.com/basecs
+[baseds]: https://medium.com/baseds
+[introduction to networking for programmers]: https://www.destroyallsoftware.com/compendium/network-protocols?share_key=97d3ba4c24d21147
+[side quests]: https://noidea.dog/blog/surviving-the-organisational-side-quest
+[rick branson]: https://medium.com/@rbranson
+[you shouldn't count production incidents]: https://medium.com/@rbranson/why-you-shouldnt-count-production-incidents-38616d8e6329
+[we still have a lot of work to do to remove gender bias in tech]: https://medium.com/tech-diversity-files/if-you-think-women-in-tech-is-just-a-pipeline-problem-you-haven-t-been-paying-attention-cb7a2073b996
+[meritocracy is a fallacy]: https://medium.com/@cathy_67575/the-fallacy-of-meritocracy-d8260f5f0611
+[corp.com is up for sale]: https://krebsonsecurity.com/2020/02/dangerous-domain-corp-com-goes-up-for-sale/
 
-https://medium.com/refactoring-ui/7-practical-tips-for-cheating-at-design-40c736799886
-https://webaim.org/blog/user-agent-string-history/
-https://medium.com/baseds
-https://www.destroyallsoftware.com/compendium/network-protocols?share_key=97d3ba4c24d21147
-https://noidea.dog/blog/surviving-the-organisational-side-quest
-https://github.com/dotnet/runtime/blob/master/docs/design/features/StringDeduplication.md
-https://medium.com/@rbranson/why-you-shouldnt-count-production-incidents-38616d8e6329
-https://slack.engineering/how-big-technical-changes-happen-at-slack-f1569d25ee7b
-https://medium.com/tech-diversity-files/if-you-think-women-in-tech-is-just-a-pipeline-problem-you-haven-t-been-paying-attention-cb7a2073b996
-https://medium.com/@cathy_67575/the-fallacy-of-meritocracy-d8260f5f0611
-https://krebsonsecurity.com/2020/02/dangerous-domain-corp-com-goes-up-for-sale/
-https://blog.acolyer.org/2020/02/19/ten-year-egml-predictions/
 https://codeascraft.com/2020/02/24/the-causal-analysis-of-cannibalization-in-online-products/
-https://blog.acolyer.org/2020/02/26/meaningful-availability/
+https://github.com/evanw/esbuild/blob/master/README.md
 https://www.red-gate.com/simple-talk/sql/database-administration/how-does-accelerated-database-recovery-work/
 https://blog.coleadership.com/behind-the-scenes-tech-leadership/
-https://blog.acolyer.org/2020/02/21/extending-relational-query-processing/
-https://blog.acolyer.org/2020/02/28/microsoft-gandalf/
-https://getcortexapp.com/engineering-blog/taming-your-microservices
 http://blogs.tedneward.com/post/the-vietnam-of-computer-science/
 https://redwoodjs.com/
 https://illustrated.dev/
-https://github.com/evanw/esbuild/blob/master/README.md
+
+https://blog.acolyer.org/2020/02/26/meaningful-availability/
+https://blog.acolyer.org/2020/02/19/ten-year-egml-predictions/
+https://blog.acolyer.org/2020/02/21/extending-relational-query-processing/
+https://blog.acolyer.org/2020/02/28/microsoft-gandalf/
+https://getcortexapp.com/engineering-blog/taming-your-microservices
