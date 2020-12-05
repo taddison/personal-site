@@ -7,7 +7,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   await createBlogPages(graphql, createPage)
-  await createLinksPages(graphql, createPage)
 }
 
 const createBlogPages = async (graphql, createPage) => {
@@ -74,67 +73,6 @@ const createBlogPages = async (graphql, createPage) => {
         },
       })
     }
-  })
-}
-
-const createLinksPages = async (graphql, createPage) => {
-  const linksPost = path.resolve(`./src/templates/links-post.js`)
-  const linksResults = await graphql(
-    `
-      {
-        allMdx(
-          filter: { fields: { source: { eq: "links" } } }
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-            }
-          }
-        }
-      }
-    `
-  )
-
-  if (linksResults.errors) {
-    throw linksResults.errors
-  }
-
-  // Create links posts pages
-  const posts = linksResults.data.allMdx.edges
-
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
-
-    createPage({
-      path: post.node.fields.slug,
-      component: linksPost,
-      context: {
-        slug: post.node.fields.slug,
-        previous,
-        next,
-      },
-    })
-  })
-
-  // Create links post list pages
-  const POSTS_PER_PAGE = 10
-  const numberOfPages = Math.ceil(posts.length / POSTS_PER_PAGE)
-
-  Array.from({ length: numberOfPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/links/` : `/links/${i + 1}`,
-      component: path.resolve(`./src/templates/links-post-list.js`),
-      context: {
-        skip: i * POSTS_PER_PAGE,
-        numberOfPages,
-        currentPage: i + 1,
-      },
-    })
   })
 }
 

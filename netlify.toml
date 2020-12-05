@@ -16,6 +16,24 @@
   from = "/2016/:month/:day/:slug"
   to = "/blog/2016/:month/:slug"
 
+# Link post redirects
+# 1 per-post
+[[redirects]]
+  from = "/links/2019/20191108/"
+  to = "/blog/2019/11/interesting-links-november-2019/"
+
+[[redirects]]
+  from = "/links/2019/20191201/"
+  to = "/blog/2019/12/interesting-links-december-2019/"
+
+[[redirects]]
+  from = "/links/2019/20191219/"
+  to = "/blog/2019/12/more-interesting-links-december-2019/"
+
+[[redirects]]
+  from = "/links/2020/20200207/"
+  to = "/blog/2020/02/interesting-links-february-2020/"
+
 [build]
   publish = "public"
 

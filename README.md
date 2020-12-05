@@ -4,6 +4,6 @@ Built with Gatsby, deployed with Netlify.
 
 TODO:
 
-- Added postcss 8 as autoprefixer 10 requires that
-  - Without the explicit dependency postcss 7 is brought in
-  - Once 8 is brought in by default the explicit dependency can be removed
+- Update to tailwindcss 2.0
+  - This requires an explicit dependency on postcss 8 for now
+  - Add forms, typography plugins and remove ui

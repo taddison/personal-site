@@ -53,7 +53,7 @@ Once I've got a few more links pages up I'll see about adding a 'recent updates'
 
 For now I'm just glad to [share the keystrokes][count your keystrokes article] with a wider audience.
 
-[link roundups]: /links
+[link roundups]: /blog/tags/#Links
 [gatsby-remark-source-name]: https://github.com/elboman/gatsby-remark-source-name
 [add links type to blog pr]: https://github.com/taddison/personal-site/pull/7
 [count your keystrokes article]: https://blog.jonudell.net/2007/04/10/too-busy-to-blog-count-your-keystrokes/
