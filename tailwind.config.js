@@ -1,10 +1,6 @@
 const defaultTheme = require(`tailwindcss/defaultTheme`)
 
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
   purge: [`./src/**/*.js`],
   theme: {
     extend: {
@@ -21,27 +17,27 @@ module.exports = {
       fontFamily: {
         sans: [`Inter`, ...defaultTheme.fontFamily.sans],
       },
-    },
-    typography: (theme) => {
-      return {
-        default: {
-          css: {
-            a: {
-              color: theme(`colors.blue.600`),
-              textDecoration: `none`,
-              "&:hover": {
-                textDecoration: `underline`,
+      typography: (theme) => {
+        return {
+          DEFAULT: {
+            css: {
+              a: {
+                color: theme(`colors.blue.600`),
+                textDecoration: `none`,
+                "&:hover": {
+                  textDecoration: `underline`,
+                },
               },
+              "code::before": false,
+              "code::after": false,
+              "blockquote p:first-of-type::before": false,
+              "blockquote p:last-of-type::after": false,
             },
-            "code::before": false,
-            "code::after": false,
-            "blockquote p:first-of-type::before": false,
-            "blockquote p:last-of-type::after": false,
           },
-        },
-      }
+        }
+      },
     },
   },
   variants: {},
-  plugins: [require(`@tailwindcss/ui`)],
+  plugins: [require(`@tailwindcss/forms`), require(`@tailwindcss/typography`)],
 }
