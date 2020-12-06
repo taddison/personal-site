@@ -78,11 +78,6 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [require(`tailwindcss`), require(`autoprefixer`)],
-      },
-    },
+    `gatsby-plugin-postcss`,
   ],
 }
