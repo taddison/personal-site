@@ -7,23 +7,35 @@ date: "2020-11-30T00:00:00.0Z"
 
 # Draft from daily notes
 
-How can I check on the bundle size for my GatsbyJS site?
+Gatsby will do a great job of serving up a well optimized site - but it is constrained by what _you told it_ to serve. If keeping your site lean is important to you, then looking at your bundle size (and what's in that bundle) before and after adding any new dependencies can be illuminating. If you're currently happy with performance (hundreds of kilobytes of JavaScript can be added and you'll still score a perfect 100 on a [web.dev test]) then I highly recommend [Dan Luu]'s [web bloat]. After you've read that and now feel duly chastened about the state of the modern web, let's look at two ways to analyze your Gatsby site's bundle - interactive, and build-time reports.
 
-[size-plugin] (and it's gatsby variant [gatsby-plugin-webpack-size]) looked promising, though it looks like the plugin hasn't been updated for a while, and I also saw some weird results when running locally (files reported as 0B despite cleary not being 0B). A bit of searching and it looks like [webpack-bundle-analyzer] might be the way to go, especially as it is actively maintained, is widely consumed, and supports a few different options for output (reports, files, or dumping the raw webpack stats).
+## Configuring the webpack size plugin
 
-In terms of which gatsby variant to take, I've opted to copy-paste the plugin contents directly, which amounts to the following:
+There are a couple of Gatsby plugins which will add [webpack-bundle-analyzer] for you, though I've opted to consume that package directly.
+
+> Gatsby plugins that are wrappers for other packages can be really hit or miss. Will they expose all the features you want, and be updated in a timely manner? In many cases I've opted to consume the packages directly and skip the Gatsby plugin as the amount of code needed is small and I appreciate the opportunity to learn more about the bundler and the analyzer plugin. If you prefer to stick with Gatsby plugins then I'd suggest [gatsby-plugin-webpack-bundle-analyser-v2].
+
+First of all you'll need to install the plugin (I'm using `yarn` in my examples):
+
+```shell
+yarn add webpack-bundle-analyzer -D
+```
+
+Next you need to add the following to `gatsby-node.js`:
 
 ```javascript
-// gatsby-node.js
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  if (stage === "build-javascript" && process.env.NODE_ENV === "production") {
+  const analyzerMode = process.env.INTERACTIVE_ANALYZE ? "server" : "json"
+
+  if (stage === "build-javascript") {
     actions.setWebpackConfig({
       plugins: [
         new BundleAnalyzerPlugin({
-          generateStatsFile: true,
+          analyzerMode,
+          reportFileName: `./__build/bundlereport.json`,
         }),
       ],
     })
@@ -31,14 +43,13 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 }
 ```
 
-Adding a plugin to call through to another plugin - too much indirection and way too easy to let something get out of date. Two variants do exist that basically do the same thing:
+The [docs for onCreateWebpackConfig] explain the different stages, and we only want to run the analyzer plugin when we're building our production JavaScript bundles (`build-javascript`) - this stage only runs during a `gatsby build`, and not during development.
 
-- [gatsby-plugin-webpack-bundle-analyzer]
-- [gatsby-plugin-webpack-bundle-analyser-v2]
+The arguments we pass through are explained in the below sections and determine if we want to look at our bundle size interactively, or in a JSON report.
 
-By default the plugin (when called with `analyzerMode: "report"`) will drop a `report.json` file in the public folder (webpack's output path which means for any deployment I can see the current report, including on on Netlify pull request previews. Although the treemap would be useful for inspecting the bundle it doesn't really help for diffs - finding something to diff reports is the next step.
+## Viewing bundle sizes interactively
 
-An easy way to ensure you can boot the treemap whenever you want is to add an extra npm script.
+####TJADDISON BUNDLE IMAGE
 
 ```shell
 yarn add cross-env webpack-bundle-analyzer -D
@@ -51,27 +62,11 @@ scripts: {
 }
 ```
 
-```javascript
-// gatsby-node.js
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin
+## Reporting on bundle sizes at build time
 
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  const isProductionBuild = process.env.NODE_ENV === "production"
-  const isJavaScriptBuildStage = stage === "build-javascript"
-  const analyzerMode = process.env.INTERACTIVE_ANALYZE ? "server" : "json"
+By default the plugin (when called with `analyzerMode: "report"`) will drop a `report.json` file in the public folder (webpack's output path which means for any deployment I can see the current report, including on on Netlify pull request previews. Although the treemap would be useful for inspecting the bundle it doesn't really help for diffs - finding something to diff reports is the next step.
 
-  if (isJavaScriptBuildStage && isProductionBuild) {
-    actions.setWebpackConfig({
-      plugins: [
-        new BundleAnalyzerPlugin({
-          analyzerMode,
-        }),
-      ],
-    })
-  }
-}
-```
+An easy way to ensure you can boot the treemap whenever you want is to add an extra npm script.
 
 In order to log the summary stats from the `report.json`:
 
@@ -98,8 +93,10 @@ fetch("https://{url}/report.json").then((res) => {
 })
 ```
 
-[size-plugin]: https://github.com/GoogleChromeLabs/size-plugin
-[gatsby-plugin-webpack-size]: https://github.com/axe312ger/gatsby-plugin-webpack-size
+[web.dev test]: https://web.dev/measure/
+[dan luu]: https://danluu.com/
+[web bloat]: https://danluu.com/web-bloat/
 [webpack-bundle-analyzer]: https://github.com/webpack-contrib/webpack-bundle-analyzer
-[gatsby-plugin-webpack-bundle-analyzer]: https://github.com/escaladesports/legacy-gatsby-plugin-webpack-bundle-analyzer
+[gatsby-plugin-webpack-size]: https://github.com/axe312ger/gatsby-plugin-webpack-size
 [gatsby-plugin-webpack-bundle-analyser-v2]: https://github.com/JimmyBeldone/gatsby-plugin-webpack-bundle-analyser-v2
+[docs for oncreatewebpackconfig]: https://www.gatsbyjs.com/docs/how-to/custom-configuration/add-custom-webpack-config/
