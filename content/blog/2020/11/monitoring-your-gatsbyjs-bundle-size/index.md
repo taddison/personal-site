@@ -74,27 +74,13 @@ Something to keep in mind is that all of these bundles aren't loaded for every p
 
 ## Reporting on bundle sizes at build time
 
-#
+By default every `gatsby build` will log the bundle stats to the file `__build/bundlereport.json`. You can see the [current bundle stats for tjaddison.com].
 
-#
+> If you don't want to upload your bundle report to your production site you can either gate the stats behind another environment variable (which you won't set for publishing).
 
-#
+Where this really shines is comparing releases - I use [Netlify] to deploy my site and take advantage of [deploy previews] to preview every pull request as a branch. This publishes my branch (including my `buildreport.json`), which allows me to take those files and compare the bundle sizes of the branch compared to production.
 
-#
-
-#
-
-#
-
-#
-
-#
-
-By default the plugin (when called with `analyzerMode: "report"`) will drop a `report.json` file in the public folder (webpack's output path which means for any deployment I can see the current report, including on on Netlify pull request previews. Although the treemap would be useful for inspecting the bundle it doesn't really help for diffs - finding something to diff reports is the next step.
-
-An easy way to ensure you can boot the treemap whenever you want is to add an extra npm script.
-
-In order to log the summary stats from the `report.json`:
+As I make so few changes to the bundles right now I'm eyeballing the numbers - by using the below code I can print out the stats from production and a branch (in this case I'm comparing the before/after numbers from updating to tailwindcss 2.0 and bumping a few other dependencies):
 
 ```javascript
 const logParsedReport = (report) => {
@@ -112,12 +98,41 @@ const logParsedReport = (report) => {
   console.log(`Total ${parsedTotal} (${gzipTotal} gzip)`)
 }
 
-fetch("https://{url}/report.json").then((res) => {
+const prod = "https://tjaddison.com/__build/bundlereport.json"
+const branch =
+  "https://5fc8401d8292a600084390dd--fervent-lovelace-f75e7a.netlify.app/__build/bundlereport.json"
+
+fetch(prod).then((res) => {
+  res.json().then((json) => {
+    logParsedReport(json)
+  })
+})
+fetch(branch).then((res) => {
   res.json().then((json) => {
     logParsedReport(json)
   })
 })
 ```
+
+This gives the following output (which I've truncated for brevity):
+
+```
+Name: 942fc3de6d17fbede2785a28a3625a2fd54381eb-469888aa0543c06173b4.js - 18354 parsed (6526 gzip)
+Name: app-5ff60cbc19fc47db0c13.js - 66067 parsed (18874 gzip)
+Name: component---cache-caches-gatsby-plugin-offline-app-shell-js-16703ee5599528db9f93.js - 499 parsed (351 gzip)
+...
+---------
+Total 341617 (111583 gzip)
+
+Name: 942fc3de6d17fbede2785a28a3625a2fd54381eb-0efa3ed3379b611c2795.js - 18152 parsed (6444 gzip)
+Name: app-fd4d3ac6b7f96cbbf5f8.js - 74754 parsed (22347 gzip)
+Name: component---cache-caches-gatsby-plugin-offline-app-shell-js-16703ee5599528db9f93.js - 499 parsed (351 gzip)
+...
+---------
+Total 349385 (114705 gzip)
+```
+
+Happily this change has reduced the total bundle size - though as the code isn't actually doing a diff I couldn't tell you where. If you come up with a better piece of diffing code for the output please let me know!
 
 [web.dev test]: https://web.dev/measure/
 [dan luu]: https://danluu.com/
@@ -128,3 +143,6 @@ fetch("https://{url}/report.json").then((res) => {
 [docs for oncreatewebpackconfig]: https://www.gatsbyjs.com/docs/how-to/custom-configuration/add-custom-webpack-config/
 [cross-env]: https://www.npmjs.com/package/cross-env
 [won't be loaded on older browsers at all]: https://github.com/gatsbyjs/gatsby/issues/28736
+[current bundle stats for tjaddison.com]: https://tjaddison.com/__build/bundlereport.json
+[netlify]: https://www.netlify.com/
+[deploy previews]: https://docs.netlify.com/site-deploys/overview/#deploy-preview-controls
