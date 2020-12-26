@@ -49,11 +49,17 @@ The arguments we pass through are explained in the below sections and determine 
 
 ## Viewing bundle sizes interactively
 
+To explore the current state of your bundle I'd suggest running the analyzer in _interactive_ mode. This will launch a server (defaulting to `localhost:8888`) that hosts an interactive treemap of your bundles:
+
 ![A recent snapshot of this websites bundles](./tjaddison-bundle.png)
+
+To launch the analyzer in interactive mode we need to configure an environment variable (`INTERACTIVE_ANALYZE`). To support Windows we'll first add the [cross-env] package:
 
 ```shell
 yarn add cross-env -D
 ```
+
+And we'll then add a new script that will launch the build process with this environment variable.
 
 ```json
 /* package.json */
@@ -62,7 +68,27 @@ scripts: {
 }
 ```
 
+Once you run the `analyze` script the analyzer page will launch in a browser when the build process completes.
+
+Something to keep in mind is that all of these bundles aren't loaded for every page/every browser. A good example is the `polyfills.js` bundle which [won't be loaded on older browsers at all].
+
 ## Reporting on bundle sizes at build time
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
 
 By default the plugin (when called with `analyzerMode: "report"`) will drop a `report.json` file in the public folder (webpack's output path which means for any deployment I can see the current report, including on on Netlify pull request previews. Although the treemap would be useful for inspecting the bundle it doesn't really help for diffs - finding something to diff reports is the next step.
 
@@ -100,3 +126,5 @@ fetch("https://{url}/report.json").then((res) => {
 [gatsby-plugin-webpack-size]: https://github.com/axe312ger/gatsby-plugin-webpack-size
 [gatsby-plugin-webpack-bundle-analyser-v2]: https://github.com/JimmyBeldone/gatsby-plugin-webpack-bundle-analyser-v2
 [docs for oncreatewebpackconfig]: https://www.gatsbyjs.com/docs/how-to/custom-configuration/add-custom-webpack-config/
+[cross-env]: https://www.npmjs.com/package/cross-env
+[won't be loaded on older browsers at all]: https://github.com/gatsbyjs/gatsby/issues/28736
