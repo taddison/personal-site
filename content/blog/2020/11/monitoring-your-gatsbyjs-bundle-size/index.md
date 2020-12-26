@@ -49,10 +49,10 @@ The arguments we pass through are explained in the below sections and determine 
 
 ## Viewing bundle sizes interactively
 
-####TJADDISON BUNDLE IMAGE
+![A recent snapshot of this websites bundles](./tjaddison-bundle.png)
 
 ```shell
-yarn add cross-env webpack-bundle-analyzer -D
+yarn add cross-env -D
 ```
 
 ```json
