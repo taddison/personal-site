@@ -91,11 +91,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 }
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  const isProductionBuild = process.env.NODE_ENV === `production`
-  const isJavaScriptBuildStage = stage === `build-javascript`
   const analyzerMode = process.env.INTERACTIVE_ANALYZE ? `server` : `json`
 
-  if (isJavaScriptBuildStage && isProductionBuild) {
+  if (stage === `build-javascript`) {
     actions.setWebpackConfig({
       plugins: [
         new BundleAnalyzerPlugin({
