@@ -5,8 +5,6 @@ shareimage: "./tjaddison-bundle.png"
 date: "2020-11-30T00:00:00.0Z"
 ---
 
-# Draft from daily notes
-
 Gatsby will do a great job of serving up a well optimized site - but it is constrained by what _you told it_ to serve. If keeping your site lean is important to you, then looking at your bundle size (and what's in that bundle) before and after adding any new dependencies can be illuminating. If you're currently happy with performance (hundreds of kilobytes of JavaScript can be added and you'll still score a perfect 100 on a [web.dev test]) then I highly recommend [Dan Luu]'s [web bloat]. After you've read that and now feel duly chastened about the state of the modern web, let's look at two ways to analyze your Gatsby site's bundle - interactive, and build-time reports.
 
 ## Configuring the webpack size plugin

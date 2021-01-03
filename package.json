@@ -8,14 +8,12 @@
     "url": "https://github.com/taddison/personal-site/issues"
   },
   "dependencies": {
+    "@fontsource/inter": "^4.1.0",
     "@mdx-js/mdx": "^1.6.16",
     "@mdx-js/react": "^1.6.16",
     "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/typography": "^0.3.1",
-    "tailwindcss": "^2.0.1",
     "autoprefixer": "^10.0.4",
-    "postcss": "^8.1.14",
-    "fontsource-inter": "^3.0.5",
     "gatsby": "^2.24.39",
     "gatsby-image": "^2.4.9",
     "gatsby-plugin-catch-links": "^2.3.11",
@@ -37,10 +35,12 @@
     "gatsby-remark-smartypants": "^2.3.6",
     "gatsby-source-filesystem": "^2.3.14",
     "gatsby-transformer-sharp": "^2.5.7",
+    "postcss": "^8.1.14",
     "prismjs": "^1.21.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "tailwindcss": "^2.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

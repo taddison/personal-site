@@ -15,7 +15,7 @@ module.exports = {
         "accent-5": `#353B3C`,
       },
       fontFamily: {
-        sans: [`Inter`, ...defaultTheme.fontFamily.sans],
+        sans: [`InterVariable`, ...defaultTheme.fontFamily.sans],
       },
       typography: (theme) => {
         return {
