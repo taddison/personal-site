@@ -1,7 +1,7 @@
 ---
 title: Absolute imports with React
 shareimage: "./imports.png"
-tags: [React]
+tags: [React, JavaScript]
 date: "2020-04-25T00:00:00.0Z"
 ---
 
