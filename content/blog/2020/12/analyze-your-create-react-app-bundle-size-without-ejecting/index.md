@@ -79,7 +79,7 @@ yarn analyze
 
 ![Create React App Bundle](./cra-bundle.png)
 
-[gatsby site's bundle sizes last month]: /blog/2020/11/monitoring-your-gatsbyjs-bundle-size/
+[gatsby site bundle sizes last month]: /blog/2020/11/monitoring-your-gatsbyjs-bundle-size/
 [cra]: https://create-react-app.dev/
 [webpack-bundle-analyzer]: https://github.com/webpack-contrib/webpack-bundle-analyzer
 [craco]: https://github.com/gsoft-inc/craco
