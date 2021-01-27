@@ -1,6 +1,6 @@
 ---
 title: Password protect a Next.js site hosted on Vercel
-tags: [React, Nextjs, Vercel]
+tags: [React, Nextjs, Vercel, JavaScript]
 date: "2020-06-30T00:00:00.0Z"
 ---
 
@@ -14,7 +14,7 @@ If you'd like to jump straight to the source code there is an [example repo on G
 
 In a few cases I've wanted to protect one or more pages on a site, but haven't had any need (or desire!) to integrate an authentication/authentication framework.
 
-Adding password protection with a hosting provider is possible, but expensive. [Surge][surge pricing] requires you to be on a $30/month plan, [Netlify][Netlify pricing] needs the $45/month plan, and with [Vercel][vercel protect deployments] it's a $150/month addon to the pro plan (which is already \$20/month).
+Adding password protection with a hosting provider is possible, but expensive. [Surge][surge pricing] requires you to be on a $30/month plan, [Netlify][netlify pricing] needs the $45/month plan, and with [Vercel][vercel protect deployments] it's a $150/month addon to the pro plan (which is already \$20/month).
 
 You obviously get a lot more for your money than just password protection, and I'd hope their implementations are more robust than what you'll find here (though I couldn't find any documentation on the password protection implementation).
 
