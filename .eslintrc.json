@@ -5,7 +5,7 @@
     "plugin:react/recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["prettier", "react", "filenames"],
+  "plugins": ["prettier", "react"],
   "env": {
     "browser": true,
     "es6": true,
@@ -19,8 +19,6 @@
     "sourceType": "module"
   },
   "rules": {
-    "consistent-return": ["error"],
-    "filenames/match-regex": ["error", "^[a-z-\\d\\.]+$", true],
     "quotes": ["error", "backtick"],
     "react/no-unescaped-entities": "off",
     "react/prop-types": "off"
