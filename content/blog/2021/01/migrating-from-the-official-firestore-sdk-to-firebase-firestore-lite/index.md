@@ -7,7 +7,10 @@ date: "2021-01-31T00:00:00.0Z"
 
 https://github.com/samuelgozi/firebase-firestore-lite/wiki/Firebase-Alternative-SDK-Benchmarks
 
-## Going on a firebase diet
+- Using a Google login with redirect flow
+- Using firestore for simple crud operations and queries
+
+## Install
 
 ```
 yarn remove firebase
@@ -15,7 +18,7 @@ yarn remove firebase
 yarn add firebase-auth-lite firebase-firestore-lite
 ```
 
-### Auth
+### Configure Auth
 
 Key thing that caught me out was not calling `handleSignInRedirect` - after that was in place it all works.
 
@@ -40,9 +43,17 @@ const signIn = async () => {
 }
 ```
 
-### Migrating firestore
+> Add a note about putting auth in the store too
 
-Listing documents:
+```javascript
+const auth = new Auth({
+  apiKey: "AIzaSyD9CBg8CS9XHEH5ipIJMOIIWL7wAHecctk",
+})
+
+const db = new Database({ projectId: "pocket-budget-prod", auth })
+```
+
+### Get all documents from a collection
 
 - `list` defaults to returning a single page of 20 items.
 
@@ -54,7 +65,7 @@ Listing documents:
 +  const allAccounts = accountsResult.documents;
 ```
 
-Running a query:
+### Query
 
 ```diff
 -  const allItemsResult = await itemsCollection
@@ -78,11 +89,7 @@ Running a query:
 +  });
 ```
 
-## Firestore-lite migration
-
-Continued from [[January 14, 2021]]
-
-### Getting a single item
+### Get one document
 
 itemsCollection was a reference to the `transactions` collection.
 
@@ -93,11 +100,11 @@ itemsCollection was a reference to the `transactions` collection.
 +const item = await itemsCollection.child(id).get();
 ```
 
-### Updating a single item
+### Updating/delete an item
 
 No changes (apart from the method to get a document reference).
 
-If using a `serverTimestamp` this changes:
+If using a `serverTimestamp` this changes (for updates):
 
 ```javascript
 import Transform from "firebase-firestore-lite/dist/Transform"
