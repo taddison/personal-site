@@ -26,28 +26,28 @@ Key thing that caught me out was not calling `handleSignInRedirect` - after that
 import Auth from "firebase-auth-lite"
 
 const auth = new Auth({
-  apiKey: "AIzaSyD9CBg8CS9XHEH5ipIJMOIIWL7wAHecctk",
+  apiKey: "YOUR_API_KEY",
   redirectUri: window.location.origin,
 })
 auth.handleSignInRedirect()
 
-const setupAuth = (setAuthStateFunc) => {
-  setAuthState = setAuthStateFunc
-  auth.listen((user) => {
-    updateSignedInUser(user)
-  })
-}
+const [user, setUser] = React.useState(null)
+auth.listen((user) => {
+  setUser(user)
+})
 
 const signIn = async () => {
   await auth.signInWithProvider(`google.com`)
 }
+
+export { user, signIn }
 ```
 
 > Add a note about putting auth in the store too
 
 ```javascript
 const auth = new Auth({
-  apiKey: "AIzaSyD9CBg8CS9XHEH5ipIJMOIIWL7wAHecctk",
+  apiKey: "YOUR_API_KEY",
 })
 
 const db = new Database({ projectId: "pocket-budget-prod", auth })
