@@ -5,6 +5,10 @@ tags: ["JavaScript", "Firestore"]
 date: "2021-01-31T00:00:00.0Z"
 ---
 
+The official Firestore SDK for JavaScript is [pretty big][firestore sdk on bundlephobia] - and if you want to use auth too then you're easily looking at 130KB of gzip compressed code. The size of the bundles is a [known issue][firebase sdk size issue], and there is even an [firebase SDK] on the horizon that is set to cut the size by up to 80%.
+
+But if you don't want to wait for the alpha to turn into a production release...
+
 https://github.com/samuelgozi/firebase-firestore-lite/wiki/Firebase-Alternative-SDK-Benchmarks
 
 - Using a Google login with redirect flow
@@ -113,3 +117,7 @@ await itemRef.update({
   updatedAt: new Transform("serverTimestamp"),
 })
 ```
+
+[firestore sdk on bundlephobia]: https://bundlephobia.com/result?p=@firebase/firestore@2.1.7
+[firebase sdk size issue]: https://github.com/firebase/firebase-js-sdk/issues/332
+[firebase alpha sdk]: https://github.com/firebase/firebase-js-sdk/issues/4368
