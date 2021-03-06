@@ -77,34 +77,54 @@ We no longer have an instantiated `firebase` instance from `firebase/app`, so in
 
 > It is possible to re-use the same `auth` instance from `auth.js` example above, though I prefer to not export and expose that to the rest of my app.
 
+## Get a single document
 
-#
-#
-#
-#
-#
-## TODO >>>>
-#
-#
-#
-#
-#
+A few notable changes:
 
-
-
-### List
-
-- `list` defaults to returning a single page of 20 items.
+- Collections are referenced by `ref` rather than `collection`
+- Documents in a collection are referenced by `child` rather than `doc`
+- Documents are returned with their data by default (no need to call `data()`)
 
 ```diff
--  const accountsResult = await db.collection("accounts").get();
--  const allAccounts = accountsResult.docs.map((d) => d.data());
+- const itemRef = await db.collection("items").doc(id).get();
+- const item = itemRef.data();
 
-+  const accountsResult = await db.ref("accounts").list({pageSize: 1000});
-+  const allAccounts = accountsResult.documents;
++ const item = await db.ref("items").child(id).get();
 ```
 
-## Query
+### Get all documents in a collection
+
+The `list` method is used instead of calling `get` on a collection. By default the `list` method only returns a single page of 20 items - so if you want an entire collection you need to pass a large `pageSize` to the list call.
+
+```diff
+- const accountsResult = await db.collection("accounts").get();
+- const allAccounts = accountsResult.docs.map((d) => d.data());
+
++ const accountsResult = await db.ref("accounts").list({pageSize: 1000});
++ const allAccounts = accountsResult.documents;
+```
+
+### Add, update or delete a document
+
+No changes needed here - the mutate methods all work as they did before (albeit with different patterns to access a collection/individual document).
+
+If you're using [serverTimestamp] in your insert/update method
+No changes (apart from the method to get a document reference).
+
+If using a `serverTimestamp` you'll need to import `Transform` and use that, rather than the `serverTimestamp()` from the firebase SDK:
+
+```diff
++ import Transform from "firebase-firestore-lite/dist/Transform"
+
+- const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp();
+
+await itemRef.update({
+-  updatedAt: serverTimestamp,
++  updatedAt: new Transform("serverTimestamp"),
+})
+```
+
+## Query documents
 
 ```diff
 -  const itemsResult = await itemsCollection
@@ -131,31 +151,6 @@ We no longer have an instantiated `firebase` instance from `firebase/app`, so in
 +  });
 ```
 
-## Get a single document
-
-itemsCollection was a reference to the `transactions` collection.
-
-```diff
--const itemRef = await itemsCollection.doc(id).get();
--const item = itemRef.data();
-
-+const item = await itemsCollection.child(id).get();
-```
-
-### Update or delete a document
-
-No changes (apart from the method to get a document reference).
-
-If using a `serverTimestamp` this changes (for updates):
-
-```javascript
-import Transform from "firebase-firestore-lite/dist/Transform"
-
-await itemRef.update({
-  updatedAt: new Transform("serverTimestamp"),
-})
-```
-
 [firestore sdk on bundlephobia]: https://bundlephobia.com/result?p=@firebase/firestore@2.1.7
 [firebase sdk size issue]: https://github.com/firebase/firebase-js-sdk/issues/332
 [firebase alpha sdk]: https://github.com/firebase/firebase-js-sdk/issues/4368
@@ -163,3 +158,4 @@ await itemRef.update({
 [benchmark]: https://github.com/samuelgozi/firebase-firestore-lite/wiki/Firebase-Alternative-SDK-Benchmarks
 [what am i giving up by using this]: https://github.com/samuelgozi/firebase-firestore-lite#what-am-i-giving-up-by-using-this
 [google signin]: https://firebase.google.com/docs/auth/web/google-signin
+[servertimestamp]: https://firebase.google.com/docs/reference/js/firebase.firestore.FieldValue#servertimestamp
