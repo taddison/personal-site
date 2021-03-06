@@ -7,7 +7,13 @@ date: "2021-01-31T00:00:00.0Z"
 
 The official Firestore SDK for JavaScript is [pretty big][firestore sdk on bundlephobia] - and if you want to use auth too then you're easily looking at 130KB of gzip compressed code. The size of the bundles is a [known issue][firebase sdk size issue], and there is even an [firebase SDK] on the horizon that is set to cut the size by up to 80%.
 
-But if you don't want to wait for the alpha to turn into a production release...
+But if you don't want to wait for the alpha to turn into a production release there is an alternative available now in the (unofficial) [firebase-firestore-lite package]. I've migrated apps and seen 90% size reduction with no loss in functionality (although I'm using basic CRUD only - no realtime). The rest of this post will cover what migration looks for a standard app using Google auth.
+
+If you'd like more detail about the performance benefits of migrating see the [benchmarks].
+
+> This is not a drop-in replacement - the alternative SDK has a different (simpler!) API. For details on what features are missing see [what am i giving up by using this].
+
+##
 
 https://github.com/samuelgozi/firebase-firestore-lite/wiki/Firebase-Alternative-SDK-Benchmarks
 
@@ -121,3 +127,6 @@ await itemRef.update({
 [firestore sdk on bundlephobia]: https://bundlephobia.com/result?p=@firebase/firestore@2.1.7
 [firebase sdk size issue]: https://github.com/firebase/firebase-js-sdk/issues/332
 [firebase alpha sdk]: https://github.com/firebase/firebase-js-sdk/issues/4368
+[firebase-firestore-lite package]: https://github.com/samuelgozi/firebase-firestore-lite
+[benchmark]: https://github.com/samuelgozi/firebase-firestore-lite/wiki/Firebase-Alternative-SDK-Benchmarks
+[what am i giving up by using this]: https://github.com/samuelgozi/firebase-firestore-lite#what-am-i-giving-up-by-using-this
