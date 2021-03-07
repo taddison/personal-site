@@ -5,13 +5,13 @@ shareimage: "./querydiff.png"
 date: "2021-01-31T00:00:00.0Z"
 ---
 
-The official Firestore SDK for JavaScript is [pretty big][firestore sdk on bundlephobia] - and if you want to use auth too then you're easily looking at 130KB of gzip compressed code. The size of the bundles is a [known issue][firebase sdk size issue], and there is even an [firebase SDK] on the horizon that is set to cut the size by up to 80%.
+The official Firestore SDK for JavaScript is [pretty big][firestore sdk on bundlephobia] - and if you want to use auth too then you're easily looking at 130KB of gzip compressed code. The size of the bundles is a [known issue][firebase sdk size issue], and there is even a [firebase alpha SDK] on the horizon that is set to cut the size by up to 80%.
 
-But if you don't want to wait for the alpha to turn into a production release there is an alternative available now in the (unofficial) [firebase-firestore-lite package]. I've migrated apps and seen 90% size reduction with no loss in functionality (although I'm using basic CRUD only - no realtime). The rest of this post will cover what migration looks for Firestore with Google auth.
+But if you don't want to wait for the alpha to turn into a production release there is an unofficial alternative in the [firebase-firestore-lite package]. I've migrated apps and seen 90% size reduction with no loss in functionality (although I'm using basic CRUD only - no realtime or offline support). If you'd like more detail about the performance benefits of migrating see the [benchmarks].
 
-If you'd like more detail about the performance benefits of migrating see the [benchmarks].
+The rest of this post will cover what migration looks for Firestore with Google auth.
 
-> This is not a drop-in replacement - the alternative SDK has a different (simpler!) API. For details on what features are missing see [what am i giving up by using this].
+> This is not a drop-in replacement - the alternative SDK has a different (simpler!) API and doesn't have feature parity with the official SDK. For details on what features are missing see [what am i giving up by using this].
 
 ## Updating Packages
 
@@ -82,7 +82,9 @@ We no longer have an instantiated `firebase` instance from `firebase/app`, so in
 A few notable changes:
 
 - Collections are referenced by `ref` rather than `collection`
+  - `ref` actually allows you to refer to documents _or_ collections
 - Documents in a collection are referenced by `child` rather than `doc`
+  - You can also use a path string (e.g. `/collection/documentId)
 - Documents are returned with their data by default (no need to call `data()`)
 
 ```diff
@@ -90,6 +92,8 @@ A few notable changes:
 - const item = itemRef.data();
 
 + const item = await db.ref("items").child(id).get();
+// or
++ const item = await db.ref(`items/${id}`).get();
 ```
 
 ### Get all documents in a collection
@@ -111,7 +115,7 @@ No changes needed here - the mutate methods all work as they did before (albeit 
 If you're using [serverTimestamp] in your insert/update method
 No changes (apart from the method to get a document reference).
 
-If using a `serverTimestamp` you'll need to import `Transform` and use that, rather than the `serverTimestamp()` from the firebase SDK:
+If using a `serverTimestamp` you'll need to import `Transform` ([docs][transform docs]) and use that, rather than the `serverTimestamp()` from the firebase SDK:
 
 ```diff
 + import Transform from "firebase-firestore-lite/dist/Transform"
@@ -124,10 +128,16 @@ await itemRef.update({
 })
 ```
 
-## Query documents
+### Query documents
+
+A few differences here:
+
+- Rather than chaining calls to `where` we pass an array of filters (each of which is an array)
+- We call `run` on the query instead of `get`
+- If we want the document's id we need to query the `__meta__` property
 
 ```diff
--  const itemsResult = await itemsCollection
+-  const itemsResult = await db.collection("items")
 -    .where("reportingDate", ">=", fromDate)
 -    .where("accountId", "==", accountId)
 -    .get();
@@ -136,7 +146,7 @@ await itemRef.update({
 -    return { ...d.data(), id: d.id };
 -  });
 
-+  const itemsQuery = itemsCollection
++  const itemsQuery = db.ref("items")
 +    .query({
 +      where: [
 +        ['reportingDate', '>=', fromDate],
@@ -151,6 +161,14 @@ await itemRef.update({
 +  });
 ```
 
+## Summary
+
+If you're looking for a reduced bundle size, easier API, are comfortable with an unofficial SDK, and don't need offline or realtime support - then `firebase-firestore-lite` is worth checking out. I've only scratched the surface of what is supported - read through the [documentation for firebase-firestore-lite][firebase-firestore-lite package] for a complete overview.
+
+The alpha SDK sounds promising though who knows when a production-ready release is coming (weeks, months, years?). Until then (and maybe even after if the API is still so clunky) I'll keep reaching for `firebase-firestore-lite`.
+
+If you're using Firestore for the first time I'd still suggest you use the official SDK. When you need to search for problems (and you undoubtedly will be - the docs and some of the design choices/behaviors are...interesting - see [the database is on fire]) you'll need to be searching for the right terms/methods/etc.
+
 [firestore sdk on bundlephobia]: https://bundlephobia.com/result?p=@firebase/firestore@2.1.7
 [firebase sdk size issue]: https://github.com/firebase/firebase-js-sdk/issues/332
 [firebase alpha sdk]: https://github.com/firebase/firebase-js-sdk/issues/4368
@@ -159,3 +177,5 @@ await itemRef.update({
 [what am i giving up by using this]: https://github.com/samuelgozi/firebase-firestore-lite#what-am-i-giving-up-by-using-this
 [google signin]: https://firebase.google.com/docs/auth/web/google-signin
 [servertimestamp]: https://firebase.google.com/docs/reference/js/firebase.firestore.FieldValue#servertimestamp
+[transform docs]: https://samuelgozi.github.io/firebase-firestore-lite/classes/transform.html
+[the database is on fire]: https://acko.net/blog/the-database-is-on-fire/
