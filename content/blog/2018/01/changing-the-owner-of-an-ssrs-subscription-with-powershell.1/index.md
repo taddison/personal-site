@@ -31,6 +31,14 @@ The script will also output the list of subscriptions that have been modified.
 
 Since late 2016 there has been a [PowerShell module](https://www.powershellgallery.com/packages/ReportingServicesTools) available that has started to provide a comprehensive set of SSRS administration functions, though at the time of writing it has the same items-then-subscriptions pattern which makes it much slower than the above script.
 
-Finally, it's worth noting that if you only manage a small number of instances (or perhaps you're just more comfortable in T-SQL) there is [a simple script](https://blogs.msdn.microsoft.com/miah/2008/07/10/tip-change-the-owner-of-sql-reporting-services-subscription/) that has been around since at least 2008 that lets you do this.
+Finally, it's worth noting that if you only manage a small number of instances (or perhaps you're just more comfortable in T-SQL) there is a simple script you can use (originally posted at https://blogs.msdn.microsoft.com/miah/2008/07/10/tip-change-the-owner-of-sql-reporting-services-subscription/, which now 404s and I can't find the new home).
+
+```sql
+ DECLARE @OldUserID uniqueidentifier
+ DECLARE @NewUserID uniqueidentifier
+ SELECT @OldUserID =UserID FROM dbo.Users WHERE UserID ='foocorp\tim.addison'
+ SELECT  @NewUserID=UserID FROM dbo.Users WHERE UserName = 'foocorp\tom.addison'
+ UPDATE dbo.Subscriptions SET OwnerID = @NewUserID WHERE OwnerID = @OldUserID
+```
 
 _Big thanks to Jim for nudging me in the PowerShell direction on this one - what a fantastic little cmdlet New-WebServiceProxy is!_
