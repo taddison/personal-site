@@ -130,7 +130,7 @@ Invoke-Pester -Script @{Path='c:\src\SQLChecks\tests';Parameters= @{configs=$con
 
 A key part of configuration management is dealing with settings that don't match their configuration value. If you run your tests and discover that the MAXDOP setting isn't correct you might want that to be automatically handled. This isn't something that this solution handles (though you could easily extend it to do so!).
 
-[DSC](https://docs.microsoft.com/en-us/powershell/dsc/overview) has a very simple (yet powerful) model for thinking about configuration management that helps highlight the core difference between this solution and what I'd consider 'full' configuration management. Every resource in DSC (which could be something like an sp_configure value) supports three operations:
+[DSC](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) has a very simple (yet powerful) model for thinking about configuration management that helps highlight the core difference between this solution and what I'd consider 'full' configuration management. Every resource in DSC (which could be something like an sp_configure value) supports three operations:
 
 - Get the value
 - Test the value against config

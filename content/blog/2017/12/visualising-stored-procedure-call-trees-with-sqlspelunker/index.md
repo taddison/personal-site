@@ -193,7 +193,7 @@ The flow of the program looks something like this:
 - For each stored procedure parse the definition and extract all stored procedure calls
 - Repeat until there are no more unique calls (e.g. also break on infinite loops)
 
-SQL fragments are parsed using TransactSql ScriptDom - the [official docs](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.transactsql.scriptdom.aspx?f=255&MSPPError=-2147217396) are a bit barebones, so I'd suggest starting with [Ed Elliot's excellent blog category](https://the.agilesql.club/taxonomy/term/26) if you want to learn more.
+SQL fragments are parsed using TransactSql ScriptDom - the [official docs](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.transactsql.scriptdom.aspx?f=255&MSPPError=-2147217396) are a bit barebones, so I'd suggest starting with [Ed Elliot's excellent blog category](https://the.agilesql.club/tags/scriptdom/) if you want to learn more.
 
 Stored procedure definitions are extracted using the [object_definition](https://docs.microsoft.com/en-us/sql/t-sql/functions/object-definition-transact-sql) function.
 

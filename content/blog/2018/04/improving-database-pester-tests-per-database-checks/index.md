@@ -74,7 +74,7 @@ Describe "Data file space used" -Tag MaxDataFileSize {
 }
 ```
 
-> Note that these tests have had code removed that isn't relevant to this example - you can see the full test in the [GitHub source](https://github.com/taddison/SQLChecks/blob/master/src/SQLChecks/Tests/Databases.tests.ps1).
+> Note that these tests have had code removed that isn't relevant to this example - you can see the full test in the [GitHub source](https://github.com/taddison/archived.SQLChecks/blob/master/src/SQLChecks/Tests/Database.tests.ps1).
 
 ## Appendix: Test code
 
