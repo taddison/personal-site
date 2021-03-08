@@ -26,7 +26,7 @@ Getting all these configured is beyond the scope of this blog post.
 
 ## Configuring the OMS alert
 
-We're going to configure an OMS alert to fire when CPU utilisation is high. The values I'm usingn for thresholds/timings are useful in my current environment and might not be right for you - modify as required. The query we'll base our alert off is:
+We're going to configure an OMS alert to fire when CPU utilisation is high. The values I'm using for thresholds/timings are useful in my current environment and might not be right for you - modify as required. The query we'll base our alert off is:
 
 ```
 Perf
@@ -38,11 +38,11 @@ If you look at this query in Log Analytics you'll see it returns the per-minute 
 
 ![OMS Alert Config](./oms-alert-config.png)
 
-The way alerting & suppression works is per-machine. This means that if two different machines are see-sawing around the threshold such that one of them is always above and the other is always below, this alert will _not fire_. This is the behaviour we want - only alert us when a single machine stays above the threshold for 3 measurement periods. Make sure you take your measurement period into account when bulding alerts - if you measure CPU every 5 minutes only it won't make any sense to look at per-minute granularity.
+The way alerting & suppression works is per-machine. This means that if two different machines are see-sawing around the threshold such that one of them is always above and the other is always below, this alert will _not fire_. This is the behaviour we want - only alert us when a single machine stays above the threshold for 3 measurement periods. Make sure you take your measurement period into account when building alerts - if you measure CPU every 5 minutes only it won't make any sense to look at per-minute granularity.
 
 The final part of configuring the OMS alert is to configure the outbound webhook that OMS will call every time the alert fires. Note that if multiple machines trigger the alert in a single evaluation period, OMS will trigger the alert once for every machine.
 
-While testing I suggest you use [RequestBin](https://requestb.in/) to capture the data that OMS sends. When configuring the webhook ensure you check the _include custom JSON payload_ option, and add the following JSON:
+While testing I suggest you use [RequestBin](https://requestbin.net/) to capture the data that OMS sends. When configuring the webhook ensure you check the _include custom JSON payload_ option, and add the following JSON:
 
 ```json
 {
@@ -170,7 +170,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 }
 ```
 
-If all of the code and class definitions are present in the same file in the function app [run.csx](run.csx) you should now be able to test this with the sample payload from OMS, or point OMS directly at the function.
+If all of the code and class definitions are present in the same file in the function app (`run.csx`) you should now be able to test this with the sample payload from OMS, or point OMS directly at the function.
 
 The format of the message produced is:
 
@@ -186,4 +186,4 @@ You'll notice the code also uses a RequestBin for testing the Slack alerts. When
 
 As configured, the solution will now start routing Slack alerts to your chosen channel, enriched with information from the search results included with each alert. In the future we'll extend the solution to support fan-out (1 alert notifying multiple channels), notifications (conditional @channel to get attention), and decoupling the notification from the trigger.
 
-Updated 2017-09-08 for new OMS query langauge/search payload.
+Updated 2017-09-08 for new OMS query language/search payload.

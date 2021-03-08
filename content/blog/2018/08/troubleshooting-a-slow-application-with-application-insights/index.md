@@ -5,7 +5,7 @@ tags: [Azure, "Application Insights", DevOps]
 date: "2018-08-05T00:00:00.0Z"
 ---
 
-[Application Insights](AppInsights) is a fantastic instrumentation framework that with minimal/zero configuration will start giving you rich data about your application's performance.
+[Application Insights (AppInsights)][application insights] is a fantastic instrumentation framework that with minimal/zero configuration will start giving you rich data about your application's performance.
 
 We recently got some reports that one of our website solutions was 'slow' when developing locally, and as much as we'd like to turn to the DBA (you know [what DBA stands for], right? I like Database Blamed Always...), with AppInsights we can be a little more rigorous.
 
@@ -92,7 +92,7 @@ The slow development machine was located on the other side of the Atlantic from 
 
 The examples above are just the tip of the iceberg when it comes to diagnosing application performance (whether through the portal, using workbooks, or via Analytics - you can quickly ask and get answers to some incredibly detailed questions).
 
-AppInsights is moving pretty quickly (every few months a new feature or experience pops up), and in the last 12 months we've seen Log Analytics and AppInsights Analytics converge to support the [Kusto Query Language](KQL), and so it is worth keeping an eye on the [Application Insights Blog].
+AppInsights is moving pretty quickly (every few months a new feature or experience pops up), and in the last 12 months we've seen Log Analytics and AppInsights Analytics converge to support the [Kusto Query Language (KQL)][kusto query language], and so it is worth keeping an eye on the [Application Insights Blog].
 
 [application insights]: https://docs.microsoft.com/en-gb/azure/application-insights/app-insights-overview
 [what dba stands for]: http://michaelcorey.com/blog/what-does-dba-really-mean/

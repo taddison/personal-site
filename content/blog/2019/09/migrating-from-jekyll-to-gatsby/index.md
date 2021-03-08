@@ -193,7 +193,7 @@ Let me know if you have any comments or suggestions (by email for now, there is 
 [github pages]: https://pages.github.com/
 [dr jekyll and mr haack]: https://haacked.com/archive/2013/12/02/dr-jekyll-and-mr-haack/
 [using tailwind with gatsby]: https://www.jerriepelser.com/blog/using-tailwind-with-gatsby/
-[install gatsby with tailwind css and purge css from scratch]: https://ericbusch.net/install-gatsby-with-tailwind-css-and-purgecss-from-scratch)
+[install gatsby with tailwind css and purge css from scratch]: https://ericbusch.net/install-gatsby-with-tailwind-css-and-purgecss-from-scratch
 [add responsive navigation menu to gatsby tailwind css site]: https://ericbusch.net/add-responsive-navigation-menu-to-gatsby-tailwind-css-site
 [gatsby pagination]: https://nickymeuleman.netlify.com/blog/gatsby-pagination
 [using gatsby image]: https://codebushi.com/using-gatsby-image/

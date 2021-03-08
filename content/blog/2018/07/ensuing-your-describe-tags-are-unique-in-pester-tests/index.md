@@ -59,7 +59,7 @@ Describe "Module test Describe tags are unique" {
 
 ## Parsing PowerShell
 
-Parsing PowerShell is a well-trodden path and we have some excellent tools available, with the [Parser class][parser class on msft docs] allowing us to take a string and turn it into an [Abstract Syntax Tree](AST). The tree structure gives us an incredibly rich object graph that we can interact with and query (so rather than writing a regex to find all Describe blocks, we can ask the AST to find all the Describe commands).
+Parsing PowerShell is a well-trodden path and we have some excellent tools available, with the [Parser class][parser class on msft docs] allowing us to take a string and turn it into an [Abstract Syntax Tree (AST)][abstract syntax tree]. The tree structure gives us an incredibly rich object graph that we can interact with and query (so rather than writing a regex to find all Describe blocks, we can ask the AST to find all the Describe commands).
 
 We build the AST by passing the content from our files to the ParseInput command (this is on the inside of the `Get-Content -Raw | ForEachObject {` block)
 

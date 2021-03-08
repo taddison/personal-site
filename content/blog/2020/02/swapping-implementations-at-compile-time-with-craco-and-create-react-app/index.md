@@ -14,7 +14,7 @@ When developing apps I'll sometimes want to mock a dependency for reasons other 
 - Working offline
 - Deploying demo apps with an ephemeral backend (reload to start again!)
 
-> I'm a big fan of [create react app](CRA), so as much as possible I try to avoid ejecting - as such the rest of this post explores a solution to keep us within CRA.
+> I'm a big fan of [create react app (CRA)][create react app], so as much as possible I try to avoid ejecting - as such the rest of this post explores a solution to keep us within CRA.
 
 This typically starts out with something like:
 
