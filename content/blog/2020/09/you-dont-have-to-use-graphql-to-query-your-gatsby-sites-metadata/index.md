@@ -68,7 +68,7 @@ const TwitterLink = (props) => {
 
 Even if you reference your Twitter bio in three places on your site, maybe it's also fine to hardcode in those three places? You'll almost certainly not be changing your Twitter handle that often (if ever), and if you do change it a find & replace for the full URI (`https://twitter.com/tjaddison`) is going to make quick work of it.
 
-If you're not building a site to share as a starter, do yourself a favor and keep it simple.
+If you're not building a site to share as a starter, do yourself a favour and keep it simple.
 
 ### Solution 2 - Reference a JavaScript object
 

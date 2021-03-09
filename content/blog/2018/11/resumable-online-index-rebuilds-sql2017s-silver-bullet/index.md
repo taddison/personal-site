@@ -5,7 +5,7 @@ tags: [SQL]
 date: "2018-11-03T00:00:00.0Z"
 ---
 
-Every new version of SQL Server comes with a whole grab-bag of new features that open up exciting possibilities, or obviate the need for workarounds (or dirty hacks). In the runup to deploying SQL 2017 I thought that [automatic plan correction] was going to be the closest thing to a silver bullet I'd seen in any release so far (in terms of value added vs. effort to implement), but it has been eclipsed for us by the _awesomeness_ of Resumable Online Index Rebuilds (ROIR).
+Every new version of SQL Server comes with a whole grab-bag of new features that open up exciting possibilities, or obviate the need for workarounds (or dirty hacks). In the run-up to deploying SQL 2017 I thought that [automatic plan correction] was going to be the closest thing to a silver bullet I'd seen in any release so far (in terms of value added vs. effort to implement), but it has been eclipsed for us by the _awesomeness_ of Resumable Online Index Rebuilds (ROIR).
 
 In this post I'll talk through a few of the scenarios where this feature really shines, and how it has transformed the way we think about index maintenance. If you'd like more details about how ROIR is implemented I'd encourage you to read through the [excellent paper detailing ROIR] - this covers how the online index rebuild algorithm was updated, and also demonstrates how in most cases ROIR outperforms the non-resumable version in terms of performance.
 

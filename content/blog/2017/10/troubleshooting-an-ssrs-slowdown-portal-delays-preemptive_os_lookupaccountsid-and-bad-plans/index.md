@@ -50,7 +50,7 @@ Which was immediately preceded by:
 
 **_System.Data.SqlClient.SqlException: Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding._**
 
-This tells us our next stop should be the ReportServer database. The call stack of the error indicated it was part of GetFavoriteItems - which is why only the portal was having issues and not the API/reports themselves.
+This tells us our next stop should be the ReportServer database. The call stack of the error indicated it was part of `GetFavoriteItems` - which is why only the portal was having issues and not the API/reports themselves.
 
 ## ReportServer database
 
@@ -114,9 +114,9 @@ The current plan was scanning the user table twice, and for every row coming fro
 
 ![Bad Plan](./BadPlan.png)
 
-Looking in the table which holds user favourites I could see there was only a small number of rows, and so it seemed probable there was a better plan (especially as the portal had been performing well until recently, and there was no user who had favourite'd every report on the server…).
+Looking in the table which holds user favourites I could see there was only a small number of rows, and so it seemed probable there was a better plan (especially as the portal had been performing well until recently, and there was no user who had favourited every report on the server…).
 
-After running the procedure with a few users (including the user who had the most favourites) and getting only good (non-scan) plans I recompiled the procedure, and usual service was instantly returned (the query that had been running for minutes and timing out now finished in less than a second). The plan is as expected - get the favourites and then perform the Sid lookups only the users who own/modified one of the favourite'd reports.
+After running the procedure with a few users (including the user who had the most favourites) and getting only good (non-scan) plans I recompiled the procedure, and usual service was instantly returned (the query that had been running for minutes and timing out now finished in less than a second). The plan is as expected - get the favourites and then perform the Sid lookups only the users who own/modified one of the favourited reports.
 
 ![Good Plan](./GoodPlan.png)
 

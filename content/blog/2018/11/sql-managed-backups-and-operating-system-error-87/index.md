@@ -37,7 +37,7 @@ Although managed backup will delete backups that are outside of the retention pe
 
 The key thing we came to understand is that there is no central on-premises list of 'what backups I have taken', and that each instance/replica is responsible for interrogating Azure storage to establish what files exist.
 
-> This behavious is actually a pretty neat feature - unlike relying on information in msdb for prior backups (which could have been deleted, corrupted, etc.) managed backup actually interrogates the backup target to determine what is there.
+> This behaviour is actually a pretty neat feature - unlike relying on information in msdb for prior backups (which could have been deleted, corrupted, etc.) managed backup actually interrogates the backup target to determine what is there.
 
 ## How do I fix it?
 

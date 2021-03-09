@@ -15,7 +15,7 @@ date: "2019-12-01T00:00:00.0Z"
 - Another Microcode update that's coming along to indiscriminately cause performance issues. To put this most recent change into context, an excellent paper that covers how syscalls have only gotten worse over time (and you'll note a few significant regressions associated with the Spectre update):
   - [An analysis of performance evolution of linux's core operations]
   - [Damageboy's thread]
-- Choose boring technology is an evergreen idea, and it's nice to get the occasional story of how chosing not-boring code ended up being a (wait for it) bad idea, and the boring code won out in the end:
+- Choose boring technology is an evergreen idea, and it's nice to get the occasional story of how choosing not-boring code ended up being a (wait for it) bad idea, and the boring code won out in the end:
   - [Choose boring technology talk]
   - [Dan McKinley's thread on the python middle-tier at Etsy]
 

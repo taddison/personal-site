@@ -8,7 +8,7 @@ date: "2019-12-19T00:00:00.0Z"
   - [Digital security by design - security and legacy at Microsoft]
 - Based on the most recent [SQL ConstantCare stats], what versions of SQL are in the wild? As of December 2019, not a whole lot of 2019, and even 2017 is in a minority (15%). Big boxes (>33 cores) are also notably absent (5%). As someone used to working with 2017 (soon 2019) on some _really_ big boxes, I wonder where my big-box brethren are.
 - Liz Fong-Jones with an impassioned plea to [write less code], and instead see if you can first start by composing, or _engineering_ a solution.
-- Taking composition to an extreme, this thought-provoking writeup of Déjà Vu covers academic work that attempts to make building web apps an exercise in selecting the right legos:
+- Taking composition to an extreme, this thought-provoking write-up of Déjà Vu covers academic work that attempts to make building web apps an exercise in selecting the right legos:
   - [Declarative assembly of web applications from pre-defined concepts]
 - [Charticulator] is an [open source][charticulator on github] visualization generator - the learning curve is a little steep, but the gallery ably demonstrates the breadth of visualizations possible.
 - [Monzo's progression framework] is an excellent engineering ladder to draw inspiration from (plus a bunch of other roles). Backed by a GatsbyJS app over markdown files if you want to [make it your own].

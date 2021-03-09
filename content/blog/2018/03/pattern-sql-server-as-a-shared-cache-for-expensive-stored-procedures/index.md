@@ -14,13 +14,13 @@ The following scaling rules will take you a long way if you are supporting an en
 
 Knowing when to ignore (or even break) these rules is what keeps the job interesting.
 
-The rest of the post will walk through a generic pattern to cache stored procedure results that vary by parameter, including the logic needed to expire, cleanup, and evaluate the cache. This solution has been battle tested in production with a fairly expensive procedure called concurrently from multiple application nodes (for dozens of different parameter combinations).
+The rest of the post will walk through a generic pattern to cache stored procedure results that vary by parameter, including the logic needed to expire, clean up, and evaluate the cache. This solution has been battle tested in production with a fairly expensive procedure called concurrently from multiple application nodes (for dozens of different parameter combinations).
 
 > The environment that motivated this work already aggressively caches results in the application tier - the specific motivation to cache the results in SQL came from the number of application nodes increasing. Building a shared cache service [or introducing something like Redis/Memcached] is a non-trivial engineering project, and the SQL CPU pressure this proc caused was significant. Other options (e.g. incremental cache updates/aggregation in the application tier) were also judged to be significant projects (or at least, more significant than caching it in the database!).
 
 ![Cache Control](./CacheControl.png)
 
-If you want to see the full example, you can check the [complete source on GitHub](https://github.com/taddison/DBCacheExample). Before deploying into production I strongly suggest reading through the entire post for caveats and tradeoffs.
+If you want to see the full example, you can check the [complete source on GitHub](https://github.com/taddison/DBCacheExample). Before deploying into production I strongly suggest reading through the entire post for caveats and trade-offs.
 
 <!--more-->
 
@@ -237,9 +237,9 @@ begin
 end
 ```
 
-### Cleanup job
+### Clean-up job
 
-The cleanup job implements the following logic:
+The clean-up job implements the following logic:
 
 - Disable caching for the stored procedure in the master control table
 - Wait for 45 seconds
@@ -253,7 +253,7 @@ The cleanup job implements the following logic:
 > The time to wait depends on your environment - if your calling application has a timeout of 30 seconds, then in theory 31 seconds is long enough. In this case we've deployed our wait as timeout x 1.5
 
 ```sql
-create or alter proc DBCache.dbo_GetTopSellingProducts_Cleanup
+create or alter proc DBCache.dbo_GetTopSellingProducts_CleanUp
 as
 begin
 	set nocount on;
@@ -299,7 +299,7 @@ end
 go
 ```
 
-## Tradeoffs and design decisions
+## Trade-offs and design decisions
 
 Adding caching in the database is fairly straightforward in theory - we store a copy of the results somewhere and re-use them if they are available (our early prototypes looked very similar to the approach outlined by [this post from 2013](https://www.brentozar.com/archive/2013/12/how-to-cache-stored-procedure-results/)). Some of the reason's that the caching solution deviated from the simple approach are documented below.
 
@@ -323,7 +323,7 @@ Although a requirement of our implementation, the fact we log every time the cac
 
 Our setup features availability groups, and we currently have no IO or networking issues. The benefit of placing the solution in the same database meant we had a much simpler deployment/failover/recovery story.
 
-The main concern deploying it into the primary database is the size of the cache - an early version was deployed to dev without a schedule for the cleanup job - the next morning we woke up to a hot mess of database space alerts.
+The main concern deploying it into the primary database is the size of the cache - an early version was deployed to dev without a schedule for the clean-up job - the next morning we woke up to a hot mess of database space alerts.
 
 > This example is a very narrow result set with only 20 rows. In production we have deployed this solution on result sets in the 10,000+ rows range with 5+ columns. Being able to benchmark zero impact on our IO latencies was key to our decision to go ahead with a deployment in our primary AG database.
 
@@ -337,13 +337,13 @@ Another advantage with a second table was the ability to keep the indexing on th
 
 Finally, supporting an empty result set isn't possible when only using a results table. Consider a product with no sales - the correct result set has no rows, and the only way to cache that is with a second table in addition to your results table.
 
-### Cleanup
+### Clean-up
 
-Storing expired results meant that cleanup became a critical issue. Initial attempts to run deletes were fairly slow (not to mention expensive compared to a truncate), so we decided that we had to do the work required to support truncating the results table.
+Storing expired results meant that clean-up became a critical issue. Initial attempts to run deletes were fairly slow (not to mention expensive compared to a truncate), so we decided that we had to do the work required to support truncating the results table.
 
 The requirement to truncate was the motivation for the master control table - without some kind of coordination we couldn't find a way to safely truncate while the procedures were running. Stopping the procedures being called wasn't possible, but stopping the caching system was something we could support (the cache is a feature which aids performance - the system can run without it, albeit with reduced headroom).
 
-Setting the right frequency of the cleanup job depends heavily on how much data is generated and how much space you can dedicate to the cache solution.
+Setting the right frequency of the clean-up job depends heavily on how much data is generated and how much space you can dedicate to the cache solution.
 
 ### TempDb usage for staging results
 
@@ -359,8 +359,8 @@ A quick summary of what is needed to cache a procedure
 
 - Create the schema, sequence, and master control table
 - Create the control and results table for your procedure
-- Create the results cleanup procedure for your procedure
-  - Schedule the cleanup job to run
+- Create the results clean-up procedure for your procedure
+  - Schedule the clean-up job to run
 - Modify the procedure to include caching
   - Until you insert a row in the master control table caching is disabled
 - Insert a row in the master control table and turn caching on
@@ -381,4 +381,4 @@ Some additional ideas that have been considered/discussed. The further down this
 - Adaptive cache - vary duration by parameter, current load
 - Cache bypass - maybe some parameters are cheap enough to not need caching/only cache expensive parameters
 - Smart expiry - if data hasn't changed enough don't expire the cache - leverage e.g. Timestamp/CDC
-- Rotating partition scheme - truncating trailing partitions and caching into a fresh partition makes the cleanup job more complex but eliminates the need to pause (cache results now keys on PartitionId, ControlId)
+- Rotating partition scheme - truncating trailing partitions and caching into a fresh partition makes the clean-up job more complex but eliminates the need to pause (cache results now keys on PartitionId, ControlId)

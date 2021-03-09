@@ -1,5 +1,30 @@
 {
-  "version": "0.1",
-  "language": "en-GB",
-  "words": ["craco", "firestore", "shareimage", "tailwindcss"]
+    "version": "0.1",
+    "language": "en-GB",
+    "words": [
+        "craco",
+        "criteo",
+        "cutoff",
+        "ecommerce",
+        "favourited",
+        "firestore",
+        "frontmatter",
+        "handoffs",
+        "kusto",
+        "monzo",
+        "nextjs",
+        "resumable",
+        "roundups",
+        "runspace",
+        "scriptblock",
+        "shareimage",
+        "slideshow",
+        "tailwindcss",
+        "tjaddison",
+        "treemap",
+        "tsql",
+        "unstyled",
+        "vercel",
+        "warzone"
+    ]
 }

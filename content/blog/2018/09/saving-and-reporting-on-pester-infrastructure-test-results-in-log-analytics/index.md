@@ -23,7 +23,7 @@ Once you've invested time into building out a library of Pester _tests_ for your
 - No impact on the systems under test (how many DBAs have spent time performance tuning their monitoring databases :)?)
 - Great operating cost (free tier lets you log _a lot_ of Pester results every month)
 
-If you don't already have a Log Analytics workspace I did a fairly detailed writeup last month: [Getting started with Log Analytics and PowerShell logging].
+If you don't already have a Log Analytics workspace I did a fairly detailed write-up last month: [Getting started with Log Analytics and PowerShell logging].
 
 <!--more-->
 
@@ -47,7 +47,7 @@ We'll be building the result objects in PowerShell, and then sending the objects
 | Describe            | Describe_s          | The describe text for the test                                                      |
 | Context             | Context_s           | The context text for the test, if present                                           |
 | Name                | Name_s              | The name text for the test                                                          |
-| FailureMessage      | FailureMesage_s     | The error message for the test, if present                                          |
+| FailureMessage      | FailureMessage_s    | The error message for the test, if present                                          |
 | Result              | Result_s            | The result of the test                                                              |
 
 > We're going to map the value of `InvocationStartTime` to the built-in field `TimeGenerated`. If no field is supplied, `TimeGenerated` defaults to ingestion time.

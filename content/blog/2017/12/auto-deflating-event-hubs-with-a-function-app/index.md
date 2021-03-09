@@ -58,7 +58,7 @@ New-AzureRmRoleAssignment -ServicePrincipalName $sp.ApplicationId -RoleDefinitio
 $sp | Select DisplayName, ApplicationId # You'll need the ApplicationId later
 ```
 
-While you're connected you can use the following command to get the values you need for TentantId and SubscriptionId:
+While you're connected you can use the following command to get the values you need for TenantId and SubscriptionId:
 
 ```powershell
 Get-AzureRmSubscription | Select-Object SubscriptionId, TenantId, SubscriptionName

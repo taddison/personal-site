@@ -141,7 +141,7 @@ And now we'll check this cookie to see if the client has the right password, by 
 import Cookies from "universal-cookie"
 import consts from "consts"
 
-// In the getInitialProps function, instead of our 'random' proteciton
+// In the getInitialProps function, instead of our 'random' protection
 const cookies = new Cookies(appContext.ctx.req.headers.cookie)
 const password = cookies.get(consts.SiteReadCookie) ?? ""
 

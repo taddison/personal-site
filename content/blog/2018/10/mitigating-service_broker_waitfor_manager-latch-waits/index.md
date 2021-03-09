@@ -34,7 +34,7 @@ In summary:
 - The number of readers per-queue will scale as there are more messages to process
 - The way readers interact with the queue is via the [waitfor] keyword
 - This pattern is used for both dialogs (two-way) and fire and forget (one-way) messaging
-- Dialog's are typically latency sensitive (we care about the response time)
+- Dialogs are typically latency sensitive (we care about the response time)
 - Fire and forget are typically latency insensitive, and can be very high volume
 
 ## The problem
@@ -241,7 +241,7 @@ If you are currently using SSB and think you may end up with hundreds of threads
 
 - For low latency sensitivity (don't care about response time) - use receive + sleep
 - At low volume and high latency sensitivity - use waitfor-receive
-- If you need high volume and you have high latency sensitivty...look elsewhere
+- If you need high volume and you have high latency sensitivity...look elsewhere
 
 In many cases the scale and performance you need to achieve might require you to architect away from SSB:
 
