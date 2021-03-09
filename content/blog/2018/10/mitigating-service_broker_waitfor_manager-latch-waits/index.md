@@ -7,7 +7,7 @@ date: "2018-10-15T00:00:00.0Z"
 
 Our production environment recently started generating alerts on huge blocking chains (100s of requests), which were accompanied by increased database response times for various procedures. The blocking chains all had the latch wait `SERVICE_BROKER_WAITFOR_MANAGER` in common, some of which were blocking for seconds (adding significant overhead to operations that would normally complete in a few milliseconds).
 
-In this post I'll walk through what an environmentin leveraging service broker might look like, show you how to reproduce the issue, and offer some mitigation strategies/general advice for service broker at scale.
+In this post I'll walk through what an environment leveraging service broker might look like, show you how to reproduce the issue, and offer some mitigation strategies/general advice for service broker at scale.
 
 ![Blocking](./BrokerLatch.png)
 
@@ -15,7 +15,7 @@ In this post I'll walk through what an environmentin leveraging service broker m
 
 ## Service Broker Recap
 
-SQL Service Broker (SSB) can be used as a messaging system to decouple applications. Note that SSB is a complex product and this specific example only covers one way it can be used (or perhaps misued).
+SQL Service Broker (SSB) can be used as a messaging system to decouple applications. Note that SSB is a complex product and this specific example only covers one way it can be used (or perhaps misused).
 
 Imagine a website application wants to process a card payment - the website would queue a `process_payment` message (to a SSB queue). That SSB queue is monitored by a separate payment application. The payment application would receive the `process_payment` message, process the payment, and respond to the website with the result. This is an example of a dialog (two-way) conversation.
 

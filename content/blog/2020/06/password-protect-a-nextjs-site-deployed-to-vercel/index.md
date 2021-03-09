@@ -123,7 +123,7 @@ Rather than roll the dice on every refresh, we'll now check a cookie on each req
 yarn add universal-cookie
 ```
 
-We'll put our cookie name in a consts file (debugging cookie name typos is great fun, but we'll skip that step today):
+We'll put our cookie name in a `consts.js` file (debugging cookie name typos is great fun, but we'll skip that step today):
 
 ```js
 // /consts.js

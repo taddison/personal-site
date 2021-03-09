@@ -104,7 +104,7 @@ There is a lot of documentation for images in Gatsby, and it isn't always obviou
 
 - [Working with images in Gatsby article][working with images in gatsby]
 - [Gatsby-Image documentation][gatsby-image]
-- [Using Gatsby-Image][using-gatsby-image] and [Image Procesing][image-processing] for some demos
+- [Using Gatsby-Image][using-gatsby-image] and [Image Processing][image-processing] for some demos
 
 And then as a next step maybe you'll add share-images to your blog post with this great article from [Julian Garamendy] - [Adding custom Open Graph images to Gatsby starter blog]
 

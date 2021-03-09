@@ -181,7 +181,7 @@ Cost-control in the cloud can be very... interesting? Knowing exactly how much y
 
 This post has scratched the surface of this topic - probably leaving you with more questions than answers. I haven't even got into considerations such as dedicated vs. consumption (some excellent coverage on the [Azure from the trenches blog][dedicated vs consumption]).
 
-For our 5 trillion execution unit app we came to realise pretty quickly that the real issue is the architecture of our system - changing the client to reduce the number of messages sent (via batching) will deliver fair more value than than chasing down micro-optimisations in the function app. Some napkin math reveals we can probably get a 5-10x reduction in call count, and as we know executions dominate our cost that optimsation is falling straight to the bottom line.
+For our 5 trillion execution unit app we came to realise pretty quickly that the real issue is the architecture of our system - changing the client to reduce the number of messages sent (via batching) will deliver fair more value than than chasing down micro-optimisations in the function app. Some napkin math reveals we can probably get a 5-10x reduction in call count, and as we know executions dominate our cost that optimisation is falling straight to the bottom line.
 
 Understanding how the cloud services are built and how you're charged for using them is key in building the mental models required to architect a cost-effective deployment - the savings at scale can be quite significant.
 

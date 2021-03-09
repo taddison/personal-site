@@ -131,7 +131,7 @@ I remember searching _really hard_ for the 'why GraphQL for this data' when firs
 
 Based on that I figured I better just go ahead and learn it. Older (maybe wiser?) me now looks at that document as a bit of marketing copy rather than a great assessment of the pros/cons of using GraphQL vs. other methods to populate data on your site. I'd also question what aspects of building the site it simplifies for most use cases! After teaching Gatsby a few times I'm now convinced the pedagogical value of having people deal with the GraphQL concepts just to get their name on a starter...definitely too much.
 
-Speaking of starters - if the prevlance (nigh-exclusivity) of GraphQL in the docs is the genesis of this issue, then the starter library is what boosted this problem into the stratosphere.
+Speaking of starters - if the prevalence (nigh-exclusivity) of GraphQL in the docs is the genesis of this issue, then the starter library is what boosted this problem into the stratosphere.
 
 ### Gatsby starters
 

@@ -51,7 +51,7 @@ The results of this automation show that this automation has a long-term payoff 
 
 ## So, should I automate it?
 
-This tool allows you to quickly see how long before your estimate pays off. Work prioritzation is ultimately about saying no to many different projects, and if you find out after plugging your numbers in that the payback is in years then you might be able to say no quite quickly.
+This tool allows you to quickly see how long before your estimate pays off. Work prioritisation is ultimately about saying no to many different projects, and if you find out after plugging your numbers in that the payback is in years then you might be able to say no quite quickly.
 
 It's pretty rare you'll ever make a decision solely based on the numbers here - I've found the following to be useful (though not an exhaustive) set of inputs into deciding if the automation is worth it:
 
@@ -64,7 +64,7 @@ It's pretty rare you'll ever make a decision solely based on the numbers here - 
 - Does it create some kind of technical leverage (automating data collection from multiple servers would have uses outside of this specific task, etc.)
 - Is saving that time the highest value-add right now (if you instead spend those 5 minutes doing it manually what else could you be working on)?
 
-And that last one is really key, especially when you get into larger projects that might take days or even weeks. Every automation effort invariably pays off over some time period, but whether you could be doing something even more valuable with your time is where the realy hard work of prioritzation comes in. Hopefully the calculator will help you decide that automation project you were considering isn't worth putting into that list of 'things that need to be prioritised', and give you one less thing to worry about.
+And that last one is really key, especially when you get into larger projects that might take days or even weeks. Every automation effort invariably pays off over some time period, but whether you could be doing something even more valuable with your time is where the really hard work of prioritisation comes in. Hopefully the calculator will help you decide that automation project you were considering isn't worth putting into that list of 'things that need to be prioritised', and give you one less thing to worry about.
 
 [xkcd 1205]: https://xkcd.com/1205/
 [calculator]: /SampleWorkbook.xlsx

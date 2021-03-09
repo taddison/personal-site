@@ -45,7 +45,7 @@ $expenseEntries = $entries | Where-Object { $_.notes -like "*#expense*" }
 
 We then iterate over every entry and first of all check to see if there is an image. The Monzo format exports the images in an array in the form [ImageUrl,Image2URL]. We only grab the first image if there is more than one, and save it to disk.
 
-The images are uploaded to S3 buckets with no extension, so we use the content-type to map to the appropraite extension (e.g. `image/jpeg` -> `.jpg`). While testing I've used images hosted in GitHub, which don't return a content-type - as such I've added `.jpg`, which always gets a photo viewer to launch.
+The images are uploaded to S3 buckets with no extension, so we use the content-type to map to the appropriate extension (e.g. `image/jpeg` -> `.jpg`). While testing I've used images hosted in GitHub, which don't return a content-type - as such I've added `.jpg`, which always gets a photo viewer to launch.
 
 ```powershell
 $hasReceipt = "No"
