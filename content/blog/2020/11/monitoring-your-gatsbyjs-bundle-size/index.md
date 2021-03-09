@@ -77,7 +77,7 @@ By default every `gatsby build` will log the bundle stats to the file `__build/b
 
 > If you don't want to upload your bundle report to your production site you can either gate the stats behind another environment variable (which you won't set for publishing).
 
-Where this really shines is comparing releases - I use [Netlify] to deploy my site and take advantage of [deploy previews] to preview every pull request as a branch. This publishes my branch (including my `buildreport.json`), which allows me to take those files and compare the bundle sizes of the branch compared to production.
+Where this really shines is comparing releases - I use [Netlify] to deploy my site and take advantage of [deploy previews] to preview every pull request as a branch. This publishes my branch (including my `bundlereport.json`), which allows me to take those files and compare the bundle sizes of the branch compared to production.
 
 As I make so few changes to the bundles right now I'm eyeballing the numbers - by using the below code I can print out the stats from production and a branch (in this case I'm comparing the before/after numbers from updating to tailwindcss 2.0 and bumping a few other dependencies):
 
