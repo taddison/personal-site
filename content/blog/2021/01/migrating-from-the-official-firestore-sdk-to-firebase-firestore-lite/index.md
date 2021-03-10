@@ -3,6 +3,7 @@ title: Migrating from the official Firestore SDK to Firebase-Firestore-Lite
 tags: ["JavaScript", "Firestore"]
 shareimage: "./querydiff.png"
 date: "2021-01-31T00:00:00.0Z"
+# cSpell:ignore querydiff
 ---
 
 The official Firestore SDK for JavaScript is [pretty big][firestore sdk on bundlephobia] - and if you want to use auth too then you're easily looking at 130KB of gzip compressed code. The size of the bundles is a [known issue][firebase sdk size issue], and there is even a [firebase alpha SDK] on the horizon that is set to cut the size by up to 80%.
