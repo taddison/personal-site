@@ -173,7 +173,7 @@ If you're using Firestore for the first time I'd still suggest you use the offic
 [firebase sdk size issue]: https://github.com/firebase/firebase-js-sdk/issues/332
 [firebase alpha sdk]: https://github.com/firebase/firebase-js-sdk/issues/4368
 [firebase-firestore-lite package]: https://github.com/samuelgozi/firebase-firestore-lite
-[benchmark]: https://github.com/samuelgozi/firebase-firestore-lite/wiki/Firebase-Alternative-SDK-Benchmarks
+[benchmarks]: https://github.com/samuelgozi/firebase-firestore-lite/wiki/Firebase-Alternative-SDK-Benchmarks
 [what am i giving up by using this]: https://github.com/samuelgozi/firebase-firestore-lite#what-am-i-giving-up-by-using-this
 [google signin]: https://firebase.google.com/docs/auth/web/google-signin
 [servertimestamp]: https://firebase.google.com/docs/reference/js/firebase.firestore.FieldValue#servertimestamp
