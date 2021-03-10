@@ -32,7 +32,7 @@ And finally, implementing this will disable Next's [automatic static optimizatio
 
 ## Getting started
 
-You can either start from a blank Next app, or use one of the templates below to get up and running with a starter that has [Tailwind CSS], ESLint, and Prettier, and optionally Typescript. Note this post will assume you're using the JavaScript example.
+You can either start from a blank Next app, or use one of the templates below to get up and running with a starter that has [Tailwind CSS], ESLint, and Prettier, and optionally TypeScript. Note this post will assume you're using the JavaScript example.
 
 ```bash
 # Vanilla
