@@ -112,10 +112,7 @@ The `list` method is used instead of calling `get` on a collection. By default t
 
 No changes needed here - the mutate methods all work as they did before (albeit with different patterns to access a collection/individual document).
 
-If you're using [serverTimestamp] in your insert/update method
-No changes (apart from the method to get a document reference).
-
-If using a `serverTimestamp` you'll need to import `Transform` ([docs][transform docs]) and use that, rather than the `serverTimestamp()` from the firebase SDK:
+If using a `[serverTimestamp]` you'll need to import `Transform` ([docs][transform docs]) and use that, rather than the `serverTimestamp()` from the firebase SDK:
 
 ```diff
 + import Transform from "firebase-firestore-lite/dist/Transform"
