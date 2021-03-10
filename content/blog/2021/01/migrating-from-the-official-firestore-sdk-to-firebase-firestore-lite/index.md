@@ -27,7 +27,7 @@ yarn add firebase-auth-lite firebase-firestore-lite
 
 Rather than needing an instance of `firebase` (probably instantiated with `firebase.initializeApp({...})` you pass your API key directly to `auth`. You can delete any code using `firebase/app`.
 
-The below example is all you need to configure Google signin, assuming your project had already taken the steps necessary [to enable it][google signin].
+The below example is all you need to configure Google sign-in, assuming your project had already taken the steps necessary [to enable it][google sign-in].
 
 > The below code uses React. If you're using something else the main changes will be in how you handle the callback `auth.listen` to store the signed-in user (or `null` if the user signed out).
 
@@ -73,7 +73,7 @@ Creating the database instance is a little different:
 + const db = new Database({ projectId: "YOUR_PROJECT_ID", auth })
 ```
 
-We no longer have an instantiated `firebase` instance from `firebase/app`, so instead we pass through an `auth` instance with our `apiKey`. This doesn't need to be the same instance of `auth` we configured signin with. Because we no longer configure `firebase` (which would have contained our project id) we also need to pass `projectId` to the `Database` constructor.
+We no longer have an instantiated `firebase` instance from `firebase/app`, so instead we pass through an `auth` instance with our `apiKey`. This doesn't need to be the same instance of `auth` we configured sign-in with. Because we no longer configure `firebase` (which would have contained our project id) we also need to pass `projectId` to the `Database` constructor.
 
 > It is possible to re-use the same `auth` instance from `auth.js` example above, though I prefer to not export and expose that to the rest of my app.
 
@@ -175,7 +175,7 @@ If you're using Firestore for the first time I'd still suggest you use the offic
 [firebase-firestore-lite package]: https://github.com/samuelgozi/firebase-firestore-lite
 [benchmarks]: https://github.com/samuelgozi/firebase-firestore-lite/wiki/Firebase-Alternative-SDK-Benchmarks
 [what am i giving up by using this]: https://github.com/samuelgozi/firebase-firestore-lite#what-am-i-giving-up-by-using-this
-[google signin]: https://firebase.google.com/docs/auth/web/google-signin
+[google sign-in]: https://firebase.google.com/docs/auth/web/google-signin
 [servertimestamp]: https://firebase.google.com/docs/reference/js/firebase.firestore.FieldValue#servertimestamp
 [transform docs]: https://samuelgozi.github.io/firebase-firestore-lite/classes/transform.html
 [the database is on fire]: https://acko.net/blog/the-database-is-on-fire/
