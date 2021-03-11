@@ -290,7 +290,7 @@ Function Export-LogAnalytics {
 [log analytics]: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview
 [create the workspace via the azure portal]: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-create-workspace
 [create a free azure subscription]: https://azure.microsoft.com/en-us/free/
-[install azurerm powershell]: https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps
+[install azurerm powershell]: https://docs.microsoft.com/en-us/powershell/azure/azurerm/install-azurerm-ps
 [azure management & monitoring]: https://docs.microsoft.com/en-us/azure/monitoring/
 [announcement blog post]: https://azure.microsoft.com/en-gb/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/
 [opened an issue]: https://github.com/Azure/azure-powershell/issues/7053
@@ -298,8 +298,8 @@ Function Export-LogAnalytics {
 [ingestion delay]: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-ingestion-time
 [connecting your machine to log analytics]: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-agent-windows
 [shipping some performance counters]: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-sources-performance-counters
-[query language reference]: https://docs.loganalytics.io/docs/Language-Reference
-[documentation home page for log analytics]: https://docs.loganalytics.io/index
+[query language reference]: https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/
+[documentation home page for log analytics]: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview
 [other regions available]: https://azure.microsoft.com/en-us/global-infrastructure/services/
 [application insights]: https://azure.microsoft.com/en-us/services/application-insights/
 [windows defender advanced threat protection]: https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection

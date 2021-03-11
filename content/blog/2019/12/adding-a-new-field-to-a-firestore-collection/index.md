@@ -1,5 +1,5 @@
 ---
-title: "Adding a new field to a firestore collection"
+title: "Adding a new field to a Firestore collection"
 date: "2019-12-31T00:00:00.0Z"
 description: "A quick example which shows how you can add a new field to every item in a collection.  In this case, driven by the motivation to move away from the Timestamp data type and start working with unix time instead."
 tags: ["Firestore"]

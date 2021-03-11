@@ -7,7 +7,7 @@ date: "2018-10-15T00:00:00.0Z"
 
 Our production environment recently started generating alerts on huge blocking chains (100s of requests), which were accompanied by increased database response times for various procedures. The blocking chains all had the latch wait `SERVICE_BROKER_WAITFOR_MANAGER` in common, some of which were blocking for seconds (adding significant overhead to operations that would normally complete in a few milliseconds).
 
-In this post I'll walk through what an environmentin leveraging service broker might look like, show you how to reproduce the issue, and offer some mitigation strategies/general advice for service broker at scale.
+In this post I'll walk through what an environment leveraging service broker might look like, show you how to reproduce the issue, and offer some mitigation strategies/general advice for service broker at scale.
 
 ![Blocking](./BrokerLatch.png)
 
@@ -15,7 +15,7 @@ In this post I'll walk through what an environmentin leveraging service broker m
 
 ## Service Broker Recap
 
-SQL Service Broker (SSB) can be used as a messaging system to decouple applications. Note that SSB is a complex product and this specific example only covers one way it can be used (or perhaps misued).
+SQL Service Broker (SSB) can be used as a messaging system to decouple applications. Note that SSB is a complex product and this specific example only covers one way it can be used (or perhaps misused).
 
 Imagine a website application wants to process a card payment - the website would queue a `process_payment` message (to a SSB queue). That SSB queue is monitored by a separate payment application. The payment application would receive the `process_payment` message, process the payment, and respond to the website with the result. This is an example of a dialog (two-way) conversation.
 
@@ -34,7 +34,7 @@ In summary:
 - The number of readers per-queue will scale as there are more messages to process
 - The way readers interact with the queue is via the [waitfor] keyword
 - This pattern is used for both dialogs (two-way) and fire and forget (one-way) messaging
-- Dialog's are typically latency sensitive (we care about the response time)
+- Dialogs are typically latency sensitive (we care about the response time)
 - Fire and forget are typically latency insensitive, and can be very high volume
 
 ## The problem
@@ -241,7 +241,7 @@ If you are currently using SSB and think you may end up with hundreds of threads
 
 - For low latency sensitivity (don't care about response time) - use receive + sleep
 - At low volume and high latency sensitivity - use waitfor-receive
-- If you need high volume and you have high latency sensitivty...look elsewhere
+- If you need high volume and you have high latency sensitivity...look elsewhere
 
 In many cases the scale and performance you need to achieve might require you to architect away from SSB:
 

@@ -60,7 +60,7 @@ The `tw` macro allows Tailwind to be used directly by a JSS (CSS in JS) library.
 
 ## Emotion
 
-The `App.js` contains a few different ways you can use Tailwind and Emotion together. The below example is a simplified version that demonstrates the various ways to use Emotion or Emotion + Tailwind, in additin to calling out which imports are required in each scenario.
+The `App.js` contains a few different ways you can use Tailwind and Emotion together. The below example is a simplified version that demonstrates the various ways to use Emotion or Emotion + Tailwind, in addition to calling out which imports are required in each scenario.
 
 ```js
 /* src/App.js */

@@ -3,9 +3,10 @@ title: Monitoring your GatsbyJS bundle size
 tags: ["GatsbyJS", "JavaScript"]
 shareimage: "./tjaddison-bundle.png"
 date: "2020-11-30T00:00:00.0Z"
+# cspell:ignore bundlereport
 ---
 
-Gatsby will do a great job of serving up a well optimized site - but it is constrained by what _you told it_ to serve. If keeping your site lean is important to you, then looking at your bundle size (and what's in that bundle) before and after adding any new dependencies can be illuminating. If you're currently happy with performance (hundreds of kilobytes of JavaScript can be added and you'll still score a perfect 100 on a [web.dev test]) then I highly recommend [Dan Luu]'s [web bloat]. After you've read that and now feel duly chastened about the state of the modern web, let's look at two ways to analyze your Gatsby site's bundle - interactive, and build-time reports.
+Gatsby will do a great job of serving up a well optimized site - but it is constrained by what _you told it_ to serve. If keeping your site lean is important to you, then looking at your bundle size (and what's in that bundle) before and after adding any new dependencies can be illuminating. If you're currently happy with performance (hundreds dof kilobytes of JavaScript can be added and you'll still score a perfect 100 on a [web.dev test]) then I highly recommend [Dan Luu]'s [web bloat]. After you've read that and now feel duly chastened about the state of the modern web, let's look at two ways to analyze your Gatsby site's bundle - interactive, and build-time reports.
 
 ## Configuring the webpack size plugin
 
@@ -76,7 +77,7 @@ By default every `gatsby build` will log the bundle stats to the file `__build/b
 
 > If you don't want to upload your bundle report to your production site you can either gate the stats behind another environment variable (which you won't set for publishing).
 
-Where this really shines is comparing releases - I use [Netlify] to deploy my site and take advantage of [deploy previews] to preview every pull request as a branch. This publishes my branch (including my `buildreport.json`), which allows me to take those files and compare the bundle sizes of the branch compared to production.
+Where this really shines is comparing releases - I use [Netlify] to deploy my site and take advantage of [deploy previews] to preview every pull request as a branch. This publishes my branch (including my `bundlereport.json`), which allows me to take those files and compare the bundle sizes of the branch compared to production.
 
 As I make so few changes to the bundles right now I'm eyeballing the numbers - by using the below code I can print out the stats from production and a branch (in this case I'm comparing the before/after numbers from updating to tailwindcss 2.0 and bumping a few other dependencies):
 

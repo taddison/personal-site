@@ -150,7 +150,7 @@ Describe "Get-CachedScriptBlockResult" {
 
         Get-CachedScriptBlockResult -Key "test" -ScriptBlock { Get-ExpensiveToComputeValue }
 
-        It "doesnt call the function when the value is in the cache" {
+        It "doesn't call the function when the value is in the cache" {
             Assert-MockCalled -CommandName Get-ExpensiveToComputeValue -Exactly -Times 1
         }
     }

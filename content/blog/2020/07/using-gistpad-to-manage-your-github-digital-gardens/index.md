@@ -27,7 +27,7 @@ Get started by installing the [GistPad] extension. To configure it you'll need t
 
 By default you'll see all of your Gists and a Showcase - but what we're after is a repo.
 
-Open the command pallete and run `GistPad: Manage Repository`. This will give you a list of all your repos, as well as the chance to create a public or private repo.
+Open the command palette and run `GistPad: Manage Repository`. This will give you a list of all your repos, as well as the chance to create a public or private repo.
 
 ![Create a repo](./CreateRepo.png)
 

@@ -27,7 +27,7 @@ The links pages are implemented as markdown pages, and in order to prevent them 
 }
 ```
 
-Anywhere I need to refer to either blog posts or links posts I can use the `name` attribute to disambiguate the `allMarkdownRemark` node - the following is an example from the `gatsyby-node.js` file that builds the `/links` pages:
+Anywhere I need to refer to either blog posts or links posts I can use the `name` attribute to disambiguate the `allMarkdownRemark` node - the following is an example from the `gatsby-node.js` file that builds the `/links` pages:
 
 ```graphql
 {

@@ -32,7 +32,7 @@ And finally, implementing this will disable Next's [automatic static optimizatio
 
 ## Getting started
 
-You can either start from a blank Next app, or use one of the templates below to get up and running with a starter that has [Tailwind CSS], ESLint, and Pretttier, and optionally Typescript. Note this post will assume you're using the JavaScript example.
+You can either start from a blank Next app, or use one of the templates below to get up and running with a starter that has [Tailwind CSS], ESLint, and Prettier, and optionally TypeScript. Note this post will assume you're using the JavaScript example.
 
 ```bash
 # Vanilla
@@ -123,7 +123,7 @@ Rather than roll the dice on every refresh, we'll now check a cookie on each req
 yarn add universal-cookie
 ```
 
-We'll put our cookie name in a consts file (debugging cookie name typos is great fun, but we'll skip that step today):
+We'll put our cookie name in a `consts.js` file (debugging cookie name typos is great fun, but we'll skip that step today):
 
 ```js
 // /consts.js
@@ -141,7 +141,7 @@ And now we'll check this cookie to see if the client has the right password, by 
 import Cookies from "universal-cookie"
 import consts from "consts"
 
-// In the getInitialProps function, instead of our 'random' proteciton
+// In the getInitialProps function, instead of our 'random' protection
 const cookies = new Cookies(appContext.ctx.req.headers.cookie)
 const password = cookies.get(consts.SiteReadCookie) ?? ""
 
