@@ -63,7 +63,8 @@ Creating the database instance is a little different:
 ```diff
 - import "firebase/firestore";
 - import firebase from "../Firebase/firebase";
-- import { newId } from "./storeUtils";
++ import Auth from "firebase-auth-lite";
++ import Database from "firebase-firestore-lite";
 
 - const db = firebase.firestore();
 
@@ -76,7 +77,7 @@ Creating the database instance is a little different:
 
 We no longer have an instantiated `firebase` instance from `firebase/app`, so instead we pass through an `auth` instance with our `apiKey`. This doesn't need to be the same instance of `auth` we configured sign-in with. Because we no longer configure `firebase` (which would have contained our project id) we also need to pass `projectId` to the `Database` constructor.
 
-> It is possible to re-use the same `auth` instance from `auth.js` example above, though I prefer to not export and expose that to the rest of my app.
+> It is possible to re-use the same `auth` instance from the `auth.js` example above, though I prefer to not export and expose that to the rest of my app.
 
 ## Get a single document
 
@@ -85,7 +86,7 @@ A few notable changes:
 - Collections are referenced by `ref` rather than `collection`
   - `ref` actually allows you to refer to documents _or_ collections
 - Documents in a collection are referenced by `child` rather than `doc`
-  - You can also use a path string (e.g. `/collection/documentId)
+  - You can also use a path string (e.g. `/collection/documentId`)
 - Documents are returned with their data by default (no need to call `data()`)
 
 ```diff
@@ -113,7 +114,7 @@ The `list` method is used instead of calling `get` on a collection. By default t
 
 No changes needed here - the mutate methods all work as they did before (albeit with different patterns to access a collection/individual document).
 
-If using a `[serverTimestamp]` you'll need to import `Transform` ([docs][transform docs]) and use that, rather than the `serverTimestamp()` from the firebase SDK:
+If using a `serverTimestamp` ([docs][servertimestamp]) you'll need to import `Transform` ([docs][transform docs]) and use that, rather than the `FieldValue.serverTimestamp()` from the Firestore SDK:
 
 ```diff
 + import Transform from "firebase-firestore-lite/dist/Transform"
@@ -163,7 +164,7 @@ A few differences here:
 
 If you're looking for a reduced bundle size, easier API, are comfortable with an unofficial SDK, and don't need offline or realtime support - then `firebase-firestore-lite` is worth checking out. I've only scratched the surface of what is supported - read through the [documentation for firebase-firestore-lite][firebase-firestore-lite package] for a complete overview.
 
-The alpha SDK sounds promising though who knows when a production-ready release is coming (weeks, months, years?). Until then (and maybe even after if the API is still so clunky) I'll keep reaching for `firebase-firestore-lite`.
+The alpha SDK sounds promising, though who knows when a production-ready release is coming (weeks, months, years?). Until then (and maybe even after if the API is still so clunky) I'll keep reaching for `firebase-firestore-lite`.
 
 If you're using Firestore for the first time I'd still suggest you use the official SDK. When you need to search for problems (and you undoubtedly will be - the docs and some of the design choices/behaviors are...interesting - see [the database is on fire]) you'll need to be searching for the right terms/methods/etc.
 
