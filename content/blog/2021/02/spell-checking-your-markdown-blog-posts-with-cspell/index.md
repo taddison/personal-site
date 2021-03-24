@@ -5,6 +5,18 @@ shareimage: "./cspell-output.png"
 date: "2021-02-28T00:00:00.0Z"
 ---
 
+# Introduction
+
+I love authoring in Markdown as there is almost no friction - just write. When the time comes to publish though - at minimum you'll want a preview, and a spell check. If you're using VS Code then the [code spell checker extension] is the fastest way to get started (don't be fooled by the fact it says 'code spell checker' - it'll happily check any file, including Markdown).
+
+But what if you've got a lot of posts you want to check? And what if perhaps you haven't been all that fastidious about spell-checking your posts in the past? That's where I was a few weeks ago, and I was happy to find there's a simple solution that requires nothing more than Node 12...
+
+# Demo
+
+# Closing
+
+[code spell checker extension]: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+
 ## From testing
 
 From the command line, check all md/mdx files with defaults:
