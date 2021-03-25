@@ -25,14 +25,21 @@ We'll then see every file and any unknown words:
 
 This is the same library that powers the [code spell extension] (that's what the c stands for in cspell), which means you'll see the same errors reported on the command line and when viewing the file.
 
-# Closing
+This is a good start, but what if we're not happy with the defaults cspell uses?
 
-[code spell checker extension]: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
-[cspell]: https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell
+## Changing the cspell defaults
 
-## From testing
+If you're using the VS Code extension then by default any changes you make to the settings will be reflected in the `.vscode/settings.json` file - which probably isn't what you want if you plan on doing anything with cspell from the command line.
 
-Update the language to `en-GB` in a config file (`cspell.json`):
+I suggest you create a `cspell.json` file in the root of your folder:
+
+```json
+{
+  "version": 0.1
+}
+```
+
+And now any changes you make in the context of the workspace will be placed in this file, which is also used by default when running cspell from the command line. As an example, if I wanted to ensure a particular repo was always checked using British English (rather than the American English default) I could add the following to the `cspell.json` file:
 
 ```json
 {
@@ -41,11 +48,22 @@ Update the language to `en-GB` in a config file (`cspell.json`):
 }
 ```
 
-And now run cspell again to have it pick that change up.
+The options available in the file are documented on the [cspell GitHub page][cspell].
 
-## VSCode
+## Adding words to the dictionary
 
-Use the extension. If you _don't_ have a `cspell.json` file then any words added (or ignored) at the workspace level are added in vscode's `settings.json`. If you have a `cspell.json` file then they'll be put there instead.
+## Installing cspell as a dev dependency
+
+## Next steps
+
+[code spell checker extension]: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+[cspell]: https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell
+
+##
+
+## From testing
+
+##
 
 ## Ignoring words
 
