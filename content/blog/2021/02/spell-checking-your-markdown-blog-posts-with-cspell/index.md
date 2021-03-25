@@ -50,30 +50,53 @@ And now any changes you make in the context of the workspace will be placed in t
 
 The options available in the file are documented on the [cspell GitHub page][cspell].
 
-## Adding words to the dictionary
+## Handling unknown words
 
-## Installing cspell as a dev dependency
+After you've worked through actual spelling mistakes, you'll likely be left with a lot of unknown words that need to be added to a dictionary or ignored. There are multiple ways to handle this (cspell allows for adding or ignoring words at the user, workspace, file, or block/line level). The workflow I've settled on is:
 
-## Next steps
+- Words that are probably correct in any context I'll add to the user dictionary (these end up in the VS Code user `settings.json`)
+- Words which specific to a repo (abbreviations, technical terms) I'll add to the workspace dictionary (these end up in `cspell.json`)
+- Words which are only correct in a specific file I'll add to _that file_
+- Words which are not correct but should be ignored I'll ignore for _that file_
 
-[code spell checker extension]: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
-[cspell]: https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell
-
-##
-
-## From testing
-
-##
-
-## Ignoring words
-
-Easy way to ignore words in blog posts is to leverage comments in the yaml block, as an example:
+My blog posts all contain yaml frontmatter which gives me a great place to place words I want to add/ignore for that file only - this is done with comments and some cspell keywords.
 
 ```yaml
 ---
-title: My great post about ZZZZOOOOOMMM
-tags:
-  - ZZZZOOOOOMMM
-  - FASSSTTT
-# cSpell:ignore ZZZZOOOOOMMM, FASSSTTT
+title: My first blog post
+# cSpell:words tjaddison Addison
+# cSpell:ignore COOOOOOL
+---
+
 ```
+
+This isn't a great example as I'd probably want my blog name (tjaddison) and my surname (Addison) to be added to the workspace dictionary. Because they're added as words they are eligible to appear as suggestions. If I'd used the word 'COOOOOOL' anywhere in the post I'd probably not want to repeat myself (and really I should be asking myself why I'd used it in the first place).
+
+> When working on any repos with other collaborators I generally try to avoid adding words to the user dictionary - otherwise those words will show up as unknown for anyone else running a spell check on that repo.
+
+## Installing cspell as a dev dependency
+
+If you want to shave a few seconds off your `npx cspell` command and your repo happens to be a Node.js project then you can add `cspell` as a dev dependency:
+
+```bash
+npm install cspell --D
+```
+
+This allows you to add it as a script in your `package.json`:
+
+```json
+"scripts": {
+  "spell": "cspell content/blog/**/*.md"
+}
+```
+
+## Next steps
+
+I've only scratched the surface on what is possible with the [cspell package][cspell] and the [VS Code extension][code spell checker extension] - the documentation for the package is worth reading through to get an idea of what can be accomplished. There are a handful of [custom dictionaries] available, and once you've got your unknown count down to zero it might be worth [adding spell checking to your build].
+
+I'm still working on getting my unknown count down to zero, and along the way I've fixed some really terrible typos. Sorry if you've had the misfortune of encountering any of those - at least going forwards I've got a handle on them.
+
+[code spell checker extension]: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+[cspell]: https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell
+[custom dictionaries]: https://github.com/streetsidesoftware/cspell-dicts
+[adding spell checking to your build]: https://seankilleen.com/2021/01/adding-spell-checking-to-my-blogs-build-process-with-github-actions-and-cspell/
