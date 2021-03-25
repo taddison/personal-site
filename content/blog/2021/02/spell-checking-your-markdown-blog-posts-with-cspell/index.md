@@ -44,7 +44,7 @@ And now any changes you make in the context of the workspace will be placed in t
 ```json
 {
   "version": 0.1,
-  "language" "en-GB
+  "language": "en-GB"
 }
 ```
 
