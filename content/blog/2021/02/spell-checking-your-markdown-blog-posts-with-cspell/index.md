@@ -5,27 +5,32 @@ shareimage: "./cspell-output.png"
 date: "2021-02-28T00:00:00.0Z"
 ---
 
-# Introduction
-
 I love authoring in Markdown as there is almost no friction - just write. When the time comes to publish though - at minimum you'll want a preview, and a spell check. If you're using VS Code then the [code spell checker extension] is the fastest way to get started (don't be fooled by the fact it says 'code spell checker' - it'll happily check any file, including Markdown).
 
 But what if you've got a lot of posts you want to check? And what if perhaps you haven't been all that fastidious about spell-checking your posts in the past? That's where I was a few weeks ago, and I was happy to find there's a simple solution that requires nothing more than Node 12...
 
-# Demo
+## Checking all files in a folder
 
-# Closing
-
-[code spell checker extension]: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
-
-## From testing
-
-From the command line, check all md/mdx files with defaults:
+To check all files anywhere under the `content/posts` folder that are either Markdown (`.md`) or MDX (`.mdx`) we can use [cspell] by running:
 
 ```bash
 npx cspell content/posts/**/*.md*
 ```
 
-Control-click any error to jump straight to the word.
+We'll then see every file and any unknown words:
+
+![cspell command line output](./cspell-output.png)
+
+> Running this in the VS Code terminal allows you to CTRL-click any of the errors and be taken straight to that word in the file.
+
+This is the same library that powers the [code spell extension] (that's what the c stands for in cspell), which means you'll see the same errors reported on the command line and when viewing the file.
+
+# Closing
+
+[code spell checker extension]: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+[cspell]: https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell
+
+## From testing
 
 Update the language to `en-GB` in a config file (`cspell.json`):
 
