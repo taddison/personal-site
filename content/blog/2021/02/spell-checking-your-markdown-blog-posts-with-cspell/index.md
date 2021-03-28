@@ -55,7 +55,7 @@ The options available in the file are documented on the [cspell GitHub page][csp
 After you've worked through actual spelling mistakes, you'll likely be left with a lot of unknown words that need to be added to a dictionary or ignored. There are multiple ways to handle this (cspell allows for adding or ignoring words at the user, workspace, file, or block/line level). The workflow I've settled on is:
 
 - Words that are probably correct in any context I'll add to the user dictionary (these end up in the VS Code user `settings.json`)
-- Words which specific to a repo (abbreviations, technical terms) I'll add to the workspace dictionary (these end up in `cspell.json`)
+- Words which are specific to a repo (abbreviations, technical terms) I'll add to the workspace dictionary (these end up in `cspell.json`)
 - Words which are only correct in a specific file I'll add to _that file_
 - Words which are not correct but should be ignored I'll ignore for _that file_
 
