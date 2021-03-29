@@ -45,6 +45,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.8",
     "cross-env": "^7.0.2",
+    "cspell": "^5.3.9",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-prettier": "^3.1.4",
@@ -63,7 +64,7 @@
     "build": "gatsby build",
     "analyze": "cross-env INTERACTIVE_ANALYZE=1 npm run build",
     "dev": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,json,md}\"",
+    "format": "prettier --write \"**/*.{js,json,md,mdx}\"",
     "lint": "eslint --ignore-path .gitignore . --ext js",
     "lint:fix": "eslint --ignore-path .gitignore . --ext js --fix",
     "serve": "gatsby serve"
