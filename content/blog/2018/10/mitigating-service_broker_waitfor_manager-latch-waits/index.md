@@ -1,7 +1,7 @@
 ---
 title: Mitigating SERVICE_BROKER_WAITFOR_MANAGER latch waits
 shareimage: "./BrokerLatch.png"
-tags: [SQL]
+tags: [SQL, "Service Broker"]
 date: "2018-10-15T00:00:00.0Z"
 ---
 
