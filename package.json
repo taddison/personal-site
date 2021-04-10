@@ -67,6 +67,7 @@
     "format": "prettier --write \"**/*.{js,json,md,mdx}\"",
     "lint": "eslint --ignore-path .gitignore . --ext js",
     "lint:fix": "eslint --ignore-path .gitignore . --ext js --fix",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "new": "node scripts/newpost"
   }
 }
