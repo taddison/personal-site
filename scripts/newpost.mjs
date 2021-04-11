@@ -1,4 +1,7 @@
+import { existsSync, mkdirSync, writeFileSync } from "fs"
 import { createInterface } from "readline"
+
+const BASE_PATH = "./content/blog"
 
 let title, slug
 let date = new Date().toISOString().slice(0, 10)
@@ -48,9 +51,31 @@ if (inputFormat) {
   format = inputFormat
 }
 
-console.log({ title, slug, date, format })
+const year = date.slice(0, 4)
+const month = date.slice(5, 7)
+const path = `${BASE_PATH}/${year}/${month}/${slug}`
+
+console.log({ title, slug, date, format, year, month, path })
 // TODO: Confirm prompt
-// TODO: Create the post scaffold
-console.log(`new post NOT created`)
+
+if (!existsSync(path)) {
+  mkdirSync(path)
+}
+
+writeFileSync(
+  `${dir}/index.${format}`,
+  `---
+date: "${date}T00:00:00.0Z"
+title: ${title}
+#shareimage: "./shareimage.png"
+tags: []
+---`,
+  (err) => {
+    if (err) {
+      return console.log(err)
+    }
+    console.log(`${title} was created!`)
+  }
+)
 
 rl.close()
