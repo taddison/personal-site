@@ -1,6 +1,6 @@
 import { createInterface } from "readline"
 
-let title
+let title, slug
 let date = new Date().toISOString().slice(0, 10)
 let format = `md`
 
@@ -15,7 +15,8 @@ const question = (prompt) => {
 }
 
 const slugify = (inputString) => {
-  // TODO: implement this
+  // spaces to hyphen, remove non-alphanumeric
+  inputString = inputString.replace(/\s/g, "-").replace(/[^\w-]/g, "")
   return inputString
 }
 
@@ -28,7 +29,7 @@ title = await question("Post title > ")
 if (!title.length || !title.trim().length) {
   throw "Title must be provided"
 }
-title = slugify(title)
+slug = slugify(title)
 
 const inputDate = await question(`Post date [yyyy-MM-dd] (${date}) > `)
 if (inputDate.length > 0 && inputDate.length !== 10) {
@@ -49,7 +50,7 @@ if (inputFormat) {
   format = inputFormat
 }
 
-console.log({ title, date, format })
+console.log({ title, slug, date, format })
 // TODO: Confirm prompt
 // TODO: Create the post scaffold
 console.log(`new post NOT created`)
