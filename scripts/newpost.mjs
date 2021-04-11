@@ -4,8 +4,6 @@ let title, slug
 let date = new Date().toISOString().slice(0, 10)
 let format = `md`
 
-console.log(new Date())
-
 const question = (prompt) => {
   return new Promise((res) => {
     rl.question(prompt, (answer) => {
