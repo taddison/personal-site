@@ -1,4 +1,5 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs"
+import { exit } from "process"
 import { createInterface } from "readline"
 
 const BASE_PATH = "./content/blog"
@@ -17,7 +18,10 @@ const question = (prompt) => {
 
 const slugify = (inputString) => {
   // spaces to hyphen, remove non-alphanumeric
-  inputString = inputString.replace(/\s/g, "-").replace(/[^\w-]/g, "")
+  inputString = inputString
+    .toLowerCase()
+    .replace(/\s/g, "-")
+    .replace(/[^\w-]/g, "")
   return inputString
 }
 
@@ -30,6 +34,7 @@ title = await question("Post title > ")
 if (!title.length || !title.trim().length) {
   throw "Title must be provided"
 }
+title = title.trim()
 slug = slugify(title)
 
 const inputDate = await question(`Post date [yyyy-MM-dd] (${date}) > `)
@@ -55,15 +60,18 @@ const year = date.slice(0, 4)
 const month = date.slice(5, 7)
 const path = `${BASE_PATH}/${year}/${month}/${slug}`
 
-console.log({ title, slug, date, format, year, month, path })
-// TODO: Confirm prompt
+console.log({ title, slug, date, format, path })
+const confirm = await question("Create post (yes) > ")
+if (confirm.length && confirm !== "yes") {
+  exit(0)
+}
 
 if (!existsSync(path)) {
-  mkdirSync(path)
+  mkdirSync(path, { recursive: true })
 }
 
 writeFileSync(
-  `${dir}/index.${format}`,
+  `${path}/index.${format}`,
   `---
 date: "${date}T00:00:00.0Z"
 title: ${title}
