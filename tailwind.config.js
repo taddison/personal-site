@@ -24,15 +24,15 @@ module.exports = {
             css: {
               a: {
                 color: theme(`colors.blue.600`),
-                textDecoration: `none`,
+                textDecoration: null,
                 "&:hover": {
                   textDecoration: `underline`,
                 },
               },
-              "code::before": false,
-              "code::after": false,
-              "blockquote p:first-of-type::before": false,
-              "blockquote p:last-of-type::after": false,
+              "code::before": null,
+              "code::after": null,
+              "blockquote p:first-of-type::before": null,
+              "blockquote p:last-of-type::after": null,
             },
           },
         }
