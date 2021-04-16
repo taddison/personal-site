@@ -3,6 +3,8 @@ date: "2021-03-31T00:00:00.0Z"
 title: Updating babel-eslint to @babel/eslint-parser for React apps
 #shareimage: "./shareimage.png"
 tags: [React, JavaScript]
+# cSpell:words vite
+# cSpell:ignore
 ---
 
 As of March 2020, `babel-eslint` has been deprecated, and is now `@babel/eslint-parser`. That doesn't stop it (as of March 2021) being downloaded _6.5 million times per week_. You wouldn't know this unless you attempted to add it as a new dependency, in which case `npm` would tell you:
@@ -11,7 +13,7 @@ As of March 2020, `babel-eslint` has been deprecated, and is now `@babel/eslint-
 npm WARN deprecated babel-eslint@10.1.0: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
 ```
 
-Upgrading is straightforward but I couldn't find any clear guides - so if you want to avoid the trial and error you can follow the below steps (which I've tested on create-react-app, nextjs, and vitejs apps - which all use Babel under the hood).
+Upgrading is straightforward but I couldn't find any clear guides - so if you want to avoid the trial and error you can follow the below steps (which I've tested on [Create React App], [Next.js], and [Vite] apps - which all use Babel under the hood).
 
 As to _why_ `babel-eslint` has been deprecated? It's documented in the (now archived) [babel-eslint repo]:
 
@@ -96,5 +98,8 @@ parserOptions: {
 
 And we'll finally be able to run eslint!
 
+[create react app]: https://create-react-app.dev/
+[next.js]: https://nextjs.org/
+[vite]: https://vitejs.dev/
 [babel-eslint repo]: https://github.com/babel/babel-eslint
 [peer dependency]: https://nodejs.org/en/blog/npm/peer-dependencies/
