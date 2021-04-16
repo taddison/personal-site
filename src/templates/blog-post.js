@@ -28,7 +28,7 @@ const BlogPostTemplate = (props) => {
         <p className="mb-5 italic text-gray-500">
           <time className="dt-published">{post.frontmatter.date}</time>
         </p>
-        <div className="prose prose-lg max-w-none e-content">
+        <div className="prose max-w-none e-content">
           <MDXRenderer>{post.body}</MDXRenderer>
         </div>
         <section className="mt-4">
