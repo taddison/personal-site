@@ -3,6 +3,7 @@ title: Building an OMS metric alert to Slack bridge with Azure functions
 shareimage: "./SlackAlerts.png"
 tags: [OMS, Slack, Azure, "Function Apps", "C#"]
 date: "2017-08-29T00:00:00.0Z"
+# cSpell:ignore CRIT
 ---
 
 [Previously](/blog/2017/08/migrating-function-app-scripts-to-a-class-library) we deployed a function app with three functions to send Slack notifications for OMS alerts based on CPU, memory, and disk. We'll now deploy a function with a single function designed to handle any OMS metric alert and send it to slack. As an added bonus we'll also support:
