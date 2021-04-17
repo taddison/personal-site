@@ -9,7 +9,7 @@ Getting started with configuration management can be pretty daunting. The number
 
 To this end I built the [SQLChecks](https://github.com/taddison/SQLChecks) library to make it easy to get started checking your SQL Server configuration, and start implementing the patterns that the bigger frameworks will require.
 
-This post will walk through how to set up a basic configuration management process to record and check the state of your SQL Server instances using [Pester](https://github.com/pester/Pester) and SQLChecks. Once built you can run it interactivley (reporting to the console as shown below), or as part of a schedule to produce a report.
+This post will walk through how to set up a basic configuration management process to record and check the state of your SQL Server instances using [Pester](https://github.com/pester/Pester) and SQLChecks. Once built you can run it interactively (reporting to the console as shown below), or as part of a schedule to produce a report.
 
 ![Pester Tests](./LocalhostTests.png)
 

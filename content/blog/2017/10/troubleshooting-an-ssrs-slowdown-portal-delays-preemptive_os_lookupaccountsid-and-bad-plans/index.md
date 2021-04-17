@@ -3,6 +3,7 @@ title: Troubleshooting an SSRS slowdown - portal delays, PREEMPTIVE_OS_LOOKUPACC
 shareimage: "./BadPlan.png"
 tags: [SQL, SSRS]
 date: "2017-10-21T00:00:00.0Z"
+# cSpell:ignore preemptive lookupaccountsid reportserver favorite datalength suser sname
 ---
 
 _This tale takes place on an SSRS 2016 Enterprise instance running on Server 2012 R2._
@@ -120,7 +121,7 @@ After running the procedure with a few users (including the user who had the mos
 
 ![Good Plan](./GoodPlan.png)
 
-What caused the plan to tip in the first place and when I don't know, as our ReportServer database didn't have one of the best features of 2016 enabled at the time ([Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)). That has now been rectified, and going forward the data about execution times/timeouts will now feed into our querystore aggregation system and make spotting this kind of issue easy.
+What caused the plan to tip in the first place and when I don't know, as our ReportServer database didn't have one of the best features of 2016 enabled at the time ([Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)). That has now been rectified, and going forward the data about execution times/timeouts will now feed into our query store aggregation system and make spotting this kind of issue easy.
 
 ## Bonus: Missing users
 

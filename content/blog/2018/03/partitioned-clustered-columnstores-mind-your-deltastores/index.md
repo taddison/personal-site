@@ -98,7 +98,7 @@ A tidy **30x reduction in CPU**.
 
 ## How to check if you're impacted
 
-The dmv `sys.column_store_row_groups` tells you the status of each of your row groups - you're looking for any open row groups that are no longer being inserted into, which is extremely common if you partition by an ever-increasing datetime value, moreso as you have smaller partitions.
+The dmv `sys.column_store_row_groups` tells you the status of each of your row groups - you're looking for any open row groups that are no longer being inserted into, which is extremely common if you partition by an ever-increasing datetime value, more so as you have smaller partitions.
 
 ```sql
 select object_name(rg.object_id) as TableName

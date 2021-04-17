@@ -3,6 +3,7 @@ title: Caching replica state to eliminate HADR_CLUSAPI_CALL waits on dm_hadr_ava
 shareimage: "./Blocking2.png"
 tags: [SQL]
 date: "2017-10-04T00:00:00.0Z"
+# cSpell:ignore clusapi xact
 ---
 
 We use [tsqlscheduler](https://github.com/taddison/tsqlScheduler) to manage most of our SQL Jobs (a few hundred jobs in a several overlapping AGs), and when lots of schedules overlap (e.g. many concurrent jobs kick off on the hour) we saw waits and blocking on the function that was attempting to determine whether or not the server was the primary replica:

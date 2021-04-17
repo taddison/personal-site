@@ -3,6 +3,7 @@ title: Better expenses with Monzo and PowerShell
 shareimage: "./Export.png"
 tags: [PowerShell, Monzo]
 date: "2018-04-22T00:00:00.0Z"
+# cSpell:ignore ABCDEFGHIJKLMNOPQ monzoexports
 ---
 
 While making submitting expenses _fun_ is probably impossible, we can leverage Monzo and PowerShell to start automating away some of the manual steps involved. In my specific case I need to submit monthly expenses with receipt support and categorise each expense. Combine Monzo's tagging, image support, and CSV export with PowerShell's ability to...well do pretty much anything, and we have a workable solution!
@@ -30,7 +31,7 @@ A little copy-paste later and I'm done. Read on for details on how it works, and
 
 The script:
 
-- Get's all the entries in the Monzo CSV export
+- Gets all the entries in the Monzo CSV export
 - Filters out anything that doesn't contain the tag #expense
 - Downloads the first image for each transaction (if one exists), and renames it to match the expense line (1,2,3...)
 - Maps the Monzo category to an internal category

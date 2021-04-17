@@ -44,7 +44,7 @@ Acknowledging the feelings/reality that things aren't the same as they used to b
 
 If you're not meeting weekly with your team right now, consider upping the frequency. This is probably the most disruptive period of many people's lives, and if you are catching up with them every fortnight, month, or quarter - you owe them more than that.
 
-You can always cut a meeting short, and dial back the schedule if you both agree it's superfluous. It's not always easy to ask your manager for more time, so do your team the favor of offering it first.
+You can always cut a meeting short, and dial back the schedule if you both agree it's superfluous. It's not always easy to ask your manager for more time, so do your team the favour of offering it first.
 
 ## Rome wasn't built in a day...
 

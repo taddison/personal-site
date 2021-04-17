@@ -7,7 +7,7 @@ date: "2020-09-30T00:00:00.0Z"
 
 ## The Challenge
 
-The learning curve for GatsbyJS can be pretty rough. For me, a big part of that was feeling that you _had_ to use GraphQL or you were being distinctly 'un-Gatsbylike'. In addition to the documentation featuring it almost exclusively, every starter (from the official starters to popular community ones) had GraphQL everywhere. Because there were no counter-examples I happily went along and dutifully queried all my `siteMetadata` via GraphQL, as [the docs requested].
+The learning curve for GatsbyJS can be pretty rough. For me, a big part of that was feeling that you _had_ to use GraphQL or you were being distinctly 'un-Gatsby-like'. In addition to the documentation featuring it almost exclusively, every starter (from the official starters to popular community ones) had GraphQL everywhere. Because there were no counter-examples I happily went along and dutifully queried all my `siteMetadata` via GraphQL, as [the docs requested].
 
 For an imaginary component that renders a link to my [Twitter bio] that would mean the following in `gatsby-config.js`:
 

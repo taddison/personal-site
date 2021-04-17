@@ -3,6 +3,7 @@ title: Create React App, Emotion, and Tailwind CSS starter app
 shareimage: "./EmotionWind-Starter.png"
 tags: [React, Emotion, Tailwind CSS]
 date: "2019-06-30T00:00:00.0Z"
+# cSpell:ignore customcolor
 ---
 
 Get up and running fast with [Create React App][create react app] (CRA), [Emotion], and [Tailwind CSS] by cloning the [cra-tailwind-emotion-starter] git repo:

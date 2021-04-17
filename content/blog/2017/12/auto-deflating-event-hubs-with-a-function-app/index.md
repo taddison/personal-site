@@ -3,13 +3,14 @@ title: Auto deflating Event Hubs with a function app
 shareimage: "./FunctionOutput.png"
 tags: [Azure, EventHubs, C#, Function Apps, "C#"]
 date: "2017-12-10T00:00:00.0Z"
+# cSpell:words EventHub
 ---
 
 EventHubs have supported [auto-inflate/scale-up](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate) for a while now, but don't come with an equivalent to auto deflate/scale-down. If your workload doesn't have sustained throughput requirements you'll probably benefit from periodically scaling back.
 
 Assuming you allow your hub to inflate to 10 throughput units but most of the time you only need 1, at current pricing that represents an overpayment of $0.27/hour, or $2,300/year. Over multiple hubs (don't forget your dev/test instances!) it quickly adds up.
 
-Doing this manually is possible (and right now the [comments on the auto-inflate article](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate) suggest this is the way to go), though we can build and deploy a simple function app to take care of all of our eventhubs periodically. The great thing about auto-inflate is that if we do scale back and the workload needs more throughput, it'll scale right back up again.
+Doing this manually is possible (and right now the [comments on the auto-inflate article](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate) suggest this is the way to go), though we can build and deploy a simple function app to take care of all of our event hubs periodically. The great thing about auto-inflate is that if we do scale back and the workload needs more throughput, it'll scale right back up again.
 
 ![Namespace configuration](./AutoInflate.png)
 
@@ -47,7 +48,7 @@ $subscriptionName = "<your subscription name>"
 $appDisplayName = "Scaler" # This can be anything you want
 $appPassword = "<a strong password for your app>"
 
-$resourceGroupName = "<resource group containing your eventhub>"
+$resourceGroupName = "<resource group containing your event hub>"
 
 Login-AzureRmAccount # You'll be prompted to login
 Select-AzureRmSubscription -SubscriptionName $subscriptionName
@@ -85,7 +86,7 @@ Your **ClientId** is the ApplicationId, and the **ClientSecret** is the password
 }
 ```
 
-You can now add one or more eventhub namespaces to the function (in _ScaleDown.cs_).
+You can now add one or more event hub namespaces to the function (in _ScaleDown.cs_).
 
 ```csharp
 var namespaces = new List<EventhubNamespace>

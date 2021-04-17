@@ -2,6 +2,7 @@
 title: Password protect a Next.js site hosted on Vercel
 tags: [React, Nextjs, Vercel, JavaScript]
 date: "2020-06-30T00:00:00.0Z"
+# cSpell:ignore consts letmein
 ---
 
 Want to password-protect some or all of your [Next.js] site, but want to stick with a free-tier hosting plan? This blog post will walk through the steps to add the following lightweight protection to your deployment:

@@ -3,6 +3,7 @@ title: Resumable Online Index Rebuilds - SQL 2017's Silver Bullet
 shareimage: "./IndexRebuildPaused.png"
 tags: [SQL]
 date: "2018-11-03T00:00:00.0Z"
+# cSpell:ignore ROIR
 ---
 
 Every new version of SQL Server comes with a whole grab-bag of new features that open up exciting possibilities, or obviate the need for workarounds (or dirty hacks). In the run-up to deploying SQL 2017 I thought that [automatic plan correction] was going to be the closest thing to a silver bullet I'd seen in any release so far (in terms of value added vs. effort to implement), but it has been eclipsed for us by the _awesomeness_ of Resumable Online Index Rebuilds (ROIR).

@@ -3,6 +3,7 @@ title: Allowing only specified users to access Cloud Firestore
 shareimage: "./Rules.png"
 tags: [JavaScript, Firestore, Security]
 date: "2019-07-31T00:00:00.0Z"
+# cSpell:ignore testuser
 ---
 
 I've been building a few apps recently that leverage [Cloud Firestore] for data storage. These are personal apps and don't store anything particularly sensitive, though that is no reason to leave them in the default development configuration that let's anyone read/write everything.
