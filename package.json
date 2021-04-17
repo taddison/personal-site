@@ -68,6 +68,7 @@
     "lint": "eslint --ignore-path .gitignore . --ext js",
     "lint:fix": "eslint --ignore-path .gitignore . --ext js --fix",
     "serve": "gatsby serve",
-    "new": "node scripts/newpost.mjs"
+    "new": "node scripts/newpost.mjs",
+    "spell": "cspell content/blog/**/*.md*"
   }
 }
