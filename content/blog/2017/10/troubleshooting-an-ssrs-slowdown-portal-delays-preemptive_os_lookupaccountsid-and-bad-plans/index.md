@@ -3,7 +3,7 @@ title: Troubleshooting an SSRS slowdown - portal delays, PREEMPTIVE_OS_LOOKUPACC
 shareimage: "./BadPlan.png"
 tags: [SQL, SSRS]
 date: "2017-10-21T00:00:00.0Z"
-# cSpell:ignore preemptive lookupaccountsid reportserver favorite datalength suser sname
+# cSpell:ignore preemptive lookupaccountsid reportserver favorite favorites datalength suser sname
 ---
 
 _This tale takes place on an SSRS 2016 Enterprise instance running on Server 2012 R2._

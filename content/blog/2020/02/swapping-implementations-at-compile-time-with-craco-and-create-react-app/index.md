@@ -3,6 +3,7 @@ title: Swapping implementations at compile time with craco and Create React App
 shareimage: "./webpack-config.png"
 tags: [React, JavaScript]
 date: "2020-02-29T00:00:00.0Z"
+# cSpell:ignore pokebattle backends
 ---
 
 ## The Problem

@@ -3,6 +3,7 @@ title: Remark Slides Starter
 shareimage: "./sidebyside.png"
 tags: [Remark, Presentation]
 date: "2020-01-26T00:00:00.0Z"
+# cSpell:ignore sidebyside remarkjs slideshows
 ---
 
 After spending so long authoring technical blog posts/documentation in [Markdown], it's a jarring transition to get dropped back into PowerPoint or Keynote and produce a useful technical presentation...I found myself pasting a lot of _screenshots_ of code, or fighting with formatting. The good news is there are plenty of libraries out there which allow you to author in Markdown.

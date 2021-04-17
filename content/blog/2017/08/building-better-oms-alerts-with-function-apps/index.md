@@ -3,6 +3,7 @@ title: Building better OMS alerts with function apps
 shareimage: "./sample-slack-message.png"
 tags: [OMS, Azure, "Function Apps", Slack, "C#"]
 date: "2017-08-06T00:00:00.0Z"
+# cSpell:ignore crit
 ---
 
 OMS (Operations Management Suite) allows you to easily build infrastructure alerts to tell you when a server is using a lot of CPU, low on disk space, etc., but if you've tried to use the alerts to trigger webhooks to something like Slack you've probably come across a pretty painful limitation - getting the name of the computer that triggered the alert can't be done dynamically, meaning you either have to settle for an alert which tells you "One of your computers is using a lot of CPU!", or create one alert per-computer, and hardcode the computer name into the alert.
@@ -163,7 +164,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
     {
         var payload = new SlackMessage() { text = message, channel = slackChannel, username = slackUsername };
         var hook = new StringContent(JsonConvert.SerializeObject(payload), Encoding.UTF8, "application/json");
-        var resp = await client.PostAsync(slackUri, hook);
+        var response = await client.PostAsync(slackUri, hook);
     }
 
     return req.CreateResponse(HttpStatusCode.OK);

@@ -1,7 +1,8 @@
 ---
-title: Interesting Links - December 2010
+title: Interesting Links - December 2019
 tags: ["Links"]
 date: "2019-12-01T00:00:00.0Z"
+# cSpell:ignore Damageboy's Alyzer Taiji
 ---
 
 - This whole paper is galaxy-brain - from the fact that Facebook built a load balancer that leveraged users connectedness to the graph that shows 500 million database queries per second. Full of interesting ideas, and mind-boggling numbers - [Taiji: Managing Global User Traffic for Large-Scale Internet Services at the Edge] is an excellent read.

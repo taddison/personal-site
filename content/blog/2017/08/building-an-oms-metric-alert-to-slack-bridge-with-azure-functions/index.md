@@ -92,7 +92,7 @@ All parameters are mandatory (if you don't specify them the function will fail).
 #### Alert Information
 
 - _LessThanThresholdIsBad_: When true the aggregate value is compared against the warning/critical thresholds with a LessThan operator. When false GreaterThan is used.
-- _ValueMultiplier_: The value to multiply each metric value by before comparing to thresholds of formatting. Typically 1.0 or 0.01 (most perfom counters report 50% as 50 rather than 0.5, which when formatted as P0 would show 5000%)
+- _ValueMultiplier_: The value to multiply each metric value by before comparing to thresholds of formatting. Typically 1.0 or 0.01 (most perfmon counters report 50% as 50 rather than 0.5, which when formatted as P0 would show 5000%)
 - _AlertMessage_: The start of the message sent to the slack channel - see below for examples
 - _FormatString_: How the metric should be formatted, takes a [.Net format string](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings)
 - _ObservationThreshold_: At least this many observations must be above (below) the threshold to trigger the alert (or upgrade from warning to critical)
@@ -100,7 +100,7 @@ All parameters are mandatory (if you don't specify them the function will fail).
 
 #### Alert Defaults
 
-These can be overriden by the function based on the server/metric.
+These can be overridden by the function based on the server/metric.
 
 - _WarningThreshold_: The value which if the metric is above (below) the function app won't send a Slack notification
 - _CriticalThreshold_: The value which if the metric is above (below) the function app will mark that notification as critical
@@ -415,7 +415,7 @@ public static class SlackHelper
 
             var slackPayload = new SlackMessage() { Text = message, Channel = slackChannel, Username = slackUsername, LinkNames = true };
             var hook = new StringContent(JsonConvert.SerializeObject(slackPayload), Encoding.UTF8, "application/json");
-            var resp = await client.PostAsync(slackUri, hook);
+            var response = await client.PostAsync(slackUri, hook);
         }
     }
 }

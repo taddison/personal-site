@@ -11,7 +11,7 @@ One thing we've had to keep an eye on when using this kind of pattern is the num
 
 ![sys.column_store_row_groups](./ColumnStoreRowGroups.png)
 
-> Hourly partitions are used as they are also the unit of truncation as data ages out in our envionrment. Due to the pain of the 'dangling deltastores' (as well as high partition counts impacting DMV usage) we're looking at making daily the smallest partition size we support.
+> Hourly partitions are used as they are also the unit of truncation as data ages out in our environment. Due to the pain of the 'dangling deltastores' (as well as high partition counts impacting DMV usage) we're looking at making daily the smallest partition size we support.
 
 When partitioning a clustered columnstore table you will have one or more deltastores _per partition_. The largest I've seen so far is 20 open in a single rowgroup (with row counts ranging from 1M to 10k), though 4 is about average for this particular environment.
 
@@ -44,7 +44,7 @@ where t.ServerId = 99999999
 and t.InsertDateTime>= cast(getutcdate() - 1 as datetime2(3));
 ```
 
-> Partition elimination won't work if your data types are more precise than the column you're partitiong on. In our case using `getutcdate()` would have been converted to datetime2(7), more precise than our `InsertDateTime` column which is `datetime2(3)`, resulting in a full table scan [ouch]. Segment elimination has no such qualms about data type precision!
+> Partition elimination won't work if your data types are more precise than the column you're partitioning on. In our case using `getutcdate()` would have been converted to datetime2(7), more precise than our `InsertDateTime` column which is `datetime2(3)`, resulting in a full table scan [ouch]. Segment elimination has no such qualms about data type precision!
 
 ```
 Table 'Telemetry'. Scan count 101, logical reads 1548578, physical reads 0, read-ahead reads 1363208, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.

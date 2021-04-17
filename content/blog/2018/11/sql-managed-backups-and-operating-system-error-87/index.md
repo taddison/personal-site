@@ -21,7 +21,7 @@ Understanding where the error came from and how to fix it required a better unde
 
 ## How does managed backup know what backups are available?
 
-> The backip in question was from an availability group - the replica the backup runs from frequently changes, but managed backup (via msdb) always has a full list of available backups for the database.
+> The backup in question was from an availability group - the replica the backup runs from frequently changes, but managed backup (via msdb) always has a full list of available backups for the database.
 
 This doesn't appear to be documented anywhere, but we were able (through a combination of reasoning and monitoring) to establish the following set of operations happens to maintain the list of 'what backups exist for this database':
 

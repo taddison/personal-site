@@ -2,6 +2,7 @@
 title: Interesting Links - November 2019
 tags: ["Links"]
 date: "2019-11-08T00:00:00.0Z"
+# cSpell:ignore linkdump Bitfinex
 ---
 
 - [Task-Based Effectiveness of Basic Visualizations] is an excellent paper that compares and ranks different visualizations for various tasks based on accuracy, speed, and user preference. Figure 3 is an excellent summary. There is a summary available at [The Morning Paper][morning paper visualizations].

@@ -4,6 +4,7 @@ date: "2019-09-30T00:00:00.0Z"
 shareimage: "./after-gatsby-image.png"
 description: "After some tinkering with GatsbyJS, I was pretty excited about moving my blog over from Jekyll - great performance, SEO and accessibility out of the box were one reason, and the fact I know far more React/JS than Ruby was another.  This post covers my experiences, as well as a few shortcuts that helped make the transition relatively painless."
 tags: ["GatsbyJS", "Netlify", "Blog"]
+# cSpell:ignore Haack Contentful opengraph Disqus Staticman Rascia
 ---
 
 After some tinkering with GatsbyJS, I was pretty excited about moving my blog over from Jekyll - great performance, SEO and accessibility out of the box were one reason, and the fact I know far more React/JS than Ruby was another. This post covers my experiences, as well as a few shortcuts that helped make the transition relatively painless.
@@ -112,7 +113,7 @@ For some reason (lost to me now - I'm sure it felt like a good idea at the time)
 /assets/2019/2019-03-19/picture2.png
 ```
 
-That has always been a minor source of friction in my workflow (why weren't they colocated!), and the Gatsby way would look more like the following:
+That has always been a minor source of friction in my workflow (why weren't they together!), and the Gatsby way would look more like the following:
 
 ```bash
 # Post

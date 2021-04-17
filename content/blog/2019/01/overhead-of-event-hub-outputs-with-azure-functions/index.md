@@ -50,7 +50,7 @@ All of these together tell us that:
 
 ## Test harness
 
-Our test harness is going to take a stock function (`return`) and compare it to a funciton which outputs a message to an Event Hub.
+Our test harness is going to take a stock function (`return`) and compare it to a function which outputs a message to an Event Hub.
 
 The functions below were deployed as separate function apps (to enable parallel testing and still get the granular cost metrics needed). You can view the [sample project on GitHub][function app project]. The deployment was a straightforward 'Publish' from Visual Studio, with each function getting it's own storage account/app service plan (on the consumption tier), as well as an application insights resource. An Event Hub was created to act as the output binding for the second test.
 

@@ -2,13 +2,14 @@
 title: Interesting Links - February 2020
 tags: ["Links"]
 date: "2020-02-07T00:00:00.0Z"
+# cSpell:ignore Criteo's Weinert leetcode Calçado
 ---
 
 - A [tweet on Criteo's migration to .Net core][criteo netcore tweet] which has a bunch of interesting comments in the thread. The migration is doing good things for Criteo's web app that currently runs on 5,000 32-logical-core hosts, peaks at 6 million requests per second, and has an median latency of 10ms (-10% in core!).
 - The [JavaScript Pipeline Operator (|>) proposal][javascript pipeline operator] makes for interesting reading - the competing proposals are in-depth and worth reading. Also great to see some examples of before/after - I prefer proposal 1, but would also be happy if 4 makes it.
 - There are times in interactions with the Azure (notably the billing department) that I can't help but recall this [(AWS variant) image][making jeff rich].
 - The Morning Paper with an excellent summary of the [Stella Paper][stella paper summary], which seeks to understand how operators handle and avert catastrophe in the face of operating complex systems. On the back of the summary I read the whole paper, and (maybe because I'm familiar with the complexities of operating an ecommerce app?) I'd recommend the summary over the paper.
-- After talking arm-wavingly about why beyond a certain point focusing on force-multiplier/leveraged work is key, [this excellent writeup][work is work] says it far better than I could. If you've even a passing interest in organizational design this is highly recommended reading.
+- I've previously spent time talking vaguely about why beyond a certain point focusing on force-multiplier/leveraged work is key, [this excellent write-up][work is work] says it far better than I could. If you've even a passing interest in organizational design this is highly recommended reading.
 - One way to generate a tonne of leverage across an engineering organization is to align multiple groups on a single Technical Strategy. Implementing that may require generating an [Architecture Strategy]. Once built the strategy is useless if it isn't shared, which is why I recommend reading the companion post that covers [how to create and share architecture initiatives][architecture initiatives].
 - We've now been using RFCs in engineering for about a year, and as such have taken some time out to reflect on if the process is delivering the value needed. One thing we recently changed was an explicit readme (answering FAQs that we could have anticipated early on). Re-reading [this post from Phil Calçado][structured rfc process] I can confirm this is extremely helpful advice if you're considering an RFC process.
 - Expectation vs. Reality - Algorithms in the interview vs. Algorithms on the job. Dan Luu [telling it like it is][algorithm interviews], though it doesn't change the fact that most hiring loops are still expecting you to farm [leetcode].

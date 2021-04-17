@@ -4,6 +4,7 @@ date: "2019-10-20T00:00:00.0Z"
 shareimage: "./post-list-with-image.png"
 description: "If you'd like your blog posts to have a cover image show up on the post list and (or!) the post page, this guide will let you get responsive images that are also a11y approved."
 tags: ["GatsbyJS", "Blog"]
+# cSpell:ignore GraphiQL Garamendy
 ---
 
 If you decide to use GatsbyJS for your blog I would highly recommend starting with a simple starter and building up. [Gatsby blog starter] introduces a handful of concepts and is substantially easier to understand than some of the more advanced starters. One feature that adds some personality to your site is featured images for your posts - both on the post list and on the post itself. The rest of this article walks through the steps needed to go from the [Gatsby blog starter] to having featured images on the post list and post pages.

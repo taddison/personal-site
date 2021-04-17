@@ -2,6 +2,7 @@
 title: More Interesting Links - December 2019
 tags: ["Links"]
 date: "2019-12-19T00:00:00.0Z"
+# cSpell:ignore Charticulator Fong legos
 ---
 
 - Why invest in creating a new systems programming language? According to Microsoft, the answers are security, and legacy:

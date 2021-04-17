@@ -140,7 +140,7 @@ You can also deep-link queries using the URI we built earlier, appending the que
 "{0}?query=Process_CL" -f $uri
 ```
 
-## Cleanup
+## Clean-up
 
 If you don't want to keep your workspace around you can tidy up by either removing the whole resource group (which deletes all resources in it), or just the workspace:
 

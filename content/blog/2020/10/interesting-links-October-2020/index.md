@@ -2,6 +2,7 @@
 title: Interesting Links - October 2020
 tags: ["Links"]
 date: "2020-10-31T00:00:00.0Z"
+# cSpell:ignore basecs baseds Keavy
 ---
 
 - [Keavy McMinn] shares some great examples of [what senior technical leadership can look like] (all engineering career ladders should not lead to management!).
