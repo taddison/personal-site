@@ -77,6 +77,8 @@ date: "${date}T00:00:00.0Z"
 title: ${title}
 #shareimage: "./shareimage.png"
 tags: []
+# cSpell:words
+# cSpell:ignore
 ---`,
   (err) => {
     if (err) {
