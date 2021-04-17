@@ -2,6 +2,7 @@
 title: What makes an excellent database engineer?
 tags: [Management]
 date: "2016-10-09T00:00:00.0Z"
+# cSpell:ignore Adkin
 ---
 
 The question of what makes an excellent database engineer is one I'm always asking myself and increasingly find myself answering for others. The question typically isn't phrased quite so directly, and instead shows up in a variety of discussions:

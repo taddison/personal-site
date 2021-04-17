@@ -3,6 +3,7 @@ title: Overhead of Event Hub outputs with Azure Function Apps
 shareimage: "./EventHubComparison.png"
 tags: [Azure, PowerShell, Function Apps, EventHubs, "C#"]
 date: "2019-01-31T00:00:00.0Z"
+# cSpell:ignore fatesteventhub picodollars
 ---
 
 In a world where you're billed for what you use, it pays to really understand what _exactly_ it is you are using. The [pricing model][function app pricing] of the Azure Function Apps consumption plan sounds pretty simple (pay based on execution count and execution time) - though as always the devil is in the detail.
@@ -13,7 +14,7 @@ In a recent project where we've migrated a workload from a dedicated (on-prem) s
 
 This post explores the answer to that question for a trivial C# function, and provides a few pointers to help get your head around consumption billing.
 
-If you're wondering why we wanted to deconstruct the function's cost when an _execution unit_ costs a mere 16 picdollars (16x10^-12), consider what we saw after our first week at full load:
+If you're wondering why we wanted to deconstruct the function's cost when an _execution unit_ costs a mere 16 picodollars (16x10^-12), consider what we saw after our first week at full load:
 
 ![A lot of executions](./Trillions.png)
 

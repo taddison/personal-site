@@ -4,7 +4,7 @@ shareimage: "./StoredProcedureParser.png"
 tags: [SQL, C#]
 date: "2017-12-23T00:00:00.0Z"
 # cSpell:words Spelunker
-# cspell:ignore dbmail
+# cspell:ignore dbmail servername
 ---
 
 Whether debugging a problem in an existing system, or planning changes to an existing (complex) system, knowing how the call graph for a bit of SQL looks has been invaluable in quickly understanding the domain.

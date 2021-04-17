@@ -3,6 +3,7 @@ title: Checking SQL Agent job ownership with Pester
 shareimage: "./PesterFailure.png"
 tags: [PowerShell, Pester, SQL]
 date: "2017-04-22T00:00:00.0Z"
+# cSpell:ignore sysjobs Pester's ssrsi sysmanagement sssgi syscategories
 ---
 
 Ensuring your jobs are all owned by SA is a best practice I've used to help minimise the chance of an SA job not running correctly due to the owners login being disabled, or there being an issue with authentication.

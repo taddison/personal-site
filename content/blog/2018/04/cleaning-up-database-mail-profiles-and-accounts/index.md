@@ -3,6 +3,7 @@ title: Cleaning up database mail profiles and accounts
 shareimage: "./mailboxes.jpg"
 tags: [SQL, "Database Mail"]
 date: "2018-04-24T00:00:00.0Z"
+# cSpell:ignore principalprofile profileaccount
 ---
 
 You know that dev server you've got lying around that has about half a dozen database mail profiles on? Maybe one account for every provider you've tested? Or maybe it's even a production server that has had its profile faithfully updated to a new account each time your SMTP server moves but never had the old ones cleared out?

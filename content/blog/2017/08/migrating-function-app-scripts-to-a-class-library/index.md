@@ -3,6 +3,7 @@ title: Migrating function app scripts to a class library
 shareimage: "./FunctionsHosted.png"
 tags: [Azure, "Function Apps", "C#"]
 date: "2017-08-23T00:00:00.0Z"
+# cSpell:ignore Linq usings
 ---
 
 In the [previous post](/blog/2017/08/monitoring-disk-cpu-and-memory-with-oms) we created a trio of function apps to send Slack notifications for OMS alerts based on CPU, Memory, and Disk. These were created using function app scripts, and the code was stored and tested directly in the Azure portal.

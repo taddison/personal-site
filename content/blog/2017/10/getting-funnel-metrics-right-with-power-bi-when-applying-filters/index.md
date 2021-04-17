@@ -3,6 +3,7 @@ title: Getting funnel metrics right with Power BI when applying filters
 shareimage: "./UpdatedDataModel.png"
 tags: [PowerBI, Recruiting]
 date: "2017-10-31T00:00:00.0Z"
+# cSpell:ignore pbix
 ---
 
 In a [previous post](/blog/2017/09/creating-recruitment-funnel-metrics-in-power-bi) we built a simple set of recruitment funnel metrics that allowed us to plot the hiring funnel from a new application to (hopefully) a hire. The core measure we built was _inclusive applications_, which works fine until you start to filter your data, after which point you go from a set of data like this:

@@ -3,6 +3,8 @@ title: Mitigating SERVICE_BROKER_WAITFOR_MANAGER latch waits
 shareimage: "./BrokerLatch.png"
 tags: [SQL, "Service Broker"]
 date: "2018-10-15T00:00:00.0Z"
+# cSpell:words dialog dialogs
+# cSpell:ignore writelog sqlos sqlserver xetemp sqlperf waitfors
 ---
 
 Our production environment recently started generating alerts on huge blocking chains (100s of requests), which were accompanied by increased database response times for various procedures. The blocking chains all had the latch wait `SERVICE_BROKER_WAITFOR_MANAGER` in common, some of which were blocking for seconds (adding significant overhead to operations that would normally complete in a few milliseconds).
@@ -170,13 +172,13 @@ I ran benchmarks for 1, 10, 100, 200, and 300 threads - each with 1000 repetitio
 
 Querying for wait type mainly served to confirm the dominant waits are for latches (plus a smattering of the rogue `WAITFOR_PER_QUEUE`). Examining average latch time shows how this wait type increases along with response time, both median and tail latency.
 
-A high threadcount against a single queue will bottleneck on this latch - but what impact does that have if we introduce a second queue?
+A high thread count against a single queue will bottleneck on this latch - but what impact does that have if we introduce a second queue?
 
 ### Load testing - second queue
 
 A common pattern we saw in the blocking alerts was high-volume queues (many messages, and lots of concurrent threads) appeared to be impacting the performance of low-volume queues.
 
-To reproduce this behaviour I started 100 threads with a high repetition count against `dbo.TestQueue`, and then load tested with low threadcount against `dbo.TestQueue1` with a second instance of [SQLDriver].
+To reproduce this behaviour I started 100 threads with a high repetition count against `dbo.TestQueue`, and then load tested with low thread count against `dbo.TestQueue1` with a second instance of [SQLDriver].
 
 For this benchmark we're not able to use the latch stats DMV (as the activity against the first queue will dominate), so we'll look at the response times only.
 

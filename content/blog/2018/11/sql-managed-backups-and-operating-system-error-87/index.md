@@ -3,6 +3,7 @@ title: SQL Managed Backups and Operating System Error 87
 shareimage: "./SQLManagedBackup.png"
 tags: [SQL, Azure]
 date: "2018-11-16T00:00:00.0Z"
+# cSpell:ignore headeronly
 ---
 
 We use [SQL Managed backups] for our on-premises SQL Servers, and have been very impressed with it (from a speed, management, and cost perspective). Shortly after deploying the solution though the SQL error logs started to log errors when attempting to read managed backups:

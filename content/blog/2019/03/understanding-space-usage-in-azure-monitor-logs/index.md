@@ -3,6 +3,7 @@ title: Understanding space usage in Azure Monitor logs
 shareimage: "./DataUsage.png"
 tags: [Azure, Log Analytics, Azure Monitor]
 date: "2019-03-31T00:00:00.0Z"
+# cSpell:ignore timechart tolower tostring barchart
 ---
 
 Data ingested to [Azure Monitor logs] is billed per-Gigabyte ingested. As a workspace will typically grow to have data coming from many different sources and solutions it is helpful to have a set of queries that allow you to quickly drill into where exactly the GBs (or TBs!) of data you have stored comes from.

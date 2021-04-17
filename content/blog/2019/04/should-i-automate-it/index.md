@@ -3,6 +3,7 @@ title: Should I Automate It?
 shareimage: "./ShouldIAutomateIt.png"
 tags: [Automation, Management, Excel]
 date: "2019-04-30T00:00:00.0Z"
+# cSpell:ignore XKCD
 ---
 
 Whenever you need to do something more than once it's often tempting to invest in the process - either by making it easier to repeat or fully automating it.
@@ -23,7 +24,7 @@ Ignoring vacations that's 1,560 minutes a year - almost 26 hours spent pulling d
 
 ## How long is that automation going to take?
 
-In the prior step we took our requirement, it's duration and frequency, and a timeframe - and then used those to come up with an _automation budget_. Although many projects end up with arbitrary deadlines I've rarely found them to be delivered feature-complete or on-time. For automation I'd suggest by focusing on the question _how long will it take to automate_?
+In the prior step we took our requirement, it's duration and frequency, and a time frame - and then used those to come up with an _automation budget_. Although many projects end up with arbitrary deadlines I've rarely found them to be delivered feature-complete or on-time. For automation I'd suggest by focusing on the question _how long will it take to automate_?
 
 This is a pretty hard question to answer! Depending on the task, the amount to which you automate, and your expertise at the automation process the answer will vary wildly. Rather than focusing on automating the whole thing it's often better to focus on how much _time you can save_ by automating part of a task, and then compute your Return On Investment (ROI) for that piece of automation.
 
