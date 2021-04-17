@@ -23,7 +23,7 @@ We'll then see every file and any unknown words:
 
 > Running this in the VS Code terminal allows you to CTRL-click any of the errors and be taken straight to that word in the file.
 
-This is the same library that powers the [code spell extension] (that's what the c stands for in cspell), which means you'll see the same errors reported on the command line and when viewing the file.
+This is the same library that powers the [code spell checker extension] (that's what the c stands for in cspell), which means you'll see the same errors reported on the command line and when viewing the file.
 
 This is a good start, but what if we're not happy with the defaults cspell uses?
 
