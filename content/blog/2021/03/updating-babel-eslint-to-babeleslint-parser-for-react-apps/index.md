@@ -1,7 +1,7 @@
 ---
 date: "2021-03-31T00:00:00.0Z"
 title: Updating babel-eslint to @babel/eslint-parser for React apps
-#shareimage: "./shareimage.png"
+shareimage: "./errors.png"
 tags: [React, JavaScript]
 # cSpell:words vite
 # cSpell:ignore
