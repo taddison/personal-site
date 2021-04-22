@@ -76,7 +76,7 @@ module.exports = {
         icon: `content/assets/profile-pic.jpg`,
       },
     },
-    `gatsby-plugin-offline`,
+    `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
   ],
