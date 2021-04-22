@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { getSrc } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -12,7 +13,7 @@ const BlogPostTemplate = (props) => {
   const { previous, next } = props.pageContext
   const tags = post.frontmatter.tags || []
   const { shareimage } = post.frontmatter
-  const shareImagePath = shareimage && shareimage.childImageSharp.fixed.src
+  const shareImagePath = shareimage && getSrc(shareimage)
 
   return (
     <Layout>
@@ -87,9 +88,7 @@ export const pageQuery = graphql`
         tags
         shareimage {
           childImageSharp {
-            fixed {
-              src
-            }
+            gatsbyImageData(placeholder: BLURRED, layout: FIXED)
           }
         }
       }
