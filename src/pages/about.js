@@ -2,36 +2,9 @@ import React from "react"
 import Helmet from "react-helmet"
 import SEO from "../components/seo"
 import Header from "../components/header"
-import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { StaticImage } from "gatsby-plugin-image"
 
 const About = () => {
-  const images = useStaticQuery(graphql`
-    query {
-      background: file(relativePath: { eq: "azores.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1920) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      rightImage: file(relativePath: { eq: "shark.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      smallImage: file(relativePath: { eq: "shark.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
   return (
     <div>
       <SEO title="About Me" />
@@ -44,9 +17,9 @@ const About = () => {
         <div className="z-10 absolute top-0 left-0 w-full opacity-35 tracking-normal">
           <Header title={`Home`} hideAbout />
         </div>
-        <Img
+        <StaticImage
+          src="../../content/assets/azores.jpg"
           className="z-1"
-          fluid={images.background.childImageSharp.fluid}
           style={{
             position: `fixed`,
             left: 0,
@@ -61,9 +34,9 @@ const About = () => {
           className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"
         >
           <div className="p-4 md:p-12 text-center lg:text-left">
-            <Img
-              className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
-              fluid={images.smallImage.childImageSharp.fluid}
+            <StaticImage
+              src="../../content/assets/shark.jpg"
+              className="block lg:!hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
               alt="Tim with a shark"
             />
 
@@ -168,9 +141,9 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="z-10 w-full lg:w-2/5">
-          <Img
-            fluid={images.rightImage.childImageSharp.fluid}
+        <div className="z-10 w-full lg:!w-2/5">
+          <StaticImage
+            src="../../content/assets/shark.jpg"
             className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
             alt="Tim with a shark"
           />
