@@ -36,7 +36,7 @@ const About = () => {
           <div className="p-4 md:p-12 text-center lg:text-left">
             <StaticImage
               src="../../content/assets/shark.jpg"
-              className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+              className="block lg:!hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
               alt="Tim with a shark"
             />
 
@@ -141,7 +141,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="z-10 w-full lg:w-2/5">
+        <div className="z-10 w-full lg:!w-2/5">
           <StaticImage
             src="../../content/assets/shark.jpg"
             className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
