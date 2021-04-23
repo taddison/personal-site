@@ -2,30 +2,9 @@ import React from "react"
 import Helmet from "react-helmet"
 import SEO from "../components/seo"
 import Header from "../components/header"
-import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
 
 const About = () => {
-  const images = useStaticQuery(graphql`
-    {
-      background: file(relativePath: { eq: "azores.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(layout: FULL_WIDTH)
-        }
-      }
-      rightImage: file(relativePath: { eq: "shark.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(width: 800, layout: CONSTRAINED)
-        }
-      }
-      smallImage: file(relativePath: { eq: "shark.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(width: 300, layout: CONSTRAINED)
-        }
-      }
-    }
-  `)
-
   return (
     <div>
       <SEO title="About Me" />
@@ -38,8 +17,8 @@ const About = () => {
         <div className="z-10 absolute top-0 left-0 w-full opacity-35 tracking-normal">
           <Header title={`Home`} hideAbout />
         </div>
-        <GatsbyImage
-          image={images.background.childImageSharp.gatsbyImageData}
+        <StaticImage
+          src="../../content/assets/azores.jpg"
           className="z-1"
           style={{
             position: `fixed`,
@@ -55,8 +34,8 @@ const About = () => {
           className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"
         >
           <div className="p-4 md:p-12 text-center lg:text-left">
-            <GatsbyImage
-              image={images.smallImage.childImageSharp.gatsbyImageData}
+            <StaticImage
+              src="../../content/assets/shark.jpg"
               className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
               alt="Tim with a shark"
             />
@@ -163,8 +142,8 @@ const About = () => {
           </div>
         </div>
         <div className="z-10 w-full lg:w-2/5">
-          <GatsbyImage
-            image={images.rightImage.childImageSharp.gatsbyImageData}
+          <StaticImage
+            src="../../content/assets/shark.jpg"
             className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
             alt="Tim with a shark"
           />
