@@ -45,7 +45,7 @@ if (inputDate.length > 0 && inputDate.length !== 10) {
   if (isNaN(parsedDate)) {
     throw "Invalid date provided"
   }
-  date = inputDate
+  date = parsedDate.toISOString().slice(0, 10)
 }
 
 const inputFormat = await question(`Post format [md|mdx] (${format}) > `)
