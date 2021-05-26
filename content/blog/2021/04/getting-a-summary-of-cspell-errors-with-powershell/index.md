@@ -1,5 +1,5 @@
 ---
-date: "2021-04-31T00:00:00.0Z"
+date: "2021-04-30T00:00:00.0Z"
 title: Getting a summary of cspell errors with PowerShell
 shareimage: "./spell-errors.png"
 tags: [PowerShell, MarkDown]
@@ -60,7 +60,12 @@ All that's left now is to group these by `SpellingError`, and then include a cou
 We're adding a custom property on `Select-Object` by creating a hashtable (which takes a label/expression pair). The group (from `Group-Object`) contains an array of all the objects in that group, so we can count the unique values of `FileName` with `Get-Unique` and `Measure-Object`. It's a rather busy one-liner.
 
 ```powershell
-$out | ConvertFrom-String -TemplateContent $template | Select-Object SpellingError, FileName | Group-Object SpellingError | Select-Object Name, @{l='# Files';e={($_.Group.FileName | Get-Unique | Measure-Object).Count}}, Count | Sort-Object Count -Descending
+$out |
+  ConvertFrom-String -TemplateContent $template |
+  Select-Object SpellingError, FileName |
+  Group-Object SpellingError |
+  Select-Object Name, @{l='# Files';e={($_.Group.FileName | Get-Unique | Measure-Object).Count}}, Count |
+  Sort-Object Count -Descending
 ```
 
 ## The full script
@@ -73,7 +78,12 @@ $template = @'
 {FileName*:C:\src\blog\content\blog\2017\04\checking-sql-agent-job-ownership-with-pester\index.md}:17:40 - Unknown word ({SpellingError:msdb})
 '@
 
-$out | ConvertFrom-String -TemplateContent $template | Select-Object SpellingError, FileName | Group-Object SpellingError | Select-Object Name, @{l='# Files';e={($_.Group.FileName | Get-Unique | Measure-Object).Count}}, Count | Sort-Object Count -Descending
+$out |
+  ConvertFrom-String -TemplateContent $template |
+  Select-Object SpellingError, FileName |
+  Group-Object SpellingError |
+  Select-Object Name, @{l='# Files';e={($_.Group.FileName | Get-Unique | Measure-Object).Count}}, Count |
+  Sort-Object Count -Descending
 ```
 
 [cspell post]: /blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/
