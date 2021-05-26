@@ -76,6 +76,5 @@ $template = @'
 $out | ConvertFrom-String -TemplateContent $template | Select-Object SpellingError, FileName | Group-Object SpellingError | Select-Object Name, @{l='# Files';e={($_.Group.FileName | Get-Unique | Measure-Object).Count}}, Count | Sort-Object Count -Descending
 ```
 
-########
 [cspell post]: /blog/2021/02/spell-checking-your-markdown-blog-posts-with-cspell/
-[ConvertFrom-String]: https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertfrom-string
+[convertfrom-string]: https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertfrom-string
