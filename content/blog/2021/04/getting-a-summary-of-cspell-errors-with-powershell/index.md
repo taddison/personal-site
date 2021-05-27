@@ -2,7 +2,7 @@
 date: "2021-04-30T00:00:00.0Z"
 title: Getting a summary of cspell errors with PowerShell
 shareimage: "./spell-errors.png"
-tags: [PowerShell, MarkDown]
+tags: [PowerShell, Markdown]
 # cSpell:words
 # cSpell:ignore
 ---
