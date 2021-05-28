@@ -24,6 +24,9 @@ body {
  * Manually specify the classes for now, strip out if/when the bug is fixed
  * Note the classes below have been customised from what the plugin uses
  * https://github.com/gatsbyjs/gatsby/issues/15486
+ * 
+ * To check if this bug has been fixed, delete the css below.  If the anchor appears 
+ * (not conditionally on hover) then it isn't working.
  */
 
 .header-anchor.before {
