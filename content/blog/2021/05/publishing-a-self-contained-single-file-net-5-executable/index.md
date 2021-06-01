@@ -45,13 +45,13 @@ Rather than dozens (or hundreds) of files, this option publishes only a handful 
 dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
 ```
 
-The reason there isn't a single file (which is what you might expect!) is that only managed DLLs are bundled into the executable, and the native binaries (part of the .NET runtime) are left as separate files. You can have even the native binaries bundled by specifying the following:
+The reason there isn't a single file (which is what you might expect!) is that only managed DLLs are bundled into the executable, and the native binaries (part of the .NET runtime) are left as separate files. You can have the native binaries bundled by specifying the following:
 
 ```shell
 dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 ```
 
-> In .NET Core 3.x this `PublishSingleFile` option also bundled native binaries, the `IncludeNativeLibrariesForSelfExtract` option is new wih .NET 5 where the default is to not bundle the native binaries.
+> In .NET Core 3.x the `PublishSingleFile` option also bundled native binaries. The `IncludeNativeLibrariesForSelfExtract` option is new wih .NET 5, where the default is to not bundle the native binaries.
 
 Read more on the Microsoft docs site: [Single-file deployment and executable].
 
@@ -81,6 +81,7 @@ As a result of the self-contained, single-file, and trimming options I was able 
 
 [trimming]: https://docs.microsoft.com/en-us/dotnet/core/deploying/trim-self-contained
 [sqldriver]: https://github.com/taddison/SQLDriver
+[ilmerge]: https://github.com/dotnet/ILMerge
 [self-contained publishing]: https://docs.microsoft.com/en-us/dotnet/core/deploying/#publish-self-contained
 [single-file deployment and executable]: https://docs.microsoft.com/en-us/dotnet/core/deploying/single-file
 [components that can cause trimming problems]: https://docs.microsoft.com/en-us/dotnet/core/deploying/trim-self-contained#components-that-cause-trimming-problems
