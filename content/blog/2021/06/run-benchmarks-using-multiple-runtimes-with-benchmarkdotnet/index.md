@@ -15,7 +15,7 @@ I first saw this technique explained in the [performance improvements in .NET 5 
 
 ## Setup
 
-We're going to compare the performance of `string.StartsWith` to `Span.StartsWith` under:
+We're going to compare the performance of `String.StartsWith` to `Span.StartsWith` under:
 
 - .NET Framework 4.8 ([download developer pack][net48 sdk])
 - .NET Core 3.1 ([download SDK][net31 sdk])
@@ -56,7 +56,7 @@ We're going to make three changes to our `spanBench.csproj` file:
 
 ## Benchmark Code
 
-The code is configured to use [BenchmarkSwitcher], which allows you to specify which benchmarks to run via the command line, or interactively (if not `filter` argument is passed). We've also added the `MemoryDiagnoser` attribute to collect information about allocations. The benchmarks are fairly simple and will each be executed with two different arguments.
+The code is configured to use [BenchmarkSwitcher], which allows you to specify which benchmarks to run via the command line, or interactively (if no `filter` argument is passed). We've also added the `MemoryDiagnoser` attribute to collect information about allocations. The benchmarks are fairly simple and will each be executed with two different arguments.
 
 ```csharp
 using System;
