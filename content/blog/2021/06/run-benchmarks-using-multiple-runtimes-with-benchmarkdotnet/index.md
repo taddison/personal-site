@@ -3,8 +3,8 @@ date: "2021-06-08T00:00:00.0Z"
 title: Run benchmarks using multiple runtimes with BenchmarkDotNet
 shareimage: "./benchmark.png"
 tags: [dotnet]
-# cSpell:words
-# cSpell:ignore
+# cSpell:words runtimes
+# cSpell:ignore netcoreapp Diagnoser Diagnosers typeof
 ---
 
 It's never been easier to run benchmarks against multiple runtimes with [BenchmarkDotNet]. Maybe you're checking your performance improvements benefit all runtimes targeted by your library code (that may support multiple [target frameworks]). Maybe you're curious to see if the relentless march of runtime improvements will benefit some of your existing code? Whatever the reason, with a couple of lines of code you can generate benchmarks like this:
