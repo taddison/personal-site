@@ -95,7 +95,7 @@ namespace SpanPerf
 With everything in place the below command will run all 12 benchmarks (2 methods x 2 arguments x 3 runtimes):
 
 ```shell
-dotnet run --configuration Release --framework net48 --runtimes net48 netcoreapp31 netcoreapp50 --filter ** --join
+dotnet run --configuration Release --framework net48 --runtimes net48 netcoreapp31 netcoreapp50 --filter * --join
 ```
 
 The first two arguments are for the `dotnet run` command:
