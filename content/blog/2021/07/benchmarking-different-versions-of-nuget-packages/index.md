@@ -102,6 +102,22 @@ dotnet run -c Release --filter * --join
 
 ## Benchmarking two different sets of package versions
 
+We can also pass a list of packages, so our code in `Config` becomes:
+
+```csharp
+AddJob(baseJob.WithNuGet(new NuGetReferenceList() {
+      new NuGetReference("System.Data.SqlClient", "4.6.0"),
+      new NuGetReference("Dapper", "1.60.6"),
+  }));
+
+AddJob(baseJob.WithNuGet(new NuGetReferenceList() {
+      new NuGetReference("System.Data.SqlClient", "4.8.2"),
+      new NuGetReference("Dapper", "2.0.90"),
+  }));
+```
+
+The benchmark run will now run the benchmark the March 2019 versions against the July 2021 versions of both `Dapper` and `System.Data.SqlClient`.
+
 ## Benchmarking different packages that implement a common abstract class
 
 ## Benchmarking all of the above with different runtimes
