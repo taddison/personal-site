@@ -192,11 +192,6 @@ public class MicrosoftDataBenchmark : BaseBenchmark
     {
       AddJob(BaseJob.WithNuGet(new NuGetReferenceList() {
             new NuGetReference("Microsoft.Data.SqlClient", "3.0.0"),
-            new NuGetReference("Dapper", "1.60.6"),
-        }));
-
-      AddJob(BaseJob.WithNuGet(new NuGetReferenceList() {
-            new NuGetReference("Microsoft.Data.SqlClient", "3.0.0"),
             new NuGetReference("Dapper", "2.0.90"),
         }));
     }
@@ -213,7 +208,7 @@ We'll also need to install the new NuGet package:
 dotnet add package Microsoft.Data.SqlClient
 ```
 
-Running the benchmark now compares all four options:
+Running the benchmark now compares all three options (baseline, `System.Data` upgrade, `Microsoft.Data` upgrade):
 
 ![Microsoft Data and System Data benchmark results](./abstract-class-multiple-implementations.png)
 
