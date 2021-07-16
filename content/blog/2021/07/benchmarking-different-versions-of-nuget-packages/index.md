@@ -89,7 +89,7 @@ public class SqlClientBenchmark
         AddJob(baseJob.WithNuGet("System.Data.SqlClient", "4.8.2"));
       }
   }
-  // ...rest of the implementation
+// ...
 ```
 
 If we run the benchmark we'll now get one run for each version of `System.Data.SqlClient` specified.
@@ -213,6 +213,69 @@ Running the benchmark now compares all three options (baseline, `System.Data` up
 ![Microsoft Data and System Data benchmark results](./abstract-class-multiple-implementations.png)
 
 ## Benchmarking all of the above with different runtimes
+
+So what if we wanted to also see what impact updating from .NET Framework 4.8.2 to .NET 5.0 would have? We'll update our `System.Data` benchmarks to look like this:
+
+```csharp
+// SystemDataBenchmarks.cs
+using BenchmarkDotNet.Environments;
+// ...
+    public Config()
+    {
+      var oldPackages = BaseJob.WithNuGet(new NuGetReferenceList() {
+            new NuGetReference("System.Data.SqlClient", "4.6.0"),
+            new NuGetReference("Dapper", "1.60.6"),
+        });
+
+      var newPackages = BaseJob.WithNuGet(new NuGetReferenceList() {
+            new NuGetReference("System.Data.SqlClient", "4.8.2"),
+            new NuGetReference("Dapper", "2.0.90"),
+        });
+
+      AddJob(oldPackages.WithRuntime(ClrRuntime.Net48));
+      AddJob(oldPackages.WithRuntime(CoreRuntime.Core50));
+      AddJob(newPackages.WithRuntime(ClrRuntime.Net48));
+      AddJob(newPackages.WithRuntime(CoreRuntime.Core50));
+    }
+// ...
+```
+
+This will compare the old packages on both runtimes, as well as the new packages on both runtimes. We'll also try both runtimes for the `Microsoft.Data` package update:
+
+```csharp
+// MicrosoftDataBenchmarks.cs
+// ...
+    public Config()
+    {
+      var packages = BaseJob.WithNuGet(new NuGetReferenceList() {
+            new NuGetReference("Microsoft.Data.SqlClient", "3.0.0"),
+            new NuGetReference("Dapper", "2.0.90"),
+        });
+
+      AddJob(packages.WithRuntime(ClrRuntime.Net48));
+      AddJob(packages.WithRuntime(CoreRuntime.Core50));
+    }
+// ...
+```
+
+We'll also need to update the `csproj` file to allow us to target multiple frameworks:
+
+```diff
+- <TargetFramework>net50</TargetFramework>
++ <TargetFrameworks>net48;net5.0</TargetFrameworks>
+```
+
+And invoking the benchmark now requires us to specify which framework we want to execute the host process with:
+
+```shell
+dotnet run -c Release -f net48 --filter * --join
+```
+
+The result of which is six different benchmarks (and so if we had a lot of methods to benchmark we might be here for quite a while):
+
+![Benchmark results with multiple runtimes](./kitchen-sink.png)
+
+If you'd like to see an example that contains multiple benchmark definitions (still focusing on `SqlClient`) I'd encourage you to check out the [SqlClientUpdate benchmark on GitHub].
 
 --
 
