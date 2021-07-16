@@ -122,6 +122,101 @@ The benchmark run will now run the benchmark the March 2019 versions against the
 
 ## Benchmarking different packages that implement a common abstract class
 
+We'll now consider what would happen if rather than upgrading to the latest version of `System.Data.SqlClient`, we instead upgraded to the latest version of `Microsoft.Data.SqlClient`. We'll create a single abstract class `BaseBenchmark` which will hold all the benchmark definitions, and then two classes which implement `BaseBenchmark`, one for each of the `*.SqlClient` packages we want to test.
+
+> You don't have to use abstract classes and multiple implementations, and if you're only benchmarking a single method it is probably overkill (you might want to consider clipboard inheritance instead 😊).
+
+Our base class contains all common code:
+
+```csharp
+// BaseBenchmark.cs
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Jobs;
+using Dapper;
+
+public abstract class BaseBenchmark {
+  public static string CONNECTION_STRING = "server=localhost;integrated security=sspi";
+  public static Job BaseJob = Job.Default;
+  protected System.Data.Common.DbConnection _connection;
+
+  [GlobalCleanup]
+  public void Cleanup() => _connection.Dispose();
+
+  [Benchmark]
+  public void Execute() => _connection.Execute("SELECT 1");
+}
+```
+
+And each implementation contains a different `Config`, and connection initialisation:
+
+```csharp
+// SystemDataBenchmark.cs
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Jobs;
+
+[Config(typeof(Config))]
+public class SystemDataBenchmark : BaseBenchmark
+{
+  private class Config : ManualConfig
+  {
+    public Config()
+    {
+      AddJob(BaseJob.WithNuGet(new NuGetReferenceList() {
+            new NuGetReference("System.Data.SqlClient", "4.6.0"),
+            new NuGetReference("Dapper", "1.60.6"),
+        }));
+
+      AddJob(BaseJob.WithNuGet(new NuGetReferenceList() {
+            new NuGetReference("System.Data.SqlClient", "4.8.2"),
+            new NuGetReference("Dapper", "2.0.90"),
+        }));
+    }
+  }
+
+  [GlobalSetup]
+  public void Setup() => _connection = new System.Data.SqlClient.SqlConnection(CONNECTION_STRING);
+}
+
+// MicrosoftDataBenchmark.cs
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Jobs;
+
+[Config(typeof(Config))]
+public class MicrosoftDataBenchmark : BaseBenchmark
+{
+  private class Config : ManualConfig
+  {
+    public Config()
+    {
+      AddJob(BaseJob.WithNuGet(new NuGetReferenceList() {
+            new NuGetReference("Microsoft.Data.SqlClient", "3.0.0"),
+            new NuGetReference("Dapper", "1.60.6"),
+        }));
+
+      AddJob(BaseJob.WithNuGet(new NuGetReferenceList() {
+            new NuGetReference("Microsoft.Data.SqlClient", "3.0.0"),
+            new NuGetReference("Dapper", "2.0.90"),
+        }));
+    }
+  }
+
+  [GlobalSetup]
+  public void Setup() => _connection = new Microsoft.Data.SqlClient.SqlConnection(CONNECTION_STRING);
+}
+```
+
+We'll also need to install the new NuGet package:
+
+```shell
+dotnet add package Microsoft.Data.SqlClient
+```
+
+Running the benchmark now compares all four options:
+
+![Microsoft Data and System Data benchmark results](./abstract-class-multiple-implementations.png)
+
 ## Benchmarking all of the above with different runtimes
 
 --
