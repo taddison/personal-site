@@ -214,7 +214,7 @@ Running the benchmark now compares all three options (baseline, `System.Data` up
 
 ## Benchmarking all of the above with different runtimes
 
-So what if we wanted to also see what impact updating from .NET Framework 4.8.2 to .NET 5.0 would have? We'll update our `System.Data` benchmarks to look like this:
+So what if we wanted to also see what impact updating from .NET Framework 4.8.2 to .NET 5.0 would have? We've been running our previous benchmarks with .NET 5.0, but in early 2019 we'd have been using .NET Framework 4.8.2. To see what difference that makes we'll update our `System.Data` benchmarks to look like this:
 
 ```csharp
 // SystemDataBenchmarks.cs
@@ -276,6 +276,8 @@ The result of which is six different benchmarks (and so if we had a lot of metho
 ![Benchmark results with multiple runtimes](./kitchen-sink.png)
 
 If you'd like to see an example that contains multiple benchmark definitions (still focusing on `SqlClient`) I'd encourage you to check out the [SqlClientUpdate benchmark on GitHub].
+
+> All the benchmark results here are to demonstrate the techniques only - don't take away anything from the results. If you are interested in benchmarking data access from SQL Server I'd encourage you to use a longer duration (`Job.VeryLongRun` is what I use), use a dedicated SQL machine rather than localhost, and monitor the SQL instance to ensure any slowdowns aren't on the SQL side. This is easier said than done!
 
 --
 
