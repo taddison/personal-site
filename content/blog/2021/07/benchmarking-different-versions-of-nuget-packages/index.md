@@ -7,7 +7,7 @@ tags: [C#, dotnet, Benchmark]
 # cSpell:ignore
 ---
 
-Last month I looked at [benchmarking different runtimes] to see what impact updating to the latest version of .NET might have. But what if you're curious about package updates too? [BenchmarkDotNet] has us covered there too - it allows you to configure your benchmarks to run against [multiple versions of the same package]. We can also leverage that functionality to benchmark different packages that provide implementations for the same abstract class or interface (e.g. `DbConnection` as implemented in `Microsoft.Data.SqlClient` and `System.Data.SqlClient`).
+Last month I looked at [benchmarking different runtimes] to see what impact updating to the latest version of .NET might have. But what if you're curious about package updates too? [BenchmarkDotNet] has us covered there too - it allows you to configure your benchmarks to run against [multiple versions of the same package]. We can also leverage that functionality to benchmark packages that provide different implementations of the same abstract class or interface (e.g. `DbConnection` as implemented in `Microsoft.Data.SqlClient` and `System.Data.SqlClient`).
 
 > If you'd like jump right into an example project with all the bells and whistles check the [SqlClientUpdate benchmark on GitHub].
 
@@ -20,7 +20,7 @@ The rest of this post will walk through:
 
 ## Benchmarking two different versions of a package
 
-We'll start by quickly scaffolding an app and adding a benchmark for connecting to SQL Server with [System.Data.SqlClient] and [Dapper]. First of all create the app and install the packages - we're going to be looking at changes in data access, so we'll install version of those packages that correspond to March 2019:
+We'll start by quickly scaffolding an app and adding a benchmark for connecting to SQL Server with [System.Data.SqlClient] and [Dapper]. First of all create the app and install the packages - we're going to be looking at changes in data access, so we'll install versions of those packages that correspond to March 2019:
 
 ```shell
 dotnet new console
@@ -29,7 +29,7 @@ dotnet add package Dapper -v 1.60.6
 dotnet add package System.Data.SqlClient -v 4.6.0
 ```
 
-> It's important to install the lowest version of the package you want to benchmark, as if you install the latest version restores of the lower version will fail.
+> It's important to install the lowest version of the package you want to benchmark, as if you install the latest version any attempt to restore a lower version will fail.
 
 Next we'll modify our `Program.cs` to use `BenchmarkSwitcher` to launch our benchmarks:
 
@@ -39,7 +39,8 @@ using BenchmarkDotNet.Running;
 
 public class Program
 {
-  public static void Main(string[] args) => BenchmarkSwitcher.FromAssemblies(new[] { typeof(Program).Assembly }).Run(args);
+  public static void Main(string[] args) =>
+    BenchmarkSwitcher.FromAssemblies(new[] { typeof(Program).Assembly }).Run(args);
 }
 ```
 
@@ -135,8 +136,8 @@ using BenchmarkDotNet.Jobs;
 using Dapper;
 
 public abstract class BaseBenchmark {
-  public static string CONNECTION_STRING = "server=localhost;integrated security=sspi";
-  public static Job BaseJob = Job.Default;
+  protected static string CONNECTION_STRING = "server=localhost;integrated security=sspi";
+  protected static Job BaseJob = Job.Default;
   protected System.Data.Common.DbConnection _connection;
 
   [GlobalCleanup]
