@@ -2,7 +2,7 @@
 date: "2021-06-08T00:00:00.0Z"
 title: Run benchmarks using multiple runtimes with BenchmarkDotNet
 shareimage: "./benchmark.png"
-tags: [dotnet]
+tags: [dotnet, C#, Benchmark]
 # cSpell:words runtimes
 # cSpell:ignore netcoreapp Diagnoser Diagnosers typeof
 ---
