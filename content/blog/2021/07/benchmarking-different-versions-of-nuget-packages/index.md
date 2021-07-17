@@ -117,7 +117,7 @@ AddJob(baseJob.WithNuGet(new NuGetReferenceList() {
   }));
 ```
 
-The benchmark run will now run the benchmark the March 2019 versions against the July 2021 versions of both `Dapper` and `System.Data.SqlClient`.
+The benchmark will now compare the March 2019 versions against the July 2021 versions of both `Dapper` and `System.Data.SqlClient`.
 
 ![Benchmark comparing multiple packages](./comparing-multiple-packages.png)
 
