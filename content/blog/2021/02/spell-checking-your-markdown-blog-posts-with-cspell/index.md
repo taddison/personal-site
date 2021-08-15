@@ -35,7 +35,7 @@ I suggest you create a `cspell.json` file in the root of your folder:
 
 ```json
 {
-  "version": 0.1
+  "version": "0.1"
 }
 ```
 
@@ -43,7 +43,7 @@ And now any changes you make in the context of the workspace will be placed in t
 
 ```json
 {
-  "version": 0.1,
+  "version": "0.1",
   "language": "en-GB"
 }
 ```
