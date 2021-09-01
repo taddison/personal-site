@@ -7,41 +7,11 @@ tags: [Links]
 # cSpell:ignore
 ---
 
-### Node CLI
+With the advent of tab groups I can now claim to have 'only a few tabs' open, yet have dozens (maybe more) links pile up for later review. I'm not sure that's an improvement 🤔.
 
-Lots of interesting ideas and links here if I wanted to build a more serious CLI (see [[April 10, 2021]]). There is probably an alternative to the tsqlscheduler task creator here (as most of it could easily be done via the command line?).
-https://www.twilio.com/blog/how-to-build-a-cli-with-node-js
+Links are broadly categorised into [Frontend](#frontend), [Development](#development), [Management and leadership](#management-and-leadership), and the catch-all [Miscellaneous](#miscellaneous).
 
-And then special call-out for Ink, which I've seen before and would love to try (CLI using React).
-https://www.npmjs.com/package/ink
-
-### Reading for CTO/VPE R&D
-
-Definitely not limited to just CTO/VPE for R&D - I've read a lot of these posts in the past and think they're useful reading for almost any level of engineering. It's an opinionated list and I'm not sure I agree with them all, but I did discover a bunch of new resources. I do enjoy a good aggregation of content.
-https://github.com/kuchin/awesome-cto
-
-### Container and VSCode
-
-This is interesting, but mainly it's the product of research into how can a container access git credentials from the host. If I package an application up for developers to use (mounting a local repo to work with in the tool), can a `git push` work as intended? Looks like the answer is maybe?
-https://code.visualstudio.com/docs/remote/containers
-
-### Web share
-
-I'd like to build an app (which can be a PWA) to share URLs to with some minimum content. Today it's emails to myself, or manually syncing in a list (like this document). Great that there is a native API which exists (and a PWA can register as a target!).
-https://web.dev/web-share-target/
-
-### Learning a foreign language
-
-The subreddit guide is great. So is the about page, the resources page, and the content of the wiki. The real challenge? Where to get started with something! In terms of a pratical next step I was quite impressed with the depth of content available on the 5000 French works Anki deck (come a _long_ way since I last pulled a deck).
-
-https://www.reddit.com/r/languagelearning/wiki/guide
-https://ankiweb.net/shared/info/893324022
-
---
-
-### Orbit
-
-Spaced repetition (think Anki) taken to the next level. What if we could get much, much more from reading, by changing the format in which we author and then consume the text? See [Tools for Transformative Thought](https://numinous.productions/ttft/) for the background, [Orbit](https://withorbit.com/) for an introduction, or jump right into the [Orbit documentation](https://docs.withorbit.com/) for implementation details. This is no less than an attempt to reimagine the humble written word as a tool for learning, and I think it's worth keeping an eye on.
+## Frontend
 
 ### Webmention Analytics
 
@@ -55,7 +25,29 @@ If you prefer learning via reading (and the official [Typescript Handbook](https
 
 [DOM Events](https://domevents.dev/) is a fantastic visual exposition of the browser's DOM event system that really needs to be seen to appreciated (click the _Dispatch_ button!). I can't think of a better way to teach/understand the model - great UI which is both simple, informative, yet feature-packed.
 
---
+### React from scratch
+
+This in-depth and enlightening three-part series (starting with [Climbing Mount Effect](https://acko.net/blog/climbing-mt-effect/)) lays out some of the problems React's architecture solves, and then extends that architecture with some very different solutions.
+
+If you've never read the details on why some of React's limitations exist (one-way data flow, rules regarding hooks, effects) - this piece is well worth the (fairly high) effort to work through. And if you do understand those limitations, this piece shows another way of thinking about them - really helped consolidate my mental model of React.
+
+If you're curious about building React from scratch I'd recommend the fantastic [Build your own React](https://pomb.us/build-your-own-react/). Not only is the content great, but the presentation is fantastic.
+
+### Javascript
+
+Looking forward to hopefully seeing the [proposal for JSON modules](https://github.com/tc39/proposal-json-modules) make it into the standard. I've got a whole bunch of JSON being imported in various utility tools, and if it could fail-fast if it's no longer JSON (for any reason), so much the better.
+
+```javascript
+import json from "./foo.json" assert { type: "json" }
+```
+
+And now looking back, after reading [authentication in React apps](https://kentcdodds.com/blog/authentication-in-react-applications) it is hard to unsee the many times I have made the same mistakes over and over. At least next time I need to write an app I've got a solid pattern to follow, and maybe one day I'll refactor some existing code into the pattern (hahaha...).
+
+Looking forward again I'm already fairly confident that Next.js + Tailwindcss are my go-to choices for building, but hosting is a little trickier. While I've been very happy with Netlify for static sites, because Next.js integrates so tightly with Vercel that's probably an upcoming shift I'll make. But nothing has yet dislodged firebase/firestore as the go-to _web accessible_ database to use...until I started reading about Supabase. And given it's actually SQL (hooray!) I'm even _more_ interested than I was before. Reading through [an end to end tutorial](https://www.freecodecamp.org/news/the-complete-guide-to-full-stack-development-with-supabas/) has convinced me this is worth exploring more.
+
+Another missing piece of my puzzle is how to make calls to that backend - in most cases I'm using a straightforward `useFirestore` hook that has some home-rolled caching, but after reading through [practical react-query](https://tkdodo.eu/blog/practical-react-query) I'm wondering if that might not be a better fit. I started the series with [react-query as a state manager](https://tkdodo.eu/blog/react-query-as-a-state-manager) and was hooked, and promptly went back to the beginning.
+
+## Development
 
 ### Local-first Software
 
@@ -77,23 +69,13 @@ I've been focusing on [JSON Lines](https://jsonlines.org/) as my personal choice
 
 However, after reading (and frankly having my mind blown) [hosting SQLite databases on GitHub pages](https://phiresky.github.io/blog/2021/hosting-sqlite-databases-on-github-pages/) I might reconsider using it instead of 'JSON databases'.
 
-### Growing Inclusive Behaviours
+### Environment setup
 
-One way to start is defining those behaviours, and Chelsea Troy's [Rubric for Evaluating Team Member's Contributions to an Inclusive Culture](https://chelseatroy.com/2018/05/24/why-your-efforts-to-make-your-company-inclusive-arent-working/) is still my go-to post/resource in this space. Highly recommended for everyone (not just managers).
+One rough edge I've found with codespaces so far is environment setup - and the docs for [customizing your codespace](https://docs.github.com/en/codespaces/customizing-your-codespace/) sent me down a rabbit hole of environment configuration.
 
-### Up Next for organisations?
+[René-Marc's dotfiles](https://github.com/renemarc/dotfiles) were my jumping-off point, and in addition to discovering [scoop](https://scoop.sh/) I also found the rather formidable [chezmoi](https://www.chezmoi.io/). A _lot_ to digest here (even the [how-to](https://www.chezmoi.io/docs/how-to/#personalizing-codespaces-for-your-account) is huge!), but it does look like the comprehensive solution that will let me work between Windows and macOS and linux.
 
-While everybody is thinking about more immediate changes related to remote work and the 'new-normal', what longer-term (think 2031) changes are already happening? [How organisations are changing](https://swardley.medium.com/how-organisations-are-changing-cf80f3e2300) covers a lot of ground (and remote vs. in-office is fairly pivotal question that is covered).
-
-### React from scratch
-
-This in-depth and enlightening three-part series (starting with [Climbing Mount Effect](https://acko.net/blog/climbing-mt-effect/)) lays out some of the problems React's architecture solves, and then extends that architecture with some very different solutions.
-
-If you've never read the details on why some of React's limitations exist (one-way data flow, rules regarding hooks, effects) - this piece is well worth the (fairly high) effort to work through. And if you do understand those limitations, this piece shows another way of thinking about them - really helped consolidate my mental model of React.
-
-If you're curious about building React from scratch I'd recommend the fantastic [Build your own React](https://pomb.us/build-your-own-react/). Not only is the content great, but the presentation is fantastic.
-
---
+But there's a lot of work to do to get there...
 
 ### Security beyond on-premise
 
@@ -115,33 +97,19 @@ But with the option to use the [Netherite provider](https://microsoft.github.io/
 
 And finally - tying together Security and durable functions is [Cloud Katana](https://www.microsoft.com/security/blog/2021/08/19/automating-security-assessments-using-cloud-katana/). Love the work Microsoft security are doing to let people improve and iterate on security _safely_ (knowing where to start is hard, this is a fantastic onramp).
 
-### Javascript
-
-Looking forward to hopefully seeing the [proposal for JSON modules](https://github.com/tc39/proposal-json-modules) make it into the standard. I've got a whole bunch of JSON being imported in various utility tools, and if it could fail-fast if it's no longer JSON (for any reason), so much the better.
-
-```javascript
-import json from "./foo.json" assert { type: "json" }
-```
-
-And now looking back, after reading [authentication in React apps](https://kentcdodds.com/blog/authentication-in-react-applications) it is hard to unsee the many times I have made the same mistakes over and over. At least next time I need to write an app I've got a solid pattern to follow, and maybe one day I'll refactor some existing code into the pattern (hahaha...).
-
-Looking forward again I'm already fairly confident that Next.js + Tailwindcss are my go-to choices for building, but hosting is a little trickier. While I've been very happy with Netlify for static sites, because Next.js integrates so tightly with Vercel that's probably an upcoming shift I'll make. But nothing has yet dislodged firebase/firestore as the go-to _web accessible_ database to use...until I started reading about Supabase. And given it's actually SQL (hooray!) I'm even _more_ interested than I was before. Reading through [an end to end tutorial](https://www.freecodecamp.org/news/the-complete-guide-to-full-stack-development-with-supabas/) has convinced me this is worth exploring more.
-
-Another missing piece of my puzzle is how to make calls to that backend - in most cases I'm using a straightforward `useFirestore` hook that has some home-rolled caching, but after reading through [practical react-query](https://tkdodo.eu/blog/practical-react-query) I'm wondering if that might not be a better fit. I started the series with [react-query as a state manager](https://tkdodo.eu/blog/react-query-as-a-state-manager) and was hooked, and promptly went back to the beginning.
-
-### My debugging hero
-
-I didn't think I _had_ a debugging hero, but then I read another of Bruce Dawson's posts (this time on [Arranging Invisible Icons in Quadractic time](https://randomascii.wordpress.com/2021/02/16/arranging-invisible-icons-in-quadratic-time/)) and then realised that actually, I do!
-
-### Agency
-
-As a (relatively) freshly minted parent I'm now starting to think about education, and reflecting back on my experiences I can say that I'd like to do better. Reading [The most precious resource is agency](https://simonsarris.substack.com/p/the-most-precious-resource-is-agency) struck a chord, mainly in that outside of the social value of school, I'm not sure how valuable it is compared to what it could be.
-
---
-
 ### Access control, explained
 
 [RBAC like it was meant to be](https://tailscale.com/blog/rbac-like-it-was-meant-to-be/) is the best introduction to access control I've ever read. [Tailscale](https://tailscale.com/) is an extremely impressive product, and the documentation/blog posts are just as impressive.
+
+## Management and Leadership
+
+### Growing Inclusive Behaviours
+
+One way to start is defining those behaviours, and Chelsea Troy's [Rubric for Evaluating Team Member's Contributions to an Inclusive Culture](https://chelseatroy.com/2018/05/24/why-your-efforts-to-make-your-company-inclusive-arent-working/) is still my go-to post/resource in this space. Highly recommended for everyone (not just managers).
+
+### Up Next for organisations?
+
+While everybody is thinking about more immediate changes related to remote work and the 'new-normal', what longer-term (think 2031) changes are already happening? [How organisations are changing](https://swardley.medium.com/how-organisations-are-changing-cf80f3e2300) covers a lot of ground (and remote vs. in-office is fairly pivotal question that is covered).
 
 ### Engineering career growth
 
@@ -160,10 +128,16 @@ One thing I've found valuable in defining the senior+ roles is it allows you to 
 
 Even if you don't want to make these activities your main focus (EM/staff engineer), making participation in them part of your role/though process may be part of how you sustain excellence.
 
-### Environment setup
+## Miscellaneous
 
-One rough edge I've found with codespaces so far is environment setup - and the docs for [customizing your codespace](https://docs.github.com/en/codespaces/customizing-your-codespace/) sent me down a rabbit hole of environment configuration.
+### Orbit
 
-[René-Marc's dotfiles](https://github.com/renemarc/dotfiles) were my jumping-off point, and in addition to discovering [scoop](https://scoop.sh/) I also found the rather formidable [chezmoi](https://www.chezmoi.io/). A _lot_ to digest here (even the [how-to](https://www.chezmoi.io/docs/how-to/#personalizing-codespaces-for-your-account) is huge!), but it does look like the comprehensive solution that will let me work between Windows and macOS and linux.
+Spaced repetition (think Anki) taken to the next level. What if we could get much, much more from reading, by changing the format in which we author and then consume the text? See [Tools for Transformative Thought](https://numinous.productions/ttft/) for the background, [Orbit](https://withorbit.com/) for an introduction, or jump right into the [Orbit documentation](https://docs.withorbit.com/) for implementation details. This is no less than an attempt to reimagine the humble written word as a tool for learning, and I think it's worth keeping an eye on.
 
-But there's a lot of work to do to get there...
+### My debugging hero
+
+I didn't think I _had_ a debugging hero, but then I read another of Bruce Dawson's posts (this time on [Arranging Invisible Icons in Quadractic time](https://randomascii.wordpress.com/2021/02/16/arranging-invisible-icons-in-quadratic-time/)) and then realised that actually, I do!
+
+### Agency
+
+As a (relatively) freshly minted parent I'm now starting to think about education, and reflecting back on my experiences I can say that I'd like to do better. Reading [The most precious resource is agency](https://simonsarris.substack.com/p/the-most-precious-resource-is-agency) struck a chord, mainly in that outside of the social value of school, I'm not sure how valuable it is compared to what it could be.
