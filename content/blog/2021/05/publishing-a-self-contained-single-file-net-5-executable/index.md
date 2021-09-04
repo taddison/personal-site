@@ -3,7 +3,7 @@ date: "2021-05-29T00:00:00.0Z"
 title: Publishing a self-contained single-file .NET 5 executable
 #shareimage: "./shareimage.png"
 tags: [dotnet]
-# cSpell:words
+# cSpell:words sqldriver
 # cSpell:ignore
 ---
 
