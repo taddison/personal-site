@@ -3,8 +3,8 @@ date: "2021-08-31T00:00:00.0Z"
 title: Interesting Links - August 2021
 #shareimage: "./shareimage.png"
 tags: [Links]
-# cSpell:words
-# cSpell:ignore
+# cSpell:words Supabase Automerge Replicache dotfiles chezmoi Urlist Pulumi Gergely's
+# cSpell:ignore hahaha
 ---
 
 With the advent of tab groups I can now claim to have 'only a few tabs' open, yet have dozens (maybe more) links pile up for later review. I'm not sure that's an improvement 🤔.
@@ -23,7 +23,7 @@ If you prefer learning via reading (and the official [Typescript Handbook](https
 
 ### DOM Events
 
-[DOM Events](https://domevents.dev/) is a fantastic visual exposition of the browser's DOM event system that really needs to be seen to appreciated (click the _Dispatch_ button!). I can't think of a better way to teach/understand the model - great UI which is both simple, informative, yet feature-packed.
+[DOM Events](https://domevents.dev/) is a fantastic visual exposition of the browser's DOM event system that really needs to be seen to be appreciated (click the _Dispatch_ button!). I can't think of a better way to teach/understand the model - a great UI that is both simple, informative, and yet feature-packed.
 
 ### React from scratch
 
@@ -31,7 +31,7 @@ This in-depth and enlightening three-part series (starting with [Climbing Mount 
 
 If you've never read the details on why some of React's limitations exist (one-way data flow, rules regarding hooks, effects) - this piece is well worth the (fairly high) effort to work through. And if you do understand those limitations, this piece shows another way of thinking about them - really helped consolidate my mental model of React.
 
-If you're curious about building React from scratch I'd recommend the fantastic [Build your own React](https://pomb.us/build-your-own-react/). Not only is the content great, but the presentation is fantastic.
+If you're curious about building React from scratch, I'd recommend the fantastic [Build your own React](https://pomb.us/build-your-own-react/). Not only is the content great, but the presentation is fantastic.
 
 ### Javascript
 
@@ -43,7 +43,7 @@ import json from "./foo.json" assert { type: "json" }
 
 And now looking back, after reading [authentication in React apps](https://kentcdodds.com/blog/authentication-in-react-applications) it is hard to unsee the many times I have made the same mistakes over and over. At least next time I need to write an app I've got a solid pattern to follow, and maybe one day I'll refactor some existing code into the pattern (hahaha...).
 
-Looking forward again I'm already fairly confident that Next.js + Tailwindcss are my go-to choices for building, but hosting is a little trickier. While I've been very happy with Netlify for static sites, because Next.js integrates so tightly with Vercel that's probably an upcoming shift I'll make. But nothing has yet dislodged firebase/firestore as the go-to _web accessible_ database to use...until I started reading about Supabase. And given it's actually SQL (hooray!) I'm even _more_ interested than I was before. Reading through [an end to end tutorial](https://www.freecodecamp.org/news/the-complete-guide-to-full-stack-development-with-supabas/) has convinced me this is worth exploring more.
+Looking forward again I'm already confident that Next.js + Tailwindcss are my go-to choices for building, but hosting is a little trickier. While I've been very happy with Netlify for static sites, because Next.js integrates so tightly with Vercel that's probably an upcoming shift I'll make. But nothing has yet dislodged firebase/firestore as the go-to _web accessible_ database to use...until I started reading about Supabase. And given it's actually SQL (hooray!) I'm even _more_ interested than I was before. Reading through [an end to end tutorial](https://www.freecodecamp.org/news/the-complete-guide-to-full-stack-development-with-supabas/) has convinced me this is worth exploring more.
 
 Another missing piece of my puzzle is how to make calls to that backend - in most cases I'm using a straightforward `useFirestore` hook that has some home-rolled caching, but after reading through [practical react-query](https://tkdodo.eu/blog/practical-react-query) I'm wondering if that might not be a better fit. I started the series with [react-query as a state manager](https://tkdodo.eu/blog/react-query-as-a-state-manager) and was hooked, and promptly went back to the beginning.
 
@@ -85,7 +85,7 @@ While the tier model worked well for on-premise networks, it wasn't a good fit f
 
 The discussion of [how the Urlist app is built] covers a lot of ground, and along the way hits Front Door, Cosmos DB, CNAME flattening, Azure Functions and more. It's eminently practical and also covers cost (which is never present on architecture diagrams), and left me with a better understanding of how some of the different tools fit together.
 
-When deploying all of those apps to Azure perhaps rather than inflicting [ARM templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) on yourself you could instead use the new [Bicep language](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview). It's definitely an improvement, but I don't know if it's enough of an improvement over something like [Pulumi](https://www.pulumi.com/) to be worth learning.
+When deploying all of those apps to Azure perhaps rather than inflicting [ARM templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) on yourself you could instead use the new [Bicep language](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview). It's an improvement, but I don't know if it's enough of an improvement over something like [Pulumi](https://www.pulumi.com/) to be worth learning.
 
 I've still not really leveraged durable functions, but found the [new backend announcement](https://techcommunity.microsoft.com/t5/apps-on-azure/new-storage-providers-for-azure-durable-functions/ba-p/2382044) to be particularly interesting.
 
@@ -126,7 +126,7 @@ One thing I've found valuable in defining the senior+ roles is it allows you to 
 - [Driving a technical strategy at scale](https://leaddev.com/scaling-teams-hypergrowth/driving-technical-strategy-scale-part-1)
 - [Debugging engineering velocity and leading high performance teams](https://leaddev.com/productivity-eng-velocity/debugging-engineering-velocity-and-leading-high-performing-teams)
 
-Even if you don't want to make these activities your main focus (EM/staff engineer), making participation in them part of your role/though process may be part of how you sustain excellence.
+Even if you don't want to make these activities your focus (EM/staff engineer), making participation in them part of your role/though process may be part of how you sustain excellence.
 
 ## Miscellaneous
 
