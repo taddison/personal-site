@@ -36,7 +36,7 @@ At a high level the test:
 - Records the tag (if it exists) in an array of all tags
 - Loops through the array of tags and checks if any of them has a count greater than 1
 
-> Looping through the array and testing each tag give the test a fairly useful output (`Tag X is a duplicate`) rather than something generic and unhelpful (`There are duplicate tags`). If your tests are going to fail you want them to be maximally helpful in debugging the failure.
+> Looping through the array and testing each tag gives the test a fairly useful output (`Tag X is a duplicate`) rather than something generic and unhelpful (`There are duplicate tags`). If your tests are going to fail you want them to be maximally helpful in debugging the failure.
 
 Most of the requirements (get all the files, loop through the array) are fairly straightforward PowerShell - if we take out the parsing code the test looks like this:
 
@@ -125,7 +125,7 @@ Describe "Module test Describe tags are unique" {
 }
 ```
 
-If you've not worked with an AST or parser before (or you have but not in PowerShell) some of this might look a little intimidating (it took me a while to grok it), but I'd encourage you to persevere as the idea.pattern is incredibly powerful.
+If you've not worked with an AST or parser before (or you have but not in PowerShell) some of this might look a little intimidating (it took me a while to grok it), but I'd encourage you to persevere as the pattern is incredibly powerful.
 
 > It's pretty cool to write Pester tests for your Pester tests.
 
