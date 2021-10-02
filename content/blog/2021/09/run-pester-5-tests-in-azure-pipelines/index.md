@@ -1,7 +1,7 @@
 ---
 date: "2021-09-30T00:00:00.0Z"
 title: Run Pester 5 tests in Azure Pipelines
-#shareimage: "./shareimage.png"
+shareimage: "./shareimage.png"
 tags: [PowerShell, Pester]
 # cSpell:words
 # cSpell:ignore
@@ -38,6 +38,8 @@ If you use -CI (https://pester.dev/docs/commands/Invoke-Pester#-ci) will enable 
 https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops
 
 Demo using https://github.com/DBTrenches/tsqlscheduler/blob/master/src/tsqlScheduler/Public/Test-FolderTasks.ps1
+
+![Test Results](./testresults.png)
 
 - https://gaunacode.com/pester-test-results-on-azure-devops
 - https://devopsjournal.io/blog/2021/05/25/Moving-pester-to-version-5
