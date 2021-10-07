@@ -37,7 +37,7 @@ steps:
   - task: PublishTestResults@2
     inputs:
       testResultsFormat: "NUnit"
-      testResultsFiles: "**/Test-*.xml"
+      testResultsFiles: "**/Test*.xml"
       failTaskOnFailedTests: true
       testRunTitle: "Validate Task Files"
 ```
