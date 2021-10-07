@@ -9,18 +9,9 @@ tags: [PowerShell, Pester, DevOps, Azure]
 
 The brevity of the [Migrating from Pester v4 to v5] documentation belies just how much has changed - something that took a fair bit of trial and error for me was getting [Pester] 5 test results published in an [Azure Pipelines] run.
 
-Assuming you have your tests located in a `CI` folder, the script to invoke the tests should look like this:
+Assuming you have your tests located in a `tests` folder, the pipeline definition needed to run the tests and publish the results is below.
 
-```powershell
-# /ci/RunTests.ps1
-Import-Module Pester
-
-Invoke-Pester -CI
-```
-
-Specifying `-CI` will save test results in an xml file (NUnitXML compatible) in the same folder. It will also set the exit code of the process to the number of failed tests, which is problematic as any non-zero exit code will abort the pipeline by default. To ensure our pipeline continues when test fail we set `ignoreLASTEXITCODE` on the [PowerShell task].
-
-> To abort the pipeline in the presence of failed tasks we use the `failTaskOnFailedTests` property of the [Publish Test Results task].
+> I could have used `Invoke-Pester -Path tests`, but I frequently find tests which use relative paths, and so invoking them from the correct folder is easier.
 
 ```yaml
 # /pipelines/azure-pipelines.yml
@@ -31,7 +22,10 @@ steps:
   - task: PowerShell@2
     displayName: "Run Pester tests"
     inputs:
-      filePath: "./ci/RunTests.ps1"
+      targetType: "inline"
+      script: |
+        Set-Location ./tests
+        Invoke-Pester -CI
       ignoreLASTEXITCODE: true
 
   - task: PublishTestResults@2
@@ -42,7 +36,9 @@ steps:
       testRunTitle: "Validate Task Files"
 ```
 
-In the example code, I'm running the [Test-FolderTask] function of [tSqlScheduler], and as you can see when I break the build on purpose, the tests fail 😊.
+The `-CI` argument to `Invoke-Pester` will save test results in an xml file (NUnitXML compatible) in the same folder. It will also set the exit code of the process to the number of failed tests, which is problematic as any non-zero exit code will abort the pipeline by default. To ensure our pipeline continues when tests fail, we set `ignoreLASTEXITCODE` on the [PowerShell task]. To stop the pipeline in the presence of failed tasks we use the `failTaskOnFailedTests` property of the [Publish Test Results task].
+
+> In the example below, I'm running the [Test-FolderTask] function of [tSqlScheduler], and as you can see when I break the build on purpose, the tests fail 😊.
 
 ![Test Results](./testresults.png)
 
