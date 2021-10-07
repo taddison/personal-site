@@ -27,18 +27,19 @@ Specifying `-CI` will save test results in an xml file (NUnitXML compatible) in 
 pool:
   vmImage: windows-2019
 
-- task: PowerShell@2
-  displayName: 'Run Pester tests'
-  inputs:
-    filePath: './ci/RunTests.ps1'
-    ignoreLASTEXITCODE: true
+steps:
+  - task: PowerShell@2
+    displayName: "Run Pester tests"
+    inputs:
+      filePath: "./ci/RunTests.ps1"
+      ignoreLASTEXITCODE: true
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'NUnit'
-    testResultsFiles: '**/Test-*.xml'
-    failTaskOnFailedTests: true
-    testRunTitle: 'Validate Task Files'
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: "NUnit"
+      testResultsFiles: "**/Test-*.xml"
+      failTaskOnFailedTests: true
+      testRunTitle: "Validate Task Files"
 ```
 
 In the example code, I'm running the [Test-FolderTask] function of [tSqlScheduler], and as you can see when I break the build on purpose, the tests fail 😊.
