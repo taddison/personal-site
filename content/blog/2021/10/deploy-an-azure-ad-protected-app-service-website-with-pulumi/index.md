@@ -7,15 +7,27 @@ tags: [Pulumi, Azure]
 # cSpell:ignore
 ---
 
-This post will walk through how to use [Pulumi] to deploy an [Azure App Service] application secured with [Easy Auth]. Under the default configuration only authenticated users will be able to access the application, without any custom code (easy auth deploys an AuthN/AuthZ middleware in front of your app).
+This post will walk through how to use [Pulumi] to deploy an [Azure App Service] application secured with [Easy Auth]. Under the default configuration only authenticated users will be able to access the application, without any custom code (easy auth places an authentication/authorization middleware in front of your app). If you'd like to jump straight to the code you can see a [full example project on GitHub].
 
 ## SCREENSHOT OF PULUMI OR AZURE OR SOMETHING?
 
 > I'll be using Azure Active Directory in this example, though easy auth also supports Microsoft (personal account), Google, Facebook, Twitter, and OpenID Connect.
 
-I'm assuming you've already completed the [Pulumi Azure quickstart] or similar, and have access to Pulumi/an Azure Subscription/Azure AD.
+I'm assuming you've already completed the [Pulumi Azure pre-requisites] (or similar), and have the appropriate permissions in your tenant and Azure subscription.
 
-## INTRO / BOOTSTRAP
+## Creating the project
+
+Start by creating the application, and adding the additional AzureAD we'll need to create the [Azure AD application registration].
+
+```powershell
+pulumi new azure-csharp `
+  --name easyauth-webapp `
+  --description "azure ad secured app" `
+  --stack dev `
+  --config azure-native:location=eastus
+
+dotnet add package Pulumi.AzureAD
+```
 
 ## CODE TO DEPLOY APP WITH NO SECURITY
 
@@ -35,25 +47,15 @@ I'm assuming you've already completed the [Pulumi Azure quickstart] or similar, 
 [pulumi]: https://www.pulumi.com/
 [azure app service]: https://docs.microsoft.com/en-us/azure/app-service/overview
 [easy auth]: https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization
-[pulumi azure quickstart]: https://www.pulumi.com/docs/get-started/azure/
-
-Example: https://github.com/taddison/pulumi-csharp-azure-examples/tree/main/easyauth-webapp
+[pulumi azure pre-requisites]: https://www.pulumi.com/docs/get-started/azure/begin/
+[full example project on github]: https://github.com/taddison/pulumi-csharp-azure-examples/tree/main/easyauth-webapp
+[azure ad application registration]: https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals
 
 Uses https://www.pulumi.com/docs/reference/pkg/azure-native/web/webappauthsettings/#inputs
 Would like to use https://www.pulumi.com/docs/reference/pkg/azure-native/web/webappauthsettingsv2/#sts=WebAppAuthSettingsV2
 But a bug prevents that https://github.com/pulumi/pulumi-azure-native/issues/773
 
 Uses example code from https://github.com/pulumi/examples/blob/master/azure-cs-functions/FunctionsStack.cs
-
-```shell
-pulumi new azure-csharp
-  --name easyauth-webapp
-  --description "azure ad secured app"
-  --stack dev
-  --config azure-native:location=eastus
-
-dotnet add package Pulumi.AzureAD
-```
 
 ```yaml
 config:
