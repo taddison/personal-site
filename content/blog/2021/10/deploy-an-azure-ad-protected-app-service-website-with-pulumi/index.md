@@ -7,13 +7,24 @@ tags: [Pulumi, Azure]
 # cSpell:ignore
 ---
 
-This post will walk through how to use [Pulumi] to deploy an app service secured with [Easy Auth]. I'll be using Azure Active Directory, though you can use any other easy auth..
+This post will walk through how to use [Pulumi] to deploy an [Azure App Service] application secured with [Easy Auth]. Under the default configuration only authenticated users will be able to access the application, without any custom code (easy auth deploys an AuthN/AuthZ middleware in front of your app).
 
-- Outline target state (links to MSFT docs)
-  - Static web app, hosted in azure app service, secured by Azure AD
-  - Could be any of the built-in providers (see docs)
-  - App Service Authentication and Authorization (aka Easy Auth) -
-  - Run app from ZIP package - https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package
+## SCREENSHOT OF PULUMI OR AZURE OR SOMETHING?
+
+> I'll be using Azure Active Directory in this example, though easy auth also supports Microsoft (personal account), Google, Facebook, Twitter, and OpenID Connect.
+
+I'm assuming you've already completed the [Pulumi Azure quickstart] or similar, and have access to Pulumi/an Azure Subscription/Azure AD.
+
+## INTRO / BOOTSTRAP
+
+## CODE TO DEPLOY APP WITH NO SECURITY
+
+- Run app from ZIP package - https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package
+
+## ADD THE CODE FOR SECURING IT
+
+## GENERAL NOTES AND STUFF
+
 - Screenshot of target state(s)
 - Whole code example (elide utility functions)
 - Explain key bits of the code
@@ -22,7 +33,9 @@ This post will walk through how to use [Pulumi] to deploy an app service secured
   - Explain limitation of webappauthsettings, can't use V2
 
 [pulumi]: https://www.pulumi.com/
+[azure app service]: https://docs.microsoft.com/en-us/azure/app-service/overview
 [easy auth]: https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization
+[pulumi azure quickstart]: https://www.pulumi.com/docs/get-started/azure/
 
 Example: https://github.com/taddison/pulumi-csharp-azure-examples/tree/main/easyauth-webapp
 
