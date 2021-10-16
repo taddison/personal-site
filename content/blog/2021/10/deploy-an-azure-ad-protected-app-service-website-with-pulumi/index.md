@@ -4,12 +4,10 @@ title: Deploy an Azure AD protected App Service Website with Pulumi
 #shareimage: "./shareimage.png"
 tags: [Pulumi, Azure]
 # cSpell:words
-# cSpell:ignore
+# cSpell:ignore eastus easyauth
 ---
 
 This post will walk through how to use [Pulumi] to deploy an [Azure App Service] application secured with [Easy Auth]. Under the default configuration only authenticated users will be able to access the application, without any custom code (easy auth places an authentication/authorization middleware in front of your app). If you'd like to jump straight to the code you can see a [full example project on GitHub].
-
-## SCREENSHOT OF PULUMI OR AZURE OR SOMETHING?
 
 > I'll be using Azure Active Directory in this example, though easy auth also supports Microsoft (personal account), Google, Facebook, Twitter, and OpenID Connect.
 
@@ -28,6 +26,37 @@ pulumi new azure-csharp `
 
 dotnet add package Pulumi.AzureAD
 ```
+
+> Note the example defaults to eastus - you can set this to whatever region you want, I've included it here so the script will complete without any prompts.
+
+We next need to update the contents of the `pulumi.dev.yaml` file to contain a few additional config items, paste the following into the file:
+
+```yaml
+config:
+  azure-native:location: eastus
+  azure-native:subscriptionId: UPDATE_ME
+  azure-native:tenantId: UPDATE_ME
+  easyauth-webapp:tenantId: UPDATE_ME
+  easyauth-webapp:ownerId: UPDATE_ME
+  easyauth-webapp:siteName: UPDATE_ME
+  easyauth-webapp:appRegistrationName: UPDATE_ME
+```
+
+You can set `siteName` and `appRegistrationName` to whatever you want, though for simplicities sake I'd suggest using the same item. As an example I might pick `easy-auth-azure-ad`.
+
+Subscription and Tenant should be set to the appropriate target's for your Azure app service and Azure AD application registration, respectively. I recommend setting the `ownerId` to your user's id, otherwise you may find you don't have the permission to modify or delete the application registration after it has been deployed.
+
+The following commands may be helpful in retrieving these values:
+
+```powershell
+# Get your user's id
+ az ad signed-in-user show --query objectId
+
+# List all subscriptions (and their tenant) that you have access to
+az account list
+```
+
+> Note `tenantId` is set twice as I couldn't figure out how to access the `azure-native:tenantId` via configuration, and it is needed both to set the default tenant for the application registration deployment, and to construct the token issuer URI.
 
 ## CODE TO DEPLOY APP WITH NO SECURITY
 
@@ -57,17 +86,6 @@ But a bug prevents that https://github.com/pulumi/pulumi-azure-native/issues/773
 
 Uses example code from https://github.com/pulumi/examples/blob/master/azure-cs-functions/FunctionsStack.cs
 
-```yaml
-config:
-  azure-native:location: eastus
-  azure-native:subscriptionId: UPDATE_ME
-  azure-native:tenantId: UPDATE_ME
-  easyauth-webapp:tenantId: UPDATE_ME
-  easyauth-webapp:ownerId: UPDATE_ME
-  easyauth-webapp:siteName: UPDATE_ME
-  easyauth-webapp:azureAppRegistrationName: UPDATE_ME
-```
-
 ```csharp
 using System;
 using Pulumi;
@@ -87,7 +105,7 @@ class EasyAuthWebAppStack : Stack
     var tenantId = config.Require("tenantId");
     var ownerId = config.Require("ownerId");
     var siteName = config.Require("siteName");
-    var azureAppRegistrationName = config.Require("azureAppRegistrationName");
+    var appRegistrationName = config.Require("appRegistrationName");
 
     var rg = new ResourceGroup($"RG-{siteName}");
 
@@ -150,7 +168,7 @@ class EasyAuthWebAppStack : Stack
 
     var adApp = new Application("ADAppRegistration", new ApplicationArgs
     {
-      DisplayName = azureAppRegistrationName,
+      DisplayName = appRegistrationName,
       SignInAudience = "AzureADMyOrg",
       Owners = new[] { ownerId },
       Web = new ApplicationWebArgs
