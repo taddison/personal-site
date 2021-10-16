@@ -7,10 +7,12 @@ tags: [Pulumi, Azure]
 # cSpell:ignore
 ---
 
+This post will walk through how to use [Pulumi] to deploy an app service secured with [Easy Auth]. I'll be using Azure Active Directory, though you can use any other easy auth..
+
 - Outline target state (links to MSFT docs)
   - Static web app, hosted in azure app service, secured by Azure AD
   - Could be any of the built-in providers (see docs)
-  - App Service Authentication and Authorization (aka Easy Auth) - https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization
+  - App Service Authentication and Authorization (aka Easy Auth) -
   - Run app from ZIP package - https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package
 - Screenshot of target state(s)
 - Whole code example (elide utility functions)
@@ -19,7 +21,8 @@ tags: [Pulumi, Azure]
   - Azure AD is the new bit
   - Explain limitation of webappauthsettings, can't use V2
 
-https://www.pulumi.com/
+[pulumi]: https://www.pulumi.com/
+[easy auth]: https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization
 
 Example: https://github.com/taddison/pulumi-csharp-azure-examples/tree/main/easyauth-webapp
 
