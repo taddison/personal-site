@@ -60,33 +60,20 @@ az account list
 
 ## CODE TO DEPLOY APP WITH NO SECURITY
 
-- Run app from ZIP package - https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package
+```powershell
+# Example location
+Set-Location C:\temp\easy-auth-post-walkthrough
+code .
+```
 
-## ADD THE CODE FOR SECURING IT
-
-## GENERAL NOTES AND STUFF
-
-- Screenshot of target state(s)
-- Whole code example (elide utility functions)
-- Explain key bits of the code
-  - Web app example already exists in pulumi
-  - Azure AD is the new bit
-  - Explain limitation of webappauthsettings, can't use V2
-
-[pulumi]: https://www.pulumi.com/
-[azure app service]: https://docs.microsoft.com/en-us/azure/app-service/overview
-[easy auth]: https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization
-[pulumi azure pre-requisites]: https://www.pulumi.com/docs/get-started/azure/begin/
-[full example project on github]: https://github.com/taddison/pulumi-csharp-azure-examples/tree/main/easyauth-webapp
-[azure ad application registration]: https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals
-
-Uses https://www.pulumi.com/docs/reference/pkg/azure-native/web/webappauthsettings/#inputs
-Would like to use https://www.pulumi.com/docs/reference/pkg/azure-native/web/webappauthsettingsv2/#sts=WebAppAuthSettingsV2
-But a bug prevents that https://github.com/pulumi/pulumi-azure-native/issues/773
-
-Uses example code from https://github.com/pulumi/examples/blob/master/azure-cs-functions/FunctionsStack.cs
+- Add index.html to a new folder named wwwroot, this is our website
+- Change MyStack code as below
+- This uses a pulumi example, and leverages the run from zip feature https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package - pulumi code https://github.com/pulumi/examples/blob/master/azure-cs-functions/FunctionsStack.cs
+- we can pulumi up now to deploy the site
+- curl the site
 
 ```csharp
+// MyStack.cs
 using System;
 using Pulumi;
 using Pulumi.AzureAD;
@@ -97,9 +84,9 @@ using Pulumi.AzureNative.Storage.Inputs;
 using Pulumi.AzureNative.Web;
 using Pulumi.AzureNative.Web.Inputs;
 
-class EasyAuthWebAppStack : Stack
+class MyStack : Stack
 {
-  public EasyAuthWebAppStack()
+  public MyStack()
   {
     var config = new Pulumi.Config();
     var tenantId = config.Require("tenantId");
@@ -165,44 +152,6 @@ class EasyAuthWebAppStack : Stack
     });
 
     this.Endpoint = app.DefaultHostName;
-
-    var adApp = new Application("ADAppRegistration", new ApplicationArgs
-    {
-      DisplayName = appRegistrationName,
-      SignInAudience = "AzureADMyOrg",
-      Owners = new[] { ownerId },
-      Web = new ApplicationWebArgs
-      {
-        ImplicitGrant = new ApplicationWebImplicitGrantArgs
-        {
-          IdTokenIssuanceEnabled = true
-        },
-        RedirectUris = new System.Collections.Generic.List<string> { $"https://{siteName}.azurewebsites.net/.auth/login/aad/callback" }
-      }
-    }
-    );
-
-    // ClientSecret
-    var applicationPassword = new ApplicationPassword("appPassword", new ApplicationPasswordArgs
-    {
-      ApplicationObjectId = adApp.Id,
-      DisplayName = "Client secret for web app"
-    });
-
-    var allowedAudience = adApp.ApplicationId.Apply(id => $"api://{id}");
-
-    var authSettings = new WebAppAuthSettings("authSettings", new WebAppAuthSettingsArgs
-    {
-      ResourceGroupName = rg.Name,
-      Name = app.Name,
-      Enabled = true,
-      UnauthenticatedClientAction = UnauthenticatedClientAction.RedirectToLoginPage,
-      DefaultProvider = BuiltInAuthenticationProvider.AzureActiveDirectory,
-      ClientId = adApp.ApplicationId,
-      ClientSecret = applicationPassword.Value,
-      Issuer = $"https://sts.windows.net/{tenantId}/v2.0",
-      AllowedAudiences = new[] { allowedAudience },
-    });
   }
 
   // From https://github.com/pulumi/examples/blob/master/azure-cs-functions/FunctionsStack.cs
@@ -235,3 +184,67 @@ class EasyAuthWebAppStack : Stack
   [Output] public Output<string> Endpoint { get; set; }
 }
 ```
+
+## ADD THE CODE FOR SECURING IT
+
+- Now add the below code to the bottom of the constructor
+- Note all the things it does
+- cannot use v2 because bugs
+  Uses https://www.pulumi.com/docs/reference/pkg/azure-native/web/webappauthsettings/#inputs
+  Would like to use https://www.pulumi.com/docs/reference/pkg/azure-native/web/webappauthsettingsv2/#sts=WebAppAuthSettingsV2
+  But a bug prevents that https://github.com/pulumi/pulumi-azure-native/issues/773
+- pulumi up again
+- curl and it won't work - go in browser and logic
+
+```csharp
+// MyStack.cs
+// After this.Endpoint = app.DefaultHostName;
+
+var adApp = new Application("ADAppRegistration", new ApplicationArgs
+{
+  DisplayName = appRegistrationName,
+  SignInAudience = "AzureADMyOrg",
+  Owners = new[] { ownerId },
+  Web = new ApplicationWebArgs
+  {
+    ImplicitGrant = new ApplicationWebImplicitGrantArgs
+    {
+      IdTokenIssuanceEnabled = true
+    },
+    RedirectUris = new System.Collections.Generic.List<string> { $"https://{siteName}.azurewebsites.net/.auth/login/aad/callback" }
+  }
+}
+);
+
+var applicationPassword = new ApplicationPassword("appPassword", new ApplicationPasswordArgs
+{
+  ApplicationObjectId = adApp.Id,
+  DisplayName = "Client secret for web app"
+});
+
+var allowedAudience = adApp.ApplicationId.Apply(id => $"api://{id}");
+
+var authSettings = new WebAppAuthSettings("authSettings", new WebAppAuthSettingsArgs
+{
+  ResourceGroupName = rg.Name,
+  Name = app.Name,
+  Enabled = true,
+  UnauthenticatedClientAction = UnauthenticatedClientAction.RedirectToLoginPage,
+  DefaultProvider = BuiltInAuthenticationProvider.AzureActiveDirectory,
+  ClientId = adApp.ApplicationId,
+  ClientSecret = applicationPassword.Value,
+  Issuer = $"https://sts.windows.net/{tenantId}/v2.0",
+  AllowedAudiences = new[] { allowedAudience },
+});
+```
+
+## GENERAL NOTES AND STUFF
+
+- Maybe graph explorer
+
+[pulumi]: https://www.pulumi.com/
+[azure app service]: https://docs.microsoft.com/en-us/azure/app-service/overview
+[easy auth]: https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization
+[pulumi azure pre-requisites]: https://www.pulumi.com/docs/get-started/azure/begin/
+[full example project on github]: https://github.com/taddison/pulumi-csharp-azure-examples/tree/main/easyauth-webapp
+[azure ad application registration]: https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals
