@@ -1,17 +1,19 @@
 ---
 date: "2021-10-31T00:00:00.0Z"
 title: Deploy an Azure AD protected App Service Website with Pulumi
-#shareimage: "./shareimage.png"
+#shareimage: "./resource-graph.png"
 tags: [Pulumi, Azure]
 # cSpell:words
-# cSpell:ignore eastus easyauth
+# cSpell:ignore eastus easyauth wwwroot storageaccount appserviceplan appservice
 ---
 
 This post will walk through how to use [Pulumi] to deploy an [Azure App Service] application secured with [Easy Auth]. Under the default configuration only authenticated users will be able to access the application, without any custom code (easy auth places an authentication/authorization middleware in front of your app). If you'd like to jump straight to the code you can see a [full example project on GitHub].
 
 > I'll be using Azure Active Directory in this example, though easy auth also supports Microsoft (personal account), Google, Facebook, Twitter, and OpenID Connect.
 
-I'm assuming you've already completed the [Pulumi Azure pre-requisites] (or similar), and have the appropriate permissions in your tenant and Azure subscription.
+I'm assuming you've already completed the [Pulumi Azure pre-requisites] (or similar), and have the appropriate permissions in your tenant and Azure subscription. When we're done we'll have deployed a Pulumi stack with the following resources:
+
+![Pulumi resource graph](./resource-graph.png)
 
 ## Creating the project
 
@@ -58,19 +60,23 @@ az account list
 
 > Note `tenantId` is set twice as I couldn't figure out how to access the `azure-native:tenantId` via configuration, and it is needed both to set the default tenant for the application registration deployment, and to construct the token issuer URI.
 
-## CODE TO DEPLOY APP WITH NO SECURITY
+## Deploy the website (no security)
 
-```powershell
-# Example location
-Set-Location C:\temp\easy-auth-post-walkthrough
-code .
+We'll next create the website we want to deploy. We're going to use the [run from ZIP package] functionality to deploy the contents of the `wwwroot` folder. Create that folder and add some content to the `index.htm` file:
+
+```html
+<!-- wwwroot/index.htm -->
+<html>
+  <head>
+    <title>A very secure app</title>
+  </head>
+  <body>
+    Hello EasyAuth with Pulumi!
+  </body>
+</html>
 ```
 
-- Add index.html to a new folder named wwwroot, this is our website
-- Change MyStack code as below
-- This uses a pulumi example, and leverages the run from zip feature https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package - pulumi code https://github.com/pulumi/examples/blob/master/azure-cs-functions/FunctionsStack.cs
-- we can pulumi up now to deploy the site
-- curl the site
+Now we can deploy this file to Azure with Pulumi. Modify the `MyStack.cs` file to contain the below code, which has been adapted from the [Pulumi Function Stack example]:
 
 ```csharp
 // MyStack.cs
@@ -185,16 +191,23 @@ class MyStack : Stack
 }
 ```
 
-## ADD THE CODE FOR SECURING IT
+We can now deploy the site and verify it has worked as intended:
 
-- Now add the below code to the bottom of the constructor
-- Note all the things it does
-- cannot use v2 because bugs
-  Uses https://www.pulumi.com/docs/reference/pkg/azure-native/web/webappauthsettings/#inputs
-  Would like to use https://www.pulumi.com/docs/reference/pkg/azure-native/web/webappauthsettingsv2/#sts=WebAppAuthSettingsV2
-  But a bug prevents that https://github.com/pulumi/pulumi-azure-native/issues/773
-- pulumi up again
-- curl and it won't work - go in browser and logic
+```powershell
+pulumi up --stack dev
+
+curl (pulumi stack --stack dev output Endpoint)
+```
+
+![HTML output from curl](./curl-output.png)
+
+## Securing the site
+
+To configure Easy Auth we first create an Azure AD application registration. In this example I'm specifying `AzureADMyOrg` which restricts access to the tenant the application registration is deployed in. I'm also adding a `RedirectUri` that points at the Easy Auth middleware of the site. A password is also needed as a client secret (the web application is the client in this case).
+
+Once the application registration is created we can add [WebAppAuthSettings] to our site. The example specifies no anonymous access (using `RedirectToLoginPage`), and connects the site to the application registration using the `ClientId` and `ClientSecret` (password).
+
+To add this paste the below code just after the `this.Endpoint...` code in `MyStack.cs`:
 
 ```csharp
 // MyStack.cs
@@ -238,9 +251,41 @@ var authSettings = new WebAppAuthSettings("authSettings", new WebAppAuthSettings
 });
 ```
 
-## GENERAL NOTES AND STUFF
+We can now update the site, and if we try to access the endpoint we'll notice it is no longer available over http. From the command line we can't get much further than this, but in a browser we'll get redirect to complete the login flow and access the site.
 
-- Maybe graph explorer
+```powershell
+pulumi up --stack dev
+
+# Redirect to HTTPS
+curl (pulumi stack --stack dev output Endpoint)
+
+# Access denied
+curl "https://$(pulumi stack --stack dev output Endpoint)"
+```
+
+![Access denied](./access-denied.png)
+
+## Cleaning up
+
+You can remove all the resources with the following command:
+
+```powershell
+pulumi destroy --stack dev
+```
+
+And then remove the stack from the Pulumi console with:
+
+```powershell
+pulumi stack rm dev
+```
+
+## Notes
+
+This example is using [WebAppAuthSettings] rather than [WebAppAuthSettingsV2] due to [a known bug] that prevents it from working. Once this bug is fixed I recommend updating to v2, as the classic experience is due to be deprecated from the Azure portal.
+
+While building and debugging this I found the [Microsoft Graph Explorer] to be helpful. I managed to waste a good half hour until I realized the important distinction between the application registration's `object id`, and the application registration's `application id`. Both were needed in this example!
+
+Finally, an observation that it's fairly common to have the permission to create application registrations, but if you fail to specify yourself as an owner you won't be able to edit/delete it. If you're not developing in a test tenant you might need to speak to IT/Security to clean up some failed attempts (speaking from experience...).
 
 [pulumi]: https://www.pulumi.com/
 [azure app service]: https://docs.microsoft.com/en-us/azure/app-service/overview
@@ -248,3 +293,9 @@ var authSettings = new WebAppAuthSettings("authSettings", new WebAppAuthSettings
 [pulumi azure pre-requisites]: https://www.pulumi.com/docs/get-started/azure/begin/
 [full example project on github]: https://github.com/taddison/pulumi-csharp-azure-examples/tree/main/easyauth-webapp
 [azure ad application registration]: https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals
+[run from zip package]: https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package
+[pulumi function stack example]: https://github.com/pulumi/examples/blob/master/azure-cs-functions/FunctionsStack.cs
+[webappauthsettings]: https://www.pulumi.com/docs/reference/pkg/azure-native/web/webappauthsettings/
+[webappauthsettingsv2]: https://www.pulumi.com/docs/reference/pkg/azure-native/web/webappauthsettingsv2/
+[a known bug]: https://github.com/pulumi/pulumi-azure-native/issues/773
+[microsoft graph explorer]: https://developer.microsoft.com/en-us/graph/graph-explorer
