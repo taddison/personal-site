@@ -17,7 +17,7 @@ I'm assuming you've already completed the [Pulumi Azure pre-requisites] (or simi
 
 ## Creating the project
 
-Start by creating the application, and adding the additional AzureAD we'll need to create the [Azure AD application registration].
+Start by creating the application, and adding the AzureAD package we'll need to create the [Azure AD application registration].
 
 ```powershell
 pulumi new azure-csharp `
@@ -31,7 +31,7 @@ dotnet add package Pulumi.AzureAD
 
 > Note the example defaults to eastus - you can set this to whatever region you want, I've included it here so the script will complete without any prompts.
 
-We next need to update the contents of the `pulumi.dev.yaml` file to contain a few additional config items, paste the following into the file:
+We next need to update the contents of the `pulumi.dev.yaml` file to contain a few additional config items. Paste the following into the file:
 
 ```yaml
 config:
@@ -44,15 +44,15 @@ config:
   easyauth-webapp:appRegistrationName: UPDATE_ME
 ```
 
-You can set `siteName` and `appRegistrationName` to whatever you want, though for simplicities sake I'd suggest using the same item. As an example I might pick `easy-auth-azure-ad`.
+You can set `siteName` and `appRegistrationName` to whatever you want, though for simplicity's sake I'd suggest using the same item. As an example I might pick `easy-auth-azure-ad`.
 
-Subscription and Tenant should be set to the appropriate target's for your Azure app service and Azure AD application registration, respectively. I recommend setting the `ownerId` to your user's id, otherwise you may find you don't have the permission to modify or delete the application registration after it has been deployed.
+The `subscriptionId` and `tenantId` should be set to the appropriate target's for your Azure app service and Azure AD application registration, respectively. I recommend setting the `ownerId` to your user's id, otherwise you may find you don't have the permission to modify or delete the application registration after it has been deployed.
 
-The following commands may be helpful in retrieving these values:
+The following commands may be helpful in retrieving these values (requires the [Azure CLI]):
 
 ```powershell
 # Get your user's id
- az ad signed-in-user show --query objectId
+az ad signed-in-user show --query objectId
 
 # List all subscriptions (and their tenant) that you have access to
 az account list
@@ -293,6 +293,7 @@ Finally, an observation that it's fairly common to have the permission to create
 [pulumi azure pre-requisites]: https://www.pulumi.com/docs/get-started/azure/begin/
 [full example project on github]: https://github.com/taddison/pulumi-csharp-azure-examples/tree/main/easyauth-webapp
 [azure ad application registration]: https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals
+[azure cli]: https://docs.microsoft.com/en-us/cli/azure/
 [run from zip package]: https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package
 [pulumi function stack example]: https://github.com/pulumi/examples/blob/master/azure-cs-functions/FunctionsStack.cs
 [webappauthsettings]: https://www.pulumi.com/docs/reference/pkg/azure-native/web/webappauthsettings/
