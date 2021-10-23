@@ -1,7 +1,7 @@
 ---
 date: "2021-10-23T00:00:00.0Z"
 title: Deploy an Azure AD protected App Service Website with Pulumi
-#shareimage: "./resource-graph.png"
+shareimage: "./resource-graph.png"
 tags: [Pulumi, Azure]
 # cSpell:words
 # cSpell:ignore eastus easyauth wwwroot storageaccount appserviceplan appservice
