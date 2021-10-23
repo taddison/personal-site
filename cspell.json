@@ -62,6 +62,7 @@
         "proc",
         "procs",
         "pscustomobject",
+        "Pulumi",
         "pushdown",
         "Quadractic",
         "queryable",
