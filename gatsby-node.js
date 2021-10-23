@@ -1,7 +1,7 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const BundleAnalyzerPlugin = require(`webpack-bundle-analyzer`)
-  .BundleAnalyzerPlugin
+const BundleAnalyzerPlugin =
+  require(`webpack-bundle-analyzer`).BundleAnalyzerPlugin
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
