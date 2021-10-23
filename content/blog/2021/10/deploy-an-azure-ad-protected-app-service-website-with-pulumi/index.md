@@ -1,5 +1,5 @@
 ---
-date: "2021-10-31T00:00:00.0Z"
+date: "2021-10-23T00:00:00.0Z"
 title: Deploy an Azure AD protected App Service Website with Pulumi
 #shareimage: "./resource-graph.png"
 tags: [Pulumi, Azure]
@@ -203,11 +203,11 @@ curl (pulumi stack --stack dev output Endpoint)
 
 ## Securing the site
 
-To configure Easy Auth we first create an Azure AD application registration. In this example I'm specifying `AzureADMyOrg` which restricts access to the tenant the application registration is deployed in. I'm also adding a `RedirectUri` that points at the Easy Auth middleware of the site. A password is also needed as a client secret (the web application is the client in this case).
+To configure Easy Auth we first create an Azure AD application registration. In this example I'm specifying `AzureADMyOrg` which restricts access to the tenant the application registration is deployed in. I'm also adding a `RedirectUri` that points at the Easy Auth middleware of the deployed site. A password is needed to use as a client secret (the web application being the client in this case).
 
 Once the application registration is created we can add [WebAppAuthSettings] to our site. The example specifies no anonymous access (using `RedirectToLoginPage`), and connects the site to the application registration using the `ClientId` and `ClientSecret` (password).
 
-To add this paste the below code just after the `this.Endpoint...` code in `MyStack.cs`:
+Paste the below code just after the `this.Endpoint...` code in `MyStack.cs`:
 
 ```csharp
 // MyStack.cs
@@ -251,7 +251,7 @@ var authSettings = new WebAppAuthSettings("authSettings", new WebAppAuthSettings
 });
 ```
 
-We can now update the site, and if we try to access the endpoint we'll notice it is no longer available over http. From the command line we can't get much further than this, but in a browser we'll get redirect to complete the login flow and access the site.
+We can now update the site, and if we try to access the endpoint we'll notice it is no longer available over http. From the command line we can't get much further than this, but in a browser we'll get redirected to complete the login flow and access the site.
 
 ```powershell
 pulumi up --stack dev
