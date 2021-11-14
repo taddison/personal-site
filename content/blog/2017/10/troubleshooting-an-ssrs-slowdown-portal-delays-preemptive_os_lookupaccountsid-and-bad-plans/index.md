@@ -127,7 +127,7 @@ What caused the plan to tip in the first place and when I don't know, as our Rep
 
 One additional issue we were facing is what happens when a Sid mapping isn't found. Rather than cache the fact there is no account returned for a given sid, nothing is cached and each request goes back to the DC. Some of our reports have been around for a long time and their their Sids are no longer in the directory - but SSRS still faithfully attempts to resolve the username of the report creator, sends the request on to the remote DC, and gets nothing back (the suser_sname function returns null).
 
-This is easy to test - assume you've got two users (Tim and Tom). Tim still exists, but Tom doesn't. We're querying a remote DC for these users. To test yourself you'll need to get the Sid of an deleted user account - querying the Users table on an old ReportServer database might be the easiest way (the table also stores the account name, which is how SSRS is able to display information even if the Sid lookup returns null).
+This is easy to test - assume you've got two users (Tim and Tom). Tim still exists, but Tom doesn't. We're querying a remote DC for these users. To test yourself you'll need to get the Sid of a deleted user account - querying the Users table on an old ReportServer database might be the easiest way (the table also stores the account name, which is how SSRS is able to display information even if the Sid lookup returns null).
 
 ```sql
 declare @timSid varbinary=0x00…
