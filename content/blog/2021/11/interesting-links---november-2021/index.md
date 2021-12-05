@@ -23,7 +23,7 @@ Finally, if you find yourself wanting a reminder of what the relentless pursuit 
 
 Scaling security across an organization is _hard_ - Clint Gibler's presentation [How to 10X your security](https://docs.google.com/presentation/d/1lfEvXtw5RTj3JmXwSQDXy8or87_BHrFbo1ZtQQlHbq0/view#slide=id.g6555b225cd_0_1069) is an excellent starting point (and probably covers stuff that most orgs won't even get to in their end-state). Clint also maintains the excellent infosec newsletter [tldrsec.com](https://tldrsec.com/), which reduces the firehose of infosec news to a ...slightly smaller firehose?
 
-A common criticism of most business books I read is _'that could have been a long-form article'_. Imagine my delight when I discovered [The Kool Aid Factory](https://koolaidfactory.com/), a site full of zines (in this instance: long-form articles) that cover various aspects of organizational design. In addition to having a tonne of thought provoking content, the site's filters allow you to focus on what matters to you (though I ended up devouring everything - no filters for me).
+A common criticism of most business books I read is _'that could have been a long-form article'_. Imagine my delight when I discovered [The Kool Aid Factory](https://koolaidfactory.com/), a site full of zines (in this instance: long-form articles) that cover various aspects of organizational design. In addition to having a tonne of content that will get you thinking, the site's filters allow you to focus on what matters to you (though I ended up devouring everything - no filters for me).
 
 From articles that resisted becoming books, to a presentation that resisted becoming a book - [Coordination Headwind - How organizations are like slime molds](https://komoroske.com/slime-mold/) covers the challenge of keeping an organization nimble as it grows.
 
@@ -39,15 +39,15 @@ I've also ordered the book [Become an effective software engineering manager](ht
 
 ### People
 
-> In addition to recently following the below, I also enjoyed recommend their archives.
+> In addition to recently following the below, I also highly recommend their archives.
 
-I first encountered [Derek Sivers](https://sive.rs) thanks to his [Now page](https://sive.rs/now) (which I still don't have), but I stuck around for the thoughtful and clear writing on a huge range of topics.
+I first encountered [Derek Sivers](https://sive.rs) thanks to his [Now page](https://sive.rs/now) (mine is still a TODO), but I stuck around for the thoughtful and clear writing on a wide range of topics.
 
 I can't remember where I first encountered [Rachel's writing](https://rachelbythebay.com/w/), but I suspect it was a link to one of the (many, excellent) war stories she has shared. I found myself nodding along an awful lot, and appreciate someone sharing the unvarnished truth on how dysfunctional work can be.
 
-For longer, thought-provoking reads on a wide range of topics, the [writing of Scott Alexander](https://astralcodexten.substack.com/) never disappoints. Seeing Scott highlight and respond to some of the better comments in follow-up posts is something I really enjoy, and it helps to get a second run at some of the material.
+For longer, thought-provoking reads (also on a wide range of topics), the [writing of Scott Alexander](https://astralcodexten.substack.com/) never disappoints. Seeing Scott highlight and respond to some of the better comments in follow-up posts is a unique touch, and it helps to see the material discussed from different viewpoints.
 
-Finally, something that has so far defied my attempts to track via Feedly - [Gwern Branwen's website](https://www.gwern.net). I'm not sure what to call it - digital garden, long content, evergreen blogs - but the thought behind the site really resonated with me. In addition to compelling content, the UX of the site is really excellent and unique (and quite necessary given all the fascinating links and references).
+Finally, something that has so far defied my attempts to track via Feedly - [Gwern Branwen's website](https://www.gwern.net). I'm not sure what to call it - digital garden, long content, evergreen blog - whatever it is, the thought process behind the site really resonated with me. In addition to deep and engaging material, the UX of the site is truly excellent (and quite necessary given all the fascinating links and references).
 
 ### Tools
 
