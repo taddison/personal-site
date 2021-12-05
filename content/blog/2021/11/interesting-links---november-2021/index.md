@@ -53,18 +53,18 @@ Finally, something that has so far defied my attempts to track via Feedly - [Gwe
 
 For editing tables in markdown (or CSV for that matter), the [grid table editor](https://eviltester.github.io/grid-table-editor/) supports operations like adding/removing/moving columns, which is not much fun to do manually.
 
-Another great tool to enhance a text (e.g. markdown) documentation is [monodraw](https://monodraw.helftone.com/).
+Another great tool I've started using recently to enhance a text (e.g. markdown) documentation is [monodraw](https://monodraw.helftone.com/).
 
-Only after hacking together a [script](https://github.com/taddison/personal-site/blob/main/scripts/newpost.mjs) to scaffold new blog posts did I discover [plop](https://plopjs.com/), an incredibly versatile 'micro-generator framework' for node - the combination of inquirer and handlebars seems pretty versatile.
+Only after hacking together a [script](https://github.com/taddison/personal-site/blob/main/scripts/newpost.mjs) to scaffold new blog posts I discovered [plop](https://plopjs.com/), an incredibly versatile 'micro-generator framework' for node - the combination of inquirer and handlebars is pretty versatile.
 
-I've recently started using a Mac in addition to my Windows PC, and one of the first things I installed was PowerShell core. While refreshing my shell experience (starting with [Oh My Posh](https://www.ohmyposh.dev/docs/)) I gave the [z PowerShell command](https://github.com/badmotorfinger/z) a try, and I can't believe I didn't try it sooner, the amount of time I spend navigating directories has dropped dramatically.
+I've recently started using a Mac in addition to my Windows machine, and one of the first things I installed was PowerShell core. While tweaking my shell (starting with [Oh My Posh](https://www.ohmyposh.dev/docs/)) I gave the [z PowerShell command](https://github.com/badmotorfinger/z) a try, and I can't believe I didn't try it sooner, the amount of time I spend navigating directories has dropped dramatically.
 
 ### Well-being
 
-A notable gap in the data I collect (quantified self) is mental health - will I remain 'young minded' as I age, and will I be free from any mental illness? For the former question I've looked at [Ryff Scales](https://centerofinquiry.org/wp-content/uploads/2018/04/Ryff_Scales.pdf) and some tests on [Your Morals](https://yourmorals.org/). Positive mental health does correlate with a decline in the incidence of mental illnesses ([Change in Level of Positive Mental Health as a Predictor of Future Risk of Mental Illness](https://ajph.aphapublications.org/doi/full/10.2105/AJPH.2010.192245)). An open question I have is what can be done to improve these, and how reliable are self-evaluations.
+A notable gap in the data I collect (see [quantified self](https://quantifiedself.com/)) is mental health - will I remain 'young minded' as I age, and will I be free from any mental illness? For the former question I've looked at [Ryff Scales](https://centerofinquiry.org/wp-content/uploads/2018/04/Ryff_Scales.pdf) and some tests on [Your Morals](https://yourmorals.org/), and for the latter it seems positive mental health correlates with a decline in the incidence of mental illnesses (see the paper [Change in Level of Positive Mental Health as a Predictor of Future Risk of Mental Illness](https://ajph.aphapublications.org/doi/full/10.2105/AJPH.2010.192245)). A few open questions I have are what can be done to improve mental health, and how reliable is self-evaluations.
 
 ### Typing
 
 Right now I'm only considering it, but moving to a [split keyboard](https://jhelvy.shinyapps.io/splitkbcompare/) and learning a [new keyboard layout](https://dreymar.colemak.org/) might help maximise my ability to type effectively over time (and maybe boost my [keys left](https://www.keysleft.com/)). In anticipation of switching, I've started to capture some basic [typing speed results](https://flatgithub.com/taddison/my-data?filename=typing%2Fresults.csv) with [monkeytype](https://monkeytype.com/).
 
-I'd like to consume more research on the topic, so far the only paper I've completed was to confirm something I was already fairly confident with - tactile feedback matters for typing speed and accuracy ([A Study of Touch Typing Performance with Keyclick Feedback](https://engineering.purdue.edu/~hongtan/pubs/PDFfiles/C63_JRKimTan_HS2014.pdf)).
+I'd like to consume more research on the topic, so far the only paper I've completed was to confirm something I was already fairly certain of - tactile feedback matters for typing speed and accuracy ([A Study of Touch Typing Performance with Keyclick Feedback](https://engineering.purdue.edu/~hongtan/pubs/PDFfiles/C63_JRKimTan_HS2014.pdf)).
