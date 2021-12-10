@@ -11,7 +11,7 @@ Links are broadly categorised into [Development](#development), [Management and 
 
 ## Development
 
-Capturing my frustrations on what an `npm-outdated` looks like for my Gatsby-powered blog, Ru Singh's [waving goodbye to static websites and more](https://rusingh.com/waving-thankful-goodbye-to-static-websites-and-more/) does make the 'DIY' option look like a poor choice. Every time I think about switching to Wordpress (or something else) I run through the framework I used last time I switched by blog ([back in 2019](https://tjaddison.com/blog/2019/09/migrating-from-jekyll-to-gatsby/)) and always land on static sites. For now.
+Capturing my frustrations on what an `npm-outdated` looks like for my Gatsby-powered blog, Ru Singh's [waving goodbye to static websites and more](https://rusingh.com/waving-thankful-goodbye-to-static-websites-and-more/) does make the 'DIY' option look like a poor choice. Every time I think about switching to Wordpress (or something else) I run through the framework I used last time I switched my blog ([back in 2019](https://tjaddison.com/blog/2019/09/migrating-from-jekyll-to-gatsby/)) and always land on static sites. For now.
 
 One important feature for me is cost - ideally free, and [stack on a budget](https://github.com/255kb/stack-on-a-budget) is a good place to look for inspiration. Another feature is performance, and [Speedlify](https://www.zachleat.com/web/speedlify/) can let you track performance over time (though Lighthouse scores are not [without their challenges](https://www.zachleat.com/web/lighthouse-deception/)).
 
@@ -33,7 +33,7 @@ I don't think the dust has settled on the future of work (at least I _hope_ it h
 
 Regardless of remote or in-person, articles on [how to have an honest one on one](https://knowyourteam.com/blog/2017/12/01/how-to-have-an-honest-one-on-one-meeting-with-an-employee/), fantastic [threads on soliciting feedback as a manager](https://twitter.com/kaydacode/status/1458084282530992140) or the kitchen-sink of resources ([How to Lead People and Be a Manager](https://docs.google.com/document/d/1R1O0OEsQpZcBcLheRlomDrmR2tyEpdRNFnjbLALmbH4/view)) are well worth revisiting in what is turning out to be a very challenging few months/years/new normal.
 
-I've also ordered the book [Become an effective software engineering manager](https://pragprog.com/titles/jsengman/become-an-effective-software-engineering-manager/), though I do wonder when I'll get round to reading it. Meanwhile, James has released a new book on effective remote work, and I've still not finished going through his back-catalogue of his [excellent posts on engineering management](https://www.theengineeringmanager.com/)). An ever-expanding [anti library](https://fs.blog/the-antilibrary/) is a great problem to have.
+I've also ordered the book [Become an effective software engineering manager](https://pragprog.com/titles/jsengman/become-an-effective-software-engineering-manager/), though I do wonder when I'll get round to reading it. Meanwhile, James has released a new book on effective remote work, and I've still not finished going through his back-catalogue of his [excellent posts on engineering management](https://www.theengineeringmanager.com/). An ever-expanding [anti library](https://fs.blog/the-antilibrary/) is a great problem to have.
 
 ## Miscellaneous
 
