@@ -9,7 +9,7 @@ tags: [Management]
 
 When considering someone for a management role I've seen people mistake kindness for empathy. Having a kind manager is definitely better than having an unkind manager, but to effectively manage people you should be looking for an empathetic manager.
 
-> I've seen this happen on multiple occasions - in some cases an individual confuses their own kind behaviour for empathy! The rather low baseline for engineering managers probably plays a part here, where a table-stakes trait like kindness sets you apart as a potential manager. In addition to that, we continue to put people into management positions who are incapable and/or unqualified for the role because we have [no idea what to look for](**WILL LARSON GETTING TO YES LINK**).
+> I've seen this happen on multiple occasions - in some cases an individual confuses their own kind behaviour for empathy! The rather low baseline for engineering managers probably plays a part here, where a table-stakes trait like kindness sets you apart as a potential manager. In addition to that, we continue to put people into management positions who are incapable and/or unqualified for the role because we have [no idea what to look for](https://lethain.com/getting-to-yes/).
 
 This doesn't mean that kindness isn't something I look for - it's actually one of the first things I want to see When evaluating people management capabilities:
 
@@ -21,7 +21,7 @@ But before we get too far, we need to look a little closer at that 'kind' word.
 
 ## You can't always be kind
 
-Although advice like 'be unfailingly kind' and 'keep your feedback actionable, specific, and kind' sounds great, [Chelsea Troy](**CHELSEA TROY BLOG**) points out the problem with that statement, namely:
+Although advice like 'be unfailingly kind' and 'keep your feedback actionable, specific, and kind' sounds great, [Chelsea Troy](https://chelseatroy.com/) points out the problem with that statement, namely:
 
 > ...it assumes that the feedback giver has control over whether their feedback is perceived as kind. And they don’t.
 > _from [Transcript from lecture: Giving and receiving feedback](https://chelseatroy.com/2019/05/15/giving-and-receiving-feedback/)_
@@ -74,12 +74,10 @@ If you'd like to read more on bias I'd strongly encourage you to work through al
 
 ## In summary
 
-It's good to be kind, but that's just the start. To be a great people manager (or to look for if filling a people manager role) is people who:
+To be a great people manager you want to look for someone who:
 
-1. Act with kind intent
-1. Are empathetic
-1. Are curious about their team
+1. Acts with kind intent
+1. Is empathetic
+1. Is curious about their team/colleagues
 
-I'm not convinced that any of these are areas that cannot be improved consciously, and so when evaluating people consider how receptive they are to getting better, in addition to where they are today.
-
-And don't make the mistake of assuming because someone is kind that they'll be empathetic.
+More generally, these are useful skills to work on in whatever role you have, irrespective of whether you are or ever want to be a manager. They're also skills that can be improved with practice - so even if you don't consider yourself empathetic, try asking yourself 'what were they thinking' after the next interesting interaction you have.
