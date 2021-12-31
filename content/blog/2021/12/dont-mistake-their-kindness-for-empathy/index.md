@@ -62,13 +62,15 @@ I've found this is best evaluated alongside empathy with the follow-up question 
 
 Interestingly, I've seen a mix of both talent and skill at work here. Some people are more naturally talented (curious) and will always look to learn more. Other people aren't, but are able to make up for that deficit with a system/approach they apply. In either case, one common factor is consistency. If you don't show up and spend time with your team every week, it doesn't matter how good your system is/how talented you are - you'll never learn anything.
 
-### An aside on bias
+### Projection and Bias
 
-One thing that can sometimes crop up here is bias, which can be a tricky conversation to navigate if the candidate isn't aware of their own biases.
+Be prepared for this to be the first time someone has really introspected about why they thought something, as I'd consider this a fairly advanced skill/habit. One consequence is you may end up in a coaching session on projection and/or bias.
 
-Imagine we're discussing a heated debate on some technical decision, and one engineer starts to raise their voice. The candidate suggests the female engineer is probably upset, because they are shouting. And when you ask why, maybe prompting if they'd have said their male colleague was passionate because they were shouting, you've got a coaching opportunity.
+As everyone is unique we're bound to attempt to pattern match behaviours - and the set of behaviours we're most familiar with is our own. When you ask someone why an engineer really wanted to learn a new technology, a common answer (when you really dig) is 'because that's what I was interested in doing at that stage in my career'. Projecting your own motivations onto someone else isn't necessarily wrong (and with experience you gain a larger catalogue of patterns to match against), but awareness you're doing this is important.
 
-This is far more common in 1:1s with team members than it is in interviews, but it has happened and if you are going to pursue lines of questions about 'what were they thinking & why' I'd encourage you to be ready to have the follow-up.
+Projection is less likely when you're dealing with someone who isn't like you, and so here is where you need to watch out for bias. As an example, consider a discussion on an engineer who always volunteers to take minutes, and when you ask 'why do you think she does that' the candidate replies 'because she is naturally talented at organizing things'. Would your answer have changed if the engineer was male? Did you ever probe to validate your assumption here? Could this have been a case of [glue work](https://noidea.dog/glue) automatically getting assigned to the only female engineer on the team?
+
+These kind of conversations (which are really great coaching opportunities) happen more often in 1:1s, but I have ended up here in a few interviews. The first interview where the conversation turned into a discussion on unconscious bias I wasn't particularly ready for (and neither me or the candidate enjoyed that segment). If you're going to pursue this line of questioning, be ready to have the full conversation.
 
 If you'd like to read more on bias I'd strongly encourage you to work through all the links at the start of [Why your efforts to make your company inclusive aren't working](https://chelseatroy.com/2018/05/24/why-your-efforts-to-make-your-company-inclusive-arent-working/).
 
