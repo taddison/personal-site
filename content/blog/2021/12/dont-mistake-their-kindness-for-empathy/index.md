@@ -21,7 +21,7 @@ But before we get too far, we need to look a little closer at that 'kind' word.
 
 ## You can't always be kind
 
-Although advice like _'be unfailingly kind'_ and _'keep your feedback actionable, specific, and kind'_ sounds great, [Chelsea Troy](https://chelseatroy.com/) points out the problem with that statement, namely:
+Although advice like _"be unfailingly kind"_ and _"keep your feedback actionable, specific, and kind"_ sounds great, [Chelsea Troy](https://chelseatroy.com/) points out the problem with that statement, namely:
 
 > ...it assumes that the feedback giver has control over whether their feedback is perceived as kind. And they don’t.
 > _from [Transcript from lecture: Giving and receiving feedback](https://chelseatroy.com/2019/05/15/giving-and-receiving-feedback/)_
@@ -44,7 +44,7 @@ Empathy is often presented alongside sympathy and compassion:
 
 This framing sticks with people, such that being empathetic benefits from the positive associations of sympathy and compassion, despite empathy being somewhat orthogonal to those traits.
 
-Assuming you've verified kind intent, checking for empathy typically starts with the question _'what were they thinking?'_. This can either be used in made-up scenarios (you request a meeting to discuss progress on a project which isn't going well), but are best when you're discussing real scenarios (delivering a performance review, promotion, termination, mediating a heated debate).
+Assuming you've verified kind intent, checking for empathy typically starts with the question _"what were they thinking?"_. This can either be used in made-up scenarios (you request a meeting to discuss progress on a project which isn't going well), but are best when you're discussing real scenarios (delivering a performance review, promotion, termination, mediating a heated debate).
 
 The best candidates will be able to answer a wide variety of follow ups:
 
@@ -58,7 +58,7 @@ But empathy alone isn't why they'll excel here, because empathy works best when 
 
 Every new manager starts out with almost zero knowledge of their new team. No amount of empathy or kind intent can make up for this, and so curiosity and a commitment to learn more about their team is crucial.
 
-I've found this is best evaluated alongside empathy with the follow-up question _'and why did you think that?'_. I'm not sure if there is a clear distinction on good vs. great as having _any_ answer is a good sign (most candidates stumble at empathy).
+I've found this is best evaluated alongside empathy with the follow-up question _"and why did you think that?"_. I'm not sure if there is a clear distinction on good vs. great as having _any_ answer is a good sign (most candidates stumble at empathy).
 
 Interestingly, I've seen a mix of both talent and skill at work here. Some people are more naturally talented (curious) and will always look to learn more. Other people aren't, but are able to make up for that deficit with a system/approach they apply. In either case, one common factor is consistency. If you don't show up and spend time with your team every week, it doesn't matter how good your system is/how talented you are - you'll never learn anything.
 
@@ -66,9 +66,9 @@ Interestingly, I've seen a mix of both talent and skill at work here. Some peopl
 
 Be prepared for this line of questioning to be the first time someone has really introspected about why they thought something - I'd consider this a fairly advanced skill. As a consequence, you may end up in a coaching session on projection and/or bias.
 
-As everyone is unique we're bound to attempt to pattern match behaviours - and the set of behaviours we're most familiar with is our own. When you ask someone why an engineer really wanted to learn a new technology, a common answer (when you really dig) is _'because that's what I was interested in doing at that stage in my career'_. Projecting your own motivations onto someone else isn't necessarily wrong (and with experience you gain a larger catalogue of patterns to match against), but awareness you're doing it is important.
+As everyone is unique we're bound to attempt to pattern match behaviours - and the set of behaviours we're most familiar with is our own. When you ask someone why an engineer really wanted to learn a new technology, a common answer (when you really dig) is _"because that's what I was interested in doing at that stage in my career"_. Projecting your own motivations onto someone else isn't necessarily wrong (and with experience you gain a larger catalogue of patterns to match against), but awareness you're doing it is important.
 
-Projection is less likely when you're dealing with someone who is different, and so here is where you need to watch out for bias. As an example, consider a discussion about an engineer who always volunteers to take minutes, and when you ask _'why do you think she does that?'_ the candidate replies _'because she is naturally talented at organizing things'_. Would your answer have changed if the engineer was male? Did you ever probe to validate your assumption? Could this have been a case of [glue work](https://noidea.dog/glue) automatically getting assigned to the only female engineer on the team?
+Projection is less likely when you're dealing with someone who is different, and so here is where you need to watch out for bias. As an example, consider a discussion about an engineer who always volunteers to take minutes, and when you ask _"why do you think she does that?"_ the candidate replies _"because she is naturally talented at organizing things"_. Would your answer have changed if the engineer was male? Did you ever probe to validate your assumption? Could this have been a case of [glue work](https://noidea.dog/glue) automatically getting assigned to the only female engineer on the team?
 
 These kind of conversations (which are really great coaching opportunities) happen more often in regular 1:1s, but I have ended up here in a few interviews. The first interview where the conversation turned into a discussion on unconscious bias I wasn't particularly ready for (and neither me or the candidate enjoyed that segment). If you're going to pursue this line of questioning, be ready to have the full conversation.
 
@@ -82,4 +82,4 @@ To be a great people manager you want to look for someone who:
 1. Is empathetic
 1. Is curious about their team/colleagues
 
-More generally, these are useful skills to work on in whatever role you have, irrespective of whether you are or ever want to be a manager. They're also skills that can be improved with practice - so even if you don't consider yourself empathetic, try asking yourself _'what were they thinking'_ after the next interesting interaction you have.
+More generally, these are useful skills to work on in whatever role you have, irrespective of whether you are or ever want to be a manager. They're also skills that can be improved with practice - so even if you don't consider yourself empathetic, try asking yourself _"what were they thinking"_ after the next interesting interaction you have.
