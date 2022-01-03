@@ -11,7 +11,7 @@ When considering someone for a management role I've seen people mistake kindness
 
 > I've seen this happen on multiple occasions - in some cases an individual confuses their own kind behaviour for empathy! The rather low baseline for engineering managers probably plays a part here, where a table-stakes trait like kindness sets you apart as a potential manager. In addition to that, we continue to put people into management positions who are incapable and/or unqualified for the role because we have [no idea what to look for](https://lethain.com/getting-to-yes/).
 
-This doesn't mean that kindness isn't something I look for - it's actually one of the first things I want to see When evaluating people management capabilities:
+This doesn't mean that kindness isn't something I look for - it's actually one of the first things I want to see when evaluating people management capabilities:
 
 1. Are they kind?
 1. Are they empathetic?
