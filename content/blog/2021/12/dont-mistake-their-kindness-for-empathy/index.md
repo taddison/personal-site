@@ -28,7 +28,7 @@ Although advice like 'be unfailingly kind' and 'keep your feedback actionable, s
 
 This goes beyond feedback, and extends to all interactions with multiple parties - kindness is really in the eye of the beholder, and so the best you can do is _act with kind intent_.
 
-Anyone who can share examples of where they've experienced a gap between their intent (be kind) and the impact (not perceived as kind) does well here. The best candidates will be able to share examples of where they've changed the way they interact to minimise that gap (a great example Chelsea share's is not giving feedback if someone is not looking for feedback).
+Anyone who can share examples of where they've experienced a gap between their intent (be kind) and the impact (not perceived as kind) does well here. The best candidates will be able to share examples of where they've changed the way they interact to minimise that gap (a great example Chelsea shares is: not giving someone feedback if they're actually looking for validation).
 
 Being able to act with kind intent requires empathy, which we'll come onto next.
 
