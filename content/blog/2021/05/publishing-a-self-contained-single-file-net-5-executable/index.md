@@ -27,7 +27,7 @@ I build a small benchmarking tool ([SQLDriver]), and after updating to .NET 5 re
 
 ## Self-Contained
 
-A self-contained .NET application is one that doesn't rely on there being any shared components on the target machine (such as the .NET runtime). This feature has actually been around for several years, and the only downside is that it can end up publishing a lot of additional files along with the app (which also mean a simple console app can be 60MB+).
+A self-contained .NET application is one that doesn't rely on there being any shared components on the target machine (such as the .NET runtime). This feature has actually been around for several years, and the only downside is that it can end up publishing a lot of additional files along with the app (which also means a simple console app can be 60MB+).
 
 Getting this to work requires a single flag:
 
