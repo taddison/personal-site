@@ -2,9 +2,9 @@
 date: "2022-01-31T00:00:00.0Z"
 title: Early thoughts on switching to Apple silicon and macOS from Windows
 #shareimage: "./shareimage.png"
-tags: []
+tags: [Productivity]
 # cSpell:words
-# cSpell:ignore
+# cSpell:ignore iterm2 pwsh chezmoi winget
 ---
 
 I've been a Windows power user (personally and professionally) for over 20 years. In December 2020 I switched my primary machine to an M1 MacBook Pro and macOS Monterey, from a Surface Book 3 and Windows 10. After two months with the setup I'm sharing my early thoughts on the transition.
