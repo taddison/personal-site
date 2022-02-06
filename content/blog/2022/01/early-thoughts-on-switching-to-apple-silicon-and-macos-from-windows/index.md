@@ -90,6 +90,7 @@ Even though I can't imagine switching back, if Windows performance could approac
 [the lambda function]: https://support.microsoft.com/en-us/office/lambda-function-bd212d27-1cd1-4321-a34a-ccbf254b8b67
 [sql edge]: https://docs.microsoft.com/en-us/azure/azure-sql-edge/
 [unsupported features on sql edge]: https://docs.microsoft.com/en-us/azure/azure-sql-edge/features#unsupported-features
+[azure data studio]: https://docs.microsoft.com/en-us/sql/azure-data-studio
 [azure virtual desktop]: https://docs.microsoft.com/en-us/azure/virtual-desktop/overview
 [azure sql database]: https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview
 [typing speed results]: https://flatgithub.com/taddison/my-data/blob/main/typing/results.csv?filename=typing%2Fresults.csv&sha=7ca028570c3bc25c8a51fc0120c88456048c29b2
