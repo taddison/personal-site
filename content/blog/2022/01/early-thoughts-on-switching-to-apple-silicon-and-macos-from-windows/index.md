@@ -39,7 +39,7 @@ The documentation in general for Apple Silicon is harder to find, and PowerShell
 
 With homebrew working in PowerShell I got [oh-my-posh] installed easily, on top of which I added [Z]. I've not yet really finished my exploration of [chezmoi], and I'd like to see what a repeat experience looks like with that (or even sharing configuration between Windows and macOS).
 
-## Office Suite
+## Office Suite
 
 My prior exposure to Excel on a Mac was a miserable one a few years ago, assisting a friend with what _should_ have been a quick pivot and some formulae and it turned out...there were a lot of missing features. Fast forward to today and I can only count one missing feature that I wanted to use ([The Lambda function]).
 
@@ -57,7 +57,7 @@ As most of my day is spent in some way interacting with JavaScript (VS Code, rea
 
 The Mac is hands-down the better experience, completing similar activities on my Windows machine feels sluggish.
 
-## SQL Server Development
+## SQL Server Development
 
 No good news here. If you want to do any meaningful SQL Server development you're probably going to need a Windows device. While you can install [SQL Edge] on the Mac for trivial development, that doesn't have much overlap with the kind of work I do (the list of [unsupported features][unsupported features on sql edge] is long).
 
