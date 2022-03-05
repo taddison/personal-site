@@ -4,7 +4,7 @@ title: Benchmarking .NET’s Dictionary.TryGetValue by key length and runtime
 shareimage: "./all-runtimes.png"
 tags: [Benchmark, dotnet]
 # cSpell:words
-# cSpell:ignore
+# cSpell:ignore netcoreapp
 ---
 
 How much faster is it to use a shorter key for a string-keyed dictionary? And how does that vary based on .NET 6.0 vs. .NET Framework 4.8? The [avalanche of performance improvements in the runtime][performance improvements in net6] had me convinced the newer runtime would be faster, but by how much, and what order of magnitude was the impact of key length on performance (nano, micro, or milliseconds)?
