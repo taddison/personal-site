@@ -56,8 +56,11 @@ Outside of code on a very hot path this probably doesn't matter (though if in do
 
 When it comes to field vs. property there [really isn't any difference] (I'd be curious to see if anything differs in .NET 6, but not curious enough to run that benchmark).
 
+If you'd like to read more about low-level details on memory performance (while we're in the realm of nanoseconds it's helpful to understand what various activities 'cost'), [this Stack Overflow post] has some great answers/comments/links.
+
 [performance improvements in net6]: https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6/
 [benchmark source]: https://github.com/taddison/dotnet-benchmarks/tree/main/DictionaryKeyLookup
 [benchmarkdotnet's arguments source]: https://benchmarkdotnet.org/articles/features/parameterization.html#sample-introargumentssource
 [latency numbers]: https://colin-scott.github.io/personal_website/research/interactive_latency.html
 [really isn't any difference]: https://till.red/b/1/
+[this stack overflow post]: https://stackoverflow.com/questions/4087280/approximate-cost-to-access-various-caches-and-main-memory
