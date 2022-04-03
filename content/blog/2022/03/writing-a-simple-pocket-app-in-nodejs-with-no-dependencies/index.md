@@ -23,16 +23,15 @@ The tools that have required the least TLC are shell scripts (luckily for me rec
 
 Containers seem to be the logical answer here, but I've experienced both compatibility issues with the move to Apple Silicon and the - in my mind - larger issue that the first-run time can be atrocious (time and energy spent to run what amounts to a trivial script).
 
-If I was a stronger C/C++ programmer I think I'd be writing all of my tools in that language. Although I'm not building my tools for the [long now], I'd wager that if they were in C++ they'd probably work just fine in a hundred years. Instead, I've settled on JavaScript on
-[Node.js].
+If I was a stronger C/C++ programmer I think I'd be writing all of my tools in that language. Although I'm not building my tools for the [long now], I'd wager that if they were in C++ they'd probably work just fine in a hundred years. Instead, I've settled on JavaScript and [Node.js].
 
 ## How can you say no dependencies and then pick Node? Haven't you heard about node_modules?
 
-It has been a very long time since I've attempted to do anything in a node project with immediately reaching for some dependencies (or even starting via a scaffolded project via [create-react-app], [Next.js], etc.) and more recently, TypeScript. Even with Next's focus on reducing dependencies there's still 150+ dependencies brought along for a brand new project. Even if I'm not using TypeScript, I've taken it as a give that my code will be running through a transpiler to let me access [modern JavaScript features].
+It has been a very long time since I've started a node project and not _immediately_ installed multiple packages (or started from a template/framework such as [create-react-app] or [Next.js]). Even with Next's [efforts to reduce dependencies][next 10 release notes] there's still 150+ dependencies installed along for a brand new project. On top of that, I can't think of the last project I created where I didn't start off with one of either [TypeScript] or [Babel] plus a bundler.
 
 But what if we gave all that up, what are we left with?
 
-Well, as of Node 17.5+ - it turned out we can get quite a lot done.
+Well, as of Node 17.5+ - it turns out we can get quite a lot done.
 
 ## My Setup
 
@@ -98,6 +97,8 @@ I'm not sure I'd go back and rewrite them (excepting some dependency upgrade tor
 
 The only thing I've really felt that was missing was a good test runner, although I'm fairly confident that for the kind of tools I'm building I'll get pretty close with a little bit of [assert]. I've also not had a look at the ecosystem to see if using a test runner via the Volta toolchain might also work for me.
 
+> Update: A little research shows that Node 18 is going to get a [built-in test-runner][node test runner github issue]. What wonderful timing!
+
 I was initially sceptical I'd get anything useful done with no dependencies. After completing this exercise I reviewed the tools I've found enduringly useful and they all involve a fairly small set of operations - filesystem interactions, http calls, and manipulation of in-memory data structures. With ES2022 and Node 18 (particularly if [Temporal] lands) the surface area of 'native Node' has never looked so compelling.
 
 [pocket]: https://getpocket.com
@@ -120,3 +121,6 @@ I was initially sceptical I'd get anything useful done with no dependencies. Aft
 [node module system]: https://nodejs.org/api/packages.html#determining-module-system
 [assert]: https://nodejs.org/api/assert.html
 [temporal]: https://github.com/tc39/proposal-temporal
+[next 10 release notes]: https://nextjs.org/blog/next-10-1#improved-installation-time
+[babel]: https://babeljs.io/
+[node test runner github issue]: https://github.com/nodejs/node/issues/40954
