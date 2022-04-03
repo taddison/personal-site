@@ -34,7 +34,8 @@ But what if we gave all that up, what are we left with?
 
 Well, as of Node 17.5+ - it turned out we can get quite a lot done.
 
-## My Setup
+## My Setup
+
 I've cheated a little on the no dependencies front by leveraging [Volta] to provide me with access to [nodemon] in my toolchain. I'm making the assumption that JavaScript and Node are going to be around for a long time, and so global tools like `nodemon` will be accessible. Even if Volta disappears, I'm confident `npm install -g` will still be an option.
 
 To get type checking without TypeScript I'm using [VS Code] with a [jsconfig] file. This doesn't give me anywhere near the same experience as I get with a full TypeScript project, but it definitely gives me enough to miss common errors - type annotations are still possible with JSDoc comments.
