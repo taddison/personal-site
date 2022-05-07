@@ -27,13 +27,23 @@ Now we're done with the visible and fairly innocuous costs, let's dig into the t
 
 ## Invisible Costs
 
-- People making decisions based on framework progression vs. solving customer problems
-  - We _cannot_ expect people to not be self-interested. If there’s a 200k+ raise on the line it would be irrational for people to not pursue that.
-- Managers making decisions based on framework progression for their subordinates (e.g., project selection)
-- Managing through disagreements on individual’s level/lack of promotion
-- Process Handcuffs - if we stick to the framework it may prevent us from hiring people who add substantial customer value (fail to meet some specific definition for Staff Engineer, etc.).
-  - And if you allow exceptions to exist that don't force an update to the framework...
-  - Maybe generalize to people who fall between the cracks of frameworks (from Yvonne's tweet - TODO research for attribution)
+The largest cost of a framework is mostly invisible, and is related to incentives. If the framework does not perfectly align with delivering customer value, employees will be incentivised to make decisions based on **personal progression over customer value**. This ranges from individuals making decisions about the work they'll pursue, to the managers who will need to make decisions about which projects to give to certain individuals _to help them secure a promotion_. Incentives are [tremendously powerful][incentives blog], and so this is a cost to ignore at your peril.
+
+> Pursuing promotion is a perfectly rational motivation, and any attempts to paint it as an employee failing when hundreds of thousands of dollars in a raise can be on the line is typically something said by an executive disconnected from the reality of non-executive employees, speaking from a position of overwhelming privilege.
+
+Frameworks will also create many opportunities for people to be **dissatisfied with their position in the framework**. The costs here can range from temporary demotivation, to the loss of an employee, to the inability to hire an employee whose only issue is a perceived (or real) mis-titling. In an extreme situation you may be faced with a candidate who would be a stellar performer in the role, but you cannot hire them as they don't fit into your framework.
+
+These two costs are significant enough that for me they eclipse the visible costs, and should be front and center when building and rolling out a progression framework.
+
+The final cost I'll cover is the **illusion of objectivity**. Being more objective is a common reason cited to build a framework, but most (all?) frameworks have just moved the unconscious bias around. Almost every promotion will be tied to the opportunities afforded to a given individual, which will come back to bias and inclusion. Do you think a phenomenal framework would have changed Susan's [very strange year at Uber]? Anywhere you catch yourself discussing something that is _more meritocratic_ remember [the paradox of meritocracy].
+
+## So, no framework?
+
+I don't see an alternative to not having a framework, though I'd like to see us as an industry propose and test alternatives. Although [Powerful][powerful book] makes a very compelling case for no framework/levels, it glosses over the significant diversity & inclusion challenges a framework can assist with. That alone is reason enough for me to continue to advocate for a framework, even with the caveat around the illusion of objectivity.
 
 [yvonne tweet]: https://twitter.com/yvonnezlam/status/1515425807438528514
 [progression.fyi]: https://www.progression.fyi/
+[incentives blog]: https://fs.blog/bias-incentives-reinforcement/
+[powerful book]: https://pattymccord.com/book/
+[very strange year at uber]: https://www.susanjfowler.com/blog/2017/2/19
+[the paradox of meritocracy]: https://gap.hks.harvard.edu/paradox-meritocracy-organizations
