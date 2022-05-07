@@ -29,7 +29,7 @@ Now we're done with the visible and fairly innocuous costs, let's dig into the t
 
 The largest cost of a framework is mostly invisible, and is related to incentives. If the framework does not perfectly align with delivering customer value, employees will be incentivised to make decisions based on **personal progression over customer value**. This ranges from individuals making decisions about the work they'll pursue, to the managers who will need to make decisions about which projects to give to certain individuals _to help them secure a promotion_. Incentives are [tremendously powerful][incentives blog], and so this is a cost to ignore at your peril.
 
-> Pursuing promotion is a perfectly rational motivation, and any attempts to paint it as an employee failing when hundreds of thousands of dollars in a raise can be on the line is typically something said by an executive disconnected from the reality of non-executive employees, speaking from a position of overwhelming privilege.
+> Pursuing promotion is a perfectly rational motivation. Attempts to paint it as an employee failing - when hundreds of thousands of dollars in a raise can be on the line - typically comes from someone in a position of overwhelming privilege.
 
 Frameworks will also create many opportunities for people to be **dissatisfied with their position in the framework**. The costs here can range from temporary demotivation, to the loss of an employee, to the inability to hire an employee whose only issue is a perceived (or real) mis-titling. In an extreme situation you may be faced with a candidate who would be a stellar performer in the role, but you cannot hire them as they don't fit into your framework.
 
