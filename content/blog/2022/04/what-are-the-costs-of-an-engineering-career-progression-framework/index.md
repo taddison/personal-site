@@ -1,16 +1,15 @@
 ---
 date: "2022-04-30T00:00:00.0Z"
-title: What are the costs of an engineering career framework?
+title: What are the costs of an engineering career progression framework?
 #shareimage: "./shareimage.png"
 tags: []
 # cSpell:words
 # cSpell:ignore
 ---
 
-- What are the benefits (see: infinity of posts)
-- What needs do career frameworks serve?
-- Are there any other ways we could solve those needs without paying the costs?
-- What _are_ the costs?
+I've rarely seen the costs / return on investment (ROI) mentioned when discussing career progression frameworks. It turns out there are lots of interesting costs to be aware of, and some of them can be significant. If you're planning to roll out a framework, being aware of the costs as well as the benefits will increase the chance of your framework coming down on the right side of the ROI calculation.
+
+I was inspired to dig into this by Yvonne Lam's thread [what needs do levels serve][yvonne tweet], which contains the insightful question _"what problems are orgs choosing to have when they introduce levels"_. The related question of _"how else can could those needs be served"_ is also fascinating, but we'll stick to costs for now.
 
 ## Easy to see costs
 
@@ -28,3 +27,5 @@ tags: []
 - Process Handcuffs - if we stick to the framework it may prevent us from hiring people who add substantial customer value (fail to meet some specific definition for Staff Engineer, etc.).
   - And if you allow exceptions to exist that don't force an update to the framework...
   - Maybe generalize to people who fall between the cracks of frameworks (from Yvonne's tweet - TODO research for attribution)
+
+[yvonne tweet]: https://twitter.com/yvonnezlam/status/1515425807438528514
