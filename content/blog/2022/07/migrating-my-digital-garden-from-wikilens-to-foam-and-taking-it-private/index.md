@@ -1,7 +1,7 @@
 ---
 date: "2022-07-09T00:00:00.0Z"
 title: Migrating my digital garden from WikiLens to Foam, and taking it private
-#shareimage: "./shareimage.png"
+shareimage: "./foamgraph.png"
 tags: [Digital Garden, Foam]
 # cSpell:words wikilens
 # cSpell:ignore lostintangent fulldate foambubble
