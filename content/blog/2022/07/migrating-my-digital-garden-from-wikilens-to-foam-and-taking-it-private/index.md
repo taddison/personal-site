@@ -57,7 +57,7 @@ This uses the [fulldate format] and defaults to creating the page in the `Daily`
 
 ### Differences
 
-One of the only differences I've noticed is that [WikiLens] used the page title for links (as defined by the H1 in the document), whereas [Foam] uses the page name (based on the filename). As an example, links to daily pages required updates for their links:
+One of the only differences I've noticed is that [WikiLens] uses the page title for links (as defined by the H1 in the document), whereas [Foam] uses the page name (based on the filename). As an example, links to daily pages required updates for their links:
 
 ```diff
 - Last time I worked on this (see [[August 18, 2020]])...
@@ -74,7 +74,7 @@ One thing I've found surprising is how little content I've been able to organica
 
 For now the focus will be on ensuring any friction introduced by collapsing the two digital gardens into one will be minimal. So far this is mostly a question of disambiguation. On my public (only for me) wiki I had a `Personal Blog` page which clearly meant [tjaddison.com]. In the private (for our family) wiki that could mean any one of a number of personal blogs - thankfully renaming files automatically updates all references.
 
-Introducing Foam has also allowed us to revisit some of our tagging strategies - we used to use hyphens to create parent/child structures, but with Foam we get native support for Parent/Child tags.
+Introducing Foam has also allowed us to revisit some of our tagging strategies - we used to use hyphens to create parent/child structures, but with Foam we get native support for parent/child tags.
 
 Once we've worked through any teething issues I'm very interested to explore what can be done with templates and frontmatter to create a much richer experience for some of the things we log in our digital garden (think books, restaurants, trips).
 
