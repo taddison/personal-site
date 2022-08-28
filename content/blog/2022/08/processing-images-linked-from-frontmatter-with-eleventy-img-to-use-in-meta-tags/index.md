@@ -1,7 +1,7 @@
 ---
 date: "2022-08-31T00:00:00.0Z"
 title: Processing images linked from frontmatter with eleventy-img to use in meta tags
-#shareimage: "./shareimage.png"
+shareimage: "./shareimage.png"
 tags: [Eleventy]
 # cSpell:words shortcode
 # cSpell:ignore
