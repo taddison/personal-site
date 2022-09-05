@@ -40,7 +40,7 @@ In addition to `@11ty/eleventy` you'll need `@11ty/eleventy-img`. The code below
 
 ## Processing the image
 
-To copy the image to our output folder (along with resizing and any other processing we want to do) we'll be creating a [shortcode].
+To copy the image to our output folder (along with resizing and any other processing we want to do) we'll be creating a [shortcode]:
 
 ```javascript
 // .eleventy.js
@@ -81,11 +81,11 @@ The code above is making a few assumptions:
 
 > The contents of `this.page` are [well documented][the page variable contents] and are available in all shortcodes
 
-The shortcode we've created it `shareImageUri` which we can now use in a template.
+The shortcode we've created is `shareImageUri` which we can now use in a template.
 
 ## Using the shortcode in a template
 
-We can use the shortcode in a template (which will need to be the template that has access to the `head` tag) like this:
+We can use the shortcode in a template (which will need to be one that can render into the final `head` tag) like this:
 
 ```nunjucks
 <!-- part of default.njk -->
@@ -98,17 +98,17 @@ We can use the shortcode in a template (which will need to be the template that 
 </head>
 ```
 
-Because of the [data cascade] the frontmatter value `shareimage` will be available. If you want a fallback image you can use an `{% else %}` block to render a hardcoded example. You'll probably want to put that somewhere in the root of your site (e.g. `/img`) rather than generating the same placeholder in every post's folder.
+Because of the [data cascade] the frontmatter value `shareimage` will be available. If you want a fallback image you can use an `{% else %}` block to render a hardcoded alternative. You'll probably want to put that somewhere in the root of your site (e.g. `/img`) rather than generating the same placeholder in every post's folder (which using the shortcode we created would do).
 
 And that's all there is to it!
 
 ## What did I miss
 
-As a total newbie to Eleventy I'm sure I've missed some obvious stuff. If you can point me in the right direction on any of the below please mail me `eleventy-feedback` at this blog's domain.
+As a total newbie to Eleventy I'm sure I've missed some obvious stuff. If you can point me in the right direction on any of the below please mail me _eleventy-feedback_ at this blog's domain.
 
 - Rather than hardcoding `_site` is it accessible somewhere? I can see that the `outputPath` starts with that but I'd need to assume the output path was a single folder only.
 - This all seemed fairly simple _in hindsight_, and the documentation has all the bits needed to get it working. Is there an image tutorial I missed that explains this, or I am just spoiled coming from a world where Gatsby did a pretty good job at processing everything as an image?
-- Working with local images using relative file paths was a little tricky both here and with rendering images in markdown posts too (another post!) - is there a go-to tutorial/document/starter that covers this? Some of my path manipulation code feels like it could have been easier?
+- Working with local images using relative file paths was a little tricky both here and with rendering images in markdown posts (another post!) - is there a go-to tutorial/document/starter that covers this? Some of my path manipulation code feels like it could have been easier?
 
 [eleventy]: https://www.11ty.dev/docs/
 [eleventy-img plugin]: https://www.11ty.dev/docs/plugins/image/
