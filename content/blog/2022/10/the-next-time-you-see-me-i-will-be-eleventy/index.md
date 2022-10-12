@@ -43,7 +43,7 @@ Reviewing the criteria that I used when deciding on the last migration, the only
 
 The other requirement should be a simple set of dependencies that are easy to extend. JavaScript is an incredibly capable language, and so many plugins and their deep tangle of dependencies are unnecessary.
 
-> Dependencies and the software supply supply chain are something I've been spending a lot of time wondering about with a view to wondering how durable a given software or tool is going to be. I covered it briefly in [a pocket app with no dependencies].
+> Dependencies and the software supply chain are something I've been spending a lot of time wondering about with a view to wondering how durable a given software or tool is going to be. I covered it briefly in [a pocket app with no dependencies].
 
 After initially considering and rejecting Eleventy due to the requirement of learning a new template language (Liquid or [Nunjucks]), I finally came back to it after accepting a learning curve was reasonable, and in the case of Nunjucks the templating language was [popular][nunjucks vs liquid npm].
 
