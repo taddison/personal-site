@@ -1,13 +1,15 @@
 ---
 date: "2022-10-13T00:00:00.0Z"
 title: The next time you see me I will be Eleventy
-#shareimage: "./shareimage.png"
+shareimage: "./complexity-large.png"
+header-image:
+  - source: "./complexity-large.png"
+  - alt: Someone standing in a room covered with computers, screens, cables, and gadgets
+  - title: How I feel when I need to do anything non-trivial with my Gatsby blog
 tags: [Gatsby, Blog, Eleventy]
 # cSpell:words
 # cSpell:ignore
 ---
-
-https://image.lexica.art/md/f3630246-2d2f-47bb-aebe-ffe0da12c742
 
 After slowly completing a series of explorations into how I can migrate from [Gatsby] to [Eleventy], I've decided to draw a line in the sand and say this will be my last post until it's done.
 
