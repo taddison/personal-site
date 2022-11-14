@@ -6,9 +6,8 @@ Things that are removed that need adding back:
 
 - Inter - previously used the package fontsource/inter - download and statically link instead?
 - Syntax highlighting (prismjs)
-- Tailwind + tailwind typograph
-- Maybe linting + prettier
-  - If prettier is _not_ installed delete .prettierrc
+- Tailwind + tailwind typography
+- Maybe linting
   - If eslint is _not_ installed delete .eslintrs.js
 - Definitely cspell
 - Fix package.json scripts

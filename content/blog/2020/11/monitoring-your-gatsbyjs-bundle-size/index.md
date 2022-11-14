@@ -23,8 +23,8 @@ yarn add webpack-bundle-analyzer -D
 Next you need to add the following to `gatsby-node.js`:
 
 ```javascript
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   const analyzerMode = process.env.INTERACTIVE_ANALYZE ? "server" : "json"

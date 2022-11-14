@@ -15,8 +15,12 @@
     "url": "git+https://github.com/taddison/personal-site.git"
   },
   "scripts": {
-    "format": "prettier --write \"**/*.{js,mjs,json,md,mdx}\"",
+    "prettier:check": "prettier --check \"**/*.{js,mjs,json,md,mdx}\"",
+    "prettier:format": "prettier --write \"**/*.{js,mjs,json,md,mdx}\"",
     "new": "node scripts/newpost.mjs",
     "spell": "cspell content/blog/**/*.md*"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
   }
 }

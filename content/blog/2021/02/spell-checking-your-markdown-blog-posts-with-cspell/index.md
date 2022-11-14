@@ -67,7 +67,6 @@ title: My first blog post
 # cSpell:words tjaddison Addison
 # cSpell:ignore COOOOOOL
 ---
-
 ```
 
 This isn't a great example as I'd probably want my blog name (tjaddison) and my surname (Addison) to be added to the workspace dictionary. Because they're added as words they are eligible to appear as suggestions. If I'd used the word 'COOOOOOL' anywhere in the post I'd probably not want to repeat myself (and really I should be asking myself why I'd used it in the first place).
