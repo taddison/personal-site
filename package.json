@@ -17,11 +17,14 @@
   "scripts": {
     "prettier:check": "prettier --check \"**/*.{js,mjs,json,md,mdx}\"",
     "prettier:format": "prettier --write \"**/*.{js,mjs,json,md,mdx}\"",
+    "lint": "eslint .",
     "new": "node scripts/newpost.mjs",
     "spell": "cspell content/blog/**/*.md*"
   },
   "devDependencies": {
     "cspell": "^6.14.2",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
     "prettier": "^2.7.1"
   }
 }

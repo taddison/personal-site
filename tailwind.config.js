@@ -1,4 +1,4 @@
-const defaultTheme = require(`tailwindcss/defaultTheme`)
+const defaultTheme = require(`tailwindcss/defaultTheme`);
 
 module.exports = {
   mode: `jit`,
@@ -35,10 +35,10 @@ module.exports = {
               "blockquote p:last-of-type::after": null,
             },
           },
-        }
+        };
       },
     },
   },
   variants: {},
-  plugins: [require(`@tailwindcss/forms`), require(`@tailwindcss/typography`)],
-}
+  plugins: [require(`@tailwindcss/typography`)],
+};
