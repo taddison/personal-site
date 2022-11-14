@@ -1,12 +1,23 @@
 https://tjaddison.com
 
-Built with Gatsby, deployed with Netlify.
+Being migrated from Gatsby to 11ty.
 
-Todo:
+Things that are removed that need adding back:
 
-- Sitemap: https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap
-  - The advanced one is nice too (https://www.gatsbyjs.com/plugins/gatsby-plugin-advanced-sitemap/), but not sure it's necessary?
+- Inter - previously used the package fontsource/inter - download and statically link instead?
+- Syntax highlighting (prismjs)
+- Tailwind + tailwind typograph
+- Maybe linting + prettier
+  - If prettier is _not_ installed delete .prettierrc
+  - If eslint is _not_ installed delete .eslintrs.js
+- Definitely cspell
+- Fix package.json scripts
 
-Idea:
+Maybe put this back (global css):
 
-- Link out to a 'what DBA stands for' post is now 404ing, maybe an equivalent one?
+```javascript
+import "@fontsource/inter/variable-full.css"
+import "./src/styles/site.css"
+
+require(`prismjs/themes/prism-tomorrow.css`)
+```
