@@ -9,7 +9,6 @@ Things that are removed that need adding back:
 - Tailwind + tailwind typography
 - Maybe linting
   - If eslint is _not_ installed delete .eslintrs.js
-- Definitely cspell
 - Fix package.json scripts
 
 Maybe put this back (global css):

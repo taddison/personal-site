@@ -108,7 +108,7 @@ Hopefully you can see how you can easily take the general idea and customise it 
 - Tags to delineate trips (e.g. #tripNYC)
 - Tags to extract extra metadata (e.g. #E-Client-12345)
 - Caps (e.g. don't expense more than \$50 in food/day)
-- Timezone offsets ()
+- Time zone offsets ()
 
 ## Appendix: Sample Monzo export
 

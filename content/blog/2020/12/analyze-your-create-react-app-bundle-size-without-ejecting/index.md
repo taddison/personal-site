@@ -3,6 +3,7 @@ title: Analyze your Create React App bundle size - without ejecting
 tags: ["React", "JavaScript"]
 shareimage: "./cra-bundle.png"
 date: "2020-12-31T00:00:00.0Z"
+# cSpell:words analyze analyzer
 ---
 
 After looking at my [Gatsby site bundle size last month] I figured I should do the same for a few [create-react-app (CRA)][cra] based sites. If you're wondering _why_ you might want to do that, check out the previous post, otherwise read on for the details.

@@ -4,7 +4,7 @@ title: Migrating my digital garden from WikiLens to Foam, and taking it private
 shareimage: "./foamgraph.png"
 tags: [Digital Garden, Foam]
 # cSpell:words wikilens
-# cSpell:ignore lostintangent fulldate foambubble
+# cSpell:ignore lostintangent fulldate foambubble foamgraph
 ---
 
 I've [previously talked about how much I loved][using-gistpad-to-manage-your-github-digital-gardens] the workflow that [GistPad] (and more recently [WikiLens]) enables for curating a digital garden. With the addition of [github.dev] browsing and editing are now possible from a browser - something I called out as missing two years ago. Given the slickness of the setup, what's prompted a change? In short: data gravity.

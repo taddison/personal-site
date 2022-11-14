@@ -4,6 +4,7 @@ shareimage: "./TestFailThrow.png"
 tags: [PowerShell, Pester, AppVeyor]
 date: "2018-06-25T00:00:00.0Z"
 # cSpell:ignore build's cinst
+# cSpell:words analyzer
 ---
 
 Adding Pester tests to a PowerShell module is probably one of the most valuable development activities you'll be able to perform, and I'd encourage you to do it early in your project. I left it until rather late with SQLChecks, and as a result have broken the module several times.

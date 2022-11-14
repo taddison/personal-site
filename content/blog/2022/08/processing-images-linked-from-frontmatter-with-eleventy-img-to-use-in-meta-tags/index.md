@@ -3,8 +3,8 @@ date: "2022-08-31T00:00:00.0Z"
 title: Processing images linked from frontmatter with eleventy-img to use in meta tags
 shareimage: "./shareimage.png"
 tags: [Eleventy]
-# cSpell:words shortcode
-# cSpell:ignore
+# cSpell:words shortcode shortcodes
+# cSpell:ignore srcset
 ---
 
 Given a markdown file (`/blog/hello-world/index.md`) with frontmatter that looks like this:
@@ -76,7 +76,7 @@ module.exports = function (eleventyConfig) {
 The code above is making a few assumptions:
 
 - We are creating a jpeg image (broadest support - we can't use multiple sources)
-- We're making that image 600 pixels wide (we can't use a srcset)
+- We're making that image 600 pixels wide (we can't use a `srcset`)
 - The output directory is `_site`
 
 > The contents of `this.page` are [well documented][the page variable contents] and are available in all shortcodes
