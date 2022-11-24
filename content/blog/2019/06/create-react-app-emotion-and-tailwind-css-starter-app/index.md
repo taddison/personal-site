@@ -3,6 +3,7 @@ title: Create React App, Emotion, and Tailwind CSS starter app
 shareimage: "./EmotionWind-Starter.png"
 tags: [React, Emotion, Tailwind CSS]
 date: "2019-06-30T00:00:00.0Z"
+templateEngineOverride: "md"
 # cSpell:ignore customcolor
 ---
 
@@ -36,7 +37,7 @@ module.exports = {
   },
   variants: {},
   plugins: [],
-}
+};
 ```
 
 ### Static CSS
@@ -66,14 +67,14 @@ The `App.js` contains a few different ways you can use Tailwind and Emotion toge
 ```js
 /* src/App.js */
 
-import tw from "tailwind.macro"
+import tw from "tailwind.macro";
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core"
-import styled from "@emotion/styled"
+import { css, jsx } from "@emotion/core";
+import styled from "@emotion/styled";
 
 const Section = styled.div`
   ${tw`bg-red-900 min-h-screen flex flex-col items-center justify-center text-xl text-white`};
-`
+`;
 
 function App() {
   return (
@@ -98,10 +99,10 @@ function App() {
         And this uses the custom color defined in <pre>tailwind.js</pre>
       </Section>
     </React.Fragment>
-  )
+  );
 }
 
-export default App
+export default App;
 ```
 
 For more information see the docs on [Emotion styled components], the [Emotion css prop].

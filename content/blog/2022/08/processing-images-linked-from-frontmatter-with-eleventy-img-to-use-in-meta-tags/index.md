@@ -3,6 +3,7 @@ date: "2022-08-31T00:00:00.0Z"
 title: Processing images linked from frontmatter with eleventy-img to use in meta tags
 shareimage: "./shareimage.png"
 tags: [Eleventy]
+templateEngineOverride: "md"
 # cSpell:words shortcode shortcodes
 # cSpell:ignore srcset
 ---
@@ -44,33 +45,36 @@ To copy the image to our output folder (along with resizing and any other proces
 
 ```javascript
 // .eleventy.js
-const Image = require("@11ty/eleventy-img")
+const Image = require("@11ty/eleventy-img");
 
 async function shareImageShortcode(src) {
   // src might be small.png - taken from frontmatter
-  const { url } = this.page
+  const { url } = this.page;
   // url might be /blog/hello-world/
-  const imageSrc = "." + url + src
+  const imageSrc = "." + url + src;
   let metadata = await Image(imageSrc, {
     widths: [600],
     formats: ["jpeg"],
     urlPath: url,
     outputDir: `./_site/${url}`,
-  })
+  });
 
-  const data = metadata.jpeg[0]
+  const data = metadata.jpeg[0];
   // data.url might be /blog/hello-world/xfO_genLg4-600.jpeg
   // note the filename is a content hash-width combination
-  return data.url
+  return data.url;
 }
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addNunjucksAsyncShortcode("shareImageUri", shareImageShortcode)
+  eleventyConfig.addNunjucksAsyncShortcode(
+    "shareImageUri",
+    shareImageShortcode
+  );
 
   return {
     markdownTemplateEngine: "njk",
-  }
-}
+  };
+};
 ```
 
 The code above is making a few assumptions:
