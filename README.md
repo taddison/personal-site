@@ -12,9 +12,7 @@ Things that are removed that need adding back:
 
 - Inter - previously used the package fontsource/inter - download and statically link instead?
 - Syntax highlighting (prismjs)
-- Tailwind + tailwind typography
 - PostCSS plugin (font @ rule?)
-- Tailwind CSS custom rules to override appearance
 
 Maybe put this back (global css):
 
@@ -24,6 +22,8 @@ import "./src/styles/site.css";
 
 require(`prismjs/themes/prism-tomorrow.css`);
 ```
+
+Or this: https://github.com/taddison/personal-site/blob/main/src/styles/site.css
 
 Tidy-up after:
 
