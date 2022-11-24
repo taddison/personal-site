@@ -65,28 +65,28 @@ const getRequestToken = async function (consumerKey) {
       consumer_key: consumerKey,
       redirect_uri,
     }),
-  })
+  });
   /// elided...
-}
+};
 ```
 
 My `index.js` file also takes advantage of top-level await which has been available since Node 14.8 as long as the file or project is set to [ESM rather than CJS][node module system]:
 
 ```javascript
 // index.js
-import { getUserData } from "./util.js"
+import { getUserData } from "./util.js";
 
-let { AccessToken, ConsumerKey, Since = 0 } = await getUserData()
+let { AccessToken, ConsumerKey, Since = 0 } = await getUserData();
 ```
 
 Along with this there are now a lot of promise-based APIs available that mean callback's are no longer needed for things like [readline]:
 
 ```javascript
-import * as readline from "node:readline/promises"
-import { stdin as input, stdout as output } from "node:process"
+import * as readline from "node:readline/promises";
+import { stdin as input, stdout as output } from "node:process";
 
-const rl = readline.createInterface({ input, output })
-await rl.question("Press enter once you have authorized the application\r\n")
+const rl = readline.createInterface({ input, output });
+await rl.question("Press enter once you have authorized the application\r\n");
 ```
 
 These are just a small set of the enhancements that have landed in Node (and the broader JavaScript ecosystem) in the last few years. It's a significant amount of effort to get up to speed but looking back at tools I've authored 2, 3, or even 5 years ago - they could all be much smaller and take on less dependencies.
@@ -102,9 +102,9 @@ The only thing I've really felt that was missing was a good test runner, althoug
 I was initially sceptical I'd get anything useful done with no dependencies. After completing this exercise I reviewed the tools I've found enduringly useful and they all involve a fairly small set of operations - filesystem interactions, http calls, and manipulation of in-memory data structures. With ES2022 and Node 18 (particularly if [Temporal] lands) the surface area of 'native Node' has never looked so compelling.
 
 [pocket]: https://getpocket.com
-[link roundups]: https://tjaddison.com/blog/tags/#Links
+[link roundups]: /blog/tags/#Links
 [pocketdumper]: https://github.com/taddison/PocketDumper
-[updating babel-eslint to @babel/eslint-parser]: https://tjaddison.com/blog/2021/03/updating-babel-eslint-to-babeleslint-parser-for-react-apps/
+[updating babel-eslint to @babel/eslint-parser]: /blog/2021/03/updating-babel-eslint-to-babeleslint-parser-for-react-apps/
 [powershell]: https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell
 [node.js]: https://nodejs.org/
 [long now]: https://longnow.org/

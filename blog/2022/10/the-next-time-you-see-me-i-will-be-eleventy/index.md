@@ -68,9 +68,9 @@ This post is the swan song of the Gatsby v3 blog. The next post will be coming f
 [jekyll]: https://jekyllrb.com/
 [liquid templates]: https://shopify.github.io/liquid/
 [netlify]: https://www.netlify.com/
-[migrating from jekyll to gatsby]: https://tjaddison.com/blog/2019/09/migrating-from-jekyll-to-gatsby/
-[a pocket app with no dependencies]: https://tjaddison.com/blog/2022/03/writing-a-simple-pocket-app-in-nodejs-with-no-dependencies/
+[migrating from jekyll to gatsby]: /blog/2019/09/migrating-from-jekyll-to-gatsby/
+[a pocket app with no dependencies]: /blog/2022/03/writing-a-simple-pocket-app-in-nodejs-with-no-dependencies/
 [nunjucks]: https://mozilla.github.io/nunjucks/templating.html
 [nunjucks vs liquid npm]: https://npmtrends.com/liquidjs-vs-nunjucks
 [nextjs]: https://nextjs.org
-[processing images linked from frontmatter with eleventy]: https://tjaddison.com/blog/2022/08/processing-images-linked-from-frontmatter-with-eleventy-img-to-use-in-meta-tags/
+[processing images linked from frontmatter with eleventy]: /blog/2022/08/processing-images-linked-from-frontmatter-with-eleventy-img-to-use-in-meta-tags/
