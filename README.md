@@ -4,7 +4,8 @@ Being migrated from Gatsby to 11ty.
 
 ## What to do next
 
-- Install tailwindcss
+- Create the other shell pages (about, tags, archive, etc.)
+- Create page navigation
 
 ## Other notes
 
