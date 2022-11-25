@@ -29,3 +29,6 @@ Or this: https://github.com/taddison/personal-site/blob/main/src/styles/site.css
 Tidy-up after:
 
 - Prettier all the files
+- header image
+- https://www.11ty.dev/docs/quicktips/not-found/
+- Custom title (not page title - page title + | tjaddison.com ?)
