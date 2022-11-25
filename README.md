@@ -13,7 +13,6 @@ Being migrated from Gatsby to 11ty.
 
 Things that are removed that need adding back:
 
-- Inter - previously used the package fontsource/inter - download and statically link instead?
 - Syntax highlighting (prismjs)
 - PostCSS plugin (font @ rule?)
 

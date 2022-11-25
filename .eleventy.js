@@ -9,6 +9,8 @@ module.exports = function (eleventyConfig) {
     return collectionApi.getFilteredByTag("::page-type:blog-post");
   });
 
+  eleventyConfig.addPassthroughCopy("fonts");
+
   return {
     markdownTemplateEngine: "njk",
     dir: {
