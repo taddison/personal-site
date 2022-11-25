@@ -5,6 +5,10 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_FULL);
   });
 
+  eleventyConfig.addFilter("removeMetaTags", (tagArray) => {
+    return tagArray.filter((tag) => !tag.startsWith("::"));
+  });
+
   eleventyConfig.addCollection("allBlogPosts", function (collectionApi) {
     return collectionApi.getFilteredByTag("::page-type:blog-post");
   });

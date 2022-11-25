@@ -8,7 +8,7 @@ title: Blog Home
 
 {% if tags %}
   Tags:
-  {% for tag in tags %}
+  {% for tag in tags | removeMetaTags %}
     <li><a href="/blog/tags#{{ tag }}">{{ tag}}</a></li>
   {% endfor %}
 {% endif %}
