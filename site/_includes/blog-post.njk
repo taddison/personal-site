@@ -3,7 +3,7 @@ layout: default.njk
 title: Blog Home
 ---
 <div class="prose">
-{{ content | safe }}
+  {{ content | safe }}
 </div>
 
 {% if tags %}
@@ -11,4 +11,17 @@ title: Blog Home
   {% for tag in tags | removeMetaTags %}
     <li><a href="/blog/tags#{{ tag }}">{{ tag}}</a></li>
   {% endfor %}
+{% endif %}
+
+{% set posts = collections.allBlogPosts %}
+{% if posts %}
+  {% set nextPost = posts | getNextCollectionItem(page) %}
+  {% set previousPost = posts | getPreviousCollectionItem(page) %}
+  {% if nextPost or previousPost %}
+    <hr>
+    <ul>
+      {% if nextPost %}<li>Next: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
+      {% if previousPost %}<li>Previous: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
+    </ul>
+  {% endif %}
 {% endif %}

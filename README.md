@@ -4,28 +4,32 @@ Being migrated from Gatsby to 11ty.
 
 ## What to do next
 
-- Create the other shell pages (about, tags, archive, etc.)
-- Create page navigation
-  - https://github.com/11ty/eleventy-base-blog/blob/main/_includes/layouts/post.njk
-  - Looks like navigation between entities is easy as long as they're defined in a collection
+- Shell pages
+  - Home page
+  - /blog
+  - about
+  - Archive (copy-paste of index OR redirect?)
+- Images
+- Nav - confirm the _direction_ of the collection is correct (think it might need to be reversed for next/previous to work?)
 
 ## Other notes
 
 Things that are removed that need adding back:
 
-- Syntax highlighting (prismjs)
-- PostCSS plugin (font @ rule?)
+- Syntax highlighting (prismjs/plugin) - theme was tomorrow
 
-Maybe put this back (global css):
+Or this:
 
-```javascript
-import "@fontsource/inter/variable-full.css";
-import "./src/styles/site.css";
-
-require(`prismjs/themes/prism-tomorrow.css`);
-```
-
-Or this: https://github.com/taddison/personal-site/blob/main/src/styles/site.css
+````css
+/* Code highlighting */
+/* Wrap any inline highlights `that are really long`, but don't modify
+   the setting for codeblocks (inside ```), which are rendered in:
+   <pre><code>...
+*/
+.prose :not(pre) > code.language-text {
+  white-space: pre-line;
+}
+````
 
 Tidy-up after:
 
@@ -33,3 +37,4 @@ Tidy-up after:
 - header image
 - https://www.11ty.dev/docs/quicktips/not-found/
 - Redirect archive to the post index
+- Tidy up functions so they can actually be tested, see https://github.com/11ty/eleventy-base-blog/blob/87c7dd40efc278717d09de219d33ff4a6c4315a8/.eleventy.js
