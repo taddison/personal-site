@@ -6,6 +6,8 @@ Being migrated from Gatsby to 11ty.
 
 - Create the other shell pages (about, tags, archive, etc.)
 - Create page navigation
+  - https://github.com/11ty/eleventy-base-blog/blob/main/_includes/layouts/post.njk
+  - Looks like navigation between entities is easy as long as they're defined in a collection
 
 ## Other notes
 
