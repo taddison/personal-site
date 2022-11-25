@@ -15,11 +15,11 @@ The question of what makes an excellent database engineer is one I'm always aski
 
 While the specifics will always vary with the individual, the team, and the platform, I believe that the below fairly accurately captures what I currently think of as the key traits & beliefs an excellent database engineer should possess:
 
-- **_Deep technical mastery of one or more areas_**
-- **_Broad knowledge of the platform and the ecosystem it works in_**
-- **_Ownership of problems & their solutions end to end_**
-- **_Does not tolerate badness_**
-- **_Treats the system as a customer_**
+- Deep technical mastery of one or more areas
+- Broad knowledge of the platform and the ecosystem it works in
+- Ownership of problems & their solutions end to end
+- Does not tolerate badness
+- Treats the system as a customer
 
 This is largely based on the role of a database engineer who is both a developer, an administrator, and an operations guy (outside of some specialist exceptions I don't think the dedicated role of DBA really has a future - perhaps a subject for another post). I primarily work in the Microsoft ecosystem but I believe the detail below applies for any ecosystem, and probably more generally for any software engineering role.
 
