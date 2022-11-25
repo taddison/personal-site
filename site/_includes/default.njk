@@ -8,9 +8,9 @@ title: tjaddison.com
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/site.css">
-    <title>{{ title }}</title>
+    <title>{{ title }} {{ "| tjaddison.com" if title !== "tjaddison.com" }}</title>
   </head>
-  <body class="prose">
+  <body>
     {{ content | safe }}
   </body>
 </html>

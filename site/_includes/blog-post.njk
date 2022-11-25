@@ -1,0 +1,14 @@
+---
+layout: default.njk
+title: Blog Home
+---
+<div class="prose">
+{{ content | safe }}
+</div>
+
+{% if tags %}
+  Tags:
+  {% for tag in tags %}
+    <li><a href="/blog/tags#{{ tag }}">{{ tag}}</a></li>
+  {% endfor %}
+{% endif %}

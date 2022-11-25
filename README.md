@@ -31,3 +31,4 @@ Tidy-up after:
 - Prettier all the files
 - header image
 - https://www.11ty.dev/docs/quicktips/not-found/
+- Redirect archive to the post index

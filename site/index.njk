@@ -1,0 +1,14 @@
+---
+title: "Links to everything"
+layout: default.njk
+---
+Hi!
+
+{% for item in collections.allBlogPosts %}
+<li>
+  <a href="{{ item.url }}">
+    {{ item.data.title }}
+    {{ item.date | asPostDate }}
+  </a>
+</li>
+{% endfor %}
