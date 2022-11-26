@@ -1,0 +1,16 @@
+---
+title: "Blog"
+layout: default.njk
+permalink: "/blog/archive/"
+---
+
+Blog archive
+
+{% for item in collections.allBlogPosts %}
+  <li>
+    <a href="{{ item.url }}">
+      {{ item.data.title }}
+      {{ item.date | asPostDate }}
+    </a>
+  </li>
+{% endfor %}

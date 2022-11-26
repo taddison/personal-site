@@ -15,6 +15,7 @@ Being migrated from Gatsby to 11ty.
   - Blog
   - Archive
   - Blog post template
+- RSS feed
 
 ## Other notes
 
