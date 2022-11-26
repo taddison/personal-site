@@ -10,7 +10,27 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("allBlogPosts", function (collectionApi) {
-    return collectionApi.getFilteredByTag("::page-type:blog-post");
+    return collectionApi.getFilteredByTag("::page-type:blog-post").reverse();
+  });
+
+  eleventyConfig.addCollection("blogPostsByYear", function (collectionApi) {
+    const blogPosts = collectionApi
+      .getFilteredByTag("::page-type:blog-post")
+      .reverse();
+
+    const years = blogPosts.map((blogPost) => blogPost.date.getFullYear());
+    const uniqueYears = Array.from(new Set(years));
+
+    const postsByYear = uniqueYears.reduce((acc, year) => {
+      const blogPostsForYear = blogPosts.filter(
+        (blogPost) => blogPost.date.getFullYear() === year
+      );
+
+      acc.push([year, blogPostsForYear]);
+      return acc;
+    }, []);
+
+    return postsByYear;
   });
 
   eleventyConfig.addPassthroughCopy("fonts");
