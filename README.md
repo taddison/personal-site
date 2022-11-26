@@ -5,12 +5,16 @@ Being migrated from Gatsby to 11ty.
 ## What to do next
 
 - Shell pages
-  - Home page
-  - /blog
-  - about
   - Archive (copy-paste of index OR redirect?)
+  - Tags
 - Images
 - Nav - confirm the _direction_ of the collection is correct (think it might need to be reversed for next/previous to work?)
+- Full content
+  - Home
+  - About
+  - Blog
+  - Archive
+  - Blog post template
 
 ## Other notes
 

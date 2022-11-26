@@ -1,14 +1,9 @@
 ---
-title: "Links to everything"
+title: "Home"
 layout: default.njk
 ---
-Hi!
+Hey there! 👋
 
-{% for item in collections.allBlogPosts %}
-<li>
-  <a href="{{ item.url }}">
-    {{ item.data.title }}
-    {{ item.date | asPostDate }}
-  </a>
-</li>
-{% endfor %}
+I <a href="/blog">write a blog</a> on mostly engineering topics (ranging from SQL Server to Gatsby), and occasionally publish <a href="/blog/tags#Links">link roundups</a> of stuff I find interesting. You can also read a little more <a href="/about">about me</a>, or see what I'm up to on <a href="https://www.github.com/taddison" target="_blank">GitHub</a>.
+
+- Tim

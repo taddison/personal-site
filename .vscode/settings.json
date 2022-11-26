@@ -5,5 +5,8 @@
   "files.eol": "\n",
   "workbench.colorCustomizations": {
     "titleBar.activeBackground": "#912b91" // change this color!
+  },
+  "[nunjucks]": {
+    "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
   }
 }
