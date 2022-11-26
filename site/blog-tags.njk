@@ -1,0 +1,26 @@
+---
+title: "Blog Posts by Tag"
+layout: default.njk
+permalink: "/blog/tags/"
+---
+
+Posts by Tag
+
+{% for tag in collections.blogPostTags %}
+  <a href="/blog/tags/#{{ tag | removeWhitespace }}">{{ tag }}</a>
+{% endfor %}
+
+{% for tag, posts in collections.blogPostsByTag %}
+  <h2 id="{{ tag | removeWhitespace }}">{{ tag }}</h2>
+  {{ posts.length }} post{{ "s" if posts.length !== 1 }}
+  <ol>
+    {% for post in posts %}
+      <li>
+        <a href="{{ post.url }}">
+          {{ post.data.title }}
+          {{ post.date | asPostDate }}
+        </a>
+      </li>
+    {% endfor %}
+  </ol>
+{% endfor %}
