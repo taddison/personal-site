@@ -1,11 +1,20 @@
+const markdownParser = require("markdown-it")();
 const Image = require("@11ty/eleventy-img");
 
-// eslint-disable-next-line no-unused-vars
 function imageRule(tokens, idx, options, env, self) {
   const token = tokens[idx];
 
   // ![Alt Text](relative/path/to/src.png Image Title)
   const imageSourceFromMarkdown = token.attrGet("src");
+
+  // If the image is an external image, use the original renderer for now
+  if (
+    imageSourceFromMarkdown.length > 3 &&
+    imageSourceFromMarkdown.startsWith("http")
+  ) {
+    return markdownParser.renderer.rules.image(tokens, idx, options, env, self);
+  }
+
   const alt = token.content;
   const title = token.attrGet("title");
 
@@ -19,10 +28,11 @@ function imageRule(tokens, idx, options, env, self) {
     htmlOptions.title = title;
   }
 
-  const siteRoot = "_site";
+  const siteInputRoot = "site"; // TODO: is this in the env anywhere?
+  const siteDeployRoot = "_site"; // TODO: is this in the env anywhere?
   const urlPath = env.page.url; // /blog/cool-blog-post/
-  const outputDir = `./${siteRoot}${env.page.url}`; // ./_site/blog/cool-blog-post/
-  const imgSource = `.${urlPath}${imageSourceFromMarkdown}`; // ./_site/blog/cool-blog-post/image.png
+  const outputDir = `./${siteDeployRoot}${env.page.url}`; // ./_site/blog/cool-blog-post/
+  const imgSource = `./${siteInputRoot}${urlPath}${imageSourceFromMarkdown}`; // /blog/cool-blog-post/image.png
 
   const imgOptions = {
     widths: [295, 590, 885, 1180, 1475, 1770],
