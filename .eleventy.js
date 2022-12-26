@@ -1,4 +1,6 @@
 const { DateTime } = require("luxon");
+const markdownParser = require("markdown-it")();
+const { imageRule } = require("./eleventyUtils/markdown");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("asPostDate", (dateObj) => {
@@ -37,8 +39,8 @@ module.exports = function (eleventyConfig) {
     return postsByYear;
   });
 
-  // TODO: Filtered tags for blog post - share this
-  // TODO: Filtering logic to remove 'meta' tags - share this
+  // TODO: Filtered tags for blog post - shared function/reusable
+  // TODO: Filtering logic to remove 'meta' tags - shared functional/reusable
   eleventyConfig.addCollection("blogPostTags", function (collectionApi) {
     const blogPosts = collectionApi
       .getFilteredByTag("::page-type:blog-post")
@@ -80,6 +82,9 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("fonts");
+
+  markdownParser.renderer.rules.image = imageRule;
+  eleventyConfig.setLibrary("md", markdownParser);
 
   return {
     markdownTemplateEngine: "njk",
