@@ -4,7 +4,8 @@ Being migrated from Gatsby to 11ty.
 
 ## What to do next
 
-- Images
+- ShareImage generation + SEO headers
+- Markdown - override h3 to have id = {whatever the h3 title is} to anchors - e.g. #custom-json-payload from Custom Json Payload
 - Nav - confirm the _direction_ of the collection is correct (think it might need to be reversed for next/previous to work?)
 - Full content
   - Home
@@ -12,6 +13,7 @@ Being migrated from Gatsby to 11ty.
   - Blog
   - Archive
   - Blog post template
+- Header
 - RSS feed
 
 ## Other notes
@@ -40,3 +42,12 @@ Tidy-up after:
 - https://www.11ty.dev/docs/quicktips/not-found/
 - Redirect archive to the post index
 - Tidy up functions so they can actually be tested, see https://github.com/11ty/eleventy-base-blog/blob/87c7dd40efc278717d09de219d33ff4a6c4315a8/.eleventy.js
+
+Outstanding:
+
+- How do images used in regular pages work (we only overrode for markdown)
+
+Pre-launch verification:
+
+- Blog Post Images
+  - Need to verify these all look fine with a manual inspection. Build takes 4 minutes (up from 10 seconds). May want to consider a _fast_ mode for builds where we only generate one image not all of them?

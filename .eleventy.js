@@ -81,7 +81,9 @@ module.exports = function (eleventyConfig) {
     return postsByTag;
   });
 
+  // https://www.11ty.dev/docs/copy/
   eleventyConfig.addPassthroughCopy("fonts");
+  eleventyConfig.addPassthroughCopy("site/blog/**/*.{json,pbit,pbix,xlsx,sql}");
 
   markdownParser.renderer.rules.image = imageRule;
   eleventyConfig.setLibrary("md", markdownParser);
