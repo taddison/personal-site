@@ -11,8 +11,6 @@ We recently got some reports that one of our website solutions was 'slow' when d
 
 From our starting point of 'it runs slow locally, I think it is the database' we'll figure out precisely how slow it is, and whether it really is the database or not.
 
-<!--more-->
-
 ## Investigating with the portal
 
 After navigating to the AppInsights resource that holds our development telemetry, we select the _performance_ blade.

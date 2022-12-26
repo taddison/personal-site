@@ -16,8 +16,6 @@ Doing this manually is possible (and right now the [comments on the auto-inflate
 
 _Where is the auto deflate checkbox?_
 
-<!--more-->
-
 ## Pre-requisites
 
 In order to deploy the solution we'll need:

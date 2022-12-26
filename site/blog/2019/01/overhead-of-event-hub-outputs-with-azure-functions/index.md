@@ -22,8 +22,6 @@ If you're wondering why we wanted to deconstruct the function's cost when an _ex
 
 > Execution units vs. what you see on the pricing page is covered later in the post.
 
-<!--more-->
-
 ## Consumption billing
 
 Functions hosted on the consumption plan charge you for:

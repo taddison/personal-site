@@ -10,8 +10,6 @@ Ensuring your jobs are all owned by SA is a best practice I've used to help mini
 
 There are plenty of ways of going about this, though the most flexible I've found so far is making it an automated infrastructure test with Pester. If you're not familiar with Pester I encourage you to check out the [Pester Github site](https://github.com/pester/Pester), and then for more SQL specific details browse the Pester category of posts by [SQL DBA With a Beard](https://sqldbawithabeard.com/tag/pester/).
 
-<!--more-->
-
 Once Pester is configured, the simplest way to execute a test is to run the following.
 
 ```powershell

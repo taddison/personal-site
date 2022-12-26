@@ -26,8 +26,6 @@ Once you've invested time into building out a library of Pester _tests_ for your
 
 If you don't already have a Log Analytics workspace I did a fairly detailed write-up last month: [Getting started with Log Analytics and PowerShell logging].
 
-<!--more-->
-
 ## Pester Result Schema
 
 While we could log an absolutely minimal object to Log Analytics, I've found that adding a little more structure is helpful for both debugging and analysing test results.

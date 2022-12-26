@@ -11,8 +11,6 @@ A little over a year ago I lamented the lack of an auto-deflate feature for Even
 
 With the addition of a PowerShell script to grant the appropriate permissions to all of your namespaces, you can be up and running (or deflating) in a matter of minutes.
 
-<!--more-->
-
 ## Function App
 
 The source code for the function app can be found on GitHub in the [ScaleDownEventHubs repo]. This is an Azure Functions v2 app which is by default configured to run every six hours. When executed the function will:

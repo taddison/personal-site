@@ -25,8 +25,6 @@ and         ars.is_local = 1;
 
 Under the hood this DMV is calling into the Windows clustering APIs to determine the current status of the replica. There isn't a tonne of information out there - some comments on this [SO answer](https://dba.stackexchange.com/a/131636) confirm what the DMV is doing, and [this MSFT post](https://blogs.msdn.microsoft.com/sqlmeditation/2017/08/18/what-really-happens-when-hadr_clusapi_call-wait-type-is-set/) adds a little more detail. After checking some of the obvious items listed in the second post I decided that maybe we shouldn't be querying the DMV quite so often, and given how rarely the information changes ("is my node the primary replica?") caching this information seemed like a good fit.
 
-<!--more-->
-
 ## Implementing caching
 
 Caching of the replica state is available in any release of [tsqlscheduler](https://github.com/taddison/tsqlScheduler) starting with [1.1](https://github.com/taddison/tsqlScheduler/releases/tag/1.1). Each task now specifies whether or not it uses the cached replica check or not - most tasks should use the cached replica check, with the exception of the task which keeps the cache updated.

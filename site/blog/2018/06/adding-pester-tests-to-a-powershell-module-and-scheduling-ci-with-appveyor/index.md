@@ -20,8 +20,6 @@ And once we're done a quick glance at our readme will show:
 
 ![SQLChecks with badges](./SQLChecksGithubBadges.png)
 
-<!--more-->
-
 ## Adding a Test
 
 We're going to add the Pester tests to a new `tests` folder in the root of the repository. The module (including its manifest and all functions) are all in the `src/SQLChecks` folder.

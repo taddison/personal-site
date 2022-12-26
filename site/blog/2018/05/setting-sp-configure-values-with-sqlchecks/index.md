@@ -18,8 +18,6 @@ Running in verbose means that it'll output progress as it changes a value, as we
 
 > Note the command compares the configured value against the expected value - if the configured value is correct but the runtime value is wrong then this will neither fail the Pester tests, nor update the value when using `Set-SpConfig`.
 
-<!--more-->
-
 You can easily apply changes to a whole estate of servers by using the below script, which will find every config file in a folder (or subfolder) and apply the `sp_configure` values to the servers.
 
 ```powershell

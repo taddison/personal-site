@@ -25,8 +25,6 @@ Sometimes it makes sense to rework the script to accept the argument, though oth
 
 The rest of this post will go through a specific example that motivated caching, share a generic function that implements scriptblock-based caching, and call out a few and gotchas.
 
-<!--more-->
-
 ## The Problem
 
 The [SQLChecks][sqlchecks repo] library contains a set of [Pester][pester repo] tests that are designed to compare expected configuration against actual configuration. The first step of any per-database check is to query the instance (`Get-DatabasesToCheck`) and get a list of databases to test. This query can end up being very slow (tens of seconds) when the server has a lot of availability group databases.

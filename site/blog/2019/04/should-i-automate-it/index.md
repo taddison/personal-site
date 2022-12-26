@@ -14,8 +14,6 @@ This post isn't about convincing you that it's time to automate that thing (if y
 
 Download the [Calculator] to follow along!
 
-<!--more-->
-
 ## The weekly health check
 
 Let's imagine that every week you have a few SQL Servers you run a health check on - you grab a bit of data on key metrics, compare to a baseline number, and then send a quick summary to the team highlighting anywhere the servers need some attention this week. Let's say it currently takes you 30 minutes, and you do it every week.

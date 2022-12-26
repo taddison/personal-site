@@ -39,8 +39,6 @@ In this example there are four tasks which have been running for 55 seconds. The
 
 The rest of this post talks through how the mapping works.
 
-<!--more-->
-
 ## Recap of tsqlScheduler
 
 tsqlScheduler creates one SQL Agent job per entry in the _scheduler.Task_ table. The agent job calls the _scheduler.ExecuteTask_ procedure, which eventually calls sp_executesql to run the TSQL specified by the entry in the task table.

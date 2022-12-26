@@ -25,8 +25,6 @@ This creates a CSV that contains transactions tagged with #expense in the Monzo 
 
 A little copy-paste later and I'm done. Read on for details on how it works, and where you can customise the data you return. If you want to use this on your own data (or try it out on some sample data) you can get everything you need in this [example GitHub repo](https://github.com/taddison/blog-monzo-expenses/blob/master/Expenses.ps1).
 
-<!--more-->
-
 ## How the script works
 
 The script:

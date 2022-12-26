@@ -13,8 +13,6 @@ In this post I'll walk through what an environment leveraging service broker mig
 
 ![Blocking](./BrokerLatch.png)
 
-<!--more-->
-
 ## Service Broker Recap
 
 SQL Service Broker (SSB) can be used as a messaging system to decouple applications. Note that SSB is a complex product and this specific example only covers one way it can be used (or perhaps misused).

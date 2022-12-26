@@ -16,8 +16,6 @@ This post will walk through how to set up a basic configuration management proce
 
 _In this example we've failed one of the tests that is checking that the right trace flags are set on the server (and both of them are missing!)_
 
-<!--more-->
-
 ## Specifying your desired instance configuration
 
 One of the key activities to onboard a server/service into configuration management is to specify what that configuration should look like. SQLChecks currently focuses on SQL instance configuration, and at the time of writing allows us to specify:

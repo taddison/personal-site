@@ -23,8 +23,6 @@ There isn't yet a convention for how to name a test, and we've already had some 
 You can find the [full test on GitHub][tag uniqueness test on github], or read on for an explanation of how it is implemented. For a more thorough exploration of tests you can run on Describe blocks see SQLDBAWithABeard's blog [Using the AST in Pester for dbachecks]
 (which inspired this test), or the TechNet post [learn how it pros can use the PowerShell AST].
 
-<!--more-->
-
 ## Overview
 
 At a high level the test:

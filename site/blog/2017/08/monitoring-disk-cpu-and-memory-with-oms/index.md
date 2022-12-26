@@ -12,8 +12,6 @@ In the [previous post](/blog/2017/08/building-better-oms-alerts-with-function-ap
 
 The final code for the functions and example payloads are available in [this GitHub repo](https://github.com/taddison/blog-oms-to-slack/tree/master/MultipleFunctions).
 
-<!--more-->
-
 ## OMS Alerts
 
 These are designed to run over a 5 minute period, every 5 minutes, alerting on 3 consecutive breaches.

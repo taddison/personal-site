@@ -16,8 +16,6 @@ When we create a funnel chart in Power BI we see the following:
 
 That is technically correct (there are 3 applications in the New stage), but it isn't what we wanted (10 people applied and we hired 1 - which is not a 25% hire rate). While we could change our data (typically modifying the query to include multiple columns - one for each stage), this one is fairly easy to solve with a few DAX calculations to return the inclusive number of applications by stage.
 
-<!--more-->
-
 The core measure we build returns the number of applications which have got to _at least_ that stage. We do this by removing the filter context from both Stage and StageOrder (we typically visualise by Stage, but we rely on StageOrder for ranking stages), and then using the MAX function to pull the value of StageOrder from the filter context. In our case, the filter context will be the current group expression on the funnel.
 
 ```dax

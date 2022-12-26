@@ -14,8 +14,6 @@ To get started you can create a free workspace which lets you ingest up to 5GB o
 
 This post will walk through creating a Log Analytics workspace, uploading some logs with PowerShell, and then querying them via the portal. To follow along you'll need an Azure subscription and the AzureRM PowerShell module - for installation instructions see the [prerequisites](#prerequisites) section at the end of this post.
 
-<!--more-->
-
 ## Creating the workspace
 
 We'll create the workspace using PowerShell. If you prefer you can [create the workspace via the Azure Portal].

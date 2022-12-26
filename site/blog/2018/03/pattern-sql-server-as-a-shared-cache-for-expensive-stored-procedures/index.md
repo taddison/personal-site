@@ -22,8 +22,6 @@ The rest of the post will walk through a generic pattern to cache stored procedu
 
 If you want to see the full example, you can check the [complete source on GitHub](https://github.com/taddison/DBCacheExample). Before deploying into production I strongly suggest reading through the entire post for caveats and trade-offs.
 
-<!--more-->
-
 ## The problem
 
 For this worked example we're going to use a procedure that gets the top selling products for a given category - something like Amazon's category page which shows the top sellers.

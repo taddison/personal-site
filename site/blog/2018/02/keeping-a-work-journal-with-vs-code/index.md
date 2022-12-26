@@ -11,8 +11,6 @@ I've recently started to keep a [work journal](https://peterlyons.com/leveling-u
 ![Sample Journal](./JournalSample.png)
 _A sample journal entry_
 
-<!--more-->
-
 ## Workflow goals
 
 In setting up a workflow there were a few requirements I had:

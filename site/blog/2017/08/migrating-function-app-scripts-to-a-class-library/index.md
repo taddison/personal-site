@@ -15,8 +15,6 @@ If you want to skp the interim steps and get straight to the finished code it is
 - [Start - three function apps as script files](https://github.com/taddison/blog-oms-to-slack/tree/138cd510adb2ceee5aaa272507d797a7aaf27b7c)
 - [End - one class library exposing three functions](https://github.com/taddison/blog-oms-to-slack/tree/master/ClassLibrary)
 
-<!--more-->
-
 ## Migrating the function scripts
 
 Create a new function app project (this step needs [Visual Studio 2017 15.3](https://www.visualstudio.com/downloads/)). If you don't see the option to create function apps you might not have installed the Azure development workload. The [official documentation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-your-first-function-visual-studio) walks through what is needed to build a function app with Visual Studio. [(repo)](https://github.com/taddison/blog-oms-to-slack/tree/7b2955dcac59aa905583056b71bb379ce07d73de/ClassLibrary)

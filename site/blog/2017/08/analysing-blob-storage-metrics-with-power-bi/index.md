@@ -16,8 +16,6 @@ You can download a copy of the template from [this repo](https://github.com/tadd
 
 ![Power BI Report](./CapacityAndMetrics.png)
 
-<!--more-->
-
 # Using the Power BI template
 
 To use the Power BI template you'll need [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/), a copy of the template (latest version from [this repo](https://github.com/taddison/blog-power-bi-azure-storage)), and the storage account name and key.

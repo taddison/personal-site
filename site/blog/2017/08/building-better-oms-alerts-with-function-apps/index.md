@@ -14,8 +14,6 @@ We'll use a simple function app to not only report which server triggered the al
 
 If you want to skip straight to the final code it is available in [this GitHub repo](https://github.com/taddison/blog-oms-to-slack/tree/master/SingleFunctionCPU).
 
-<!--more-->
-
 ## Pre-requisites
 
 - An OMS account ([info](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview))

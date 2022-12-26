@@ -20,8 +20,6 @@ The reason the formula stops working when we filter on the role (DBA) the table 
 
 The good news is this is an easy fix.
 
-<!--more-->
-
 ## Fixing the funnel
 
 Solving this issue is much easier if we first improve our data model, and take the 'Stage' dimension and create a dedicated dimension (or lookup) table for it. A great introduction to data modelling is available on [PowerPivotPro](https://powerpivotpro.com/2016/02/data-modeling-power-pivot-power-bi/).

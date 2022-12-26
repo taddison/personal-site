@@ -22,8 +22,6 @@ If you want to get started quickly:
 
 Otherwise, read on for more details on what the function looks like, and more details on configuring the alerts and overrides.
 
-<!--more-->
-
 ## Solution Overview
 
 - The solution is comprised of one or more alerts in OMS, an Azure function, and a Slack endpoint

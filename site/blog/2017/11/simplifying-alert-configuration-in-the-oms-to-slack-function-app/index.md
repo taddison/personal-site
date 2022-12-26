@@ -20,8 +20,6 @@ If you want to look at the finished repo you can see it [on GitHub](https://gith
 
 ![Excel Configuration](./ExcelConfiguration.png)
 
-<!--more-->
-
 ## Configuring an alert
 
 One of the most significant changes is the OMS payload. I've included the old & new payloads for a CPU alert below.

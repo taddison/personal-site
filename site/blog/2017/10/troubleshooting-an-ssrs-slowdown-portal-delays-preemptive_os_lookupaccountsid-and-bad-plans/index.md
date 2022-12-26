@@ -28,8 +28,6 @@ order by    el.TimeStart desc
 
 The query showed that subscriptions were working and some users were successfully browsing & running reports interactively. Knowing that the whole instance wasn't broken I was able to proceed to troubleshoot the specific issue of the portal misbehaving.
 
-<!--more-->
-
 ## Looking into the portal issues
 
 To summarise the problem after a few minutes of sense checks:

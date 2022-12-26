@@ -24,8 +24,6 @@ These open deltastores have a number of drawbacks:
 
 The rest of this post will cover these in a bit more detail, as well as how to see if you're impacted and what to do about.
 
-<!--more-->
-
 ## Increased size on disk
 
 The first example is best shown by a table which had escaped any kind of index maintenance:

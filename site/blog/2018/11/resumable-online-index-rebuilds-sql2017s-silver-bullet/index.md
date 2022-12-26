@@ -10,8 +10,6 @@ Every new version of SQL Server comes with a whole grab-bag of new features that
 
 In this post I'll talk through a few of the scenarios where this feature really shines, and how it has transformed the way we think about index maintenance. If you'd like more details about how ROIR is implemented I'd encourage you to read through the [excellent paper detailing ROIR] - this covers how the online index rebuild algorithm was updated, and also demonstrates how in most cases ROIR outperforms the non-resumable version in terms of performance.
 
-<!--more-->
-
 ## When index rebuilds are kind of a big deal
 
 A few conditions (either individually or in combination) can make index rebuilds a pretty big deal in an environment:

@@ -12,8 +12,6 @@ This nearly always ends in pain when you need to pull updates from the repositor
 
 The public repo we're consuming is [SQLInfrastructureTests](https://github.com/taddison/SQLInfrastructureTests), and the private repository that we'll be using is [SQLInfrastructureTests-Helper](https://github.com/taddison/SQLInfrastructureTests-Helper).
 
-<!--more-->
-
 The Install.ps1 script lives in our helper and will either clone the repository (if it doesn't exist), or update it if does.
 
 **Install.ps1**

@@ -16,8 +16,6 @@ I've found the below queries very helpful starting points for three main scenari
 
 The latter is particularly important before rolling a change to a workspace with long retention - you wouldn't want (hypothetically :)) to accidentally ingest 100GB of IIS logs and then be forced to retain them for 2 years...
 
-<!--more-->
-
 ## Workspace solution/data type usage
 
 This query provides a summary of the top solutions and data types in a single workspace, along with how they contribute to overall usage. If your workspace has a lot of different solutions or data types you'll benefit from changing the values passed to the `top-nested` operators.

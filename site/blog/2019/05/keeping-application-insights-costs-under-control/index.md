@@ -17,8 +17,6 @@ In order to vet your estate and bring it under control, the PowerShell script be
 
 In the above example I ran the script against a newly deployed resource, configured to reduce anything with a cap greater than 10GB down to 1GB.
 
-<!--more-->
-
 ## Script Details
 
 The script has three different configuration options:

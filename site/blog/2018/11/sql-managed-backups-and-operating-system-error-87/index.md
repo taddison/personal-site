@@ -18,8 +18,6 @@ Nothing suggested there were any issues - backups were still being taken, our ba
 
 Understanding where the error came from and how to fix it required a better understanding of exactly how managed backup works.
 
-<!--more-->
-
 ## How does managed backup know what backups are available?
 
 > The backup in question was from an availability group - the replica the backup runs from frequently changes, but managed backup (via msdb) always has a full list of available backups for the database.

@@ -25,8 +25,6 @@ You can get started right away by grabbing the [source from Github](https://gith
 
 Read on for more details about what is currently supported, as well as details of how it works under the hood.
 
-<!--more-->
-
 ## Features
 
 ### Visualising simple call trees

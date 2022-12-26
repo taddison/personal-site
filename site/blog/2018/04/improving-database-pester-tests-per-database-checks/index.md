@@ -17,8 +17,6 @@ Arriving in the morning to discover one (or more) databases on an instance have 
 
 The rest of this post covers what the changes looked like, and talk a little more about the benefits of structuring tests this way.
 
-<!--more-->
-
 ## Test changes
 
 The original test is shown below, which produces a single result for the whole instance.
