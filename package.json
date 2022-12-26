@@ -18,6 +18,7 @@
     "prettier:check": "prettier --check \"**/*.{js,mjs,json,md,mdx}\"",
     "prettier:format": "prettier --write \"**/*.{js,mjs,json,md,mdx}\"",
     "dev": "eleventy --serve & npx tailwindcss -i ./styles/site.css -o ./_site/site.css --watch",
+    "build": "eleventy && npx tailwindcss -i ./styles/site.css -o ./_site/site.css -m",
     "lint": "eslint .",
     "new": "node scripts/newpost.mjs",
     "spell": "cspell content/blog/**/*.md*"
