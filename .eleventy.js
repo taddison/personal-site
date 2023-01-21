@@ -16,7 +16,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("allBlogPosts", function (collectionApi) {
-    return collectionApi.getFilteredByTag("::page-type:blog-post").reverse();
+    return collectionApi.getFilteredByTag("::page-type:blog-post");
   });
 
   eleventyConfig.addCollection("blogPostsByYear", function (collectionApi) {

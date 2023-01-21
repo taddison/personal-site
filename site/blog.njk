@@ -7,7 +7,7 @@ Blog
 
 A mostly technical blog that covers everything from the frontend to making SQL Server go fast. Recent posts are shown below. You can also browse <a href="/blog/tags">posts by tag</a>, view the <a href="/blog/archive">whole archive</a>, or subscribe to the RSS feed.
 
-{% for post in collections.allBlogPosts %}
+{% for post in collections.allBlogPosts | reverse %}
   <li>
     <a href="{{ post.url }}">
       {{ post.data.title }}
