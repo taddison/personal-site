@@ -6,7 +6,6 @@ Being migrated from Gatsby to 11ty.
 
 - ShareImage generation + SEO headers
 - Markdown - override h3 to have id = {whatever the h3 title is} to anchors - e.g. #custom-json-payload from Custom Json Payload
-- Nav - confirm the _direction_ of the collection is correct (think it might need to be reversed for next/previous to work?)
 - Full content
   - Home
   - About
