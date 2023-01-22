@@ -1,6 +1,6 @@
 const { DateTime } = require("luxon");
 const markdownParser = require("markdown-it")();
-const { imageRule } = require("./eleventyUtils/markdown");
+const { imageRule, shareImageShortcode } = require("./eleventyUtils/markdown");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("asPostDate", (dateObj) => {
@@ -20,9 +20,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("blogPostsByYear", function (collectionApi) {
-    const blogPosts = collectionApi
-      .getFilteredByTag("::page-type:blog-post")
-      .reverse();
+    const blogPosts = collectionApi.getFilteredByTag("::page-type:blog-post");
 
     const years = blogPosts.map((blogPost) => blogPost.date.getFullYear());
     const uniqueYears = Array.from(new Set(years));
@@ -87,6 +85,11 @@ module.exports = function (eleventyConfig) {
 
   markdownParser.renderer.rules.image = imageRule;
   eleventyConfig.setLibrary("md", markdownParser);
+
+  eleventyConfig.addNunjucksAsyncShortcode(
+    "shareImageUri",
+    shareImageShortcode
+  );
 
   return {
     markdownTemplateEngine: "njk",

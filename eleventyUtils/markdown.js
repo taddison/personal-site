@@ -8,10 +8,7 @@ function imageRule(tokens, idx, options, env, self) {
   const imageSourceFromMarkdown = token.attrGet("src");
 
   // If the image is an external image, use the original renderer for now
-  if (
-    imageSourceFromMarkdown.length > 3 &&
-    imageSourceFromMarkdown.startsWith("http")
-  ) {
+  if (imageSourceFromMarkdown.length > 3 && imageSourceFromMarkdown.startsWith("http")) {
     return markdownParser.renderer.rules.image(tokens, idx, options, env, self);
   }
 
@@ -56,4 +53,21 @@ function imageRule(tokens, idx, options, env, self) {
   return generated;
 }
 
-module.exports = { imageRule };
+async function shareImageShortcode(src) {
+  const { url } = this.page;
+  // TODO - put these in the file globally, infer from environment, other?
+  const siteRoot = "_site";
+  const imageSrc = "./site" + url + src;
+  let metadata = await Image(imageSrc, {
+    widths: [600],
+    formats: ["jpeg"],
+    urlPath: url,
+    outputDir: `./${siteRoot}/${url}`,
+  });
+
+  // array of image widths - we only asked for one
+  let data = metadata.jpeg[0];
+  return data.url;
+}
+
+module.exports = { imageRule, shareImageShortcode };

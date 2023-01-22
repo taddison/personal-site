@@ -8,7 +8,14 @@ title: tjaddison.com
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/site.css">
-    <title>{{ title }} {{ "| tjaddison.com" if title !== "tjaddison.com" }}</title>
+    <title>{{ title }}
+      {{ "| tjaddison.com" if title !== "tjaddison.com" }}</title>
+
+    {% if shareimage %}
+      <meta property="og:image" content="{% shareImageUri shareimage %}">
+    {% else %}
+      <!-- i dont have a share image -->
+    {% endif %}
   </head>
   <body>
     {{ content | safe }}
