@@ -1,6 +1,6 @@
 const { DateTime } = require("luxon");
 const markdownParser = require("markdown-it")();
-const { imageRule, shareImageShortcode } = require("./eleventyUtils/markdown");
+const { imageRule, shareImageShortcode } = require("./eleventyUtils/utils");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("asPostDate", (dateObj) => {
