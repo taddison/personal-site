@@ -89,7 +89,8 @@ module.exports = function (eleventyConfig) {
   // https://www.npmjs.com/package/markdown-it-anchor#permalinks
   markdownParser.use(markdownItAnchor, {
     permalink: markdownItAnchor.permalink.headerLink({
-      class: "no-underline hover:underline text-inherit",
+      class:
+        "no-underline hover:underline text-inherit hover:after:content-['_🔗']",
     }),
     level: [1, 2, 3, 4],
     slugify: eleventyConfig.getFilter("slugify"),
