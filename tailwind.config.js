@@ -5,6 +5,13 @@ module.exports = {
   content: ["./site/**/*.{md,njk}", "./.eleventy.js"],
   theme: {
     extend: {
+      colors: {
+        "accent-1": `#EEF0F2`,
+        "accent-2": `#C6C764`,
+        "accent-3": `#A2999E`,
+        "accent-4": `#846A6A`,
+        "accent-5": `#353B3C`,
+      },
       fontFamily: {
         sans: [`InterVariable`, ...defaultTheme.fontFamily.sans],
       },
