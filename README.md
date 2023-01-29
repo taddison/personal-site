@@ -4,7 +4,7 @@ Being migrated from Gatsby to 11ty.
 
 ## What to do next
 
-- Markdown - override h3 to have id = {whatever the h3 title is} to anchors - e.g. #custom-json-payload from Custom Json Payload
+- Nav (in the header just put all the links, no JS powered nav for now/maybe ever)
 - Full content
   - Home
   - About
@@ -43,6 +43,7 @@ Tidy-up after:
 - generate a default share image when one is not present
 - alt text for share images
 - custom description og meta-tag used for blog posts
+- put a link icon before/after on hover for permalinks
 
 Outstanding:
 

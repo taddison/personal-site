@@ -1,5 +1,6 @@
 const { DateTime } = require("luxon");
 const markdownParser = require("markdown-it")();
+const markdownItAnchor = require("markdown-it-anchor");
 const { imageRule, shareImageShortcode } = require("./eleventyUtils/utils");
 
 module.exports = function (eleventyConfig) {
@@ -84,6 +85,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("site/blog/**/*.{json,pbit,pbix,xlsx,sql}");
 
   markdownParser.renderer.rules.image = imageRule;
+
+  // https://www.npmjs.com/package/markdown-it-anchor#permalinks
+  markdownParser.use(markdownItAnchor, {
+    permalink: markdownItAnchor.permalink.headerLink({
+      class: "no-underline hover:underline text-inherit",
+    }),
+    level: [1, 2, 3, 4],
+    slugify: eleventyConfig.getFilter("slugify"),
+  });
+
+  // TODO: In 2.0 - https://www.11ty.dev/docs/languages/markdown/#optional-amend-the-library-instance
   eleventyConfig.setLibrary("md", markdownParser);
 
   eleventyConfig.addNunjucksAsyncShortcode(
