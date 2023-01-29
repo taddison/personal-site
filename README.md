@@ -4,14 +4,13 @@ Being migrated from Gatsby to 11ty.
 
 ## What to do next
 
-- Nav (in the header just put all the links, no JS powered nav for now/maybe ever)
+- Review nav (looks like it mostly works) - check mobile
 - Full content
   - Home
   - About
   - Blog
   - Archive
   - Blog post template
-- Header
 - RSS feed
 
 ## Other notes
