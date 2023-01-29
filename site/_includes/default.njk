@@ -13,8 +13,14 @@ title: tjaddison.com
     {% if shareimage %}
       <meta property="og:image" content="{% shareImageUri shareimage %}">
     {% else %}
-      <!-- i dont have a share image -->
+      <!-- i dont have a share image - TODO: default share image? -->
     {% endif %}
+
+    <!-- Indieweb -->
+    <link href="https://twitter.com/tjaddison" rel="me" />
+    <link rel="webmention" href="https://webmention.io/tjaddison.com/webmention" />
+    <link rel="pingback" href="https://webmention.io/tjaddison.com/xmlrpc" />
+    <!-- end Indieweb -->
   </head>
   <body>
     {{ content | safe }}
