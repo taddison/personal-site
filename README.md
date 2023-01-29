@@ -57,3 +57,9 @@ Pre-launch verification:
 --
 
 https://play.tailwindcss.com/Jx4M0JZF1S
+
+To get the colours to work correctly, I needed to:
+
+- Use the blue colour styling in `tailwind.config.js`
+- Set link decoration in the `prose ...` class style (this was previously in the config). If I set the colour here it overrode everything.
+- Set `text-inherit` on the class directly from the markdown anchor plugin

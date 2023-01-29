@@ -14,10 +14,6 @@ module.exports = {
             css: {
               a: {
                 color: theme(`colors.blue.600`),
-                textDecoration: null,
-                "&:hover": {
-                  textDecoration: `underline`,
-                },
               },
               "code::before": null,
               "code::after": null,
