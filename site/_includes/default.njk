@@ -1,20 +1,38 @@
 ---
 title: tjaddison.com
 ---
+{# TODO: This might be better placed as a shortcode? #}
+{% set finalTitle = title %}
+{% if finalTitle !== "tjaddison.com " %}
+  {% set finalTitle = finalTitle + " | tjaddison.com" %}
+{% endif %}
 
 <!doctype html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/site.css">
-    <title>{{ title }} {{ "| tjaddison.com" if title !== "tjaddison.com" }}</title>
+    <title>{{ finalTitle }}</title>
     
+    <!-- OpenGraph -->
     {% if shareimage %}
+      {# TODO: Alt text #}
       <meta property="og:image" content="{% shareImageUri shareimage %}">
     {% else %}
-      <!-- i dont have a share image - TODO: default share image? -->
+      {# TODO: default share image if none specified in post? #}
     {% endif %}
+
+    {# TODO: custom description for blog posts #}
+    <meta name="description" property="og:description" content="Engineering Management, SQL, and a dash of front-end from NYC.">
+    <meta property="og:title" content="{{ finalTitle }}">
+    <!-- end Opengraph -->
+
+    <!-- Twitter -->
+    {# https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup #}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@tjaddison">
+    <!-- end Twitter -->
 
     <!-- Indieweb -->
     <link href="https://twitter.com/tjaddison" rel="me" />

@@ -4,7 +4,6 @@ Being migrated from Gatsby to 11ty.
 
 ## What to do next
 
-- SEO headers
 - Markdown - override h3 to have id = {whatever the h3 title is} to anchors - e.g. #custom-json-payload from Custom Json Payload
 - Full content
   - Home
@@ -42,6 +41,8 @@ Tidy-up after:
 - Redirect archive to the post index
 - Tidy up functions so they can actually be tested, see https://github.com/11ty/eleventy-base-blog/blob/87c7dd40efc278717d09de219d33ff4a6c4315a8/.eleventy.js
 - generate a default share image when one is not present
+- alt text for share images
+- custom description og meta-tag used for blog posts
 
 Outstanding:
 
