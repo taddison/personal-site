@@ -56,10 +56,18 @@ Pre-launch verification:
 
 --
 
-https://play.tailwindcss.com/Jx4M0JZF1S
+## Why there are 3 places prose is configured
 
-To get the colours to work correctly, I needed to:
+Goal is to have all links coloured in something different to the site default for prose. To have headings contain a link (so you can copy it as a permalink), but to keep the headers coloured in differently.
+
+This example shows what doesn't work.
+
+https://play.tailwindcss.com/ZXBx3JcLtQ
+
+I needed to:
 
 - Use the blue colour styling in `tailwind.config.js`
 - Set link decoration in the `prose ...` class style (this was previously in the config). If I set the colour here it overrode everything.
 - Set `text-inherit` on the class directly from the markdown anchor plugin
+
+The difference between the styling in the config file and the global class style is the config doesn't use the `where` CSS selector (low specificity) compared to the class approach which uses `is` (higher specificity).
