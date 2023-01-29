@@ -42,6 +42,29 @@ title: tjaddison.com
   </head>
   <body class="text-gray-800">
     <div class="min-h-screen flex flex-col">
+      
+      <header class="bg-accent-1 border-accent-5 border-b p-4 mb-6 flex items-center justify-between flex-wrap">
+        <h1 class="flex items-center flex-shrink-0">
+          <a
+            class="text-2xl font-extrabold hover:text-accent-3"
+            href="/"
+            rel="home"
+          >tjaddison.com</a>
+        </h1>
+        <div class="flex items-center :w-auto">
+          <div class="font-semibold flex-grow text-right">
+            <a
+              href="/about"
+              class="inline-block hover:text-accent-3 p-2"
+            >About</a>
+            <a
+              href="/blog"
+              class="inline-block hover:text-accent-3 p-2"
+            >Blog</a>
+          </div>
+        </div>
+      </header>
+
       <div class="mx-auto max-w-5xl px-6 md:px-0 flex-1 w-full md:w-5/6">
         <main>{{ content | safe }}</main>
       </div>
