@@ -17,7 +17,7 @@ title: Blog Home
   Tags:
   {% for tag in tags | removeMetaTags %}
     <li>
-      <a href="/blog/tags#{{ tag }}">{{ tag}}</a>
+      <a class="inline-block rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-700 mx-1 my-1 border-accent-5 border hover:bg-accent-3 hover:text-white hover:border-accent-3" rel="tag" href="/blog/tags#{{ tag }}">{{ tag}}</a>
     </li>
   {% endfor %}
 {% endif %}

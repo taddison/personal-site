@@ -4,23 +4,27 @@ layout: default.njk
 permalink: "/blog/tags/"
 ---
 
-Posts by Tag
+<h1 class="text-3xl font-bold mb-6 text-center">Posts by Tag</h1>
 
-{% for tag in collections.blogPostTags %}
-  <a href="/blog/tags/#{{ tag | removeWhitespace }}">{{ tag }}</a>
+<div class="mb-6">
+{% for tag, posts in collections.blogPostsByTag %}
+  <a class="inline-block rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-700 mx-1 my-1 border-accent-5 border hover:bg-accent-3 hover:text-white hover:border-accent-3" rel="tag" href="/blog/tags/#{{ tag | removeWhitespace }}">{{ tag }} ({{ posts.length }})</a>
 {% endfor %}
+</div>
 
 {% for tag, posts in collections.blogPostsByTag %}
-  <h2 id="{{ tag | removeWhitespace }}">{{ tag }}</h2>
-  {{ posts.length }} post{{ "s" if posts.length !== 1 }}
+<div class="mb-5" id="{{ tag | removeWhitespace }}">
+  <h2 class="font-semibold text-xl">{{ tag }}</h2>
+  <div class="italic text-gray-500 text-sm">{{ posts.length }} post{{ "s" if posts.length !== 1 }}</div>
   <ol>
     {% for post in posts %}
-      <li>
+      <li class="mb-1">
         <a href="{{ post.url }}">
           {{ post.data.title }}
-          {{ post.date | asPostDate }}
+          <span class="text-gray-500 text-sm">{{ post.date | asPostDate }}</span>
         </a>
       </li>
     {% endfor %}
   </ol>
+</div>
 {% endfor %}

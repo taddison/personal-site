@@ -4,13 +4,15 @@ Being migrated from Gatsby to 11ty.
 
 ## What to do next
 
-- Full content
+- indieweb tags
   - Home
   - About
-  - Blog
-    - Tags
-  - Blog post template
-- RSS feed
+  - Blog page
+  - Tags page
+  - Post template
+  - Archive page
+- rss feed
+- syntax highlighting
 
 ## Other notes
 
@@ -42,6 +44,7 @@ Tidy-up after:
 - alt text for share images
 - custom description og meta-tag used for blog posts
 - put a link icon before/after on hover for permalinks
+- webc for things like tag pills
 
 Outstanding:
 
@@ -51,6 +54,7 @@ Pre-launch verification:
 
 - Blog Post Images
   - Need to verify these all look fine with a manual inspection. Build takes 4 minutes (up from 10 seconds). May want to consider a _fast_ mode for builds where we only generate one image not all of them?
+  - May also want to optimize images in advance
 - Review site experience mobile, desktop
 
 --

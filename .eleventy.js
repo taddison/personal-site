@@ -40,18 +40,6 @@ module.exports = function (eleventyConfig) {
 
   // TODO: Filtered tags for blog post - shared function/reusable
   // TODO: Filtering logic to remove 'meta' tags - shared functional/reusable
-  eleventyConfig.addCollection("blogPostTags", function (collectionApi) {
-    const blogPosts = collectionApi
-      .getFilteredByTag("::page-type:blog-post")
-      .reverse();
-
-    const tags = blogPosts.map((blogPost) => blogPost.data.tags).flat();
-    const uniqueTags = Array.from(new Set(tags));
-    const filteredTags = uniqueTags.filter((tag) => !tag.startsWith("::"));
-
-    return filteredTags;
-  });
-
   eleventyConfig.addCollection("blogPostsByTag", function (collectionApi) {
     const blogPosts = collectionApi
       .getFilteredByTag("::page-type:blog-post")
@@ -76,7 +64,7 @@ module.exports = function (eleventyConfig) {
       }
     }
 
-    const postsByTag = Array.from(postsByTagMap);
+    const postsByTag = Array.from(postsByTagMap).sort();
     return postsByTag;
   });
 
