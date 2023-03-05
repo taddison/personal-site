@@ -9,8 +9,6 @@ Being migrated from Gatsby to 11ty.
   - About
   - Blog
     - Tags
-    - Archive
-  - Archive
   - Blog post template
 - RSS feed
 
