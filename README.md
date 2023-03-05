@@ -45,6 +45,7 @@ Tidy-up after:
 - custom description og meta-tag used for blog posts
 - put a link icon before/after on hover for permalinks
 - webc for things like tag pills
+- colophon
 
 Outstanding:
 
