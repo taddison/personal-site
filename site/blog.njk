@@ -3,15 +3,20 @@ title: "Blog"
 layout: default.njk
 ---
 
-Blog
+<h1 class="text-3xl font-bold mb-6 text-center">Blog</h1>
 
-A mostly technical blog that covers everything from the frontend to making SQL Server go fast. Recent posts are shown below. You can also browse <a href="/blog/tags">posts by tag</a>, view the <a href="/blog/archive">whole archive</a>, or subscribe to the RSS feed.
+<p class="mt-4 mb-6">A mostly technical blog that covers everything from the frontend to making SQL Server go fast. You can also browse <a class="font-semibold" href="/blog/tags">posts by tag</a>, or subscribe to the RSS feed.</p>
 
-{% for post in collections.allBlogPosts | reverse %}
-  <li>
-    <a href="{{ post.url }}">
-      {{ post.data.title }}
-      {{ post.date | asPostDate }}
-    </a>
-  </li>
+{% for year, posts in collections.blogPostsByYear | reverse %}
+<section class="mb-8">
+  <div class="font-semibold text-2xl mb-2">{{ year }}</div>
+  <ol class="pl-2">
+    {% for post in posts | reverse %}
+      <li class="mb-1">
+        <a class="text-lg" href="{{ post.url }}">{{ post.data.title }}</a>
+        <span class="text-gray-500 text-sm">{{ post.date | asPostDate }}</span>
+      </li>
+    {% endfor %}
+  </ol>
+  </section>
 {% endfor %}

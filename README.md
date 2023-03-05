@@ -4,11 +4,12 @@ Being migrated from Gatsby to 11ty.
 
 ## What to do next
 
-- Review nav (looks like it mostly works) - check mobile
 - Full content
   - Home
   - About
   - Blog
+    - Tags
+    - Archive
   - Archive
   - Blog post template
 - RSS feed
@@ -52,6 +53,7 @@ Pre-launch verification:
 
 - Blog Post Images
   - Need to verify these all look fine with a manual inspection. Build takes 4 minutes (up from 10 seconds). May want to consider a _fast_ mode for builds where we only generate one image not all of them?
+- Review site experience mobile, desktop
 
 --
 

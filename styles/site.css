@@ -11,3 +11,9 @@
   font-weight: 100 900;
   src: url("/fonts/inter.var.woff2") format("woff2");
 }
+
+@layer base {
+  a:hover {
+    @apply underline text-accent-3;
+  }
+}
