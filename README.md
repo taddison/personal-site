@@ -4,13 +4,9 @@ Being migrated from Gatsby to 11ty.
 
 ## What to do next
 
-- indieweb tags
-  - Home
-  - About
-  - Blog page
-  - Tags page
-  - Post template
-  - Archive page
+- styling
+  - next and previous post links
+  - tags on posts
 - rss feed
 - syntax highlighting
 
@@ -46,6 +42,15 @@ Tidy-up after:
 - put a link icon before/after on hover for permalinks
 - webc for things like tag pills
 - colophon
+
+- documentation
+  - indieweb tags
+    - header
+    - post template
+      - h-entry for article
+      - p-name for title
+      - dt-published for time published
+      - e-content for article content
 
 Outstanding:
 

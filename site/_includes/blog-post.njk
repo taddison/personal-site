@@ -8,7 +8,7 @@ title: Blog Home
   <time class="dt-published">{{ page.date | asPostDate }}</time>
 </div>
 
-<div class="prose prose-a:no-underline hover:prose-a:underline max-w-none">
+<div class="prose prose-a:no-underline hover:prose-a:underline max-w-none e-content">
   {{ content | safe }}
 </div>
 </article>
@@ -17,7 +17,7 @@ title: Blog Home
   Tags:
   {% for tag in tags | removeMetaTags %}
     <li>
-      <a class="inline-block rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-700 mx-1 my-1 border-accent-5 border hover:bg-accent-3 hover:text-white hover:border-accent-3" rel="tag" href="/blog/tags#{{ tag }}">{{ tag}}</a>
+      <a rel="tag" class="inline-block rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-700 mx-1 my-1 border-accent-5 border hover:bg-accent-3 hover:text-white hover:border-accent-3" href="/blog/tags#{{ tag }}">{{ tag}}</a>
     </li>
   {% endfor %}
 {% endif %}
@@ -29,11 +29,11 @@ title: Blog Home
   <hr>
   <ul>
     {% if nextPost %}
-      <li>Next: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
+      <li>Next: <a rel="next" href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
       </li>
     {% endif %}
     {% if previousPost %}
-      <li>Previous: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
+      <li>Previous: <a rel="prev" href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
       </li>
     {% endif %}
   </ul>
