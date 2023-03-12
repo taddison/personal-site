@@ -2,6 +2,7 @@ const { DateTime } = require("luxon");
 const markdownParser = require("markdown-it")();
 const markdownItAnchor = require("markdown-it-anchor");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const { imageRule, shareImageShortcode } = require("./eleventyUtils/utils");
 
 module.exports = function (eleventyConfig) {
@@ -95,6 +96,8 @@ module.exports = function (eleventyConfig) {
   );
 
   eleventyConfig.addPlugin(pluginRss);
+  // https://www.11ty.dev/docs/plugins/syntaxhighlight/
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   return {
     markdownTemplateEngine: "njk",

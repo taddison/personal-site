@@ -20,7 +20,7 @@ The latter is particularly important before rolling a change to a workspace with
 
 This query provides a summary of the top solutions and data types in a single workspace, along with how they contribute to overall usage. If your workspace has a lot of different solutions or data types you'll benefit from changing the values passed to the `top-nested` operators.
 
-```kql
+```
 Usage
 | where TimeGenerated > startofday(ago(30d)) and TimeGenerated < startofday(now())
 | where IsBillable
@@ -48,7 +48,7 @@ This workspace demonstrates how the `top-nested` operator works. Inside of the L
 
 If you have multiple workspaces it can be helpful to see how their data trends over time. Extending this query to run over additional workspaces is unfortunately a matter of copy-paste:
 
-```kql
+```
 workspace("primaryWorkspace").Usage
 | where TimeGenerated > startofday(ago(30d)) and TimeGenerated < startofday(now())
 | where IsBillable
@@ -74,7 +74,7 @@ In this example the primary workspace is responsible for capturing data which wi
 
 At some point a graph will invariably point to something that looks a little weird - an upward trend or maybe a huge spike - and you'll want to understand where that is coming from. The good news is Azure Monitor logs provides a pair of virtual columns `_IsBillable` and `_BilledSize` that let you drill in to any data type and find out exactly what it is costing you.
 
-```kql
+```
 Event
 | where TimeGenerated > startofday(ago(30d)) and TimeGenerated < startofday(now())
 | where _IsBillable == true

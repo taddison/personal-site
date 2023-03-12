@@ -28,7 +28,7 @@ Solving this issue is much easier if we first improve our data model, and take t
 
 Now we need to update our function to reference the dimension table (which as an added benefit simplifies the formula, as now we can use All(Table) rather than having to enumerate the columns):
 
-```dax
+```
 Corrected Inclusive Applications =
 CALCULATE (
     [Applications],

@@ -96,7 +96,7 @@ And then use the modelling view to create relationships between the capacity and
 
 By default, all the capacity and transaction metric data comes in as strings. During the import process, you will want to format these as whole numbers. Once imported creating and formatting measures will ensure that people are actually able to read your report (I don't know about you, but total egress of 3565504437 doesn't mean as much to me as 3.5GB). Some example measures I used:
 
-```DAX
+```
 Capacity B = SUM([Capacity])
 Capacity MB = [Capacity B]/1024/1024
 Capacity GB = [Capacity MB]/1024
@@ -138,7 +138,7 @@ The full text of the M queries in the template is included below. They both expe
 
 **Blob Metrics**
 
-```M
+```
 let
     Source = AzureStorage.Tables(TableEndpointURL),
     BlobMetrics = Source{[Name="$MetricsHourPrimaryTransactionsBlob"]}[Data],
@@ -154,7 +154,7 @@ in
 
 **Blob Capacity**
 
-```M
+```
 let
     Source = AzureStorage.Tables(TableEndpointURL),
     BlobCapacity = Source{[Name="$MetricsCapacityBlob"]}[Data],

@@ -125,7 +125,7 @@ $uri
 
 Once in the query portal you can write a query (if you used the link from PowerShell you'll need to open a new tab). The below example lists processes ordered by the number of handles:
 
-```kql
+```
 ProcessLog_CL
 | order by Handles_d desc
 | project TimeGenerated, Handles_d, ProcessName_s

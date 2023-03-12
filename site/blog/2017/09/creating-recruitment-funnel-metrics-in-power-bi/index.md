@@ -18,7 +18,7 @@ That is technically correct (there are 3 applications in the New stage), but it 
 
 The core measure we build returns the number of applications which have got to _at least_ that stage. We do this by removing the filter context from both Stage and StageOrder (we typically visualise by Stage, but we rely on StageOrder for ranking stages), and then using the MAX function to pull the value of StageOrder from the filter context. In our case, the filter context will be the current group expression on the funnel.
 
-```dax
+```
 Applications =
 COUNTROWS( Applications )
 
@@ -38,7 +38,7 @@ Using this measure instead gives us the funnel we expected:
 
 We can also define some additional DAX measures to report directly on the conversion rate between each step of the funnel. In the example below I've only defined a subset of the measures - typically you'd define these for all stages and conversion rates you cared about.
 
-```dax
+```
 Hire =
 CALCULATE (
     [Inclusive Applications], Applications[Stage] = "Hire"

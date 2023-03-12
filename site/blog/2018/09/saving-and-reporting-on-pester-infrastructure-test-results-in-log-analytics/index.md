@@ -193,7 +193,7 @@ The definition of the [Invoke-SqlChecksToLogAnalytics function] shows how you mi
 
 Once you have some results in Log Analytics you can start to query them. You can get to the query interface via the Azure Portal, and once there to look at our query results we'd write:
 
-```kql
+```
 PesterResult_CL
 | order by TimeGenerated desc
 | take 100
@@ -203,7 +203,7 @@ PesterResult_CL
 
 As there might be many kinds of Pester tests being shipped, we'll typically want to focus on a specific set - we'll use [SQLChecks] as an example again. The following code will find the most recent batch from the last 7 days, and show all results:
 
-```kql
+```
 PesterResult_CL
 | where TimeGenerated > ago(7d)
 | where Identifier_s == "SQLChecks"
@@ -215,7 +215,7 @@ PesterResult_CL
 
 While the most recent batch is a pretty common requirement, you may have different batch sizes (people running ad-hoc tests in the day are one example of smaller batches). One method I've used to find the most recent _complete_ batch -is to look for queries that contain more than `N` results - I know my typical SQL checks have 900 tests, so the below query lets me filter out any small ad-hoc or incomplete batches:
 
-```kql
+```
 PesterResult_CL
 | where TimeGenerated > ago(7d)
 | where Identifier_s == "SQLChecks"
@@ -231,7 +231,7 @@ PesterResult_CL
 
 When there are failures, you can quickly view details by filtering on the boolean column `Passed_b`. The below projects only the essential columns:
 
-```kql
+```
 PesterResult_CL
 | where TimeGenerated > ago(7d)
 | where Identifier_s == "SQLChecks"
@@ -253,7 +253,7 @@ PesterResult_CL
 
 To look at the overall stats (tests, passed, failed) we can group by any set of columns - in the below example we're grouping by `Target` and `Describe`, and then ordering by the number of failed tests. This lets us quickly see which tests have failed and against what target.
 
-```kql
+```
 PesterResult_CL
 | where TimeGenerated > ago(7d)
 | where Identifier_s == "SQLChecks"
@@ -275,7 +275,7 @@ PesterResult_CL
 
 We might want to look at how a single test is performing over the estate. The below query shows the status of the `Data file space used` Describe by percent success (0% = all tests failed, 100% = all tests passed), split by target. Note we multiply the count by 1.0 to turn it into a float, rather than an integer (which would floor our result to always 0 or 1).
 
-```kql
+```
 PesterResult_CL
 | where TimeGenerated > ago(30d)
 | where Identifier_s == "SQLChecks"
@@ -294,7 +294,7 @@ PesterResult_CL
 
 If you're looking to performance tune your infrastructure tests, you'll want to know where the time is being spent. This final example shows how you can find which one of the describe blocks is taking the longest time to run. The example uses the most recent batch and plots the time taken in milliseconds for each describe block.
 
-```kql
+```
 PesterResult_CL
 | where TimeGenerated > ago(7d)
 | where Identifier_s == "SQLChecks"

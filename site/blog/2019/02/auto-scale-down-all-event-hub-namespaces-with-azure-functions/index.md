@@ -122,7 +122,7 @@ foreach($sub in $subs) {
 
 If you deployed Application Insights you'll be able to see what your scaler is up to over time with a query like this:
 
-```kql
+```
 traces
 | where message startswith "Updating"
 | parse message with "Updating Namespace:" namespace:string "in RG:" resourcegroup:string "from:" fromTU:int  "to:" toTU:int

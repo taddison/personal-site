@@ -4,26 +4,9 @@ Being migrated from Gatsby to 11ty.
 
 ## What to do next
 
-- syntax highlighting
+???
 
 ## Other notes
-
-Things that are removed that need adding back:
-
-- Syntax highlighting (prismjs/plugin) - theme was tomorrow
-
-Or this:
-
-````css
-/* Code highlighting */
-/* Wrap any inline highlights `that are really long`, but don't modify
-   the setting for codeblocks (inside ```), which are rendered in:
-   <pre><code>...
-*/
-.prose :not(pre) > code.language-text {
-  white-space: pre-line;
-}
-````
 
 Tidy-up after:
 
@@ -36,11 +19,15 @@ Tidy-up after:
 - alt text for share images
 - custom description og meta-tag used for blog posts
 - put a link icon before/after on hover for permalinks
-- webc for things like tag pills
+- webc for things like tag pills (or partials to render lists of tags, etc.)
+- now page
+- revise about page
 - colophon
 - atom feed
 - maybe not have every post in the feed?
 - favicon - https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
+- deleted all the language definitions for non-supported prism language - would prefer errors
+- analytics
 
 - documentation
   - indieweb tags
@@ -52,6 +39,7 @@ Tidy-up after:
       - e-content for article content
   - meta documentation
     - description exists in header (template), rss feed
+    - could also consider centralizing
 
 Outstanding:
 

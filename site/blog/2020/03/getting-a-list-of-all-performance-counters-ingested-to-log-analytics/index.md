@@ -7,7 +7,7 @@ date: "2020-03-31T00:00:00.0Z"
 
 [Log Analytics] is a great product - easy to get data ingested, and easy to query it. It's also pretty easy to run up a sizeable bill (with the cost being based on GB ingested). I've found it helpful to regularly review what is being ingested to a workspace, which I typically do with the following query:
 
-```kql
+```
 Usage
 | where TimeGenerated > ago(30d)
 | where IsBillable == true
@@ -17,7 +17,7 @@ Usage
 
 You'll get to know which solutions are data heavy pretty fast (I'm looking at you [Wire Data] and [DNS Analytics]). Something I've recently spent some time on is performance counters - after the `Perf` data type crept to the top of the list, so I drilled into that with the `_BilledSize` property:
 
-```kql
+```
 Perf
 | where TimeGenerated > ago(30d)
 | summarize TotalVolumeGB = sum(_BilledSize) / pow(1024, 3) by ObjectName, CounterName // Computer

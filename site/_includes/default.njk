@@ -13,6 +13,10 @@ title: tjaddison.com
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/site.css">
+    {% if tags %}
+      {# TODO: This isn't particularly robust, would like to condtionally render only when we need to #}
+      <link rel="stylesheet" href="/prism/tomorrow-night.css">
+    {% endif %}
     <title>{{ finalTitle }}</title>
 
     <link rel="icon" href="/favicon-32x32.png" type="image/png">
