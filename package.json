@@ -26,6 +26,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-img": "^3.0.0",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@tailwindcss/typography": "^0.5.8",
     "cspell": "^6.14.2",
     "eslint": "^8.27.0",

@@ -5,7 +5,7 @@ layout: default.njk
 
 <h1 class="text-3xl font-bold mb-6 text-center">Blog</h1>
 
-<p class="mt-4 mb-6">A mostly technical blog that covers everything from the frontend to making SQL Server go fast. You can also browse <a class="font-semibold" href="/blog/tags">posts by tag</a>, or subscribe to the RSS feed.</p>
+<p class="mt-4 mb-6">A mostly technical blog that covers everything from the frontend to making SQL Server go fast. You can also browse <a class="font-semibold" href="/blog/tags">posts by tag</a>, or subscribe to the <a class="font-semibold" href="/rss.xml">RSS feed</a>.</p>
 
 {% for year, posts in collections.blogPostsByYear | reverse %}
 <section class="mb-8">

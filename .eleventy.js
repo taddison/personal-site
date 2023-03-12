@@ -1,6 +1,7 @@
 const { DateTime } = require("luxon");
 const markdownParser = require("markdown-it")();
 const markdownItAnchor = require("markdown-it-anchor");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 const { imageRule, shareImageShortcode } = require("./eleventyUtils/utils");
 
 module.exports = function (eleventyConfig) {
@@ -92,6 +93,8 @@ module.exports = function (eleventyConfig) {
     "shareImageUri",
     shareImageShortcode
   );
+
+  eleventyConfig.addPlugin(pluginRss);
 
   return {
     markdownTemplateEngine: "njk",

@@ -39,6 +39,8 @@ Tidy-up after:
 - put a link icon before/after on hover for permalinks
 - webc for things like tag pills
 - colophon
+- atom feed
+- maybe not have every post in the feed?
 
 - documentation
   - indieweb tags
@@ -48,6 +50,8 @@ Tidy-up after:
       - p-name for title
       - dt-published for time published
       - e-content for article content
+  - meta documentation
+    - description exists in header (template), rss feed
 
 Outstanding:
 
@@ -59,6 +63,7 @@ Pre-launch verification:
   - Need to verify these all look fine with a manual inspection. Build takes 4 minutes (up from 10 seconds). May want to consider a _fast_ mode for builds where we only generate one image not all of them?
   - May also want to optimize images in advance
 - Review site experience mobile, desktop
+- review feed xml - https://validator.w3.org/feed/
 
 --
 
