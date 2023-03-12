@@ -14,19 +14,19 @@ title: Blog Home
 </article>
 
 {% if tags %}
-  Tags:
-  {% for tag in tags | removeMetaTags %}
-    <li>
-      <a rel="tag" class="inline-block rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-700 mx-1 my-1 border-accent-5 border hover:bg-accent-3 hover:text-white hover:border-accent-3" href="/blog/tags#{{ tag }}">{{ tag}}</a>
-    </li>
+<section class="mt-4">
+  {% for tag in tags | removeMetaTags %}  
+      <a rel="tag" class="inline-block rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-700 mx-1 my-1 border-accent-5 border hover:bg-accent-3 hover:text-white hover:border-accent-3" href="/blog/tags#{{ tag }}">#{{ tag}}</a>
   {% endfor %}
+</section>
 {% endif %}
+
+<hr class="my-4 w-2/3 mx-auto sm:w-full sm:my-6">
 
 {% set posts = collections.allBlogPosts %}
 {% set nextPost = posts | getNextCollectionItem(page) %}
 {% set previousPost = posts | getPreviousCollectionItem(page) %}
 {% if nextPost or previousPost %}
-  <hr>
   <ul>
     {% if nextPost %}
       <li>Next: <a rel="next" href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
