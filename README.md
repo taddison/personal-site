@@ -4,9 +4,6 @@ Being migrated from Gatsby to 11ty.
 
 ## What to do next
 
-- styling
-  - next and previous post links
-  - tags on posts
 - rss feed
 - syntax highlighting
 

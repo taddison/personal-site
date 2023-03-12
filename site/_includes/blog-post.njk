@@ -27,13 +27,21 @@ title: Blog Home
 {% set nextPost = posts | getNextCollectionItem(page) %}
 {% set previousPost = posts | getPreviousCollectionItem(page) %}
 {% if nextPost or previousPost %}
-  <ul>
-    {% if nextPost %}
-      <li>Next: <a rel="next" href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
+  <ul class="flex">
+    {% if previousPost %}
+      <li class="w-1/2">
+        <div class="flex flex-col text-left">
+          <div>Previous Post</div>
+          <a class="block py-2 font-semibold" rel="prev" href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
+        </div>
       </li>
     {% endif %}
-    {% if previousPost %}
-      <li>Previous: <a rel="prev" href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
+    {% if nextPost %}
+      <li class="w-1/2">
+        <div class="flex flex-col text-right">
+          <div>Next Post</div>
+          <a class="block py-2 font-semibold" rel="next" href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
+        </div>
       </li>
     {% endif %}
   </ul>
