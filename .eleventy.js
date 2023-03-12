@@ -70,7 +70,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // https://www.11ty.dev/docs/copy/
-  eleventyConfig.addPassthroughCopy("fonts");
+  eleventyConfig.addPassthroughCopy({ static: "." });
   eleventyConfig.addPassthroughCopy("site/blog/**/*.{json,pbit,pbix,xlsx,sql}");
 
   markdownParser.renderer.rules.image = imageRule;

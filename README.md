@@ -4,7 +4,6 @@ Being migrated from Gatsby to 11ty.
 
 ## What to do next
 
-- rss feed
 - syntax highlighting
 
 ## Other notes
@@ -41,6 +40,7 @@ Tidy-up after:
 - colophon
 - atom feed
 - maybe not have every post in the feed?
+- favicon - https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
 
 - documentation
   - indieweb tags
