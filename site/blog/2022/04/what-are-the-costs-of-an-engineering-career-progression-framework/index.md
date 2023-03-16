@@ -45,5 +45,5 @@ I don't see an alternative to not having a framework, though I'd like to see us 
 [progression.fyi]: https://www.progression.fyi/
 [incentives blog]: https://fs.blog/bias-incentives-reinforcement/
 [powerful book]: https://pattymccord.com/book/
-[very strange year at uber]: https://www.susanjfowler.com/blog/2017/2/19
+[very strange year at uber]: https://www.susanjfowler.com/blog/2017/2/19/reflecting-on-one-very-strange-year-at-uber
 [the paradox of meritocracy]: https://gap.hks.harvard.edu/paradox-meritocracy-organizations
