@@ -35,4 +35,4 @@
   to = "/blog/2020/02/interesting-links-february-2020/"
 
 [build]
-  publish = "public"
+  publish = "_site"
