@@ -48,8 +48,7 @@ Do later:
     - description exists in header (template), rss feed
     - could also consider centralizing
   - what external testing is done (RSS validation, structured data testing, lighthouse, other)
-
---
+  - netlify plugin config from site - output report - https://github.com/netlify/netlify-plugin-lighthouse
 
 ## Why there are 3 places prose is configured
 
