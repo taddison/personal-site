@@ -34,5 +34,10 @@
   from = "/links/2020/20200207/"
   to = "/blog/2020/02/interesting-links-february-2020/"
 
+# There is no more archive page (/blog shows every post)
+[[redirects]]
+  from = "/blog/archive"
+  to = "/blog"
+
 [build]
   publish = "_site"

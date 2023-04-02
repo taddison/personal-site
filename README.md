@@ -8,27 +8,34 @@ Being migrated from Gatsby to 11ty.
 
 ## Other notes
 
-Tidy-up after:
+Do before launch:
+
+- Redirect archive to the post index (use netlify redirects)
+
+Do soon:
 
 - Prettier all the files
-- header image
 - https://www.11ty.dev/docs/quicktips/not-found/
-- Redirect archive to the post index
-- Tidy up functions so they can actually be tested, see https://github.com/11ty/eleventy-base-blog/blob/87c7dd40efc278717d09de219d33ff4a6c4315a8/.eleventy.js
 - generate a default share image when one is not present
+- favicon - https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
+- There are 3 places we create the tags - could there be one definition somewhere (WebC? Template? Macro? Shortcode? Probably Macros)
+- How do images used in regular pages work (we only overrode for markdown)
+- Run images through imageoptim
+
+Do later:
+
+- analytics - happy with GA4? Something else?
+- header image
+- Tidy up functions so they can actually be tested, see https://github.com/11ty/eleventy-base-blog/blob/87c7dd40efc278717d09de219d33ff4a6c4315a8/.eleventy.js
 - alt text for share images
 - custom description og meta-tag used for blog posts
-- put a link icon before/after on hover for permalinks
-- webc for things like tag pills (or partials to render lists of tags, etc.)
 - now page
 - revise about page
 - colophon
 - atom feed
 - maybe not have every post in the feed?
-- favicon - https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
-- deleted all the language definitions for non-supported prism language - would prefer errors
-- analytics
-
+- deleted all the language definitions for non-supported prism language - would prefer errors (M, kql)
+- Regularly review feed XML - this was busted on the current site and didn't even know - https://validator.w3.org/feed/
 - documentation
   - indieweb tags
     - header
@@ -40,18 +47,7 @@ Tidy-up after:
   - meta documentation
     - description exists in header (template), rss feed
     - could also consider centralizing
-
-Outstanding:
-
-- How do images used in regular pages work (we only overrode for markdown)
-
-Pre-launch verification:
-
-- Blog Post Images
-  - Need to verify these all look fine with a manual inspection. Build takes 4 minutes (up from 10 seconds). May want to consider a _fast_ mode for builds where we only generate one image not all of them?
-  - May also want to optimize images in advance
-- Review site experience mobile, desktop
-- review feed xml - https://validator.w3.org/feed/
+  - what external testing is done (RSS validation, structured data testing, lighthouse, other)
 
 --
 

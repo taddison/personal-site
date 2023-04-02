@@ -16,7 +16,7 @@ title: Blog Home
 {% if tags %}
 <section class="mt-4">
   {% for tag in tags | removeMetaTags %}  
-      <a rel="tag" class="inline-block rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-700 mx-1 my-1 border-accent-5 border hover:bg-accent-3 hover:text-white hover:border-accent-3" href="/blog/tags#{{ tag }}">#{{ tag}}</a>
+      <a rel="tag" class="inline-block rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-700 mx-1 my-1 border-accent-5 border hover:bg-accent-3 hover:text-white hover:border-accent-3" href="/blog/tags#{{ tag | removeWhitespace }}">#{{ tag}}</a>
   {% endfor %}
 </section>
 {% endif %}
