@@ -1,0 +1,100 @@
+---
+title: tjaddison.com
+---
+{# TODO: This might be better placed as a shortcode? #}
+{% set finalTitle = title %}
+{% if finalTitle !== "tjaddison.com " %}
+  {% set finalTitle = finalTitle + " | tjaddison.com" %}
+{% endif %}
+
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VF9E856YP4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VF9E856YP4');
+    </script>
+    <!-- end Google tag (gtag.js) -->
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/site.css">
+    {% if tags %}
+      {# TODO: This isn't particularly robust, would like to condtionally render only when we need to #}
+      <link rel="stylesheet" href="/prism/tomorrow-night.css">
+    {% endif %}
+    <title>{{ finalTitle }}</title>
+
+    <link rel="icon" href="/favicon-32x32.png" type="image/png">
+    
+    <!-- OpenGraph -->
+    {% if shareimage %}
+      {# TODO: Alt text #}
+      <meta property="og:image" content="{% shareImageUri shareimage %}">
+    {% else %}
+      {# TODO: default share image if none specified in post? #}
+    {% endif %}
+
+    {# TODO: custom description for blog posts #}
+    <meta name="description" property="og:description" content="Engineering Management, SQL, and a dash of front-end from NYC.">
+    <meta property="og:title" content="{{ finalTitle }}">
+    <!-- end Opengraph -->
+
+    <!-- Twitter -->
+    {# https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup #}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@tjaddison">
+    <!-- end Twitter -->
+
+    <!-- Indieweb -->
+    <link rel="me" href="https://twitter.com/tjaddison" />
+    <link rel="webmention" href="https://webmention.io/tjaddison.com/webmention" />
+    <link rel="pingback" href="https://webmention.io/tjaddison.com/xmlrpc" />
+    <!-- end Indieweb -->
+  </head>
+  <body class="text-gray-800">
+    <div class="min-h-screen flex flex-col">
+      
+      <header class="bg-accent-1 border-accent-5 border-b p-4 mb-6 flex items-center justify-between flex-wrap">
+        <div class="flex items-center flex-shrink-0">
+          <a
+            class="text-2xl font-extrabold"
+            href="/"
+            rel="home"
+          >tjaddison.com</a>
+        </div>
+        <div class="flex items-center :w-auto">
+          <div class="font-semibold flex-grow text-right">
+            <a
+              href="/about"
+              class="inline-blockp-2"
+            >About</a>
+            <a
+              href="/blog"
+              class="inline-block p-2"
+            >Blog</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="mx-auto max-w-5xl px-6 md:px-0 flex-1 w-full md:w-5/6">
+        <main>{{ content | safe }}</main>
+      </div>
+      <footer class="bg-accent-1 border-accent-5 border-t py-6 mt-6 flex flex-col items-center">
+        <div>
+          Copyright &copy;
+          <a
+            class="font-semibold"
+            href="/about"
+          >Tim Addison</a>,
+          2016 to {% year %}.
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

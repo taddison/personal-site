@@ -1,13 +1,10 @@
-const defaultTheme = require(`tailwindcss/defaultTheme`)
+const defaultTheme = require(`tailwindcss/defaultTheme`);
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: `jit`,
-  purge: [`./src/**/*.js`],
+  content: ["./site/**/*.{md,njk}", "./.eleventy.js"],
   theme: {
     extend: {
-      opacity: {
-        35: `.35`,
-      },
       colors: {
         "accent-1": `#EEF0F2`,
         "accent-2": `#C6C764`,
@@ -24,10 +21,6 @@ module.exports = {
             css: {
               a: {
                 color: theme(`colors.blue.600`),
-                textDecoration: null,
-                "&:hover": {
-                  textDecoration: `underline`,
-                },
               },
               "code::before": null,
               "code::after": null,
@@ -35,10 +28,9 @@ module.exports = {
               "blockquote p:last-of-type::after": null,
             },
           },
-        }
+        };
       },
     },
   },
-  variants: {},
-  plugins: [require(`@tailwindcss/forms`), require(`@tailwindcss/typography`)],
-}
+  plugins: [require("@tailwindcss/typography")],
+};
