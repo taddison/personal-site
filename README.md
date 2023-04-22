@@ -1,16 +1,10 @@
 https://tjaddison.com
 
-Being migrated from Gatsby to 11ty.
-
 ## What to do next
 
 ???
 
 ## Other notes
-
-Do before launch:
-
-- Redirect archive to the post index (use netlify redirects)
 
 Do soon:
 
