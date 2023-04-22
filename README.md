@@ -9,6 +9,7 @@ https://tjaddison.com
 Do soon:
 
 - Prettier all the files
+- inter + inter-italic variable fonts (take css from https://rsms.me/inter/inter.css)
 - https://www.11ty.dev/docs/quicktips/not-found/
 - generate a default share image when one is not present
 - favicon - https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
@@ -18,6 +19,7 @@ Do soon:
 
 Do later:
 
+- font subsetting to reduce size of font files
 - analytics - happy with GA4? Something else?
 - header image
 - Tidy up functions so they can actually be tested, see https://github.com/11ty/eleventy-base-blog/blob/87c7dd40efc278717d09de219d33ff4a6c4315a8/.eleventy.js
