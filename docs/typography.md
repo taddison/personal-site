@@ -1,4 +1,4 @@
-Uses the [Inter][https://rsms.me/inter/] typeface. Configured to load the variable fonts (one italic, one regular).
+Uses the [Inter](https://rsms.me/inter/) typeface. Configured to load the variable fonts (one italic, one regular).
 
 > Used to be a single variable font that contained both italic and non-italic variations - this has been superseded by the split which looks _much_ better when rendering in most browsers.
 
