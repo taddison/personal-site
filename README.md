@@ -19,6 +19,10 @@ Do soon:
 Do later:
 
 - font subsetting to reduce size of font files
+  - https://www.sarasoueidan.com/blog/glyphhanger/
+  - https://cloudfour.com/thinks/font-subsetting-strategies-content-based-vs-alphabetical/
+  - https://thetrevorharmon.com/blog/how-to-prepare-and-use-variable-fonts-on-the-web/
+  -
 - analytics - happy with GA4? Something else?
 - header image
 - Tidy up functions so they can actually be tested, see https://github.com/11ty/eleventy-base-blog/blob/87c7dd40efc278717d09de219d33ff4a6c4315a8/.eleventy.js
