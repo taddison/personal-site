@@ -9,7 +9,6 @@ https://tjaddison.com
 Do soon:
 
 - Prettier all the files
-- inter + inter-italic variable fonts (take css from https://rsms.me/inter/inter.css)
 - https://www.11ty.dev/docs/quicktips/not-found/
 - generate a default share image when one is not present
 - favicon - https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
