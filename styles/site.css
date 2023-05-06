@@ -2,15 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Inter variable font, self-hosted */
-/* Downloaded 3.19 from https://github.com/rsms/inter/tree/master/docs/font-files */
+/* Inter variable font */
+/* CSS taken from https://rsms.me/inter/inter.css */
+
+/* https://github.com/rsms/inter/blob/master/docs/font-files/Inter-roman.var.woff2 */
 @font-face {
-  font-family: "InterVariable";
-  font-style: oblique 0deg 10deg;
-  font-display: swap;
+  font-family: "Inter var";
+  font-style: normal;
   font-weight: 100 900;
-  src: url("/fonts/inter.var.woff2") format("woff2");
+  font-display: swap;
+  src: url("fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
+  font-named-instance: "Regular";
 }
+
+/* https://github.com/rsms/inter/blob/master/docs/font-files/Inter-italic.var.woff2 */
+@font-face {
+  font-family: "Inter var";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/Inter-italic.var.woff2?v=3.19") format("woff2");
+  font-named-instance: "Italic";
+}
+/* END Inter variable font */
 
 @layer base {
   a:hover {
