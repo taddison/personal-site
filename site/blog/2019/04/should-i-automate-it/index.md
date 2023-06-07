@@ -66,4 +66,4 @@ It's pretty rare you'll ever make a decision solely based on the numbers here - 
 And that last one is really key, especially when you get into larger projects that might take days or even weeks. Every automation effort invariably pays off over some time period, but whether you could be doing something even more valuable with your time is where the really hard work of prioritisation comes in. Hopefully the calculator will help you decide that automation project you were considering isn't worth putting into that list of 'things that need to be prioritised', and give you one less thing to worry about.
 
 [xkcd 1205]: https://xkcd.com/1205/
-[calculator]: /SampleWorkbook.xlsx
+[calculator]: SampleWorkbook.xlsx
