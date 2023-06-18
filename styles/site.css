@@ -2,29 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Inter variable font */
-/* CSS taken from https://rsms.me/inter/inter.css */
-
-/* https://github.com/rsms/inter/blob/master/docs/font-files/Inter-roman.var.woff2 */
 @font-face {
-  font-family: "Inter var";
+  font-family: "Atkinson Hyperlegible";
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 400;
   font-display: swap;
-  src: url("fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
-  font-named-instance: "Regular";
+  src: url("fonts/Atkinson-Hyperlegible-Regular-102a.woff2") format("woff2");
 }
 
-/* https://github.com/rsms/inter/blob/master/docs/font-files/Inter-italic.var.woff2 */
 @font-face {
-  font-family: "Inter var";
-  font-style: italic;
-  font-weight: 100 900;
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 700;
   font-display: swap;
-  src: url("fonts/Inter-italic.var.woff2?v=3.19") format("woff2");
-  font-named-instance: "Italic";
+  src: url("fonts/Atkinson-Hyperlegible-Bold-102a.woff2") format("woff2");
 }
-/* END Inter variable font */
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/Atkinson-Hyperlegible-Italic-102a.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/Atkinson-Hyperlegible-BoldItalic-102a.woff2") format("woff2");
+}
 
 @layer base {
   a:hover {
