@@ -15,6 +15,7 @@ Do soon:
 - There are 3 places we create the tags - could there be one definition somewhere (WebC? Template? Macro? Shortcode? Probably Macros)
 - How do images used in regular pages work (we only overrode for markdown)
 - Run images through imageoptim
+  - `find . -type f -exec stat -f '%z %N' {} + | sort -nr | head -n 10` - there are some REALLY big images here, wow (2.5MB?)
 
 Do later:
 
