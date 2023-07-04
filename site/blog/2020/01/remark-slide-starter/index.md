@@ -37,10 +37,10 @@ To combat this I split my slides out into one (or more) Markdown files, and load
   <script>
     fetch("/slides.md").then((response) => {
       response.text().then((value) => {
-        document.getElementById("source").innerHTML = value
-        window.slideshow = remark.create()
-      })
-    })
+        document.getElementById("source").innerHTML = value;
+        window.slideshow = remark.create();
+      });
+    });
   </script>
 </body>
 ```

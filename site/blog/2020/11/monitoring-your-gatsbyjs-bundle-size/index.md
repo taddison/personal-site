@@ -25,10 +25,10 @@ Next you need to add the following to `gatsby-node.js`:
 
 ```javascript
 const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  const analyzerMode = process.env.INTERACTIVE_ANALYZE ? "server" : "json"
+  const analyzerMode = process.env.INTERACTIVE_ANALYZE ? "server" : "json";
 
   if (stage === "build-javascript") {
     actions.setWebpackConfig({
@@ -38,9 +38,9 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
           reportFileName: `./__build/bundlereport.json`,
         }),
       ],
-    })
+    });
   }
-}
+};
 ```
 
 The [docs for onCreateWebpackConfig] explain the different stages, and we only want to run the analyzer plugin when we're building our production JavaScript bundles (`build-javascript`) - this stage only runs during a `gatsby build`, and not during development.
@@ -84,34 +84,34 @@ As I make so few changes to the bundles right now I'm eyeballing the numbers - b
 
 ```javascript
 const logParsedReport = (report) => {
-  let parsedTotal = 0
-  let gzipTotal = 0
+  let parsedTotal = 0;
+  let gzipTotal = 0;
 
   for (const file of report) {
-    const { label, parsedSize, gzipSize } = file
-    parsedTotal += parsedSize
-    gzipTotal += gzipSize
-    console.log(`Name: ${label} - ${parsedSize} parsed (${gzipSize} gzip)`)
+    const { label, parsedSize, gzipSize } = file;
+    parsedTotal += parsedSize;
+    gzipTotal += gzipSize;
+    console.log(`Name: ${label} - ${parsedSize} parsed (${gzipSize} gzip)`);
   }
 
-  console.log("---------")
-  console.log(`Total ${parsedTotal} (${gzipTotal} gzip)`)
-}
+  console.log("---------");
+  console.log(`Total ${parsedTotal} (${gzipTotal} gzip)`);
+};
 
-const prod = "https://tjaddison.com/__build/bundlereport.json"
+const prod = "https://tjaddison.com/__build/bundlereport.json";
 const branch =
-  "https://5fc8401d8292a600084390dd--fervent-lovelace-f75e7a.netlify.app/__build/bundlereport.json"
+  "https://5fc8401d8292a600084390dd--fervent-lovelace-f75e7a.netlify.app/__build/bundlereport.json";
 
 fetch(prod).then((res) => {
   res.json().then((json) => {
-    logParsedReport(json)
-  })
-})
+    logParsedReport(json);
+  });
+});
 fetch(branch).then((res) => {
   res.json().then((json) => {
-    logParsedReport(json)
-  })
-})
+    logParsedReport(json);
+  });
+});
 ```
 
 This gives the following output (which I've truncated for brevity):

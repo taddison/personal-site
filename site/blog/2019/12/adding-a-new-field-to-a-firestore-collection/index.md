@@ -10,46 +10,46 @@ In my app I tried to work exclusively with dates stored in UTC, though found som
 After updating the app to handle a new field (`dateUnix`) going forwards, a backfill of old data was required. The example code below takes every item and stores the converted `date` value in a new field `dateUnix`. I was surprised to discover there was no way to query by absence of a field (e.g. `.where('date','===', undefined)`), and so instead you'll need to loop through every item and update if necessary. The code below is designed to run in the browser and assumes you have your Firebase configuration in a file called `firebase.js`.
 
 ```javascript
-import "firebase/firestore"
-import firebase from "./firebase"
+import "firebase/firestore";
+import firebase from "./firebase";
 
-const db = firebase.firestore()
-const itemsCollection = db.collection("items")
+const db = firebase.firestore();
+const itemsCollection = db.collection("items");
 
 export const bulkUpdate = async () => {
-  const limit = 50
-  let allItemsResult = await itemsCollection.limit(limit).get()
-  let read = allItemsResult.docs.length
+  const limit = 50;
+  let allItemsResult = await itemsCollection.limit(limit).get();
+  let read = allItemsResult.docs.length;
 
   while (read > 0) {
-    const batch = db.batch()
-    let updated = 0
+    const batch = db.batch();
+    let updated = 0;
 
     allItemsResult.docs.forEach((queryResult) => {
-      const doc = queryResult.data()
+      const doc = queryResult.data();
 
       if (!doc.dateUnix) {
-        updated++
+        updated++;
 
         batch.update(queryResult.ref, {
           // getTime() returns milliseconds
           // We convert to seconds and remove any fractional part
           dateUnix: (doc.date.toDate().getTime() / 1000) | 0,
-        })
+        });
       }
-    })
+    });
 
-    await batch.commit()
-    console.log(`Updated ${updated} of ${read} items!`)
+    await batch.commit();
+    console.log(`Updated ${updated} of ${read} items!`);
 
-    const lastVisible = allItemsResult.docs[read - 1]
+    const lastVisible = allItemsResult.docs[read - 1];
     allItemsResult = await itemsCollection
       .startAfter(lastVisible)
       .limit(limit)
-      .get()
-    read = allItemsResult.docs.length
+      .get();
+    read = allItemsResult.docs.length;
   }
-}
+};
 ```
 
 Some things to note about the script:

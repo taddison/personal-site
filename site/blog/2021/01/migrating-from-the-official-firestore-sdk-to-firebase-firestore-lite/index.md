@@ -34,26 +34,26 @@ The below example is all you need to configure Google sign-in, assuming your pro
 
 ```javascript
 // auth.js
-import Auth from "firebase-auth-lite"
+import Auth from "firebase-auth-lite";
 
 const auth = new Auth({
   apiKey: "YOUR_API_KEY",
   redirectUri: window.location.origin,
-})
+});
 // I spent a while wondering why nothing was working - you need the below to wire up handling of the redirect after signing in
-auth.handleSignInRedirect()
+auth.handleSignInRedirect();
 
-const [user, setUser] = React.useState(null)
+const [user, setUser] = React.useState(null);
 // This is the callback where you need to store the user details
 auth.listen((user) => {
-  setUser(user)
-})
+  setUser(user);
+});
 
 const signIn = async () => {
-  await auth.signInWithProvider(`google.com`)
-}
+  await auth.signInWithProvider(`google.com`);
+};
 
-export { user, signIn }
+export { user, signIn };
 ```
 
 ## Migrating code

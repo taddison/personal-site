@@ -8,13 +8,13 @@ date: "2020-04-25T00:00:00.0Z"
 I'd like to say that all my time writing relative import statements like this has taught me some valuable lessons:
 
 ```js
-import Gauge from "../../../components/Gauge"
+import Gauge from "../../../components/Gauge";
 ```
 
 However, I can safely say that if I could go back in time and send myself a link to this post that all I'd be sacrificing is a bunch of frustration, and instead of the above I'd be able to write:
 
 ```js
-import Gauge from "components/Gauge"
+import Gauge from "components/Gauge";
 ```
 
 It also means that VS Code's helpful attempts (which for me have had mixed results) at fixing imports when moving files around becomes a thing of the past.

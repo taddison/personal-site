@@ -8,7 +8,6 @@ https://tjaddison.com
 
 Do soon:
 
-- Prettier all the files
 - generate a default share image when one is not present
 - favicon - https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
 - There are 3 places we create the tags - could there be one definition somewhere (WebC? Template? Macro? Shortcode? Probably Macros)
