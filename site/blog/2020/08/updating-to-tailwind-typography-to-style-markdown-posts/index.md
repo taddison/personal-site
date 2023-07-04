@@ -70,8 +70,8 @@ typography: (theme) => {
         },
       },
     },
-  }
-}
+  };
+};
 ```
 
 Although it looks like a lot of code most of it is boilerplate, and the actual styling overrides are only a few lines. The lines above gave me back my blue links with that all-important underline-on-hover (which maybe qualifies as retro in 2020?).

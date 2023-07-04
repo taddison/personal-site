@@ -25,8 +25,8 @@ And then this code to query that value:
 
 ```jsx
 // TwitterLink.js
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 const TwitterLink = (props) => {
   const { site } = useStaticQuery(
@@ -41,14 +41,14 @@ const TwitterLink = (props) => {
         }
       }
     `
-  )
+  );
 
   return (
     <a href={`https://twitter.com/${site.siteMetadata.social.twitter}`}>
       Twitter
     </a>
-  )
-}
+  );
+};
 ```
 
 After teaching Gatsby to a few people (and having to apologize for the amount of boilerplate almost every time) and building out a dozen or so sites...I'm pretty confident that there are _several_ better ways of handling this.
@@ -59,11 +59,11 @@ Count how many times you reference the piece of data. Is it one? What would it l
 
 ```jsx
 // TwitterLink.js
-import React from "react"
+import React from "react";
 
 const TwitterLink = (props) => {
-  return <a href="https://twitter.com/tjaddison">Twitter</a>
-}
+  return <a href="https://twitter.com/tjaddison">Twitter</a>;
+};
 ```
 
 Even if you reference your Twitter bio in three places on your site, maybe it's also fine to hardcode in those three places? You'll almost certainly not be changing your Twitter handle that often (if ever), and if you do change it a find & replace for the full URI (`https://twitter.com/tjaddison`) is going to make quick work of it.
@@ -82,21 +82,21 @@ module.exports = {
       twitter: `tjaddison`,
     },
   },
-}
+};
 ```
 
 ```jsx
 // TwitterLink.js
-import React from "react"
-import config from "../../site.config"
+import React from "react";
+import config from "../../site.config";
 
 const TwitterLink = (props) => {
   return (
     <a href={`https://twitter.com/${config.siteMetadata.social.twitter}`}>
       Twitter
     </a>
-  )
-}
+  );
+};
 ```
 
 In addition to needing less code to consume the data, this method is easier to debug as we're working with plain old JavaScript (`console.log(config)` is far easier to work with than debugging the Gatsby GraphQL pipeline).

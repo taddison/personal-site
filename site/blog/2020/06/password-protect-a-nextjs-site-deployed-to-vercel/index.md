@@ -67,11 +67,11 @@ Create a new `protected.js` in the `pages` folder, and add the following code:
 ```jsx
 // /pages/protected.js
 
-import Head from "next/head"
+import Head from "next/head";
 
 export default function Protected({ hasReadPermission }) {
   if (!hasReadPermission) {
-    return <div>Access denied.</div>
+    return <div>Access denied.</div>;
   }
 
   return (
@@ -82,7 +82,7 @@ export default function Protected({ hasReadPermission }) {
 
       <main>I am supposed to be protected.</main>
     </div>
-  )
+  );
 }
 ```
 
@@ -95,23 +95,23 @@ We're going to handle setting this prop in the `_app.js` file, which you'll need
 ```js
 // /pages/app.js
 
-import App from "next/app"
+import App from "next/app";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
 MyApp.getInitialProps = async (appContext) => {
-  const appProps = await App.getInitialProps(appContext)
+  const appProps = await App.getInitialProps(appContext);
 
   if (Math.random() > 0.5) {
-    appProps.pageProps.hasReadPermission = true
+    appProps.pageProps.hasReadPermission = true;
   }
 
-  return { ...appProps }
-}
+  return { ...appProps };
+};
 
-export default MyApp
+export default MyApp;
 ```
 
 In our initial implementation we're going to give you a 50% chance of viewing the page on each refresh. Try it a couple of times, and you should get to see both access denied, and the protected content.
@@ -130,7 +130,7 @@ We'll put our cookie name in a `consts.js` file (debugging cookie name typos is 
 // /consts.js
 export default {
   SiteReadCookie: "src",
-}
+};
 ```
 
 And now we'll check this cookie to see if the client has the right password, by updating `_app.js`:
@@ -139,15 +139,15 @@ And now we'll check this cookie to see if the client has the right password, by 
 // /pages/app.js
 
 // At the top of _app.js
-import Cookies from "universal-cookie"
-import consts from "consts"
+import Cookies from "universal-cookie";
+import consts from "consts";
 
 // In the getInitialProps function, instead of our 'random' protection
-const cookies = new Cookies(appContext.ctx.req.headers.cookie)
-const password = cookies.get(consts.SiteReadCookie) ?? ""
+const cookies = new Cookies(appContext.ctx.req.headers.cookie);
+const password = cookies.get(consts.SiteReadCookie) ?? "";
 
 if (password === "letmein") {
-  appProps.pageProps.hasReadPermission = true
+  appProps.pageProps.hasReadPermission = true;
 }
 ```
 
@@ -166,12 +166,12 @@ To do that first create a login component. Note the below is styled with [Tailwi
 ```jsx
 // /components/login.js
 
-import { useState } from "react"
-import Cookies from "universal-cookie"
-import consts from "consts"
+import { useState } from "react";
+import Cookies from "universal-cookie";
+import consts from "consts";
 
 const Login = ({ redirectPath }) => {
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
 
   return (
     <div className="w-1/3 max-w-sm mx-auto">
@@ -190,22 +190,22 @@ const Login = ({ redirectPath }) => {
           type="submit"
           className="mt-3 bg-green-400 text-white p-2 font-bold rounded hover:bg-green-600"
           onClick={(e) => {
-            e.preventDefault()
-            const cookies = new Cookies()
+            e.preventDefault();
+            const cookies = new Cookies();
             cookies.set(consts.SiteReadCookie, password, {
               path: "/",
-            })
-            window.location.href = redirectPath ?? "/"
+            });
+            window.location.href = redirectPath ?? "/";
           }}
         >
           Login
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
 ```
 
 Our component accepts a single optional prop (`redirectPath`) which allows us to redirect the client after they set the cookie. Note that we use `window.location.href` as the redirect _must_ trigger a request to the server, and we don't want Next to attempt to use client-side routing.
@@ -216,14 +216,14 @@ We can now add our login component to our protected page, and render the Login c
 // /pages/protected.js
 
 // At the top of protected.js
-import { useRouter } from "next/router"
-import Login from "components/Login"
+import { useRouter } from "next/router";
+import Login from "components/Login";
 
 // Inside our function component
-const router = useRouter()
+const router = useRouter();
 
 if (!hasReadPermission) {
-  return <Login redirectPath={router.asPath} />
+  return <Login redirectPath={router.asPath} />;
 }
 ```
 
@@ -236,10 +236,10 @@ Right now the only way to 'logout' is to clear your cookies, and while testing y
 To solve this we'll add a `login` page in the `pages` folder which will allow people to login and logout:
 
 ```jsx
-import Head from "next/head"
-import Cookies from "universal-cookie"
-import Login from "Components/Login"
-import consts from "consts"
+import Head from "next/head";
+import Cookies from "universal-cookie";
+import Login from "Components/Login";
+import consts from "consts";
 
 export default function LoginPage({ hasReadPermission }) {
   if (hasReadPermission) {
@@ -252,17 +252,17 @@ export default function LoginPage({ hasReadPermission }) {
           <button
             className="mt-3 bg-green-400 text-white p-2 font-bold rounded hover:bg-green-600"
             onClick={(e) => {
-              e.preventDefault()
-              const cookies = new Cookies()
-              cookies.remove(consts.SiteReadCookie, { path: "/" })
-              window.location.href = "/login"
+              e.preventDefault();
+              const cookies = new Cookies();
+              cookies.remove(consts.SiteReadCookie, { path: "/" });
+              window.location.href = "/login";
             }}
           >
             Logout
           </button>
         </div>
       </>
-    )
+    );
   }
 
   return (
@@ -272,7 +272,7 @@ export default function LoginPage({ hasReadPermission }) {
       </Head>
       <Login redirectPath="/" />
     </>
-  )
+  );
 }
 ```
 

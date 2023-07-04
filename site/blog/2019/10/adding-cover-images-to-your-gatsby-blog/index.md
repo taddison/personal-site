@@ -69,7 +69,7 @@ I'm using `fluid` (which generates images that stretch to fill a fluid container
 To get the image on our page we now need to update the markup. First up we need to import `gatsby-image`:
 
 ```js
-import Img from "gatsby-image"
+import Img from "gatsby-image";
 ```
 
 To add the image to each post we first extract the `featuredimage` from our node:
@@ -89,7 +89,7 @@ And finally render the image if the post has one (in my example I've put it betw
       fluid={featuredimage.src.childImageSharp.fluid}
       alt={featuredimage.alt}
     />
-  )
+  );
 }
 ```
 

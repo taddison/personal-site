@@ -20,7 +20,7 @@ When developing apps I'll sometimes want to mock a dependency for reasons other 
 This typically starts out with something like:
 
 ```javascript
-import { getAllPokemon, getPokemon } from "./api-store"
+import { getAllPokemon, getPokemon } from "./api-store";
 // } from './memory-store'
 ```
 
@@ -42,7 +42,7 @@ from process.env.REACT_APP_PROD ?
 The solution I settled on uses [craco] (Create React App Configuration Override) to let us modify the webpack config _without_ ejecting, and the [webpack normal module replacement plugin][module replacement plugin]. Once we're done the code will look like this:
 
 ```javascript
-import { getAllPokemon, getPokemon } from "./APP_TARGET-store"
+import { getAllPokemon, getPokemon } from "./APP_TARGET-store";
 ```
 
 The example app is available on GitHub in the [craco swap example repo][craco swap example]. [This commit][craco implementation commit] contains all the changes needed to implement craco.
@@ -58,20 +58,20 @@ The starting state for our migration is our app which contains two backends. The
 ```javascript
 // api-store.js
 const getPokemon = async (name) => {
-  const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-  const resultJson = await result.json()
-  const pokemon = { name: resultJson.name, height: resultJson.height }
-  return pokemon
-}
+  const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  const resultJson = await result.json();
+  const pokemon = { name: resultJson.name, height: resultJson.height };
+  return pokemon;
+};
 
 // memory.js
 const getPokemon = async (name) => {
   // pokemon is a hard-coded array
-  return pokemon.find((p) => name === p.name)
-}
+  return pokemon.find((p) => name === p.name);
+};
 
 // app.js
-import { getAllPokemon, getPokemon } from "./api-store"
+import { getAllPokemon, getPokemon } from "./api-store";
 // } from './memory-store'
 ```
 
@@ -107,10 +107,10 @@ At this point your app should still work - though you need to toggle comments in
 To hook into webpack we'll create a `craco.config.js` file in our project root. We check to see if the environment variable is set, and if so use the `memory` implementation, otherwise default to `api`. We then add a plugin and tell it that if it gets any requests to import a module with `APP_TARGET` in the name (e.g. from an `import` statement), to replace `APP_TARGET` with either `api` or `memory`, and import that instead.
 
 ```javascript
-const webpack = require("webpack")
+const webpack = require("webpack");
 
 module.exports = function () {
-  const appTarget = process.env.REACT_APP_MEMORY_STORE ? "memory" : "api"
+  const appTarget = process.env.REACT_APP_MEMORY_STORE ? "memory" : "api";
 
   return {
     webpack: {
@@ -121,19 +121,19 @@ module.exports = function () {
             resource.request = resource.request.replace(
               /APP_TARGET-/,
               `${appTarget}-`
-            )
+            );
           }
         ),
       ],
     },
-  }
-}
+  };
+};
 ```
 
 We now need to modify our code to request the import as follows:
 
 ```javascript
-import { getAllPokemon, getPokemon } from "./APP_TARGET-store"
+import { getAllPokemon, getPokemon } from "./APP_TARGET-store";
 ```
 
 And with that we're done - a different experience when we `yarn start` vs. `yarn start:memory`!

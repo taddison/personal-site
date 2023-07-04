@@ -38,7 +38,7 @@ If you're curious about building React from scratch, I'd recommend the fantastic
 Looking forward to hopefully seeing the [proposal for JSON modules](https://github.com/tc39/proposal-json-modules) make it into the standard. I've got a whole bunch of JSON being imported in various utility tools, and if it could fail-fast if it's no longer JSON (for any reason), so much the better.
 
 ```javascript
-import json from "./foo.json" assert { type: "json" }
+import json from "./foo.json" assert { type: "json" };
 ```
 
 And now looking back, after reading [authentication in React apps](https://kentcdodds.com/blog/authentication-in-react-applications) it is hard to unsee the many times I have made the same mistakes over and over. At least next time I need to write an app I've got a solid pattern to follow, and maybe one day I'll refactor some existing code into the pattern (hahaha...).

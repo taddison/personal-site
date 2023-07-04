@@ -28,28 +28,28 @@ Create the `craco.config.js` file in your projects root folder, and paste the be
 
 ```javascript
 // craco.config.js
-const webpack = require("webpack")
+const webpack = require("webpack");
 const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = function ({ env }) {
-  const isProductionBuild = process.env.NODE_ENV === "production"
+  const isProductionBuild = process.env.NODE_ENV === "production";
   const analyzerMode = process.env.REACT_APP_INTERACTIVE_ANALYZE
     ? "server"
-    : "json"
+    : "json";
 
-  const plugins = []
+  const plugins = [];
 
   if (isProductionBuild) {
-    plugins.push(new BundleAnalyzerPlugin({ analyzerMode }))
+    plugins.push(new BundleAnalyzerPlugin({ analyzerMode }));
   }
 
   return {
     webpack: {
       plugins,
     },
-  }
-}
+  };
+};
 ```
 
 ## Step 3 - Wire up CRACO
