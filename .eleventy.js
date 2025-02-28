@@ -87,7 +87,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
-  // TODO: In 2.0 - https://www.11ty.dev/docs/languages/markdown/#optional-amend-the-library-instance
   eleventyConfig.setLibrary("md", markdownParser);
 
   eleventyConfig.addNunjucksAsyncShortcode(
