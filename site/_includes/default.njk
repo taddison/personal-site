@@ -20,6 +20,7 @@ title: tjaddison.com
     <title>{{ finalTitle }}</title>
 
     <link rel="icon" href="/favicon-32x32.png" type="image/png">
+    <link rel="canonical" href="{{ page.url | absoluteUrl('https://tjaddison.com/') }}">
     
     <!-- OpenGraph -->
     {% if shareimage %}
@@ -30,7 +31,7 @@ title: tjaddison.com
     {% endif %}
 
     {# TODO: custom description for blog posts #}
-    <meta name="description" property="og:description" content="Engineering Management, SQL, and a dash of front-end from NYC.">
+    <meta name="description" property="og:description" content="Tim Addison, VP Engineering at StubHub, based in London.">
     <meta property="og:title" content="{{ finalTitle }}">
     <!-- end Opengraph -->
 
@@ -77,7 +78,7 @@ title: tjaddison.com
           <div class="font-semibold flex-grow text-right">
             <a
               href="/about"
-              class="inline-blockp-2"
+              class="inline-block p-2"
             >About</a>
             <a
               href="/blog"
