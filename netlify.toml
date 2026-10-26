@@ -39,5 +39,38 @@
   from = "/blog/archive"
   to = "/blog"
 
+# Slug tidy-ups (October 2026): typos, a leftover .1 suffix, mixed case and triple dashes.
+# Deliberately no 'force = true': the new paths exist as files, so Netlify's shadowing
+# serves them directly and the case-only renames can't loop back on themselves.
+
+[[redirects]]
+  from = "/blog/2018/01/changing-the-owner-of-an-ssrs-subscription-with-powershell.1"
+  to = "/blog/2018/01/changing-the-owner-of-an-ssrs-subscription-with-powershell/"
+
+[[redirects]]
+  from = "/blog/2018/07/ensuing-your-describe-tags-are-unique-in-pester-tests"
+  to = "/blog/2018/07/ensuring-your-describe-tags-are-unique-in-pester-tests/"
+
+[[redirects]]
+  from = "/blog/2019/11/interesting-links-November-2019"
+  to = "/blog/2019/11/interesting-links-november-2019/"
+
+[[redirects]]
+  from = "/blog/2020/05/tips-for-1-on-1s-during-COVID-10"
+  to = "/blog/2020/05/tips-for-1-on-1s-during-covid-19/"
+
+[[redirects]]
+  from = "/blog/2020/10/interesting-links-October-2020"
+  to = "/blog/2020/10/interesting-links-october-2020/"
+
+[[redirects]]
+  from = "/blog/2021/08/interesting-links---august-2021"
+  to = "/blog/2021/08/interesting-links-august-2021/"
+
+[[redirects]]
+  from = "/blog/2021/11/interesting-links---november-2021"
+  to = "/blog/2021/11/interesting-links-november-2021/"
+
+
 [build]
   publish = "_site"
